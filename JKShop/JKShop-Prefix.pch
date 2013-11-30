@@ -4,14 +4,36 @@
 //  The contents of this file are implicitly included at the beginning of every source file.
 //
 
+
 #import <Availability.h>
+#import <CoreData/CoreData.h>
+#import <CoreLocation/CoreLocation.h>
+#import <FacebookSDK/FacebookSDK.h>
+#import <Foundation/Foundation.h>
+#import <MapKit/MapKit.h>
+#import <QuartzCore/QuartzCore.h>
+#import <SDWebImage/UIImageView+WebCache.h>
+#import <UIKit/UIKit.h>
 
-#ifndef __IPHONE_3_0
-#warning "This project uses features only available in iOS SDK 3.0 and later."
-#endif
+//Vendors
+#import "AFNetworking.h"
 
-#ifdef __OBJC__
-    #import <UIKit/UIKit.h>
-    #import <Foundation/Foundation.h>
-    #import <CoreData/CoreData.h>
+//Managers
+#import "BaseManager.h"
+#import "BaseDeviceLibrary.h"
+#import "BaseLocationManager.h"
+#import "BaseStorageManager.h"
+#import "BaseNetworkManager.h"
+#import "FacebookManager.h"
+
+
+
+
+
+#ifdef DEBUG
+#define DLog(__FORMAT__, ...) NSLog((@"%s [L:%d] " __FORMAT__), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
+#define ALog(...) [[NSAssertionHandler currentHandler] handleFailureInFunction:[NSString stringWithCString:__PRETTY_FUNCTION__ encoding:NSUTF8StringEncoding] file:[NSString stringWithCString:__FILE__ encoding:NSUTF8StringEncoding] lineNumber:__LINE__ description:__VA_ARGS__]
+#else
+#define DLog(...) do {} while (0)
+#define ALog(__FORMAT__, ...) NSLog((@"%s [L:%d] " __FORMAT__), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
 #endif
