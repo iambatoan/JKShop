@@ -24,4 +24,9 @@
     return [UIColor colorWithRed:239/255.0 green:239/255.0 blue:239/255.5 alpha:1];
 }
 
++ (UIColor *)titleColor
+{
+    return [UIColor colorWithRed:98/255.0 green:127/255.0 blue:154/255.5 alpha:1];
+}
+
 @end

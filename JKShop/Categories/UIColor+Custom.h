@@ -13,5 +13,6 @@
 + (UIColor *)blueTextColor;
 + (UIColor *)appBobyTextColor;
 + (UIColor *)appBackgroundGreyColor;
++ (UIColor *)titleColor;
 
 @end

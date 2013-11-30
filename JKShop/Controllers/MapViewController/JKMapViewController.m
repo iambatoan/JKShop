@@ -7,7 +7,6 @@
 //
 
 #import "JKMapViewController.h"
-#import <GoogleMaps/GoogleMaps.h>
 
 @interface JKMapViewController ()
 
@@ -29,28 +28,28 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-//    // Do any additional setup after loading the view from its nib.
-//    [SVProgressHUD dismiss];
-//    
-//    [self.view setBackgroundColor:[UIColor whiteColor]];
-//    self.title = @"Bản đồ";
-//    [self.navigationController setNavigationBarHidden:NO animated:NO];
-//    // Do any additional setup after loading the view from its nib.
-//    
-//    self.view = self.mapView;
-//    
-//    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:SETTINGS_JK_SHOP_LATITUDE
-//                                                            longitude:SETTINGS_JK_SHOP_LONGITUDE
-//                                                                 zoom:16];
-//    self.mapView = [GMSMapView mapWithFrame:CGRectZero camera:camera];
-//    self.mapView.myLocationEnabled = YES;
-//    
-//    // Creates a marker in the center of the map.
-//    GMSMarker *marker = [[GMSMarker alloc] init];
-//    marker.position = CLLocationCoordinate2DMake(SETTINGS_JK_SHOP_LATITUDE, SETTINGS_JK_SHOP_LONGITUDE);
-//    marker.title = @"JK Shop";
-//    marker.snippet = JK_SHOP_MAP_SNIPPET;
-//    marker.map = self.mapView;
+    // Do any additional setup after loading the view from its nib.
+    [SVProgressHUD dismiss];
+    
+    [self.view setBackgroundColor:[UIColor whiteColor]];
+    self.title = @"Bản đồ";
+    [self.navigationController setNavigationBarHidden:NO animated:NO];
+    // Do any additional setup after loading the view from its nib.
+    
+    self.view = self.mapView;
+    
+    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:SETTINGS_JK_SHOP_LATITUDE
+                                                            longitude:SETTINGS_JK_SHOP_LONGITUDE
+                                                                 zoom:16];
+    self.mapView = [GMSMapView mapWithFrame:CGRectZero camera:camera];
+    self.mapView.myLocationEnabled = YES;
+    
+    // Creates a marker in the center of the map.
+    GMSMarker *marker = [[GMSMarker alloc] init];
+    marker.position = CLLocationCoordinate2DMake(SETTINGS_JK_SHOP_LATITUDE, SETTINGS_JK_SHOP_LONGITUDE);
+    marker.title = @"JK Shop";
+    marker.snippet = JK_SHOP_MAP_SNIPPET;
+    marker.map = self.mapView;
 }
 
 

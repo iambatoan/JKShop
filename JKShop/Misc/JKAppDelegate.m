@@ -23,6 +23,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [GMSServices provideAPIKey:@"API_KEY"];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     
@@ -62,7 +63,8 @@
 //    OFPageMenuViewController *centralViewController = [[OFPageMenuViewController alloc] init];
 //    OFNavigationViewController *centralNavController = [[OFNavigationViewController alloc] initWithRootViewController:centralViewController];
     
-    JKHomeViewController* centralNavController = [[JKHomeViewController alloc] init];
+    JKHomeViewController* centralVievController = [[JKHomeViewController alloc] init];
+    JKNavigationViewController* centralNavController = [[JKNavigationViewController alloc] initWithRootViewController:centralVievController];
     JKHomeViewController* rightController = [[JKHomeViewController alloc] init];
     
     IIViewDeckController* deckController =  [[IIViewDeckController alloc] initWithCenterViewController:centralNavController leftViewController:leftController rightViewController:rightController];

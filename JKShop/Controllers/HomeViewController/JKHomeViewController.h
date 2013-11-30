@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface JKHomeViewController : UIViewController
+@interface JKHomeViewController : BaseViewController
 
 @end

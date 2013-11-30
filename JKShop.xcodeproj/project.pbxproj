@@ -73,7 +73,6 @@
 		840645D21849C8A40065BCA4 /* navbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 840645CE1849C8A40065BCA4 /* navbg.png */; };
 		840645D31849C8A40065BCA4 /* navbg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 840645CF1849C8A40065BCA4 /* navbg@2x.png */; };
 		840645D61849CB220065BCA4 /* JKNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 840645D41849CB220065BCA4 /* JKNavigationViewController.m */; };
-		840645D71849CB220065BCA4 /* JKNavigationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 840645D51849CB220065BCA4 /* JKNavigationViewController.xib */; };
 		840645DC1849CC2C0065BCA4 /* JKMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 840645DA1849CC2C0065BCA4 /* JKMapViewController.m */; };
 		840645DD1849CC2C0065BCA4 /* JKMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 840645DB1849CC2C0065BCA4 /* JKMapViewController.xib */; };
 		840645E21849CCAE0065BCA4 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 840645DF1849CCAE0065BCA4 /* SVProgressHUD.bundle */; };
@@ -83,6 +82,9 @@
 		840645EB1849DBA50065BCA4 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 840645EA1849DBA50065BCA4 /* OpenGLES.framework */; };
 		840645ED1849DBB70065BCA4 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 840645EC1849DBB70065BCA4 /* CoreText.framework */; };
 		840645F31849DDA80065BCA4 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 840645F21849DDA80065BCA4 /* MobileCoreServices.framework */; };
+		84203AD6184A386800F26638 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 84203AD5184A386800F26638 /* libc++.dylib */; };
+		84203ADA184A39DE00F26638 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 84203AD9184A39DE00F26638 /* libicucore.dylib */; };
+		84203ADC184A39ED00F26638 /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 84203ADB184A39ED00F26638 /* libz.1.2.5.dylib */; };
 		84F99F0D184A1AEC00356DB3 /* setting.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F99F05184A1AEC00356DB3 /* setting.png */; };
 		84F99F0E184A1AEC00356DB3 /* setting@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F99F06184A1AEC00356DB3 /* setting@2x.png */; };
 		84F99F0F184A1AEC00356DB3 /* info.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F99F07184A1AEC00356DB3 /* info.png */; };
@@ -91,6 +93,13 @@
 		84F99F12184A1AEC00356DB3 /* star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F99F0A184A1AEC00356DB3 /* star@2x.png */; };
 		84F99F13184A1AEC00356DB3 /* category.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F99F0B184A1AEC00356DB3 /* category.png */; };
 		84F99F14184A1AEC00356DB3 /* category@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F99F0C184A1AEC00356DB3 /* category@2x.png */; };
+		84F99F17184A262A00356DB3 /* nav-back-btn-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F99F15184A262A00356DB3 /* nav-back-btn-bg.png */; };
+		84F99F18184A262A00356DB3 /* nav-back-btn-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F99F16184A262A00356DB3 /* nav-back-btn-bg@2x.png */; };
+		84F99F1E184A263400356DB3 /* bookmark_list.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F99F1A184A263400356DB3 /* bookmark_list.png */; };
+		84F99F1F184A263400356DB3 /* bookmark_list@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F99F1B184A263400356DB3 /* bookmark_list@2x.png */; };
+		84F99F20184A263400356DB3 /* nav-back-btn-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F99F1C184A263400356DB3 /* nav-back-btn-bg.png */; };
+		84F99F21184A263400356DB3 /* nav-back-btn-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F99F1D184A263400356DB3 /* nav-back-btn-bg@2x.png */; };
+		84F99F35184A379000356DB3 /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84F99F34184A379000356DB3 /* GoogleMaps.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -215,7 +224,6 @@
 		840645CE1849C8A40065BCA4 /* navbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = navbg.png; path = Resources/Navigation/navbg.png; sourceTree = "<group>"; };
 		840645CF1849C8A40065BCA4 /* navbg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "navbg@2x.png"; path = "Resources/Navigation/navbg@2x.png"; sourceTree = "<group>"; };
 		840645D41849CB220065BCA4 /* JKNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKNavigationViewController.m; path = Controllers/NavigationController/JKNavigationViewController.m; sourceTree = "<group>"; };
-		840645D51849CB220065BCA4 /* JKNavigationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = JKNavigationViewController.xib; path = Controllers/NavigationController/JKNavigationViewController.xib; sourceTree = "<group>"; };
 		840645D91849CC2C0065BCA4 /* JKMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKMapViewController.h; path = Controllers/MapViewController/JKMapViewController.h; sourceTree = "<group>"; };
 		840645DA1849CC2C0065BCA4 /* JKMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKMapViewController.m; path = Controllers/MapViewController/JKMapViewController.m; sourceTree = "<group>"; };
 		840645DB1849CC2C0065BCA4 /* JKMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = JKMapViewController.xib; path = Controllers/MapViewController/JKMapViewController.xib; sourceTree = "<group>"; };
@@ -228,7 +236,10 @@
 		840645EC1849DBB70065BCA4 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		840645EE1849DBEA0065BCA4 /* FacebookSDKOverrides.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FacebookSDKOverrides.bundle; sourceTree = "<group>"; };
 		840645F21849DDA80065BCA4 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
-		840645F61849DFDD0065BCA4 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
+		84203AD5184A386800F26638 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		84203AD7184A390900F26638 /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle; sourceTree = "<group>"; };
+		84203AD9184A39DE00F26638 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		84203ADB184A39ED00F26638 /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
 		84F99F05184A1AEC00356DB3 /* setting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = setting.png; path = Resources/SidebarSection/setting.png; sourceTree = "<group>"; };
 		84F99F06184A1AEC00356DB3 /* setting@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "setting@2x.png"; path = "Resources/SidebarSection/setting@2x.png"; sourceTree = "<group>"; };
 		84F99F07184A1AEC00356DB3 /* info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = info.png; path = Resources/SidebarSection/info.png; sourceTree = "<group>"; };
@@ -237,6 +248,13 @@
 		84F99F0A184A1AEC00356DB3 /* star@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "star@2x.png"; path = "Resources/SidebarSection/star@2x.png"; sourceTree = "<group>"; };
 		84F99F0B184A1AEC00356DB3 /* category.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = category.png; path = Resources/SidebarSection/category.png; sourceTree = "<group>"; };
 		84F99F0C184A1AEC00356DB3 /* category@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "category@2x.png"; path = "Resources/SidebarSection/category@2x.png"; sourceTree = "<group>"; };
+		84F99F15184A262A00356DB3 /* nav-back-btn-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "nav-back-btn-bg.png"; path = "Resources/Navigation/nav-back-btn-bg.png"; sourceTree = "<group>"; };
+		84F99F16184A262A00356DB3 /* nav-back-btn-bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "nav-back-btn-bg@2x.png"; path = "Resources/Navigation/nav-back-btn-bg@2x.png"; sourceTree = "<group>"; };
+		84F99F1A184A263400356DB3 /* bookmark_list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bookmark_list.png; sourceTree = "<group>"; };
+		84F99F1B184A263400356DB3 /* bookmark_list@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bookmark_list@2x.png"; sourceTree = "<group>"; };
+		84F99F1C184A263400356DB3 /* nav-back-btn-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav-back-btn-bg.png"; sourceTree = "<group>"; };
+		84F99F1D184A263400356DB3 /* nav-back-btn-bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav-back-btn-bg@2x.png"; sourceTree = "<group>"; };
+		84F99F34184A379000356DB3 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -244,12 +262,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84203ADC184A39ED00F26638 /* libz.1.2.5.dylib in Frameworks */,
+				84203ADA184A39DE00F26638 /* libicucore.dylib in Frameworks */,
+				84203AD6184A386800F26638 /* libc++.dylib in Frameworks */,
 				840645F31849DDA80065BCA4 /* MobileCoreServices.framework in Frameworks */,
 				840645971849B03A0065BCA4 /* CoreLocation.framework in Frameworks */,
 				840645ED1849DBB70065BCA4 /* CoreText.framework in Frameworks */,
 				840645EB1849DBA50065BCA4 /* OpenGLES.framework in Frameworks */,
 				840645E91849DAF90065BCA4 /* GLKit.framework in Frameworks */,
 				840645E71849DA870065BCA4 /* ImageIO.framework in Frameworks */,
+				84F99F35184A379000356DB3 /* GoogleMaps.framework in Frameworks */,
 				8406458D1849AB1E0065BCA4 /* SystemConfiguration.framework in Frameworks */,
 				840645951849AC010065BCA4 /* libCrittercism_v3_5_1.a in Frameworks */,
 				840645831849A1EE0065BCA4 /* FacebookSDK.framework in Frameworks */,
@@ -300,7 +322,11 @@
 		840644A7184992740065BCA4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				840645F61849DFDD0065BCA4 /* GoogleMaps.framework */,
+				84203ADB184A39ED00F26638 /* libz.1.2.5.dylib */,
+				84203AD9184A39DE00F26638 /* libicucore.dylib */,
+				84203AD7184A390900F26638 /* GoogleMaps.bundle */,
+				84203AD5184A386800F26638 /* libc++.dylib */,
+				84F99F34184A379000356DB3 /* GoogleMaps.framework */,
 				840645F21849DDA80065BCA4 /* MobileCoreServices.framework */,
 				840645EE1849DBEA0065BCA4 /* FacebookSDKOverrides.bundle */,
 				840645EC1849DBB70065BCA4 /* CoreText.framework */,
@@ -398,6 +424,7 @@
 		840644DF184996880065BCA4 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				84F99F19184A263400356DB3 /* Bookmark */,
 				84F99F04184A1A3300356DB3 /* SidebarSection */,
 				840645CB1849C8850065BCA4 /* Navigation */,
 				8406459D1849B26B0065BCA4 /* Home */,
@@ -603,7 +630,6 @@
 			children = (
 				840645C61849C7FA0065BCA4 /* JKNavigationViewController.h */,
 				840645D41849CB220065BCA4 /* JKNavigationViewController.m */,
-				840645D51849CB220065BCA4 /* JKNavigationViewController.xib */,
 			);
 			name = NavigationController;
 			sourceTree = "<group>";
@@ -611,6 +637,8 @@
 		840645CB1849C8850065BCA4 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
+				84F99F15184A262A00356DB3 /* nav-back-btn-bg.png */,
+				84F99F16184A262A00356DB3 /* nav-back-btn-bg@2x.png */,
 				840645CC1849C8A40065BCA4 /* left-nav-button.png */,
 				840645CD1849C8A40065BCA4 /* left-nav-button@2x.png */,
 				840645CE1849C8A40065BCA4 /* navbg.png */,
@@ -653,6 +681,18 @@
 				84F99F0C184A1AEC00356DB3 /* category@2x.png */,
 			);
 			name = SidebarSection;
+			sourceTree = "<group>";
+		};
+		84F99F19184A263400356DB3 /* Bookmark */ = {
+			isa = PBXGroup;
+			children = (
+				84F99F1A184A263400356DB3 /* bookmark_list.png */,
+				84F99F1B184A263400356DB3 /* bookmark_list@2x.png */,
+				84F99F1C184A263400356DB3 /* nav-back-btn-bg.png */,
+				84F99F1D184A263400356DB3 /* nav-back-btn-bg@2x.png */,
+			);
+			name = Bookmark;
+			path = Resources/Bookmark;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -734,23 +774,28 @@
 				84F99F14184A1AEC00356DB3 /* category@2x.png in Resources */,
 				8406459F1849B2770065BCA4 /* home.jpg in Resources */,
 				840645D11849C8A40065BCA4 /* left-nav-button@2x.png in Resources */,
+				84F99F1F184A263400356DB3 /* bookmark_list@2x.png in Resources */,
 				840644B5184992750065BCA4 /* InfoPlist.strings in Resources */,
+				84F99F18184A262A00356DB3 /* nav-back-btn-bg@2x.png in Resources */,
 				840645D31849C8A40065BCA4 /* navbg@2x.png in Resources */,
 				84F99F0E184A1AEC00356DB3 /* setting@2x.png in Resources */,
 				840645A51849B8CA0065BCA4 /* JKHomeViewController.xib in Resources */,
 				84F99F12184A1AEC00356DB3 /* star@2x.png in Resources */,
 				84F99F10184A1AEC00356DB3 /* info@2x.png in Resources */,
 				84F99F0F184A1AEC00356DB3 /* info.png in Resources */,
+				84F99F17184A262A00356DB3 /* nav-back-btn-bg.png in Resources */,
 				84F99F0D184A1AEC00356DB3 /* setting.png in Resources */,
 				840645DD1849CC2C0065BCA4 /* JKMapViewController.xib in Resources */,
 				84F99F13184A1AEC00356DB3 /* category.png in Resources */,
 				840645D21849C8A40065BCA4 /* navbg.png in Resources */,
 				840645E21849CCAE0065BCA4 /* SVProgressHUD.bundle in Resources */,
 				84F99F11184A1AEC00356DB3 /* star.png in Resources */,
-				840645D71849CB220065BCA4 /* JKNavigationViewController.xib in Resources */,
 				840645D01849C8A40065BCA4 /* left-nav-button.png in Resources */,
 				840645AB1849B9030065BCA4 /* JKLeftMenuViewController.xib in Resources */,
+				84F99F21184A263400356DB3 /* nav-back-btn-bg@2x.png in Resources */,
 				840645B01849BB390065BCA4 /* JKSidebarMenuTableViewCell.xib in Resources */,
+				84F99F20184A263400356DB3 /* nav-back-btn-bg.png in Resources */,
+				84F99F1E184A263400356DB3 /* bookmark_list.png in Resources */,
 				840644C0184992750065BCA4 /* Images.xcassets in Resources */,
 				840645BE1849BF430065BCA4 /* JKLeftMenuSectionHeader.xib in Resources */,
 			);
@@ -855,7 +900,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD)";
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -885,7 +930,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -894,7 +939,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD)";
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -918,7 +963,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -927,6 +972,7 @@
 		840644D8184992750065BCA4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -943,6 +989,7 @@
 					"/Users/admin/Documents/Work/JKShop/JKShop/Vendors/Google\\ Analytics",
 					/Users/admin/Documents/Work/JKShop/JKShop/Vendors/CrittercismSDK,
 				);
+				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -951,6 +998,7 @@
 		840644D9184992750065BCA4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -967,6 +1015,7 @@
 					"/Users/admin/Documents/Work/JKShop/JKShop/Vendors/Google\\ Analytics",
 					/Users/admin/Documents/Work/JKShop/JKShop/Vendors/CrittercismSDK,
 				);
+				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

@@ -37,6 +37,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import <FacebookSDK/FacebookSDK.h>
 #import <Foundation/Foundation.h>
+#import <GoogleMaps/GoogleMaps.h>
 #import <MapKit/MapKit.h>
 #import <QuartzCore/QuartzCore.h>
 #import <SDWebImage/UIImageView+WebCache.h>
@@ -46,7 +47,9 @@
 
 //Controllers
 #import "BaseViewController.h"
+#import "BaseTableViewController.h"
 #import "JKLeftMenuViewController.h"
+#import "JKMapViewController.h"
 #import "JKNavigationViewController.h"
 
 

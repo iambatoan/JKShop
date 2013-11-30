@@ -184,13 +184,17 @@ UITableViewDelegate
     }
     
     if (indexPath.section == 3) {
-//        [centralNavVC pushViewController:[[OFMapViewController alloc] init] animated:YES];
-//        [deckViewController toggleLeftView];
+        [centralNavVC pushViewController:[[JKMapViewController alloc] init] animated:YES];
+        [deckViewController toggleLeftView];
         return;
     }
     
     if (indexPath.section == 2) {
         [SVProgressHUD showWithStatus:@"Chức năng hiện đang trong quá trình phát triển"];
+        [NSTimer scheduledTimerWithTimeInterval: 2.0
+                                         target: self
+                                       selector:@selector(onTick:)
+                                       userInfo: nil repeats:NO];
         return;
     }
     
@@ -199,6 +203,10 @@ UITableViewDelegate
 //    productsVC.lblTitle = [[self.arrMenu objectAtIndex:indexPath.row] objectForKey:MENU_TITLE];
 //    [centralNavVC pushViewController:productsVC animated:YES];
     [deckViewController toggleLeftView];
+}
+
+-(void)onTick:(NSTimer *)timer {
+    [SVProgressHUD dismiss];
 }
 
 @end

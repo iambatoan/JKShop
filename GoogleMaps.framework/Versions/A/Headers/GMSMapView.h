@@ -16,6 +16,8 @@
 
 @class GMSCameraPosition;
 @class GMSCameraUpdate;
+@class GMSCoordinateBounds;
+@class GMSIndoorDisplay;
 @class GMSMapLayer;
 @class GMSMapView;
 @class GMSMarker;
@@ -105,9 +107,27 @@
  * dimension.  As there is only one info window shown at any time, the returned
  * view may be reused between other info windows.
  *
+ * Removing the marker from the map or changing the map's selected marker during
+ * this call results in undefined behavior.
+ *
  * @return The custom info window for the specified marker, or nil for default
  */
 - (UIView *)mapView:(GMSMapView *)mapView markerInfoWindow:(GMSMarker *)marker;
+
+/**
+ * Called when dragging has been initiated on a marker.
+ */
+- (void)mapView:(GMSMapView *)mapView didBeginDraggingMarker:(GMSMarker *)marker;
+
+/**
+ * Called after dragging of a marker ended.
+ */
+- (void)mapView:(GMSMapView *)mapView didEndDraggingMarker:(GMSMarker *)marker;
+
+/**
+ * Called while a marker is dragged.
+ */
+- (void)mapView:(GMSMapView *)mapView didDragMarker:(GMSMarker *)marker;
 
 @end
 
@@ -201,6 +221,18 @@ typedef enum {
 @property(nonatomic, assign) GMSMapViewType mapType;
 
 /**
+ * Minimum zoom (the farthest the camera may be zoomed out). Defaults to
+ * kGMSMinZoomLevel. Modified with -setMinZoom:maxZoom:.
+ */
+@property(nonatomic, assign, readonly) float minZoom;
+
+/**
+ * Maximum zoom (the closest the camera may be to the Earth). Defaults to
+ * kGMSMaxZoomLevel. Modified with -setMinZoom:maxZoom:.
+ */
+@property(nonatomic, assign, readonly) float maxZoom;
+
+/**
  * If set, 3D buildings will be shown where available.  Defaults to YES.
  *
  * This may be useful when adding a custom tile layer to the map, in order to
@@ -218,10 +250,31 @@ typedef enum {
 @property(nonatomic, assign, getter=isIndoorEnabled) BOOL indoorEnabled;
 
 /**
+ * Gets the GMSIndoorDisplay instance which allows to observe or control
+ * aspects of indoor data display.
+ */
+@property(nonatomic, strong, readonly) GMSIndoorDisplay *indoorDisplay;
+
+/**
  * Gets the GMSUISettings object, which controls user interface settings for the
  * map.
  */
-@property(nonatomic, readonly) GMSUISettings *settings;
+@property(nonatomic, strong, readonly) GMSUISettings *settings;
+
+/**
+ * Controls the 'visible' region of the view.  By applying padding an area
+ * arround the edge of the view can be created which will contain map data
+ * but will not contain UI controls.
+ *
+ * If the padding is not balanced, the visual center of the view will move as
+ * appropriate.  Padding will also affect the |projection| property so the
+ * visible region will not include the padding area.  GMSCameraUpdate
+ * fitToBounds will ensure that both this padding and any padding requested
+ * will be taken into account.
+ *
+ * This property may be animated within a UIView-based animation block.
+ */
+@property(nonatomic, assign) UIEdgeInsets padding;
 
 /**
  * Defaults to YES. If set to NO, GMSMapView will generate accessibility
@@ -262,6 +315,23 @@ typedef enum {
  * or reset the current mapType.
  */
 - (void)clear;
+
+/**
+ * Sets |minZoom| and |maxZoom|. This method expects the minimum to be less than
+ * or equal to the maximum, and will throw an exception with name
+ * NSRangeException otherwise.
+ */
+- (void)setMinZoom:(float)minZoom maxZoom:(float)maxZoom;
+
+/**
+ * Build a GMSCameraPosition that presents |bounds| with |padding|. The camera
+ * will have a zero bearing and tilt (i.e., facing north and looking directly at
+ * the Earth). This takes the frame and padding of this GMSMapView into account.
+ *
+ * If the bounds is nil or invalid this method will return a nil camera.
+ */
+- (GMSCameraPosition *)cameraForBounds:(GMSCoordinateBounds *)bounds
+                                insets:(UIEdgeInsets)insets;
 
 /**
  * Changes the camera according to |update|.

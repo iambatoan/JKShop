@@ -19,7 +19,7 @@
 
 - (void)configWithData:(id)data
 {
-//    [self customCell];
+    [self customCell];
     self.sidebarMenuTitle.text = [data objectForKey:MENU_TITLE];
 }
 
