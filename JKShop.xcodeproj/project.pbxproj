@@ -67,6 +67,7 @@
 		840645BC1849BF260065BCA4 /* JKLeftMenuSectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 840645BB1849BF260065BCA4 /* JKLeftMenuSectionHeader.m */; };
 		840645BE1849BF430065BCA4 /* JKLeftMenuSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 840645BD1849BF430065BCA4 /* JKLeftMenuSectionHeader.xib */; };
 		840645C11849C2A00065BCA4 /* JKHelperManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 840645C01849C2A00065BCA4 /* JKHelperManager.m */; };
+		840645C41849C3780065BCA4 /* JKHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 840645C31849C3780065BCA4 /* JKHTTPClient.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -183,6 +184,8 @@
 		840645BD1849BF430065BCA4 /* JKLeftMenuSectionHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JKLeftMenuSectionHeader.xib; sourceTree = "<group>"; };
 		840645BF1849C2A00065BCA4 /* JKHelperManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKHelperManager.h; path = Managers/JKHelperManager.h; sourceTree = "<group>"; };
 		840645C01849C2A00065BCA4 /* JKHelperManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKHelperManager.m; path = Managers/JKHelperManager.m; sourceTree = "<group>"; };
+		840645C21849C3780065BCA4 /* JKHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKHTTPClient.h; path = Models/JKHTTPClient.h; sourceTree = "<group>"; };
+		840645C31849C3780065BCA4 /* JKHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKHTTPClient.m; path = Models/JKHTTPClient.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -356,6 +359,8 @@
 		840644E2184996B40065BCA4 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				840645C21849C3780065BCA4 /* JKHTTPClient.h */,
+				840645C31849C3780065BCA4 /* JKHTTPClient.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -655,6 +660,7 @@
 				8406455318499DCE0065BCA4 /* IISideController.m in Sources */,
 				8406451C18499DB60065BCA4 /* BaseManager.m in Sources */,
 				8406455C18499DF00065BCA4 /* BaseViewController.m in Sources */,
+				840645C41849C3780065BCA4 /* JKHTTPClient.m in Sources */,
 				8406455418499DCE0065BCA4 /* IIViewDeckController.m in Sources */,
 				840644BE184992750065BCA4 /* JKShop.xcdatamodeld in Sources */,
 				8406451A18499DB60065BCA4 /* BaseDeviceLibrary.m in Sources */,

@@ -49,12 +49,50 @@
 #import "BaseLocationManager.h"
 #import "BaseNetworkManager.h"
 #import "FacebookManager.h"
+#import "JKHelperManager.h"
 
 //Categories
 #import "UIAlertView+Additions.h"
 #import "UIImage+Additions.h"
 #import "UIColor+Custom.h"
 #import "UIColor+Hex.h"
+
+//Models
+#import "JKHTTPClient.h"
+
+//------------------------------------------------------------------------------------------------------
+
+//
+// Convenient macro to check app version
+//
+#define APP_VERSION                                 ([[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString*)kCFBundleVersionKey])
+#define APP_VERSION_EQUAL_TO(v)                     ([APP_VERSION compare:v options:NSNumericSearch] == NSOrderedSame)
+#define APP_VERSION_GREATER_THAN(v)                 ([APP_VERSION compare:v options:NSNumericSearch] == NSOrderedDescending)
+#define APP_VERSION_GREATER_THAN_OR_EQUAL_TO(v)     ([APP_VERSION compare:v options:NSNumericSearch] != NSOrderedAscending)
+#define APP_VERSION_LESS_THAN(v)                    ([APP_VERSION compare:v options:NSNumericSearch] == NSOrderedAscending)
+#define APP_VERSION_LESS_THAN_OR_EQUAL_TO(v)        ([APP_VERSION compare:v options:NSNumericSearch] != NSOrderedDescending)
+
+//
+// Convenient macro to check system version
+// Source: http://stackoverflow.com/questions/3339722/check-iphone-ios-version
+//
+#define SYSTEM_VERSION                              ([[UIDevice currentDevice] systemVersion])
+#define SYSTEM_VERSION_EQUAL_TO(v)                  ([SYSTEM_VERSION compare:v options:NSNumericSearch] == NSOrderedSame)
+#define SYSTEM_VERSION_GREATER_THAN(v)              ([SYSTEM_VERSION compare:v options:NSNumericSearch] == NSOrderedDescending)
+#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([SYSTEM_VERSION compare:v options:NSNumericSearch] != NSOrderedAscending)
+#define SYSTEM_VERSION_LESS_THAN(v)                 ([SYSTEM_VERSION compare:v options:NSNumericSearch] == NSOrderedAscending)
+#define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v)     ([SYSTEM_VERSION compare:v options:NSNumericSearch] != NSOrderedDescending)
+
+#define DEVICE_NAME                                 ([[UIDevice currentDevice] name])
+
+#define IS_LANDSCAPE                                (UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation))
+#define IS_PORTRAIT                                 (UIInterfaceOrientationIsPortrait([UIApplication sharedApplication].statusBarOrientation))
+#define IS_IPAD                                     ([UIDevice currentDevice].userInterfaceIdiom==UIUserInterfaceIdiomPad)
+#define IS_NOT_IPAD                                 ([UIDevice currentDevice].userInterfaceIdiom!=UIUserInterfaceIdiomPad)
+#define IS_RETINA                                   ([UIScreen mainScreen].scale > 1)
+#define DEVICE_SCALE                                ([UIScreen mainScreen].scale)
+
+#define IS_IPHONE_5 ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )568 ) < DBL_EPSILON )
 
 
 #ifdef DEBUG

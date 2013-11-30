@@ -15,7 +15,7 @@ SINGLETON_MACRO
 - (void)getMenuListOnComplete:(void(^)(NSArray *menu))complete orFailure:(void(^)(NSError *error))failure{
     NSString *path = API_SERVER_HOST;
     NSDictionary *params = @{ @"rquest" : @"getMenu" };
-    [[OFHTTPClient sharedClient] getPath:path parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [[JKHTTPClient sharedClient] getPath:path parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         [self storeMenuList:responseObject];
         NSArray *menuList = [self getMenuList];

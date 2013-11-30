@@ -14,5 +14,6 @@
 @interface JKSidebarMenuTableViewCell : UITableViewCell
 
 - (void)configWithData:(id)data;
++ (CGFloat)getHeight;
 
 @end

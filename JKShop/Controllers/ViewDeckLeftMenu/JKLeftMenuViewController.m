@@ -25,22 +25,175 @@ UITableViewDelegate
 
 @implementation JKLeftMenuViewController
 
+#pragma mark - View controller lifecycle
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     self.arrMenu = [[NSMutableArray alloc] init];
     
-    self.arrSubMenuSectionOne = @[@"Orange Fashion", @"Hàng mới về", @"Liên hệ"];
+    self.arrSubMenuSectionOne = @[@"JK Shop", @"Hàng mới về", @"Liên hệ"];
     self.arrSection = @[@"Nổi bật", @"Danh mục", @"Tuỳ chỉnh", @"Thông tin"];
     
     [self.menuTableView registerNib:[UINib nibWithNibName:NSStringFromClass([JKSidebarMenuTableViewCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([JKSidebarMenuTableViewCell class])];
     
-    [[OFHelperManager sharedInstance] getMenuListOnComplete:^(NSArray *menu) {
+    [[JKHelperManager sharedInstance] getMenuListOnComplete:^(NSArray *menu) {
         self.arrMenu = [[[menu objectAtIndex:1] objectForKey:@"session"] mutableCopy];
-        [self.tableMenu reloadData];
+        [self.menuTableView reloadData];
     } orFailure:^(NSError *error) {
         DLog(@"Error when load menu");
     }];
+}
+
+#pragma mark - Tableview datasource
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return [self.arrSection count];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    
+    // Hit
+    if (section == 0) {
+        return self.arrSubMenuSectionOne.count;
+    }
+    
+    // Menu
+    if (section == 1) {
+        return self.arrMenu.count;
+    }
+    
+    // Information
+    if (section == 2) {
+        return 1;
+    }
+    
+    // Log out
+    if (section == 3) {
+        return 1;
+    }
+    
+    return self.arrMenu.count;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return [JKLeftMenuSectionHeader getHeight];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return [JKSidebarMenuTableViewCell getHeight];
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    JKLeftMenuSectionHeader *header;
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"6.0")) {
+        header = [tableView dequeueReusableHeaderFooterViewWithIdentifier:NSStringFromClass([JKLeftMenuSectionHeader class])];
+    }else{
+        header = [[JKLeftMenuSectionHeader alloc] init];
+    }
+    if (!header) {
+        header = [[JKLeftMenuSectionHeader alloc] init];
+    }
+    
+    if ([[self.arrSection objectAtIndex:section] isKindOfClass:[NSString class]]) {
+        NSString *title = [self.arrSection objectAtIndex:section];
+        [header configTitleNameWithString:[title uppercaseString]];
+    }
+    
+    return header;
+
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSString *cellIndentifier =  NSStringFromClass([JKSidebarMenuTableViewCell class]);
+    JKSidebarMenuTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIndentifier];
+    
+    if (indexPath.section == 0) {
+        NSString *title = [self.arrSubMenuSectionOne objectAtIndex:indexPath.row];
+        NSDictionary *data = @{MENU_TITLE : title};
+        [cell configWithData:data];
+        return cell;
+    }
+    
+    if (indexPath.section == 2) {
+        NSDictionary *data = @{MENU_TITLE : @"Cấu hình"};
+        [cell configWithData:data];
+        return cell;
+    }
+    
+    if (indexPath.section == 3) {
+        NSDictionary *data = @{MENU_TITLE : @"Bản đồ"};
+        [cell configWithData:data];
+        return cell;
+    }
+    
+    if (indexPath.row < self.arrMenu.count)
+        [cell configWithData:[self.arrMenu objectAtIndex:indexPath.row]];
+    
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    IIViewDeckController *deckViewController = (IIViewDeckController*)[[(JKAppDelegate*)[[UIApplication sharedApplication]delegate] window] rootViewController];
+    OFNavigationViewController *centralNavVC = (OFNavigationViewController *) deckViewController.centerController;
+    
+    if (indexPath.section == 0) {
+        
+        // Back to master menu
+        if (indexPath.row == 0) {
+            [centralNavVC popToRootViewControllerAnimated:YES];
+            [deckViewController toggleLeftView];
+            return;
+        }
+        
+        // New products
+        if (indexPath.row == 1) {
+            OFProductsViewController *productsVC = [[OFProductsViewController alloc] init];
+            productsVC.category_id = 21;
+            productsVC.lblTitle = [self.arrSubMenuSectionOne objectAtIndex:indexPath.row];
+            
+            [centralNavVC pushViewController:productsVC animated:YES];
+            [deckViewController toggleLeftView];
+            return;
+        }
+        
+        // Contact screen
+        if (indexPath.row == 2) {
+            BaseViewController *menu3 = [[BaseViewController alloc] init];
+            CGRect frame = self.view.frame;
+            
+            UIWebView *web = [[UIWebView alloc] initWithFrame:frame];
+            [menu3.view addSubview:web];
+            
+            NSString *path = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"thong-tin-thanh-toan.html"];
+            NSURL *url = [NSURL fileURLWithPath:path isDirectory:NO];
+            NSURLRequest *request = [NSURLRequest requestWithURL:url];
+            [web loadRequest:request];
+            
+            menu3.title = @"Hướng dẫn đặt hàng";
+            
+            [centralNavVC pushViewController:menu3 animated:YES];
+            [deckViewController toggleLeftView];
+            return;
+        }
+    }
+    
+    if (indexPath.section == 3) {
+        [centralNavVC pushViewController:[[OFMapViewController alloc] init] animated:YES];
+        [deckViewController toggleLeftView];
+        return;
+    }
+    
+    if (indexPath.section == 2) {
+        [SVProgressHUD showWithStatus:@"Chức năng hiện đang trong quá trình phát triển"];
+        return;
+    }
+    
+    OFProductsViewController *productsVC = [[OFProductsViewController alloc] init];
+    productsVC.category_id = [[[self.arrMenu objectAtIndex:indexPath.row] objectForKey:CATEGORY_ID] integerValue];
+    productsVC.lblTitle = [[self.arrMenu objectAtIndex:indexPath.row] objectForKey:MENU_TITLE];
+    [centralNavVC pushViewController:productsVC animated:YES];
+    [deckViewController toggleLeftView];
 }
 
 @end
