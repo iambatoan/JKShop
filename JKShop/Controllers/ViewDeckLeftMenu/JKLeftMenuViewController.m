@@ -44,7 +44,7 @@ UITableViewDelegate
     [self.menuTableView registerNib:[UINib nibWithNibName:NSStringFromClass([JKSidebarMenuTableViewCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([JKSidebarMenuTableViewCell class])];
     
     [[JKHelperManager sharedInstance] getMenuListOnComplete:^(NSArray *menu) {
-        self.arrMenu = [[[menu objectAtIndex:1] objectForKey:@"session"] mutableCopy];
+        self.arrMenu = [menu mutableCopy];
         [self.menuTableView reloadData];
     } orFailure:^(NSError *error) {
         DLog(@"Error when load menu");

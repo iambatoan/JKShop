@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 #define MENU_TITLE                      @"name"
-#define CATEGORY_ID                     @"id"
+#define CATEGORY_ID                     @"term_id"
 
 @interface JKSidebarMenuTableViewCell : UITableViewCell
 

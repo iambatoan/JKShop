@@ -6,14 +6,14 @@
 
 #ifdef DEBUG
 
-#define API_SERVER_HOST                             @"http://orangefashion.vn/api/api.php"
+#define API_SERVER_HOST                             @"http://jkshop.vn/api/products"
 #define URBAN_AIRSHIP_APP_KEY                       @"S4NTYF0UReqCkkxBtTsjgQ"
 #define URBAN_AIRSHIP_APP_SECRET                    @"gOhq1D_yQmuS7FcKIzu0SQ"
 #define GOOGLE_TRACKING_ID                          @"UA-22523153-3"
 
 #else
 
-#define API_SERVER_HOST                             @"http://orangefashion.vn/api/api.php"
+#define API_SERVER_HOST                             @"http://jkshop.vn/api/products"
 #define URBAN_AIRSHIP_APP_KEY                       @"S4NTYF0UReqCkkxBtTsjgQ"
 #define URBAN_AIRSHIP_APP_SECRET                    @"gOhq1D_yQmuS7FcKIzu0SQ"
 #define GOOGLE_TRACKING_ID                          @"UA-22523153-3"
@@ -23,11 +23,12 @@
 #define SETTINGS_JK_SHOP_LONGITUDE                  106.650958
 #define SETTINGS_JK_SHOP_LATITUDE                   10.779831
 
-#define JK_SHOP_MAP_SNIPPET                     @"Address : 888/89 Lạc Long Quân, F8, Quận Tân Bình, thành phố Hồ Chí Minh\nContact : 0168 687 0687 - Hân"
+#define JK_SHOP_MAP_SNIPPET                         @"Address : 888/89 Lạc Long Quân, F8, Quận Tân Bình, thành phố Hồ Chí Minh\nContact : 0168 687 0687 - Hân"
 
 #define API_OAUTH_TOKEN                             @"/oauth/token"      //This is not inside API_PREFIX
 #define API_PREFIX                                  @"/api/v1"
 #define CLASS_PREFIX_LENGTH                         2
+#define API_GET_LIST_CATEGORY                       @"/tk_get_list_categories/"
 
 #define ENABLE_FAKE_LOCATION                        YES         //Use the coordinate below, ignore location server
 #define FAKE_COORDINATE                             CLLocationCoordinate2DMake(3.18985899, 101.64969727)
