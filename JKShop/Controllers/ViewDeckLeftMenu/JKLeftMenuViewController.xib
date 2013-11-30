@@ -8,7 +8,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="JKLeftMenuViewController">
             <connections>
                 <outlet property="menuTableView" destination="A86-vs-MQA" id="7Py-NR-2h4"/>
-                <outlet property="searchDisplayController" destination="n4U-YC-JoZ" id="FhB-Z3-0rD"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
         </placeholder>
@@ -31,13 +30,5 @@
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
-        <searchDisplayController id="n4U-YC-JoZ">
-            <connections>
-                <outlet property="delegate" destination="-1" id="tty-gg-RYC"/>
-                <outlet property="searchContentsController" destination="-1" id="H1Z-me-73t"/>
-                <outlet property="searchResultsDataSource" destination="-1" id="zyq-nI-RkU"/>
-                <outlet property="searchResultsDelegate" destination="-1" id="0qY-c7-r8z"/>
-            </connections>
-        </searchDisplayController>
     </objects>
 </document>

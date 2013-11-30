@@ -85,6 +85,8 @@
 		84203AD6184A386800F26638 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 84203AD5184A386800F26638 /* libc++.dylib */; };
 		84203ADA184A39DE00F26638 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 84203AD9184A39DE00F26638 /* libicucore.dylib */; };
 		84203ADC184A39ED00F26638 /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 84203ADB184A39ED00F26638 /* libz.1.2.5.dylib */; };
+		843D1556184A48F200B65E35 /* JKLeftMenuFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 843D1555184A48F200B65E35 /* JKLeftMenuFooter.m */; };
+		843D1558184A490C00B65E35 /* JKLeftMenuFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 843D1557184A490C00B65E35 /* JKLeftMenuFooter.xib */; };
 		84F99F0D184A1AEC00356DB3 /* setting.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F99F05184A1AEC00356DB3 /* setting.png */; };
 		84F99F0E184A1AEC00356DB3 /* setting@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F99F06184A1AEC00356DB3 /* setting@2x.png */; };
 		84F99F0F184A1AEC00356DB3 /* info.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F99F07184A1AEC00356DB3 /* info.png */; };
@@ -240,6 +242,9 @@
 		84203AD7184A390900F26638 /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle; sourceTree = "<group>"; };
 		84203AD9184A39DE00F26638 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		84203ADB184A39ED00F26638 /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
+		843D1554184A48F200B65E35 /* JKLeftMenuFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKLeftMenuFooter.h; path = Controllers/ViewDeckLeftMenu/JKLeftMenuFooter.h; sourceTree = "<group>"; };
+		843D1555184A48F200B65E35 /* JKLeftMenuFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKLeftMenuFooter.m; path = Controllers/ViewDeckLeftMenu/JKLeftMenuFooter.m; sourceTree = "<group>"; };
+		843D1557184A490C00B65E35 /* JKLeftMenuFooter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JKLeftMenuFooter.xib; sourceTree = "<group>"; };
 		84F99F05184A1AEC00356DB3 /* setting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = setting.png; path = Resources/SidebarSection/setting.png; sourceTree = "<group>"; };
 		84F99F06184A1AEC00356DB3 /* setting@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "setting@2x.png"; path = "Resources/SidebarSection/setting@2x.png"; sourceTree = "<group>"; };
 		84F99F07184A1AEC00356DB3 /* info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = info.png; path = Resources/SidebarSection/info.png; sourceTree = "<group>"; };
@@ -621,6 +626,9 @@
 				840645BA1849BF260065BCA4 /* JKLeftMenuSectionHeader.h */,
 				840645BB1849BF260065BCA4 /* JKLeftMenuSectionHeader.m */,
 				840645BD1849BF430065BCA4 /* JKLeftMenuSectionHeader.xib */,
+				843D1554184A48F200B65E35 /* JKLeftMenuFooter.h */,
+				843D1555184A48F200B65E35 /* JKLeftMenuFooter.m */,
+				843D1557184A490C00B65E35 /* JKLeftMenuFooter.xib */,
 			);
 			name = ViewDeckLeftMenu;
 			sourceTree = "<group>";
@@ -788,6 +796,7 @@
 				840645DD1849CC2C0065BCA4 /* JKMapViewController.xib in Resources */,
 				84F99F13184A1AEC00356DB3 /* category.png in Resources */,
 				840645D21849C8A40065BCA4 /* navbg.png in Resources */,
+				843D1558184A490C00B65E35 /* JKLeftMenuFooter.xib in Resources */,
 				840645E21849CCAE0065BCA4 /* SVProgressHUD.bundle in Resources */,
 				84F99F11184A1AEC00356DB3 /* star.png in Resources */,
 				840645D01849C8A40065BCA4 /* left-nav-button.png in Resources */,
@@ -825,6 +834,7 @@
 				840645B31849BE190065BCA4 /* UIImage+Additions.m in Sources */,
 				840644B7184992750065BCA4 /* main.m in Sources */,
 				8406451B18499DB60065BCA4 /* BaseLocationManager.m in Sources */,
+				843D1556184A48F200B65E35 /* JKLeftMenuFooter.m in Sources */,
 				840645A41849B8CA0065BCA4 /* JKHomeViewController.m in Sources */,
 				8406454F18499DCE0065BCA4 /* AFURLConnectionOperation.m in Sources */,
 				8406454818499DCE0065BCA4 /* AFHTTPClient.m in Sources */,

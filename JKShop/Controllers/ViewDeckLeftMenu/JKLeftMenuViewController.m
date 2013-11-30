@@ -11,6 +11,7 @@
 #import "JKLeftMenuSectionHeader.h"
 #import "JKAppDelegate.h"
 #import "JKNavigationViewController.h"
+#import "JKLeftMenuFooter.h"
 
 @interface JKLeftMenuViewController ()
 <
@@ -23,6 +24,7 @@ UITableViewDelegate
 @property (strong, nonatomic) NSArray               * arrIconSection;
 @property (strong, nonatomic) NSArray               * arrSubMenuSectionOne;
 @property (weak, nonatomic) IBOutlet UITableView *menuTableView;
+
 
 @end
 
@@ -106,6 +108,25 @@ UITableViewDelegate
     
     return header;
 
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+    JKLeftMenuFooter *footer;
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"6.0")) {
+        footer = [tableView dequeueReusableHeaderFooterViewWithIdentifier:NSStringFromClass([JKLeftMenuFooter class])];
+    }else{
+        footer = [[JKLeftMenuFooter alloc] init];
+    }
+    if (!footer) {
+        footer = [[JKLeftMenuFooter alloc] init];
+    }
+    return footer;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    if(section == 3)
+        return 65;
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -202,7 +223,7 @@ UITableViewDelegate
 //    productsVC.category_id = [[[self.arrMenu objectAtIndex:indexPath.row] objectForKey:CATEGORY_ID] integerValue];
 //    productsVC.lblTitle = [[self.arrMenu objectAtIndex:indexPath.row] objectForKey:MENU_TITLE];
 //    [centralNavVC pushViewController:productsVC animated:YES];
-    [deckViewController toggleLeftView];
+//    [deckViewController toggleLeftView];
 }
 
 -(void)onTick:(NSTimer *)timer {
