@@ -41,6 +41,7 @@
 //Vendors
 #import "AFNetworking.h"
 #import "Crittercism.h"
+#import "IIViewDeckController.h"
 
 //Managers
 #import "BaseManager.h"
@@ -51,6 +52,9 @@
 
 //Categories
 #import "UIAlertView+Additions.h"
+#import "UIImage+Additions.h"
+#import "UIColor+Custom.h"
+#import "UIColor+Hex.h"
 
 
 #ifdef DEBUG

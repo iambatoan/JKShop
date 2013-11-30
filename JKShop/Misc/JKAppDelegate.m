@@ -7,6 +7,7 @@
 //
 
 #import "JKAppDelegate.h"
+#import "JKHomeViewController.h"
 
 @implementation JKAppDelegate
 
@@ -18,7 +19,9 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
+    
+    IIViewDeckController *deckController = [self gene]
+    self.window.rootViewController = [[JKHomeViewController alloc] initWithNibName:@"JKHomeViewController" bundle:nil];
     [self.window makeKeyAndVisible];
     return YES;
 }
@@ -38,6 +41,25 @@
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+}
+
+- (IIViewDeckController*)generateControllerStack {
+    
+    OFLeftMenuViewController* leftController = [[OFLeftMenuViewController alloc] init];
+    OFBookmarkViewViewController* rightController = [[OFBookmarkViewViewController alloc] init];
+    
+    // Set up ViewDeck central
+    OFPageMenuViewController *centralViewController = [[OFPageMenuViewController alloc] init];
+    OFNavigationViewController *centralNavController = [[OFNavigationViewController alloc] initWithRootViewController:centralViewController];
+    
+    IIViewDeckController* deckController =  [[IIViewDeckController alloc] initWithCenterViewController:centralNavController leftViewController:leftController rightViewController:rightController];
+    
+    [deckController setNavigationControllerBehavior:IIViewDeckNavigationControllerIntegrated];
+    [deckController setCenterhiddenInteractivity:IIViewDeckCenterHiddenNotUserInteractiveWithTapToCloseBouncing];
+    
+    deckController.rightSize = 60;
+    
+    return deckController;
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application

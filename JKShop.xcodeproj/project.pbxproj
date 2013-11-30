@@ -54,6 +54,19 @@
 		840645901849ABC90065BCA4 /* UIAlertView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8406458F1849ABC90065BCA4 /* UIAlertView+Additions.m */; };
 		840645951849AC010065BCA4 /* libCrittercism_v3_5_1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 840645941849AC010065BCA4 /* libCrittercism_v3_5_1.a */; };
 		840645971849B03A0065BCA4 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 840645961849B03A0065BCA4 /* CoreLocation.framework */; };
+		8406459F1849B2770065BCA4 /* home.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8406459E1849B2770065BCA4 /* home.jpg */; };
+		840645A41849B8CA0065BCA4 /* JKHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 840645A21849B8CA0065BCA4 /* JKHomeViewController.m */; };
+		840645A51849B8CA0065BCA4 /* JKHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 840645A31849B8CA0065BCA4 /* JKHomeViewController.xib */; };
+		840645AA1849B9030065BCA4 /* JKLeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 840645A81849B9030065BCA4 /* JKLeftMenuViewController.m */; };
+		840645AB1849B9030065BCA4 /* JKLeftMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 840645A91849B9030065BCA4 /* JKLeftMenuViewController.xib */; };
+		840645AE1849BA780065BCA4 /* JKSidebarMenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 840645AD1849BA780065BCA4 /* JKSidebarMenuTableViewCell.m */; };
+		840645B01849BB390065BCA4 /* JKSidebarMenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 840645AF1849BB390065BCA4 /* JKSidebarMenuTableViewCell.xib */; };
+		840645B31849BE190065BCA4 /* UIImage+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 840645B21849BE190065BCA4 /* UIImage+Additions.m */; };
+		840645B81849BE5B0065BCA4 /* UIColor+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 840645B51849BE5B0065BCA4 /* UIColor+Custom.m */; };
+		840645B91849BE5B0065BCA4 /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 840645B71849BE5B0065BCA4 /* UIColor+Hex.m */; };
+		840645BC1849BF260065BCA4 /* JKLeftMenuSectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 840645BB1849BF260065BCA4 /* JKLeftMenuSectionHeader.m */; };
+		840645BE1849BF430065BCA4 /* JKLeftMenuSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 840645BD1849BF430065BCA4 /* JKLeftMenuSectionHeader.xib */; };
+		840645C11849C2A00065BCA4 /* JKHelperManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 840645C01849C2A00065BCA4 /* JKHelperManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -149,6 +162,27 @@
 		840645931849AC010065BCA4 /* CrittercismDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrittercismDelegate.h; sourceTree = "<group>"; };
 		840645941849AC010065BCA4 /* libCrittercism_v3_5_1.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libCrittercism_v3_5_1.a; sourceTree = "<group>"; };
 		840645961849B03A0065BCA4 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		8406459E1849B2770065BCA4 /* home.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = home.jpg; path = Resources/Home/home.jpg; sourceTree = "<group>"; };
+		840645A11849B8CA0065BCA4 /* JKHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKHomeViewController.h; path = Controllers/HomeViewController/JKHomeViewController.h; sourceTree = "<group>"; };
+		840645A21849B8CA0065BCA4 /* JKHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKHomeViewController.m; path = Controllers/HomeViewController/JKHomeViewController.m; sourceTree = "<group>"; };
+		840645A31849B8CA0065BCA4 /* JKHomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = JKHomeViewController.xib; path = Controllers/HomeViewController/JKHomeViewController.xib; sourceTree = "<group>"; };
+		840645A71849B9030065BCA4 /* JKLeftMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKLeftMenuViewController.h; path = Controllers/ViewDeckLeftMenu/JKLeftMenuViewController.h; sourceTree = "<group>"; };
+		840645A81849B9030065BCA4 /* JKLeftMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKLeftMenuViewController.m; path = Controllers/ViewDeckLeftMenu/JKLeftMenuViewController.m; sourceTree = "<group>"; };
+		840645A91849B9030065BCA4 /* JKLeftMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = JKLeftMenuViewController.xib; path = Controllers/ViewDeckLeftMenu/JKLeftMenuViewController.xib; sourceTree = "<group>"; };
+		840645AC1849BA780065BCA4 /* JKSidebarMenuTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKSidebarMenuTableViewCell.h; path = Controllers/ViewDeckLeftMenu/JKSidebarMenuTableViewCell.h; sourceTree = "<group>"; };
+		840645AD1849BA780065BCA4 /* JKSidebarMenuTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKSidebarMenuTableViewCell.m; path = Controllers/ViewDeckLeftMenu/JKSidebarMenuTableViewCell.m; sourceTree = "<group>"; };
+		840645AF1849BB390065BCA4 /* JKSidebarMenuTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = JKSidebarMenuTableViewCell.xib; path = Controllers/ViewDeckLeftMenu/JKSidebarMenuTableViewCell.xib; sourceTree = "<group>"; };
+		840645B11849BE190065BCA4 /* UIImage+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Additions.h"; path = "Categories/UIImage+Additions.h"; sourceTree = "<group>"; };
+		840645B21849BE190065BCA4 /* UIImage+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Additions.m"; path = "Categories/UIImage+Additions.m"; sourceTree = "<group>"; };
+		840645B41849BE5B0065BCA4 /* UIColor+Custom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+Custom.h"; path = "Categories/UIColor+Custom.h"; sourceTree = "<group>"; };
+		840645B51849BE5B0065BCA4 /* UIColor+Custom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+Custom.m"; path = "Categories/UIColor+Custom.m"; sourceTree = "<group>"; };
+		840645B61849BE5B0065BCA4 /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+Hex.h"; path = "Categories/UIColor+Hex.h"; sourceTree = "<group>"; };
+		840645B71849BE5B0065BCA4 /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+Hex.m"; path = "Categories/UIColor+Hex.m"; sourceTree = "<group>"; };
+		840645BA1849BF260065BCA4 /* JKLeftMenuSectionHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKLeftMenuSectionHeader.h; path = Controllers/ViewDeckLeftMenu/JKLeftMenuSectionHeader.h; sourceTree = "<group>"; };
+		840645BB1849BF260065BCA4 /* JKLeftMenuSectionHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKLeftMenuSectionHeader.m; path = Controllers/ViewDeckLeftMenu/JKLeftMenuSectionHeader.m; sourceTree = "<group>"; };
+		840645BD1849BF430065BCA4 /* JKLeftMenuSectionHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JKLeftMenuSectionHeader.xib; sourceTree = "<group>"; };
+		840645BF1849C2A00065BCA4 /* JKHelperManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKHelperManager.h; path = Managers/JKHelperManager.h; sourceTree = "<group>"; };
+		840645C01849C2A00065BCA4 /* JKHelperManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKHelperManager.m; path = Managers/JKHelperManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -271,6 +305,12 @@
 		840644DD184996710065BCA4 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				840645B41849BE5B0065BCA4 /* UIColor+Custom.h */,
+				840645B51849BE5B0065BCA4 /* UIColor+Custom.m */,
+				840645B61849BE5B0065BCA4 /* UIColor+Hex.h */,
+				840645B71849BE5B0065BCA4 /* UIColor+Hex.m */,
+				840645B11849BE190065BCA4 /* UIImage+Additions.h */,
+				840645B21849BE190065BCA4 /* UIImage+Additions.m */,
 				8406458E1849ABC90065BCA4 /* UIAlertView+Additions.h */,
 				8406458F1849ABC90065BCA4 /* UIAlertView+Additions.m */,
 			);
@@ -280,6 +320,8 @@
 		840644DE1849967B0065BCA4 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				840645A61849B8D30065BCA4 /* ViewDeckLeftMenu */,
+				840645A01849B88E0065BCA4 /* HomeViewController */,
 				8406455618499DF00065BCA4 /* BaseViewController */,
 			);
 			name = Controllers;
@@ -288,6 +330,7 @@
 		840644DF184996880065BCA4 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				8406459D1849B26B0065BCA4 /* Home */,
 				840644BF184992750065BCA4 /* Images.xcassets */,
 			);
 			name = Resources;
@@ -297,6 +340,8 @@
 			isa = PBXGroup;
 			children = (
 				8406450B18499DA60065BCA4 /* Template Classes */,
+				840645BF1849C2A00065BCA4 /* JKHelperManager.h */,
+				840645C01849C2A00065BCA4 /* JKHelperManager.m */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -446,6 +491,40 @@
 			path = Vendors/CrittercismSDK;
 			sourceTree = "<group>";
 		};
+		8406459D1849B26B0065BCA4 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				8406459E1849B2770065BCA4 /* home.jpg */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
+		840645A01849B88E0065BCA4 /* HomeViewController */ = {
+			isa = PBXGroup;
+			children = (
+				840645A11849B8CA0065BCA4 /* JKHomeViewController.h */,
+				840645A21849B8CA0065BCA4 /* JKHomeViewController.m */,
+				840645A31849B8CA0065BCA4 /* JKHomeViewController.xib */,
+			);
+			name = HomeViewController;
+			sourceTree = "<group>";
+		};
+		840645A61849B8D30065BCA4 /* ViewDeckLeftMenu */ = {
+			isa = PBXGroup;
+			children = (
+				840645A71849B9030065BCA4 /* JKLeftMenuViewController.h */,
+				840645A81849B9030065BCA4 /* JKLeftMenuViewController.m */,
+				840645A91849B9030065BCA4 /* JKLeftMenuViewController.xib */,
+				840645AC1849BA780065BCA4 /* JKSidebarMenuTableViewCell.h */,
+				840645AD1849BA780065BCA4 /* JKSidebarMenuTableViewCell.m */,
+				840645AF1849BB390065BCA4 /* JKSidebarMenuTableViewCell.xib */,
+				840645BA1849BF260065BCA4 /* JKLeftMenuSectionHeader.h */,
+				840645BB1849BF260065BCA4 /* JKLeftMenuSectionHeader.m */,
+				840645BD1849BF430065BCA4 /* JKLeftMenuSectionHeader.xib */,
+			);
+			name = ViewDeckLeftMenu;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -522,8 +601,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8406459F1849B2770065BCA4 /* home.jpg in Resources */,
 				840644B5184992750065BCA4 /* InfoPlist.strings in Resources */,
+				840645A51849B8CA0065BCA4 /* JKHomeViewController.xib in Resources */,
+				840645AB1849B9030065BCA4 /* JKLeftMenuViewController.xib in Resources */,
+				840645B01849BB390065BCA4 /* JKSidebarMenuTableViewCell.xib in Resources */,
 				840644C0184992750065BCA4 /* Images.xcassets in Resources */,
+				840645BE1849BF430065BCA4 /* JKLeftMenuSectionHeader.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -544,18 +628,26 @@
 			files = (
 				8406454718499DCE0065BCA4 /* AFDownloadRequestOperation.m in Sources */,
 				840645901849ABC90065BCA4 /* UIAlertView+Additions.m in Sources */,
+				840645AE1849BA780065BCA4 /* JKSidebarMenuTableViewCell.m in Sources */,
 				8406455518499DCE0065BCA4 /* IIWrapController.m in Sources */,
+				840645C11849C2A00065BCA4 /* JKHelperManager.m in Sources */,
 				840645881849A8210065BCA4 /* AFUrbanAirshipClient.m in Sources */,
+				840645B31849BE190065BCA4 /* UIImage+Additions.m in Sources */,
 				840644B7184992750065BCA4 /* main.m in Sources */,
 				8406451B18499DB60065BCA4 /* BaseLocationManager.m in Sources */,
+				840645A41849B8CA0065BCA4 /* JKHomeViewController.m in Sources */,
 				8406454F18499DCE0065BCA4 /* AFURLConnectionOperation.m in Sources */,
 				8406454818499DCE0065BCA4 /* AFHTTPClient.m in Sources */,
 				8406450918499D880065BCA4 /* BaseAppDelegate.m in Sources */,
 				8406455B18499DF00065BCA4 /* BaseTableViewController.m in Sources */,
 				8406454E18499DCE0065BCA4 /* AFPropertyListRequestOperation.m in Sources */,
+				840645B81849BE5B0065BCA4 /* UIColor+Custom.m in Sources */,
 				8406454A18499DCE0065BCA4 /* AFImageRequestOperation.m in Sources */,
 				8406455118499DCE0065BCA4 /* UIImageView+AFNetworking.m in Sources */,
+				840645BC1849BF260065BCA4 /* JKLeftMenuSectionHeader.m in Sources */,
+				840645AA1849B9030065BCA4 /* JKLeftMenuViewController.m in Sources */,
 				8406454918499DCE0065BCA4 /* AFHTTPRequestOperation.m in Sources */,
+				840645B91849BE5B0065BCA4 /* UIColor+Hex.m in Sources */,
 				8406454D18499DCE0065BCA4 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				8406452018499DB60065BCA4 /* FacebookManager.m in Sources */,
 				8406454C18499DCE0065BCA4 /* AFJSONUtilities.m in Sources */,
