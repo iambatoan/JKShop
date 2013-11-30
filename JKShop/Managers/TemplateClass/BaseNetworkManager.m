@@ -318,10 +318,11 @@ SINGLETON_MACRO
     NSMutableArray *outputArray = [NSMutableArray array];
     for (NSDictionary *dict in rawArray)
     {
-      id model = [[BaseStorageManager sharedInstance] addOrUpdateClassModel:classObject
-                                                            withDictionary:dict];
-      if (model)
-        [outputArray addObject:model];
+#warning update later
+//      id model = [[BaseStorageManager sharedInstance] addOrUpdateClassModel:classObject
+//                                                            withDictionary:dict];
+//      if (model)
+//        [outputArray addObject:model];
     }
     
     if (success)
@@ -383,17 +384,18 @@ SINGLETON_MACRO
   NSMutableURLRequest *request = [self.httpClient requestWithMethod:GET_METHOD path:path parameters:parameters];
   
   [self sendRequest:request success:^(NSHTTPURLResponse *response, id responseObject) {
-    
-    NSDictionary *rawDictionary = (NSDictionary*)responseObject;
-    
-    //Crazy generic code to convert raw dictionary to proper model
-    id model = [[BaseStorageManager sharedInstance] addOrUpdateClassModel:classObject
-                                                          withDictionary:rawDictionary];
-    
-    DLog(@"Data model object %@ updated", path);
-    
-    if (success)
-      success(model);
+#warning update later
+      
+//    NSDictionary *rawDictionary = (NSDictionary*)responseObject;
+//    
+//    //Crazy generic code to convert raw dictionary to proper model
+//    id model = [[BaseStorageManager sharedInstance] addOrUpdateClassModel:lassObject
+//                                                          withDictionary:rawDictionary];
+//    
+//    DLog(@"Data model object %@ updated", path);
+//    
+//    if (success)
+//      success(model);
     
   } failure:failure];
 }
@@ -422,18 +424,19 @@ SINGLETON_MACRO
   NSMutableURLRequest *request = [self.httpClient requestWithMethod:method path:path parameters:params];
   
   [self sendRequest:request success:^(NSHTTPURLResponse *response, id responseObject) {
+    
+#warning update later
       
-    NSDictionary *rawDictionary = (NSDictionary*)responseObject;
-    
+      NSDictionary *rawDictionary = (NSDictionary*)responseObject;
     //Crazy generic code to convert raw dictionary to proper model
-    id model = [[BaseStorageManager sharedInstance] addOrUpdateClassModel:[modelObject class]
-                                                           withDictionary:rawDictionary];
+//    id model = [[BaseStorageManager sharedInstance] addOrUpdateClassModel:[modelObject class]
+//                                                           withDictionary:rawDictionary];
     
-    if ([keyID integerValue] > 0)    DLog(@"Data model object %@ updated", path);
-    else                             DLog(@"Data model object %@ added", model);
+//    if ([keyID integerValue] > 0)    DLog(@"Data model object %@ updated", path);
+//    else                             DLog(@"Data model object %@ added", model);
     
-    if (success)
-      success(model == nil ? modelObject : model);
+//    if (success)
+//      success(model == nil ? modelObject : model);
     
   } failure:failure];
 }

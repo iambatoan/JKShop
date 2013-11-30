@@ -16,29 +16,13 @@ SINGLETON_MACRO
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    //---------------------------------------------------------------------------
-    
-    //Initialize storage, restore Settings first
-    [BaseStorageManager sharedInstance];
-    
-    //Critercism
-    NSString *critercismToken = [[BaseStorageManager sharedInstance] getSettingStringValueWithKey:SETTINGS_CRITERCISM_TOKEN
-                                                                                     defaultValue:SETTINGS_CRITERCISM_TOKEN_DEFAULT];
-    if ([critercismToken length] > 0)
-        [Crittercism enableWithAppID:critercismToken];
-    
-    //Full offline restore (async)
-    [[BaseStorageManager sharedInstance] restore]; 
-    
-    //---------------------------------------------------------------------------
         
     return YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {
-    //Save offline data
-    [[BaseStorageManager sharedInstance] dumpFullOfflineCache];
+
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
@@ -87,13 +71,13 @@ SINGLETON_MACRO
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
 {
-    AFUrbanAirshipClient *client = [[AFUrbanAirshipClient alloc] initWithApplicationKey:URBAN_AIRSHIP_APP_KEY
-                                                                      applicationSecret:URBAN_AIRSHIP_APP_SECRET];
-    [client registerDeviceToken:deviceToken withAlias:nil success:^{
-        DLog(@"Urban Airship registered device token successfully");
-    } failure:^(NSError *error) {
-        DLog(@"Urban Airship failed to register device token. Error: %@", error);
-    }];
+//    AFUrbanAirshipClient *client = [[AFUrbanAirshipClient alloc] initWithApplicationKey:URBAN_AIRSHIP_APP_KEY
+//                                                                      applicationSecret:URBAN_AIRSHIP_APP_SECRET];
+//    [client registerDeviceToken:deviceToken withAlias:nil success:^{
+//        DLog(@"Urban Airship registered device token successfully");
+//    } failure:^(NSError *error) {
+//        DLog(@"Urban Airship failed to register device token. Error: %@", error);
+//    }];
 }
 
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error

@@ -4,6 +4,29 @@
 //  The contents of this file are implicitly included at the beginning of every source file.
 //
 
+#ifdef DEBUG
+
+#define API_SERVER_HOST                             @"http://orangefashion.vn/api/api.php"
+#define URBAN_AIRSHIP_APP_KEY                       @"S4NTYF0UReqCkkxBtTsjgQ"
+#define URBAN_AIRSHIP_APP_SECRET                    @"gOhq1D_yQmuS7FcKIzu0SQ"
+#define GOOGLE_TRACKING_ID                          @"UA-22523153-3"
+
+#else
+
+#define API_SERVER_HOST                             @"http://orangefashion.vn/api/api.php"
+#define URBAN_AIRSHIP_APP_KEY                       @"S4NTYF0UReqCkkxBtTsjgQ"
+#define URBAN_AIRSHIP_APP_SECRET                    @"gOhq1D_yQmuS7FcKIzu0SQ"
+#define GOOGLE_TRACKING_ID                          @"UA-22523153-3"
+
+#endif
+
+
+#define API_OAUTH_TOKEN                             @"/oauth/token"      //This is not inside API_PREFIX
+#define API_PREFIX                                  @"/api/v1"
+#define CLASS_PREFIX_LENGTH                         2
+
+#define ENABLE_FAKE_LOCATION                        YES         //Use the coordinate below, ignore location server
+#define FAKE_COORDINATE                             CLLocationCoordinate2DMake(3.18985899, 101.64969727)
 
 #import <Availability.h>
 #import <CoreData/CoreData.h>
@@ -17,17 +40,17 @@
 
 //Vendors
 #import "AFNetworking.h"
+#import "Crittercism.h"
 
 //Managers
 #import "BaseManager.h"
 #import "BaseDeviceLibrary.h"
 #import "BaseLocationManager.h"
-#import "BaseStorageManager.h"
 #import "BaseNetworkManager.h"
 #import "FacebookManager.h"
 
-
-
+//Categories
+#import "UIAlertView+Additions.h"
 
 
 #ifdef DEBUG
