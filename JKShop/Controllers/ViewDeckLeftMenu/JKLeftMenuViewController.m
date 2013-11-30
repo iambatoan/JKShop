@@ -9,6 +9,8 @@
 #import "JKLeftMenuViewController.h"
 #import "JKSidebarMenuTableViewCell.h"
 #import "JKLeftMenuSectionHeader.h"
+#import "JKAppDelegate.h"
+#import "JKNavigationViewController.h"
 
 @interface JKLeftMenuViewController ()
 <
@@ -18,6 +20,7 @@ UITableViewDelegate
 
 @property (strong, nonatomic) NSMutableArray        * arrMenu;
 @property (strong, nonatomic) NSArray               * arrSection;
+@property (strong, nonatomic) NSArray               * arrIconSection;
 @property (strong, nonatomic) NSArray               * arrSubMenuSectionOne;
 @property (weak, nonatomic) IBOutlet UITableView *menuTableView;
 
@@ -33,7 +36,8 @@ UITableViewDelegate
     self.arrMenu = [[NSMutableArray alloc] init];
     
     self.arrSubMenuSectionOne = @[@"JK Shop", @"Hàng mới về", @"Liên hệ"];
-    self.arrSection = @[@"Nổi bật", @"Danh mục", @"Tuỳ chỉnh", @"Thông tin"];
+    self.arrSection = @[@"Nổi Bật", @"Danh Mục", @"Tuỳ Chỉnh", @"Thông Tin"];
+    self.arrIconSection = @[@"star.png",@"category.png",@"setting.png",@"info.png"];
     
     [self.menuTableView registerNib:[UINib nibWithNibName:NSStringFromClass([JKSidebarMenuTableViewCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([JKSidebarMenuTableViewCell class])];
     
@@ -96,8 +100,8 @@ UITableViewDelegate
     }
     
     if ([[self.arrSection objectAtIndex:section] isKindOfClass:[NSString class]]) {
-        NSString *title = [self.arrSection objectAtIndex:section];
-        [header configTitleNameWithString:[title uppercaseString]];
+        [header configTitleNameWithString:[self.arrSection objectAtIndex:section]];
+        [header configIconWithImageURL:[self.arrIconSection objectAtIndex:section]];
     }
     
     return header;
@@ -135,7 +139,7 @@ UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     IIViewDeckController *deckViewController = (IIViewDeckController*)[[(JKAppDelegate*)[[UIApplication sharedApplication]delegate] window] rootViewController];
-    OFNavigationViewController *centralNavVC = (OFNavigationViewController *) deckViewController.centerController;
+    JKNavigationViewController *centralNavVC = (JKNavigationViewController *) deckViewController.centerController;
     
     if (indexPath.section == 0) {
         
@@ -147,15 +151,16 @@ UITableViewDelegate
         }
         
         // New products
-        if (indexPath.row == 1) {
-            OFProductsViewController *productsVC = [[OFProductsViewController alloc] init];
-            productsVC.category_id = 21;
-            productsVC.lblTitle = [self.arrSubMenuSectionOne objectAtIndex:indexPath.row];
-            
-            [centralNavVC pushViewController:productsVC animated:YES];
-            [deckViewController toggleLeftView];
-            return;
-        }
+        
+//        if (indexPath.row == 1) {
+//            OFProductsViewController *productsVC = [[OFProductsViewController alloc] init];
+//            productsVC.category_id = 21;
+//            productsVC.lblTitle = [self.arrSubMenuSectionOne objectAtIndex:indexPath.row];
+//            
+//            [centralNavVC pushViewController:productsVC animated:YES];
+//            [deckViewController toggleLeftView];
+//            return;
+//        }
         
         // Contact screen
         if (indexPath.row == 2) {
@@ -179,8 +184,8 @@ UITableViewDelegate
     }
     
     if (indexPath.section == 3) {
-        [centralNavVC pushViewController:[[OFMapViewController alloc] init] animated:YES];
-        [deckViewController toggleLeftView];
+//        [centralNavVC pushViewController:[[OFMapViewController alloc] init] animated:YES];
+//        [deckViewController toggleLeftView];
         return;
     }
     
@@ -189,10 +194,10 @@ UITableViewDelegate
         return;
     }
     
-    OFProductsViewController *productsVC = [[OFProductsViewController alloc] init];
-    productsVC.category_id = [[[self.arrMenu objectAtIndex:indexPath.row] objectForKey:CATEGORY_ID] integerValue];
-    productsVC.lblTitle = [[self.arrMenu objectAtIndex:indexPath.row] objectForKey:MENU_TITLE];
-    [centralNavVC pushViewController:productsVC animated:YES];
+//    OFProductsViewController *productsVC = [[OFProductsViewController alloc] init];
+//    productsVC.category_id = [[[self.arrMenu objectAtIndex:indexPath.row] objectForKey:CATEGORY_ID] integerValue];
+//    productsVC.lblTitle = [[self.arrMenu objectAtIndex:indexPath.row] objectForKey:MENU_TITLE];
+//    [centralNavVC pushViewController:productsVC animated:YES];
     [deckViewController toggleLeftView];
 }
 

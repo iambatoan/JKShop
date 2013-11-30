@@ -20,6 +20,10 @@
 
 #endif
 
+#define SETTINGS_JK_SHOP_LONGITUDE                  106.650958
+#define SETTINGS_JK_SHOP_LATITUDE                   10.779831
+
+#define JK_SHOP_MAP_SNIPPET                     @"Address : 888/89 Lạc Long Quân, F8, Quận Tân Bình, thành phố Hồ Chí Minh\nContact : 0168 687 0687 - Hân"
 
 #define API_OAUTH_TOKEN                             @"/oauth/token"      //This is not inside API_PREFIX
 #define API_PREFIX                                  @"/api/v1"
@@ -36,12 +40,22 @@
 #import <MapKit/MapKit.h>
 #import <QuartzCore/QuartzCore.h>
 #import <SDWebImage/UIImageView+WebCache.h>
+#import <SystemConfiguration/SystemConfiguration.h>
+#import <MobileCoreServices/MobileCoreServices.h>
 #import <UIKit/UIKit.h>
+
+//Controllers
+#import "BaseViewController.h"
+#import "JKLeftMenuViewController.h"
+#import "JKNavigationViewController.h"
+
 
 //Vendors
 #import "AFNetworking.h"
+#import "AFJSONRequestOperation.h"
 #import "Crittercism.h"
 #import "IIViewDeckController.h"
+#import "SVProgressHUD.h"
 
 //Managers
 #import "BaseManager.h"

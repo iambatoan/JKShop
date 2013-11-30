@@ -11,6 +11,9 @@
 
 @interface JKAppDelegate : BaseAppDelegate <UIApplicationDelegate>
 
+@property (retain, nonatomic) UIViewController *centerController;
+@property (retain, nonatomic) UIViewController *leftController;
+
 @property (strong, nonatomic) UIWindow *window;
 
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;

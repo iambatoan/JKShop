@@ -18,7 +18,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="A86-vs-MQA">
-                    <rect key="frame" x="0.0" y="44" width="320" height="524"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
@@ -26,14 +26,6 @@
                         <outlet property="delegate" destination="-1" id="A1O-GW-T10"/>
                     </connections>
                 </tableView>
-                <searchBar contentMode="redraw" id="KaP-db-Pwe">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                    <textInputTraits key="textInputTraits"/>
-                    <connections>
-                        <outlet property="delegate" destination="-1" id="FSi-OT-4cW"/>
-                    </connections>
-                </searchBar>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
@@ -42,7 +34,6 @@
         <searchDisplayController id="n4U-YC-JoZ">
             <connections>
                 <outlet property="delegate" destination="-1" id="tty-gg-RYC"/>
-                <outlet property="searchBar" destination="KaP-db-Pwe" id="ubS-Ay-sSB"/>
                 <outlet property="searchContentsController" destination="-1" id="H1Z-me-73t"/>
                 <outlet property="searchResultsDataSource" destination="-1" id="zyq-nI-RkU"/>
                 <outlet property="searchResultsDelegate" destination="-1" id="0qY-c7-r8z"/>

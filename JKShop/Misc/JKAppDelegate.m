@@ -9,6 +9,12 @@
 #import "JKAppDelegate.h"
 #import "JKHomeViewController.h"
 
+@interface JKAppDelegate()
+
+@property (strong, nonatomic) JKNavigationViewController *navController;
+
+@end
+
 @implementation JKAppDelegate
 
 @synthesize managedObjectContext = _managedObjectContext;
@@ -20,8 +26,12 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     
-    IIViewDeckController *deckController = [self gene]
-    self.window.rootViewController = [[JKHomeViewController alloc] initWithNibName:@"JKHomeViewController" bundle:nil];
+    IIViewDeckController *deckController = [self generateControllerStack];
+    self.leftController = deckController.leftController;
+    self.centerController = deckController.centerController;
+    self.navController = (JKNavigationViewController *)deckController.centerController;
+    
+    self.window.rootViewController = deckController;
     [self.window makeKeyAndVisible];
     return YES;
 }
@@ -45,12 +55,15 @@
 
 - (IIViewDeckController*)generateControllerStack {
     
-    OFLeftMenuViewController* leftController = [[OFLeftMenuViewController alloc] init];
-    OFBookmarkViewViewController* rightController = [[OFBookmarkViewViewController alloc] init];
+    JKLeftMenuViewController* leftController = [[JKLeftMenuViewController alloc] init];
+//    OFBookmarkViewViewController* rightController = [[OFBookmarkViewViewController alloc] init];
+//    
+//    // Set up ViewDeck central
+//    OFPageMenuViewController *centralViewController = [[OFPageMenuViewController alloc] init];
+//    OFNavigationViewController *centralNavController = [[OFNavigationViewController alloc] initWithRootViewController:centralViewController];
     
-    // Set up ViewDeck central
-    OFPageMenuViewController *centralViewController = [[OFPageMenuViewController alloc] init];
-    OFNavigationViewController *centralNavController = [[OFNavigationViewController alloc] initWithRootViewController:centralViewController];
+    JKHomeViewController* centralNavController = [[JKHomeViewController alloc] init];
+    JKHomeViewController* rightController = [[JKHomeViewController alloc] init];
     
     IIViewDeckController* deckController =  [[IIViewDeckController alloc] initWithCenterViewController:centralNavController leftViewController:leftController rightViewController:rightController];
     

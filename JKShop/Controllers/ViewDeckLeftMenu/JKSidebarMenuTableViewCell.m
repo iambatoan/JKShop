@@ -19,14 +19,12 @@
 
 - (void)configWithData:(id)data
 {
-    [self customCell];
+//    [self customCell];
     self.sidebarMenuTitle.text = [data objectForKey:MENU_TITLE];
 }
 
 - (void)customCell
-{
-//    self.backgroundView = [[UIImageView alloc] initWithImage:[[UIImage imageNamed:@"SidebarMenuTableCellBg"] resizableImageWithStandardInsetsTop:0 right:0 bottom:0 left:0]];
-    
+{  
     // Dark line
     UIView *btmLine = [[UIView alloc] initWithFrame:CGRectMake(0, 43, 320, 1)];
     btmLine.backgroundColor = [UIColor colorWithHexValue:0x000000];
@@ -42,7 +40,7 @@
 
 + (CGFloat)getHeight
 {
-    return 45;
+    return 43;
 }
 
 @end

@@ -11,6 +11,7 @@
 @interface JKLeftMenuSectionHeader()
 
 @property (weak, nonatomic) IBOutlet UILabel *sectionTitle;
+@property (weak, nonatomic) IBOutlet UIImageView *sectionIcon;
 
 @end
 
@@ -28,6 +29,11 @@
 - (void)configTitleNameWithString:(NSString *)title
 {
     self.sectionTitle.text = title;
+}
+
+- (void)configIconWithImageURL:(NSString *)iconURL
+{
+    self.sectionIcon.image = [UIImage imageNamed:iconURL];
 }
 
 + (CGFloat)getHeight

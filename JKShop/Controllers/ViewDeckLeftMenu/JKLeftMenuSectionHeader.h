@@ -11,6 +11,7 @@
 @interface JKLeftMenuSectionHeader : UIView
 
 - (void)configTitleNameWithString:(NSString *)title;
+- (void)configIconWithImageURL:(NSString *)iconURL;
 + (CGFloat)getHeight;
 
 @end
