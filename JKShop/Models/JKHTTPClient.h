@@ -8,13 +8,13 @@
 
 #import "AFHTTPClient.h"
 
-typedef void (^OFJSONRequestSuccessBlock) (NSInteger statusCode, id obj);
-typedef void (^OFJSONRequestFailureBlock) (NSInteger statusCode, id obj);
+typedef void (^JKJSONRequestSuccessBlock) (NSInteger statusCode, id obj);
+typedef void (^JKJSONRequestFailureBlock) (NSInteger statusCode, id obj);
 
-typedef void (^OFRequestSuccessBlock) (NSInteger statusCode, id obj);
-typedef void (^OFRequestFailureBlock) (NSInteger statusCode, id obj);
+typedef void (^JKRequestSuccessBlock) (NSInteger statusCode, id obj);
+typedef void (^JKRequestFailureBlock) (NSInteger statusCode, id obj);
 
-typedef void (^OFRequestProgressBLock) (NSInteger bytesRead, long long totalBytesRead, long long totalBytesExpected, long long totalBytesReadForFile, long long totalBytesExpectedToReadForFile);
+typedef void (^JKRequestProgressBLock) (NSInteger bytesRead, long long totalBytesRead, long long totalBytesExpected, long long totalBytesReadForFile, long long totalBytesExpectedToReadForFile);
 
 @interface JKHTTPClient : AFHTTPClient
 

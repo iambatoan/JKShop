@@ -11,6 +11,7 @@
 @interface JKMapViewController ()
 
 @property (strong, nonatomic) GMSMapView *mapView;
+@property (weak, nonatomic) IBOutlet UILabel *infoLablel;
 
 @end
 
@@ -50,6 +51,8 @@
     marker.title = @"JK Shop";
     marker.snippet = JK_SHOP_MAP_SNIPPET;
     marker.map = self.mapView;
+    
+    [self.mapView setSelectedMarker:marker];
 }
 
 

@@ -211,12 +211,7 @@ UITableViewDelegate
     }
     
     if (indexPath.section == 2) {
-        [SVProgressHUD showWithStatus:@"Chức năng hiện đang trong quá trình phát triển"];
-        [NSTimer scheduledTimerWithTimeInterval: 2.0
-                                         target: self
-                                       selector:@selector(onTick:)
-                                       userInfo: nil repeats:NO];
-        return;
+        [SVProgressHUD showErrorWithStatus:@"Chức năng hiện đang trong quá trình phát triển"];
     }
     
 //    OFProductsViewController *productsVC = [[OFProductsViewController alloc] init];
@@ -224,10 +219,6 @@ UITableViewDelegate
 //    productsVC.lblTitle = [[self.arrMenu objectAtIndex:indexPath.row] objectForKey:MENU_TITLE];
 //    [centralNavVC pushViewController:productsVC animated:YES];
 //    [deckViewController toggleLeftView];
-}
-
--(void)onTick:(NSTimer *)timer {
-    [SVProgressHUD dismiss];
 }
 
 @end

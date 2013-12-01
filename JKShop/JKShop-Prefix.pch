@@ -20,15 +20,18 @@
 
 #endif
 
-#define SETTINGS_JK_SHOP_LONGITUDE                  106.650958
-#define SETTINGS_JK_SHOP_LATITUDE                   10.779831
+#define SETTINGS_JK_SHOP_LONGITUDE                  106.644924
+#define SETTINGS_JK_SHOP_LATITUDE                   10.771788
 
-#define JK_SHOP_MAP_SNIPPET                         @"Address : 888/89 Lạc Long Quân, F8, Quận Tân Bình, thành phố Hồ Chí Minh\nContact : 0168 687 0687 - Hân"
+#define SETTINGS_GOOGLE_MAP_API_TOKEN               @"AIzaSyB9WLInu2QhsVM8X0KQGW0mnNZJqvXgZsE"
+
+#define JK_SHOP_MAP_SNIPPET                         @"Address : 351/1/12 Lạc Long Quân, Phường 5, Quận 11, thành phố Hồ Chí Minh\nContact : 0909 226 976 - Tùng"
 
 #define API_OAUTH_TOKEN                             @"/oauth/token"      //This is not inside API_PREFIX
 #define API_PREFIX                                  @"/api/v1"
 #define CLASS_PREFIX_LENGTH                         2
 #define API_GET_LIST_CATEGORY                       @"/tk_get_list_categories/"
+#define API_GET_PRODUCT_BY_CATEGORY_ID              @"/tk_get_products_by_category/"
 
 #define ENABLE_FAKE_LOCATION                        YES         //Use the coordinate below, ignore location server
 #define FAKE_COORDINATE                             CLLocationCoordinate2DMake(3.18985899, 101.64969727)
@@ -60,6 +63,7 @@
 #import "Crittercism.h"
 #import "IIViewDeckController.h"
 #import "SVProgressHUD.h"
+#import "CoreData+MagicalRecord.h"
 
 //Managers
 #import "BaseManager.h"
@@ -77,6 +81,8 @@
 
 //Models
 #import "JKHTTPClient.h"
+#import "JKProduct.h"
+#import "JKProductImages.h"
 
 //------------------------------------------------------------------------------------------------------
 
