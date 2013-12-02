@@ -34,6 +34,8 @@
     
     self.window.rootViewController = deckController;
     [self.window makeKeyAndVisible];
+    
+    [MagicalRecord setupCoreDataStack];
     return YES;
 }
 

@@ -7,6 +7,7 @@
 extern const struct JKProductAttributes {
 	__unsafe_unretained NSString *category_id;
 	__unsafe_unretained NSString *color;
+	__unsafe_unretained NSString *cover_image;
 	__unsafe_unretained NSString *detail;
 	__unsafe_unretained NSString *name;
 	__unsafe_unretained NSString *price;
@@ -19,13 +20,16 @@ extern const struct JKProductAttributes {
 } JKProductAttributes;
 
 extern const struct JKProductRelationships {
+	__unsafe_unretained NSString *category;
 	__unsafe_unretained NSString *images;
 } JKProductRelationships;
 
 extern const struct JKProductFetchedProperties {
 } JKProductFetchedProperties;
 
+@class NSManagedObject;
 @class JKProductImages;
+
 
 
 
@@ -67,6 +71,16 @@ extern const struct JKProductFetchedProperties {
 
 
 //- (BOOL)validateColor:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, strong) NSString* cover_image;
+
+
+
+//- (BOOL)validateCover_image:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -166,6 +180,13 @@ extern const struct JKProductFetchedProperties {
 
 
 
+@property (nonatomic, strong) NSManagedObject *category;
+
+//- (BOOL)validateCategory:(id*)value_ error:(NSError**)error_;
+
+
+
+
 @property (nonatomic, strong) NSSet *images;
 
 - (NSMutableSet*)imagesSet;
@@ -196,6 +217,12 @@ extern const struct JKProductFetchedProperties {
 
 - (NSString*)primitiveColor;
 - (void)setPrimitiveColor:(NSString*)value;
+
+
+
+
+- (NSString*)primitiveCover_image;
+- (void)setPrimitiveCover_image:(NSString*)value;
 
 
 
@@ -255,6 +282,11 @@ extern const struct JKProductFetchedProperties {
 - (void)setPrimitiveStock_status:(NSString*)value;
 
 
+
+
+
+- (NSManagedObject*)primitiveCategory;
+- (void)setPrimitiveCategory:(NSManagedObject*)value;
 
 
 

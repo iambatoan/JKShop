@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="JKProductsViewController">
             <connections>
+                <outlet property="collectionProducts" destination="k0r-1h-k45" id="cHA-u6-Bdq"/>
                 <outlet property="searchDisplayController" destination="7Ql-nc-h2l" id="lxd-Ye-229"/>
-                <outlet property="tableProducts" destination="LeP-T8-49z" id="Ofj-e3-rOP"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
         </placeholder>
@@ -17,23 +17,23 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="LeP-T8-49z">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="none" id="k0r-1h-k45">
+                    <rect key="frame" x="8" y="0.0" width="304" height="568"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <searchBar key="tableHeaderView" contentMode="redraw" id="U7A-CJ-PaQ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                        <textInputTraits key="textInputTraits"/>
-                        <connections>
-                            <outlet property="delegate" destination="-1" id="iy7-Ah-Pr1"/>
-                        </connections>
-                    </searchBar>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <inset key="contentInset" minX="0.0" minY="8" maxX="0.0" maxY="8"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="8" minimumInteritemSpacing="8" id="tPx-fJ-D7Y">
+                        <size key="itemSize" width="148" height="235"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                    <cells/>
                     <connections>
-                        <outlet property="dataSource" destination="-1" id="Pbq-mq-mb2"/>
-                        <outlet property="delegate" destination="-1" id="bKW-UB-4py"/>
+                        <outlet property="dataSource" destination="-1" id="dXs-42-CBd"/>
+                        <outlet property="delegate" destination="-1" id="mYz-L7-0C0"/>
                     </connections>
-                </tableView>
+                </collectionView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
@@ -42,7 +42,6 @@
         <searchDisplayController id="7Ql-nc-h2l">
             <connections>
                 <outlet property="delegate" destination="-1" id="Kj2-xu-ek9"/>
-                <outlet property="searchBar" destination="U7A-CJ-PaQ" id="0hR-3h-nS9"/>
                 <outlet property="searchContentsController" destination="-1" id="BED-lH-cjd"/>
                 <outlet property="searchResultsDataSource" destination="-1" id="2aE-x0-9s5"/>
                 <outlet property="searchResultsDelegate" destination="-1" id="Pot-Te-Xhr"/>

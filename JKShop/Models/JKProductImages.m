@@ -23,21 +23,29 @@
 + (JKProductImages *)productImageWithURL:(NSString *)stringURL
 {
     JKProductImages *img = [JKProductImages MR_createEntity];
-    [img setImageURL:stringURL];
+//    [img setImageURL:stringURL];
     return img;
 }
 
 + (void)getImagesForProduct:(JKProduct *)product
                successBlock:(JKJSONRequestSuccessBlock)successBlock
                failureBlock:(JKJSONRequestFailureBlock)failureBlock{
-    NSDictionary *params = @{@"product_id": product.product_id,
-                             @"rquest": @"getimages"};
+    NSDictionary *params = @{@"product_id": product.product_id};
     
-    [[JKHTTPClient sharedClient] getPath:API_SERVER_HOST parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [[JKHTTPClient sharedClient] getPath:[NSString stringWithFormat:@"%@%@",API_SERVER_HOST,API_GET_PRODUCT_BY_PRODUCT_ID] parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
-        NSArray *setOfImage = (NSArray *)responseObject;
+        NSArray *setOfImage = (NSArray *)responseObject[@"images"];
         JKProduct *storedProduct = [[JKProduct MR_findByAttribute:@"product_id" withValue:product.product_id] lastObject];
-        NSArray *arrImages =  [JKProductImages productImagesWithArray:setOfImage];
+        NSArray *arrTmpImages = [[NSArray alloc] init];
+        NSMutableArray *arrImages = [[NSMutableArray alloc] init];
+        
+        for (int i = 0; i < [setOfImage count]; i++) {
+             arrTmpImages = [setOfImage[i] copy];
+            for (int j = 0; j < [arrTmpImages count]; j++) {
+                [arrImages addObject:[JKProductImages productImagesWithArray:arrTmpImages]];
+            }
+        }
+        
         storedProduct.images = [NSSet setWithArray:arrImages];
         
         NSManagedObjectContext *mainContext = [NSManagedObjectContext MR_defaultContext];

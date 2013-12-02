@@ -173,15 +173,15 @@ UITableViewDelegate
         
         // New products
         
-//        if (indexPath.row == 1) {
+        if (indexPath.row == 1) {
 //            OFProductsViewController *productsVC = [[OFProductsViewController alloc] init];
 //            productsVC.category_id = 21;
 //            productsVC.lblTitle = [self.arrSubMenuSectionOne objectAtIndex:indexPath.row];
 //            
 //            [centralNavVC pushViewController:productsVC animated:YES];
 //            [deckViewController toggleLeftView];
-//            return;
-//        }
+            return;
+        }
         
         // Contact screen
         if (indexPath.row == 2) {
@@ -212,13 +212,14 @@ UITableViewDelegate
     
     if (indexPath.section == 2) {
         [SVProgressHUD showErrorWithStatus:@"Chức năng hiện đang trong quá trình phát triển"];
+        return;
     }
     
-//    OFProductsViewController *productsVC = [[OFProductsViewController alloc] init];
-//    productsVC.category_id = [[[self.arrMenu objectAtIndex:indexPath.row] objectForKey:CATEGORY_ID] integerValue];
-//    productsVC.lblTitle = [[self.arrMenu objectAtIndex:indexPath.row] objectForKey:MENU_TITLE];
-//    [centralNavVC pushViewController:productsVC animated:YES];
-//    [deckViewController toggleLeftView];
+    JKProductsViewController *productsVC = [[JKProductsViewController alloc] init];
+    productsVC.category_id = [[[self.arrMenu objectAtIndex:indexPath.row] objectForKey:CATEGORY_ID] integerValue];
+    productsVC.lblTitle = [[self.arrMenu objectAtIndex:indexPath.row] objectForKey:MENU_TITLE];
+    [centralNavVC pushViewController:productsVC animated:YES];
+    [deckViewController toggleLeftView];
 }
 
 @end

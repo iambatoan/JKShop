@@ -5,10 +5,11 @@
 
 
 extern const struct JKProductImagesAttributes {
-	__unsafe_unretained NSString *imageURL;
 	__unsafe_unretained NSString *image_id;
+	__unsafe_unretained NSString *large_URL;
+	__unsafe_unretained NSString *medium_URL;
 	__unsafe_unretained NSString *product_id;
-	__unsafe_unretained NSString *size;
+	__unsafe_unretained NSString *small_URL;
 } JKProductImagesAttributes;
 
 extern const struct JKProductImagesRelationships {
@@ -19,6 +20,7 @@ extern const struct JKProductImagesFetchedProperties {
 } JKProductImagesFetchedProperties;
 
 @class JKProduct;
+
 
 
 
@@ -38,16 +40,6 @@ extern const struct JKProductImagesFetchedProperties {
 
 
 
-@property (nonatomic, strong) NSString* imageURL;
-
-
-
-//- (BOOL)validateImageURL:(id*)value_ error:(NSError**)error_;
-
-
-
-
-
 @property (nonatomic, strong) NSNumber* image_id;
 
 
@@ -57,6 +49,26 @@ extern const struct JKProductImagesFetchedProperties {
 - (void)setImage_idValue:(int32_t)value_;
 
 //- (BOOL)validateImage_id:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, strong) NSString* large_URL;
+
+
+
+//- (BOOL)validateLarge_URL:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, strong) NSString* medium_URL;
+
+
+
+//- (BOOL)validateMedium_URL:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -76,11 +88,11 @@ extern const struct JKProductImagesFetchedProperties {
 
 
 
-@property (nonatomic, strong) NSString* size;
+@property (nonatomic, strong) NSString* small_URL;
 
 
 
-//- (BOOL)validateSize:(id*)value_ error:(NSError**)error_;
+//- (BOOL)validateSmall_URL:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -103,17 +115,23 @@ extern const struct JKProductImagesFetchedProperties {
 @interface _JKProductImages (CoreDataGeneratedPrimitiveAccessors)
 
 
-- (NSString*)primitiveImageURL;
-- (void)setPrimitiveImageURL:(NSString*)value;
-
-
-
-
 - (NSNumber*)primitiveImage_id;
 - (void)setPrimitiveImage_id:(NSNumber*)value;
 
 - (int32_t)primitiveImage_idValue;
 - (void)setPrimitiveImage_idValue:(int32_t)value_;
+
+
+
+
+- (NSString*)primitiveLarge_URL;
+- (void)setPrimitiveLarge_URL:(NSString*)value;
+
+
+
+
+- (NSString*)primitiveMedium_URL;
+- (void)setPrimitiveMedium_URL:(NSString*)value;
 
 
 
@@ -127,8 +145,8 @@ extern const struct JKProductImagesFetchedProperties {
 
 
 
-- (NSString*)primitiveSize;
-- (void)setPrimitiveSize:(NSString*)value;
+- (NSString*)primitiveSmall_URL;
+- (void)setPrimitiveSmall_URL:(NSString*)value;
 
 
 

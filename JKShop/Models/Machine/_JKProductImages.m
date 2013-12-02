@@ -4,10 +4,11 @@
 #import "_JKProductImages.h"
 
 const struct JKProductImagesAttributes JKProductImagesAttributes = {
-	.imageURL = @"imageURL",
 	.image_id = @"image_id",
+	.large_URL = @"large_URL",
+	.medium_URL = @"medium_URL",
 	.product_id = @"product_id",
-	.size = @"size",
+	.small_URL = @"small_URL",
 };
 
 const struct JKProductImagesRelationships JKProductImagesRelationships = {
@@ -60,13 +61,6 @@ const struct JKProductImagesFetchedProperties JKProductImagesFetchedProperties =
 
 
 
-@dynamic imageURL;
-
-
-
-
-
-
 @dynamic image_id;
 
 
@@ -88,6 +82,20 @@ const struct JKProductImagesFetchedProperties JKProductImagesFetchedProperties =
 - (void)setPrimitiveImage_idValue:(int32_t)value_ {
 	[self setPrimitiveImage_id:[NSNumber numberWithInt:value_]];
 }
+
+
+
+
+
+@dynamic large_URL;
+
+
+
+
+
+
+@dynamic medium_URL;
+
 
 
 
@@ -119,7 +127,7 @@ const struct JKProductImagesFetchedProperties JKProductImagesFetchedProperties =
 
 
 
-@dynamic size;
+@dynamic small_URL;
 
 
 

@@ -6,6 +6,7 @@
 const struct JKProductAttributes JKProductAttributes = {
 	.category_id = @"category_id",
 	.color = @"color",
+	.cover_image = @"cover_image",
 	.detail = @"detail",
 	.name = @"name",
 	.price = @"price",
@@ -18,6 +19,7 @@ const struct JKProductAttributes JKProductAttributes = {
 };
 
 const struct JKProductRelationships JKProductRelationships = {
+	.category = @"category",
 	.images = @"images",
 };
 
@@ -70,6 +72,13 @@ const struct JKProductFetchedProperties JKProductFetchedProperties = {
 
 
 @dynamic color;
+
+
+
+
+
+
+@dynamic cover_image;
 
 
 
@@ -157,6 +166,10 @@ const struct JKProductFetchedProperties JKProductFetchedProperties = {
 
 
 
+
+@dynamic category;
+
+	
 
 @dynamic images;
 

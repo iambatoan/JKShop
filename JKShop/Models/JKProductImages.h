@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "_JKProductImages.h"
+#import "JKHTTPClient.h"
 
 @interface JKProductImages : _JKProductImages
 

@@ -32,6 +32,8 @@
 #define CLASS_PREFIX_LENGTH                         2
 #define API_GET_LIST_CATEGORY                       @"/tk_get_list_categories/"
 #define API_GET_PRODUCT_BY_CATEGORY_ID              @"/tk_get_products_by_category/"
+#define API_GET_PRODUCT_BY_PRODUCT_ID               @"/tk_get_product_by_product_id/"
+
 
 #define ENABLE_FAKE_LOCATION                        YES         //Use the coordinate below, ignore location server
 #define FAKE_COORDINATE                             CLLocationCoordinate2DMake(3.18985899, 101.64969727)
@@ -55,11 +57,14 @@
 #import "JKLeftMenuViewController.h"
 #import "JKMapViewController.h"
 #import "JKNavigationViewController.h"
+#import "JKProductsCollectionCell.h"
+#import "JKProductsViewController.h"
 
 
 //Vendors
 #import "AFNetworking.h"
 #import "AFJSONRequestOperation.h"
+#import "UIImageView+AFNetworking.h"
 #import "Crittercism.h"
 #import "IIViewDeckController.h"
 #import "SVProgressHUD.h"
@@ -72,12 +77,14 @@
 #import "BaseNetworkManager.h"
 #import "FacebookManager.h"
 #import "JKHelperManager.h"
+#import "JKProductManager.h"
 
 //Categories
 #import "UIAlertView+Additions.h"
 #import "UIImage+Additions.h"
 #import "UIColor+Custom.h"
 #import "UIColor+Hex.h"
+#import "UILabel+Additions.h"
 
 //Models
 #import "JKHTTPClient.h"
