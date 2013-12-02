@@ -32,6 +32,7 @@ SINGLETON_MACRO
         NSArray *arr = [self getStoredProductsWithCategoryId:category_id];
         if (arr.count > 0) {
             successBlock(operation.response.statusCode, arr);
+            return;
         }
         
         if (failureBlock) {
