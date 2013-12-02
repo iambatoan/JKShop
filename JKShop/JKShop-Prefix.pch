@@ -25,7 +25,7 @@
 
 #define SETTINGS_GOOGLE_MAP_API_TOKEN               @"AIzaSyB9WLInu2QhsVM8X0KQGW0mnNZJqvXgZsE"
 
-#define JK_SHOP_MAP_SNIPPET                         @"Address : 351/1/12 Lạc Long Quân, Phường 5, Quận 11, thành phố Hồ Chí Minh\nContact : 0909 226 976 - Tùng"
+#define JK_SHOP_MAP_SNIPPET                         @"Address : 351/1/12 Lạc Long Quân, Phường 5, Quận 11, TP. Hồ Chí Minh\nContact : 0909 226 976 - Tùng"
 
 #define API_OAUTH_TOKEN                             @"/oauth/token"      //This is not inside API_PREFIX
 #define API_PREFIX                                  @"/api/v1"

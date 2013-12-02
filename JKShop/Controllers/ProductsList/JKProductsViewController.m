@@ -65,6 +65,10 @@ UISearchDisplayDelegate
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    if (self.productsArr.count != 0) {
+        self.collectionProducts.hidden = NO;
+    }
+    
     return self.productsArr.count;
 }
 
@@ -80,6 +84,7 @@ UISearchDisplayDelegate
     else{
         [cell customProductCellWithProduct:[self.productsArr objectAtIndex:indexPath.item]];
     }
+    
     return cell;
 }
 

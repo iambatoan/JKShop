@@ -11,7 +11,6 @@
 @interface JKMapViewController ()
 
 @property (strong, nonatomic) GMSMapView *mapView;
-@property (weak, nonatomic) IBOutlet UILabel *infoLablel;
 
 @end
 
@@ -41,7 +40,7 @@
     
     GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:SETTINGS_JK_SHOP_LATITUDE
                                                             longitude:SETTINGS_JK_SHOP_LONGITUDE
-                                                                 zoom:16];
+                                                                 zoom:17];
     self.mapView = [GMSMapView mapWithFrame:CGRectZero camera:camera];
     self.mapView.myLocationEnabled = YES;
     
@@ -51,6 +50,7 @@
     marker.title = @"JK Shop";
     marker.snippet = JK_SHOP_MAP_SNIPPET;
     marker.map = self.mapView;
+    self.mapView.mapType = kGMSTypeNormal;
     
     [self.mapView setSelectedMarker:marker];
 }

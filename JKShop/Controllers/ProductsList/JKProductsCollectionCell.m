@@ -22,6 +22,7 @@
 - (void)customProductCellWithProduct:(JKProduct *)aProduct{
     [self.productImageView setImageWithURL:[NSURL URLWithString:aProduct.cover_image]];
     self.productName.text = aProduct.name;
+//    self.productName.font = [UIFont fontNamesForFamilyName:@"Lato.ttf"];
     [self.productName setTextColor:[UIColor titleColor]];
     self.productPrice.text = [NSString stringWithFormat:@"%@ VNĐ",aProduct.price];
 }
