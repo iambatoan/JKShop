@@ -12,6 +12,7 @@
 #import "JKAppDelegate.h"
 #import "JKNavigationViewController.h"
 #import "JKLeftMenuFooter.h"
+#import "JKCategory.h"
 
 @interface JKLeftMenuViewController ()
 <
@@ -153,8 +154,10 @@ UITableViewDelegate
     }
     
     if (indexPath.row < self.arrMenu.count)
-        [cell configWithData:[self.arrMenu objectAtIndex:indexPath.row]];
-    
+    {
+        JKCategory *category = [JKCategory categoryWithDictionary:[self.arrMenu objectAtIndex:indexPath.row]];
+        [cell customCategoryCellWithCategory:category];
+    }
     return cell;
 }
 

@@ -13,6 +13,7 @@
 
 @interface JKSidebarMenuTableViewCell : UITableViewCell
 
+- (void)customCategoryCellWithCategory:(JKCategory *)category;
 - (void)configWithData:(id)data;
 + (CGFloat)getHeight;
 

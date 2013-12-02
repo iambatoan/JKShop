@@ -27,7 +27,7 @@ extern const struct JKProductRelationships {
 extern const struct JKProductFetchedProperties {
 } JKProductFetchedProperties;
 
-@class NSManagedObject;
+@class JKCategory;
 @class JKProductImages;
 
 
@@ -180,7 +180,7 @@ extern const struct JKProductFetchedProperties {
 
 
 
-@property (nonatomic, strong) NSManagedObject *category;
+@property (nonatomic, strong) JKCategory *category;
 
 //- (BOOL)validateCategory:(id*)value_ error:(NSError**)error_;
 
@@ -285,8 +285,8 @@ extern const struct JKProductFetchedProperties {
 
 
 
-- (NSManagedObject*)primitiveCategory;
-- (void)setPrimitiveCategory:(NSManagedObject*)value;
+- (JKCategory*)primitiveCategory;
+- (void)setPrimitiveCategory:(JKCategory*)value;
 
 
 

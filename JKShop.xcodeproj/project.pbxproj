@@ -24,6 +24,8 @@
 		0B26BE10184C5CFB008C1D79 /* UILabel+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B26BE0F184C5CFB008C1D79 /* UILabel+Additions.m */; };
 		0B26BE13184C611C008C1D79 /* JKProductsCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B26BE12184C611C008C1D79 /* JKProductsCollectionCell.m */; };
 		0B26BE15184C6182008C1D79 /* JKProductsCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B26BE14184C6182008C1D79 /* JKProductsCollectionCell.xib */; };
+		0B26BE18184C7E43008C1D79 /* JKCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B26BE17184C7E43008C1D79 /* JKCategory.m */; };
+		0B26BE1B184C7E50008C1D79 /* _JKCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B26BE1A184C7E50008C1D79 /* _JKCategory.m */; };
 		840644A9184992740065BCA4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 840644A8184992740065BCA4 /* Foundation.framework */; };
 		840644AB184992740065BCA4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 840644AA184992740065BCA4 /* CoreGraphics.framework */; };
 		840644AD184992750065BCA4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 840644AC184992740065BCA4 /* UIKit.framework */; };
@@ -167,6 +169,10 @@
 		0B26BE11184C611C008C1D79 /* JKProductsCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKProductsCollectionCell.h; path = Controllers/ProductsList/JKProductsCollectionCell.h; sourceTree = "<group>"; };
 		0B26BE12184C611C008C1D79 /* JKProductsCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKProductsCollectionCell.m; path = Controllers/ProductsList/JKProductsCollectionCell.m; sourceTree = "<group>"; };
 		0B26BE14184C6182008C1D79 /* JKProductsCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = JKProductsCollectionCell.xib; path = Controllers/ProductsList/JKProductsCollectionCell.xib; sourceTree = "<group>"; };
+		0B26BE16184C7E43008C1D79 /* JKCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKCategory.h; path = Models/JKCategory.h; sourceTree = "<group>"; };
+		0B26BE17184C7E43008C1D79 /* JKCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKCategory.m; path = Models/JKCategory.m; sourceTree = "<group>"; };
+		0B26BE19184C7E50008C1D79 /* _JKCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _JKCategory.h; sourceTree = "<group>"; };
+		0B26BE1A184C7E50008C1D79 /* _JKCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _JKCategory.m; sourceTree = "<group>"; };
 		840644A5184992740065BCA4 /* JKShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JKShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		840644A8184992740065BCA4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		840644AA184992740065BCA4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -581,6 +587,8 @@
 				84A3BB48184B086E00650BAF /* Machine */,
 				840645C21849C3780065BCA4 /* JKHTTPClient.h */,
 				840645C31849C3780065BCA4 /* JKHTTPClient.m */,
+				0B26BE16184C7E43008C1D79 /* JKCategory.h */,
+				0B26BE17184C7E43008C1D79 /* JKCategory.m */,
 				843D156D184A671600B65E35 /* JKProduct.h */,
 				843D156E184A671600B65E35 /* JKProduct.m */,
 				843D1570184A69F400B65E35 /* JKProductImages.h */,
@@ -816,6 +824,8 @@
 		84A3BB48184B086E00650BAF /* Machine */ = {
 			isa = PBXGroup;
 			children = (
+				0B26BE19184C7E50008C1D79 /* _JKCategory.h */,
+				0B26BE1A184C7E50008C1D79 /* _JKCategory.m */,
 				84A3BB49184B086E00650BAF /* _JKProduct.h */,
 				84A3BB4A184B086E00650BAF /* _JKProduct.m */,
 				84A3BB4B184B086E00650BAF /* _JKProductImages.h */,
@@ -1139,6 +1149,7 @@
 				84A3BB97184B096C00650BAF /* NSManagedObjectContext+MagicalObserving.m in Sources */,
 				84A3BB93184B096C00650BAF /* NSManagedObject+MagicalDataImport.m in Sources */,
 				84A3BB9B184B096C00650BAF /* NSManagedObjectModel+MagicalRecord.m in Sources */,
+				0B26BE18184C7E43008C1D79 /* JKCategory.m in Sources */,
 				84A3BBA4184B096C00650BAF /* MagicalRecord.m in Sources */,
 				843D1560184A638C00B65E35 /* JKProductsViewController.m in Sources */,
 				8406455B18499DF00065BCA4 /* BaseTableViewController.m in Sources */,
@@ -1146,6 +1157,7 @@
 				840645B81849BE5B0065BCA4 /* UIColor+Custom.m in Sources */,
 				840645DC1849CC2C0065BCA4 /* JKMapViewController.m in Sources */,
 				84A3BB9A184B096C00650BAF /* NSManagedObjectContext+MagicalThreading.m in Sources */,
+				0B26BE1B184C7E50008C1D79 /* _JKCategory.m in Sources */,
 				0B26BE13184C611C008C1D79 /* JKProductsCollectionCell.m in Sources */,
 				840645D61849CB220065BCA4 /* JKNavigationViewController.m in Sources */,
 				8406454A18499DCE0065BCA4 /* AFImageRequestOperation.m in Sources */,

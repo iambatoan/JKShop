@@ -87,6 +87,7 @@
 #import "UILabel+Additions.h"
 
 //Models
+#import "JKCategory.h"
 #import "JKHTTPClient.h"
 #import "JKProduct.h"
 #import "JKProductImages.h"

@@ -13,7 +13,7 @@
 + (JKProduct *)productWithDictionary:(NSDictionary *)dictionary
 {
     // look for the core data first
-    JKProduct *product = [[JKProduct MR_findByAttribute:@"product_id" withValue:dictionary[@"MaSanPham"]] lastObject];
+    JKProduct *product = [[JKProduct MR_findByAttribute:@"product_id" withValue:dictionary[@"id"]] lastObject];
     
     if (product)
         return product;

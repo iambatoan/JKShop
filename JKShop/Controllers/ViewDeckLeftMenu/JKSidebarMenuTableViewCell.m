@@ -17,6 +17,12 @@
 
 @implementation JKSidebarMenuTableViewCell
 
+- (void)customCategoryCellWithCategory:(JKCategory *)category
+{
+    [self customCell];
+    self.sidebarMenuTitle.text = [category name];
+}
+
 - (void)configWithData:(id)data
 {
     [self customCell];
