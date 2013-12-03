@@ -28,10 +28,6 @@
 		0B26BE1B184C7E50008C1D79 /* _JKCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B26BE1A184C7E50008C1D79 /* _JKCategory.m */; };
 		0B26BE1D184C96B4008C1D79 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B26BE1C184C96B4008C1D79 /* logo.png */; };
 		0B26BE1F184C988E008C1D79 /* no_product.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0B26BE1E184C988E008C1D79 /* no_product.gif */; };
-		0B26BE25184C9D94008C1D79 /* Lato-Hai.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0B26BE21184C9D94008C1D79 /* Lato-Hai.ttf */; };
-		0B26BE26184C9D94008C1D79 /* Lato-HaiIta.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0B26BE22184C9D94008C1D79 /* Lato-HaiIta.ttf */; };
-		0B26BE27184C9D94008C1D79 /* Lato-Lig.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0B26BE23184C9D94008C1D79 /* Lato-Lig.ttf */; };
-		0B26BE28184C9D94008C1D79 /* Lato-LigIta.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0B26BE24184C9D94008C1D79 /* Lato-LigIta.ttf */; };
 		840644A9184992740065BCA4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 840644A8184992740065BCA4 /* Foundation.framework */; };
 		840644AB184992740065BCA4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 840644AA184992740065BCA4 /* CoreGraphics.framework */; };
 		840644AD184992750065BCA4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 840644AC184992740065BCA4 /* UIKit.framework */; };
@@ -144,6 +140,7 @@
 		84A3BBA3184B096C00650BAF /* MagicalRecord+ShorthandSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A3BB86184B096C00650BAF /* MagicalRecord+ShorthandSupport.m */; };
 		84A3BBA4184B096C00650BAF /* MagicalRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A3BB88184B096C00650BAF /* MagicalRecord.m */; };
 		84A3BBA6184B12BE00650BAF /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 84A3BBA5184B12BE00650BAF /* GoogleMaps.bundle */; };
+		84D7FC9F184CD49B0084D805 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84D7FC9E184CD49B0084D805 /* Lato-Regular.ttf */; };
 		84F99F0D184A1AEC00356DB3 /* setting.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F99F05184A1AEC00356DB3 /* setting.png */; };
 		84F99F0E184A1AEC00356DB3 /* setting@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F99F06184A1AEC00356DB3 /* setting@2x.png */; };
 		84F99F0F184A1AEC00356DB3 /* info.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F99F07184A1AEC00356DB3 /* info.png */; };
@@ -181,10 +178,6 @@
 		0B26BE1A184C7E50008C1D79 /* _JKCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _JKCategory.m; sourceTree = "<group>"; };
 		0B26BE1C184C96B4008C1D79 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = Resources/Home/logo.png; sourceTree = "<group>"; };
 		0B26BE1E184C988E008C1D79 /* no_product.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = no_product.gif; path = Resources/Home/no_product.gif; sourceTree = "<group>"; };
-		0B26BE21184C9D94008C1D79 /* Lato-Hai.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Hai.ttf"; sourceTree = "<group>"; };
-		0B26BE22184C9D94008C1D79 /* Lato-HaiIta.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-HaiIta.ttf"; sourceTree = "<group>"; };
-		0B26BE23184C9D94008C1D79 /* Lato-Lig.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Lig.ttf"; sourceTree = "<group>"; };
-		0B26BE24184C9D94008C1D79 /* Lato-LigIta.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-LigIta.ttf"; sourceTree = "<group>"; };
 		840644A5184992740065BCA4 /* JKShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JKShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		840644A8184992740065BCA4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		840644AA184992740065BCA4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -380,6 +373,7 @@
 		84A3BB89184B096C00650BAF /* MagicalRecordShorthand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagicalRecordShorthand.h; sourceTree = "<group>"; };
 		84A3BB8A184B096C00650BAF /* CoreData+MagicalRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CoreData+MagicalRecord.h"; sourceTree = "<group>"; };
 		84A3BBA5184B12BE00650BAF /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle; sourceTree = "<group>"; };
+		84D7FC9E184CD49B0084D805 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
 		84F99F05184A1AEC00356DB3 /* setting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = setting.png; path = Resources/SidebarSection/setting.png; sourceTree = "<group>"; };
 		84F99F06184A1AEC00356DB3 /* setting@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "setting@2x.png"; path = "Resources/SidebarSection/setting@2x.png"; sourceTree = "<group>"; };
 		84F99F07184A1AEC00356DB3 /* info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = info.png; path = Resources/SidebarSection/info.png; sourceTree = "<group>"; };
@@ -441,10 +435,7 @@
 		0B26BE20184C9D94008C1D79 /* Font */ = {
 			isa = PBXGroup;
 			children = (
-				0B26BE21184C9D94008C1D79 /* Lato-Hai.ttf */,
-				0B26BE22184C9D94008C1D79 /* Lato-HaiIta.ttf */,
-				0B26BE23184C9D94008C1D79 /* Lato-Lig.ttf */,
-				0B26BE24184C9D94008C1D79 /* Lato-LigIta.ttf */,
+				84D7FC9E184CD49B0084D805 /* Lato-Regular.ttf */,
 			);
 			name = Font;
 			path = Resources/Font;
@@ -1068,7 +1059,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				84F99F14184A1AEC00356DB3 /* category@2x.png in Resources */,
-				0B26BE27184C9D94008C1D79 /* Lato-Lig.ttf in Resources */,
 				8406459F1849B2770065BCA4 /* home.jpg in Resources */,
 				840645D11849C8A40065BCA4 /* left-nav-button@2x.png in Resources */,
 				84F99F1F184A263400356DB3 /* bookmark_list@2x.png in Resources */,
@@ -1081,7 +1071,6 @@
 				84F99F12184A1AEC00356DB3 /* star@2x.png in Resources */,
 				84F99F10184A1AEC00356DB3 /* info@2x.png in Resources */,
 				84F99F0F184A1AEC00356DB3 /* info.png in Resources */,
-				0B26BE26184C9D94008C1D79 /* Lato-HaiIta.ttf in Resources */,
 				84F99F17184A262A00356DB3 /* nav-back-btn-bg.png in Resources */,
 				843D156C184A658500B65E35 /* JKLeftMenuSectionHeader.xib in Resources */,
 				84F99F0D184A1AEC00356DB3 /* setting.png in Resources */,
@@ -1094,12 +1083,11 @@
 				84F99F11184A1AEC00356DB3 /* star.png in Resources */,
 				0B26BE15184C6182008C1D79 /* JKProductsCollectionCell.xib in Resources */,
 				840645D01849C8A40065BCA4 /* left-nav-button.png in Resources */,
-				0B26BE28184C9D94008C1D79 /* Lato-LigIta.ttf in Resources */,
 				840645AB1849B9030065BCA4 /* JKLeftMenuViewController.xib in Resources */,
 				840645B01849BB390065BCA4 /* JKSidebarMenuTableViewCell.xib in Resources */,
 				84F99F1E184A263400356DB3 /* bookmark_list.png in Resources */,
 				840644C0184992750065BCA4 /* Images.xcassets in Resources */,
-				0B26BE25184C9D94008C1D79 /* Lato-Hai.ttf in Resources */,
+				84D7FC9F184CD49B0084D805 /* Lato-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -32,14 +32,14 @@
 - (void)customCell
 {  
     // Dark line
-    UIView *btmLine = [[UIView alloc] initWithFrame:CGRectMake(0, 43, 320, 1)];
-    btmLine.backgroundColor = [UIColor colorWithHexValue:0x000000];
-    [self addSubview:btmLine];
-    
-    // Light line
-    UIView *topLine = [[UIView alloc] initWithFrame:CGRectMake(0, 44, 320, 1)];
-    topLine.backgroundColor = [UIColor colorWithHexValue:0x4d4b49];
-    [self addSubview:topLine];
+//    UIView *btmLine = [[UIView alloc] initWithFrame:CGRectMake(0, 43, 320, 1)];
+//    btmLine.backgroundColor = [UIColor colorWithHexValue:0x000000];
+//    [self addSubview:btmLine];
+//    
+//    // Light line
+//    UIView *topLine = [[UIView alloc] initWithFrame:CGRectMake(0, 44, 320, 1)];
+//    topLine.backgroundColor = [UIColor colorWithHexValue:0x4d4b49];
+//    [self addSubview:topLine];
 }
 
 #pragma mark - Helpers
