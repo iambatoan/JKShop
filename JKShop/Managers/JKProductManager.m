@@ -25,7 +25,13 @@ SINGLETON_MACRO
         [[JKProductManager sharedInstance] productsFromReponseObject:responseObject[@"products"]];
         
         if (successBlock) {
-            successBlock(operation.response.statusCode, responseObject);
+            JKProduct *product;
+            NSMutableArray *arrProduct = [[NSMutableArray alloc] init];
+            for (int i = 0; i < [responseObject[@"products"] count]; i++) {
+                product = [JKProduct productWithDictionary:[responseObject[@"products"] objectAtIndex:i] category:[[JKCategory MR_findByAttribute:@"category_id" withValue:@(category_id)] firstObject]];
+                [arrProduct addObject:product];
+            }
+            successBlock(operation.response.statusCode, arrProduct);
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
@@ -54,7 +60,8 @@ SINGLETON_MACRO
         return arrProducts;
     }
     
-    arrProducts = [JKProduct MR_findByAttribute:@"category_id" withValue:catID];
+    JKCategory * category = [[JKCategory MR_findByAttribute:@"category_id" withValue:catID] firstObject];
+    arrProducts = [category.product allObjects];
     return arrProducts;
 }
 

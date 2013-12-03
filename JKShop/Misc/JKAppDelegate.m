@@ -23,6 +23,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [MagicalRecord setupCoreDataStack];
     [GMSServices provideAPIKey:SETTINGS_GOOGLE_MAP_API_TOKEN];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
@@ -34,8 +35,6 @@
     
     self.window.rootViewController = deckController;
     [self.window makeKeyAndVisible];
-    
-    [MagicalRecord setupCoreDataStack];
     return YES;
 }
 

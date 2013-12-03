@@ -42,6 +42,10 @@ UISearchDisplayDelegate
     
     [SVProgressHUD showWithStatus:@"Đang tải sản phẩm" maskType:SVProgressHUDMaskTypeGradient];
     [self.collectionProducts registerNib:[UINib nibWithNibName:@"JKProductsCollectionCell" bundle:nil] forCellWithReuseIdentifier:@"JKProductsCollectionCell"];
+    [self.collectionProducts setContentInset:UIEdgeInsetsMake(45, 0, 0, 0)];
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+        [self.collectionProducts setContentInset:UIEdgeInsetsMake(67, 0, 0, 0)];
+    }
     [self fillUpTableProductWithCategoryID:self.category_id];
 }
 
@@ -50,12 +54,8 @@ UISearchDisplayDelegate
 {
     [[JKProductManager sharedInstance] getProductsWithCategoryID:categoryID onSuccess:^(NSInteger statusCode, id obj) {
         [SVProgressHUD dismiss];
-        if ([obj isKindOfClass:[NSDictionary class]] && obj[@"products"]) {
-            [self.productsArr setArray:(NSArray *)obj[@"products"]];
-        }else
-        {
-            self.productsArr = obj;
-        }
+        
+        self.productsArr = obj;
         
         [self.collectionProducts reloadData];
     } failure:^(NSInteger statusCode, id obj) {
@@ -75,17 +75,12 @@ UISearchDisplayDelegate
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     NSString *cellIdentifier = @"JKProductsCollectionCell";
     JKProductsCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
-    
-    if (![[self.productsArr firstObject] isKindOfClass:[JKProduct class]]) {
-        JKProduct *product = [JKProduct productWithDictionary:[self.productsArr objectAtIndex:indexPath.item]];
-        product.category_id = [NSString stringWithFormat:@"%d",self.category_id];
-        [cell customProductCellWithProduct:product];
-    }
-    else{
-        [cell customProductCellWithProduct:[self.productsArr objectAtIndex:indexPath.item]];
-    }
-    
+    [cell customProductCellWithProduct:[self.productsArr objectAtIndex:indexPath.item]];
     return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    [collectionView deselectItemAtIndexPath:indexPath animated:YES];
 }
 
 

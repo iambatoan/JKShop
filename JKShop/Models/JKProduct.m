@@ -9,7 +9,6 @@
 #import "JKProduct.h"
 
 @implementation JKProduct
-
 + (JKProduct *)productWithDictionary:(NSDictionary *)dictionary
 {
     // look for the core data first
@@ -30,8 +29,24 @@
         product.size = dictionary[@"size"];
         product.stock = dictionary[@"stock"];
         product.stock_status = dictionary[@"stock_status"];
-        product.cover_image = [[dictionary[@"images"] objectAtIndex:0] objectAtIndex:1];
+        
+        NSArray *arrImages = dictionary[@"images"];
+        
+        NSArray *firstImage = nil;
+        if (arrImages.count > 0) {
+            firstImage = [arrImages objectAtIndex:0];
+        }
+        
+        if (firstImage && firstImage.count >= 2) {
+            product.cover_image = [firstImage objectAtIndex:1];
+        }
     }
+    return product;
+}
+
++ (JKProduct *)productWithDictionary:(NSDictionary *)dictionary category:(JKCategory*)category{
+    JKProduct *product = [JKProduct productWithDictionary:dictionary];
+    [product.categorySet addObject:category];
     return product;
 }
 

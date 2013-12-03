@@ -5,7 +5,6 @@
 
 
 extern const struct JKProductAttributes {
-	__unsafe_unretained NSString *category_id;
 	__unsafe_unretained NSString *color;
 	__unsafe_unretained NSString *cover_image;
 	__unsafe_unretained NSString *detail;
@@ -42,7 +41,6 @@ extern const struct JKProductFetchedProperties {
 
 
 
-
 @interface JKProductID : NSManagedObjectID {}
 @end
 
@@ -51,16 +49,6 @@ extern const struct JKProductFetchedProperties {
 + (NSString*)entityName;
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
 - (JKProductID*)objectID;
-
-
-
-
-
-@property (nonatomic, strong) NSString* category_id;
-
-
-
-//- (BOOL)validateCategory_id:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -180,9 +168,9 @@ extern const struct JKProductFetchedProperties {
 
 
 
-@property (nonatomic, strong) JKCategory *category;
+@property (nonatomic, strong) NSSet *category;
 
-//- (BOOL)validateCategory:(id*)value_ error:(NSError**)error_;
+- (NSMutableSet*)categorySet;
 
 
 
@@ -199,6 +187,11 @@ extern const struct JKProductFetchedProperties {
 
 @interface _JKProduct (CoreDataGeneratedAccessors)
 
+- (void)addCategory:(NSSet*)value_;
+- (void)removeCategory:(NSSet*)value_;
+- (void)addCategoryObject:(JKCategory*)value_;
+- (void)removeCategoryObject:(JKCategory*)value_;
+
 - (void)addImages:(NSSet*)value_;
 - (void)removeImages:(NSSet*)value_;
 - (void)addImagesObject:(JKProductImages*)value_;
@@ -207,12 +200,6 @@ extern const struct JKProductFetchedProperties {
 @end
 
 @interface _JKProduct (CoreDataGeneratedPrimitiveAccessors)
-
-
-- (NSString*)primitiveCategory_id;
-- (void)setPrimitiveCategory_id:(NSString*)value;
-
-
 
 
 - (NSString*)primitiveColor;
@@ -285,8 +272,8 @@ extern const struct JKProductFetchedProperties {
 
 
 
-- (JKCategory*)primitiveCategory;
-- (void)setPrimitiveCategory:(JKCategory*)value;
+- (NSMutableSet*)primitiveCategory;
+- (void)setPrimitiveCategory:(NSMutableSet*)value;
 
 
 

@@ -13,6 +13,7 @@
 #import "JKNavigationViewController.h"
 #import "JKLeftMenuFooter.h"
 #import "JKCategory.h"
+#import "JKHomeViewController.h"
 
 @interface JKLeftMenuViewController ()
 <
@@ -44,7 +45,9 @@ UITableViewDelegate
     
     [self.menuTableView registerNib:[UINib nibWithNibName:NSStringFromClass([JKSidebarMenuTableViewCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([JKSidebarMenuTableViewCell class])];
     
-    [[JKHelperManager sharedInstance] getMenuListOnComplete:^(NSArray *menu) {
+    self.arrMenu = [[JKCategory MR_findAll] mutableCopy];
+    
+    [[JKCategoryManager sharedInstance] getMenuListOnComplete:^(NSArray *menu) {
         self.arrMenu = [menu mutableCopy];
         [self.menuTableView reloadData];
     } orFailure:^(NSError *error) {
@@ -155,21 +158,21 @@ UITableViewDelegate
     
     if (indexPath.row < self.arrMenu.count)
     {
-        JKCategory *category = [JKCategory categoryWithDictionary:[self.arrMenu objectAtIndex:indexPath.row]];
+        JKCategory *category = [self.arrMenu objectAtIndex:indexPath.row];
         [cell customCategoryCellWithCategory:category];
     }
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    IIViewDeckController *deckViewController = (IIViewDeckController*)[[(JKAppDelegate*)[[UIApplication sharedApplication]delegate] window] rootViewController];
+    IIViewDeckController *deckViewController = (IIViewDeckController*)[[(JKAppDelegate*)[[UIApplication sharedApplication] delegate] window] rootViewController];
     JKNavigationViewController *centralNavVC = (JKNavigationViewController *) deckViewController.centerController;
     
     if (indexPath.section == 0) {
         
         // Back to master menu
         if (indexPath.row == 0) {
-            [centralNavVC popToRootViewControllerAnimated:YES];
+            [centralNavVC setViewControllers:[NSArray arrayWithObject:[[JKHomeViewController alloc] init]] animated:YES];
             [deckViewController toggleLeftView];
             return;
         }
@@ -201,14 +204,14 @@ UITableViewDelegate
             
             menu3.title = @"Hướng dẫn đặt hàng";
             
-            [centralNavVC pushViewController:menu3 animated:YES];
+            [centralNavVC setViewControllers:[NSArray arrayWithObject:menu3] animated:YES];
             [deckViewController toggleLeftView];
             return;
         }
     }
     
     if (indexPath.section == 3) {
-        [centralNavVC pushViewController:[[JKMapViewController alloc] init] animated:YES];
+        [centralNavVC setViewControllers:[NSArray arrayWithObject:[[JKMapViewController alloc]init]] animated:YES];
         [deckViewController toggleLeftView];
         return;
     }
@@ -219,9 +222,9 @@ UITableViewDelegate
     }
     
     JKProductsViewController *productsVC = [[JKProductsViewController alloc] init];
-    productsVC.category_id = [[[self.arrMenu objectAtIndex:indexPath.row] objectForKey:CATEGORY_ID] integerValue];
-    productsVC.lblTitle = [[self.arrMenu objectAtIndex:indexPath.row] objectForKey:MENU_TITLE];
-    [centralNavVC pushViewController:productsVC animated:YES];
+    productsVC.category_id = [[self.arrMenu objectAtIndex:indexPath.row] getCategoryId];
+    productsVC.lblTitle = [[self.arrMenu objectAtIndex:indexPath.row] getCategoryName];
+    [centralNavVC setViewControllers:[NSArray arrayWithObject:productsVC] animated:YES];
     [deckViewController toggleLeftView];
 }
 

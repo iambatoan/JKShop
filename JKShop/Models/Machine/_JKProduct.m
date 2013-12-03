@@ -4,7 +4,6 @@
 #import "_JKProduct.h"
 
 const struct JKProductAttributes JKProductAttributes = {
-	.category_id = @"category_id",
 	.color = @"color",
 	.cover_image = @"cover_image",
 	.detail = @"detail",
@@ -60,13 +59,6 @@ const struct JKProductFetchedProperties JKProductFetchedProperties = {
 
 	return keyPaths;
 }
-
-
-
-
-@dynamic category_id;
-
-
 
 
 
@@ -169,6 +161,15 @@ const struct JKProductFetchedProperties JKProductFetchedProperties = {
 
 @dynamic category;
 
+	
+- (NSMutableSet*)categorySet {
+	[self willAccessValueForKey:@"category"];
+  
+	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"category"];
+  
+	[self didAccessValueForKey:@"category"];
+	return result;
+}
 	
 
 @dynamic images;

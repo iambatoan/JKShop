@@ -28,6 +28,8 @@
 		0B26BE1B184C7E50008C1D79 /* _JKCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B26BE1A184C7E50008C1D79 /* _JKCategory.m */; };
 		0B26BE1D184C96B4008C1D79 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B26BE1C184C96B4008C1D79 /* logo.png */; };
 		0B26BE1F184C988E008C1D79 /* no_product.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0B26BE1E184C988E008C1D79 /* no_product.gif */; };
+		0B92A685184DAE6E009B33DE /* navbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B92A683184DAE6E009B33DE /* navbg.png */; };
+		0B92A686184DAE6E009B33DE /* navbg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B92A684184DAE6E009B33DE /* navbg@2x.png */; };
 		840644A9184992740065BCA4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 840644A8184992740065BCA4 /* Foundation.framework */; };
 		840644AB184992740065BCA4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 840644AA184992740065BCA4 /* CoreGraphics.framework */; };
 		840644AD184992750065BCA4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 840644AC184992740065BCA4 /* UIKit.framework */; };
@@ -86,13 +88,12 @@
 		840645B81849BE5B0065BCA4 /* UIColor+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 840645B51849BE5B0065BCA4 /* UIColor+Custom.m */; };
 		840645B91849BE5B0065BCA4 /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 840645B71849BE5B0065BCA4 /* UIColor+Hex.m */; };
 		840645BC1849BF260065BCA4 /* JKLeftMenuSectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 840645BB1849BF260065BCA4 /* JKLeftMenuSectionHeader.m */; };
-		840645C11849C2A00065BCA4 /* JKHelperManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 840645C01849C2A00065BCA4 /* JKHelperManager.m */; };
+		840645C11849C2A00065BCA4 /* JKCategoryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 840645C01849C2A00065BCA4 /* JKCategoryManager.m */; };
 		840645C41849C3780065BCA4 /* JKHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 840645C31849C3780065BCA4 /* JKHTTPClient.m */; };
 		840645D01849C8A40065BCA4 /* left-nav-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 840645CC1849C8A40065BCA4 /* left-nav-button.png */; };
 		840645D11849C8A40065BCA4 /* left-nav-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 840645CD1849C8A40065BCA4 /* left-nav-button@2x.png */; };
 		840645D61849CB220065BCA4 /* JKNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 840645D41849CB220065BCA4 /* JKNavigationViewController.m */; };
 		840645DC1849CC2C0065BCA4 /* JKMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 840645DA1849CC2C0065BCA4 /* JKMapViewController.m */; };
-		840645DD1849CC2C0065BCA4 /* JKMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 840645DB1849CC2C0065BCA4 /* JKMapViewController.xib */; };
 		840645E21849CCAE0065BCA4 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 840645DF1849CCAE0065BCA4 /* SVProgressHUD.bundle */; };
 		840645E31849CCAE0065BCA4 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 840645E11849CCAE0065BCA4 /* SVProgressHUD.m */; };
 		840645E71849DA870065BCA4 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 840645E61849DA870065BCA4 /* ImageIO.framework */; };
@@ -178,6 +179,8 @@
 		0B26BE1A184C7E50008C1D79 /* _JKCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _JKCategory.m; sourceTree = "<group>"; };
 		0B26BE1C184C96B4008C1D79 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = Resources/Home/logo.png; sourceTree = "<group>"; };
 		0B26BE1E184C988E008C1D79 /* no_product.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = no_product.gif; path = Resources/Home/no_product.gif; sourceTree = "<group>"; };
+		0B92A683184DAE6E009B33DE /* navbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = navbg.png; path = Resources/Navigation/navbg.png; sourceTree = "<group>"; };
+		0B92A684184DAE6E009B33DE /* navbg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "navbg@2x.png"; path = "Resources/Navigation/navbg@2x.png"; sourceTree = "<group>"; };
 		840644A5184992740065BCA4 /* JKShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JKShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		840644A8184992740065BCA4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		840644AA184992740065BCA4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -278,8 +281,8 @@
 		840645B71849BE5B0065BCA4 /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+Hex.m"; path = "Categories/UIColor+Hex.m"; sourceTree = "<group>"; };
 		840645BA1849BF260065BCA4 /* JKLeftMenuSectionHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKLeftMenuSectionHeader.h; path = Controllers/ViewDeckLeftMenu/JKLeftMenuSectionHeader.h; sourceTree = "<group>"; };
 		840645BB1849BF260065BCA4 /* JKLeftMenuSectionHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKLeftMenuSectionHeader.m; path = Controllers/ViewDeckLeftMenu/JKLeftMenuSectionHeader.m; sourceTree = "<group>"; };
-		840645BF1849C2A00065BCA4 /* JKHelperManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKHelperManager.h; path = Managers/JKHelperManager.h; sourceTree = "<group>"; };
-		840645C01849C2A00065BCA4 /* JKHelperManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKHelperManager.m; path = Managers/JKHelperManager.m; sourceTree = "<group>"; };
+		840645BF1849C2A00065BCA4 /* JKCategoryManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKCategoryManager.h; path = Managers/JKCategoryManager.h; sourceTree = "<group>"; };
+		840645C01849C2A00065BCA4 /* JKCategoryManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKCategoryManager.m; path = Managers/JKCategoryManager.m; sourceTree = "<group>"; };
 		840645C21849C3780065BCA4 /* JKHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKHTTPClient.h; path = Models/JKHTTPClient.h; sourceTree = "<group>"; };
 		840645C31849C3780065BCA4 /* JKHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKHTTPClient.m; path = Models/JKHTTPClient.m; sourceTree = "<group>"; };
 		840645C61849C7FA0065BCA4 /* JKNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKNavigationViewController.h; path = Controllers/NavigationController/JKNavigationViewController.h; sourceTree = "<group>"; };
@@ -288,7 +291,6 @@
 		840645D41849CB220065BCA4 /* JKNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKNavigationViewController.m; path = Controllers/NavigationController/JKNavigationViewController.m; sourceTree = "<group>"; };
 		840645D91849CC2C0065BCA4 /* JKMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKMapViewController.h; path = Controllers/MapViewController/JKMapViewController.h; sourceTree = "<group>"; };
 		840645DA1849CC2C0065BCA4 /* JKMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKMapViewController.m; path = Controllers/MapViewController/JKMapViewController.m; sourceTree = "<group>"; };
-		840645DB1849CC2C0065BCA4 /* JKMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = JKMapViewController.xib; path = Controllers/MapViewController/JKMapViewController.xib; sourceTree = "<group>"; };
 		840645DF1849CCAE0065BCA4 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
 		840645E01849CCAE0065BCA4 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
 		840645E11849CCAE0065BCA4 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
@@ -582,8 +584,8 @@
 			isa = PBXGroup;
 			children = (
 				8406450B18499DA60065BCA4 /* Template Classes */,
-				840645BF1849C2A00065BCA4 /* JKHelperManager.h */,
-				840645C01849C2A00065BCA4 /* JKHelperManager.m */,
+				840645BF1849C2A00065BCA4 /* JKCategoryManager.h */,
+				840645C01849C2A00065BCA4 /* JKCategoryManager.m */,
 				843D1559184A5FE600B65E35 /* JKProductManager.h */,
 				843D155A184A5FE600B65E35 /* JKProductManager.m */,
 			);
@@ -797,6 +799,8 @@
 		840645CB1849C8850065BCA4 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
+				0B92A683184DAE6E009B33DE /* navbg.png */,
+				0B92A684184DAE6E009B33DE /* navbg@2x.png */,
 				84F99F15184A262A00356DB3 /* nav-back-btn-bg.png */,
 				84F99F16184A262A00356DB3 /* nav-back-btn-bg@2x.png */,
 				840645CC1849C8A40065BCA4 /* left-nav-button.png */,
@@ -810,7 +814,6 @@
 			children = (
 				840645D91849CC2C0065BCA4 /* JKMapViewController.h */,
 				840645DA1849CC2C0065BCA4 /* JKMapViewController.m */,
-				840645DB1849CC2C0065BCA4 /* JKMapViewController.xib */,
 			);
 			name = MapViewController;
 			sourceTree = "<group>";
@@ -1067,14 +1070,15 @@
 				840644B5184992750065BCA4 /* InfoPlist.strings in Resources */,
 				84F99F18184A262A00356DB3 /* nav-back-btn-bg@2x.png in Resources */,
 				84F99F0E184A1AEC00356DB3 /* setting@2x.png in Resources */,
+				0B92A685184DAE6E009B33DE /* navbg.png in Resources */,
 				840645A51849B8CA0065BCA4 /* JKHomeViewController.xib in Resources */,
+				0B92A686184DAE6E009B33DE /* navbg@2x.png in Resources */,
 				84F99F12184A1AEC00356DB3 /* star@2x.png in Resources */,
 				84F99F10184A1AEC00356DB3 /* info@2x.png in Resources */,
 				84F99F0F184A1AEC00356DB3 /* info.png in Resources */,
 				84F99F17184A262A00356DB3 /* nav-back-btn-bg.png in Resources */,
 				843D156C184A658500B65E35 /* JKLeftMenuSectionHeader.xib in Resources */,
 				84F99F0D184A1AEC00356DB3 /* setting.png in Resources */,
-				840645DD1849CC2C0065BCA4 /* JKMapViewController.xib in Resources */,
 				84F99F13184A1AEC00356DB3 /* category.png in Resources */,
 				0B26BE1F184C988E008C1D79 /* no_product.gif in Resources */,
 				84A3BBA6184B12BE00650BAF /* GoogleMaps.bundle in Resources */,
@@ -1147,7 +1151,7 @@
 				84A3BBA0184B096C00650BAF /* MagicalRecord+iCloud.m in Sources */,
 				84A3BB8B184B096C00650BAF /* MagicalImportFunctions.m in Sources */,
 				84A3BB4E184B086E00650BAF /* _JKProductImages.m in Sources */,
-				840645C11849C2A00065BCA4 /* JKHelperManager.m in Sources */,
+				840645C11849C2A00065BCA4 /* JKCategoryManager.m in Sources */,
 				840645881849A8210065BCA4 /* AFUrbanAirshipClient.m in Sources */,
 				840645B31849BE190065BCA4 /* UIImage+Additions.m in Sources */,
 				843D1572184A69F400B65E35 /* JKProductImages.m in Sources */,

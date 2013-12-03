@@ -76,7 +76,7 @@
 #import "BaseLocationManager.h"
 #import "BaseNetworkManager.h"
 #import "FacebookManager.h"
-#import "JKHelperManager.h"
+#import "JKCategoryManager.h"
 #import "JKProductManager.h"
 
 //Categories

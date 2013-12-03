@@ -10,7 +10,7 @@
 
 #import "BaseManager.h"
 
-@interface JKHelperManager : BaseManager
+@interface JKCategoryManager : BaseManager
 
 - (void)getMenuListOnComplete:(void(^)(NSArray *menu))complete orFailure:(void(^)(NSError *error))failure;
 

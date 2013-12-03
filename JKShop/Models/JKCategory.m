@@ -16,4 +16,13 @@
     }
     return category;
 }
+
+- (NSInteger)getCategoryId{
+    return [self.category_id integerValue];
+}
+
+- (NSString *)getCategoryName{
+    return self.name;
+}
+
 @end

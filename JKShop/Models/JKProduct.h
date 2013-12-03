@@ -13,5 +13,6 @@
 @interface JKProduct : _JKProduct
 
 + (JKProduct *)productWithDictionary:(NSDictionary *)dictionary;
++ (JKProduct *)productWithDictionary:(NSDictionary *)dictionary category:(JKCategory*)category;
 
 @end
