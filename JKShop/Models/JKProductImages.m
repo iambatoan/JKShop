@@ -27,15 +27,14 @@
     return img;
 }
 
-+ (void)getImagesForProduct:(JKProduct *)product
++ (void)getImagesForProduct:(NSInteger)product_id
                successBlock:(JKJSONRequestSuccessBlock)successBlock
                failureBlock:(JKJSONRequestFailureBlock)failureBlock{
-    NSDictionary *params = @{@"product_id": product.product_id};
+    NSDictionary *params = @{@"product_id": [NSNumber numberWithInteger:product_id]};
     
     [[JKHTTPClient sharedClient] getPath:[NSString stringWithFormat:@"%@%@",API_SERVER_HOST,API_GET_PRODUCT_BY_PRODUCT_ID] parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
-        NSArray *setOfImage = (NSArray *)responseObject[@"images"];
-        JKProduct *storedProduct = [[JKProduct MR_findByAttribute:@"product_id" withValue:product.product_id] lastObject];
+        NSArray *setOfImage = (NSArray *)[[responseObject[@"products"] firstObject] objectForKey:@"images"];
+        JKProduct *storedProduct = [[JKProduct MR_findByAttribute:@"product_id" withValue:[NSNumber numberWithInteger:product_id]] lastObject];
         NSArray *arrTmpImages = [[NSArray alloc] init];
         NSMutableArray *arrImages = [[NSMutableArray alloc] init];
         
@@ -57,7 +56,7 @@
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
-        JKProduct *storedProduct = [[JKProduct MR_findByAttribute:@"product_id" withValue:product.product_id] lastObject];
+        JKProduct *storedProduct = [[JKProduct MR_findByAttribute:@"product_id" withValue:[NSNumber numberWithInteger:product_id]] lastObject];
         if (storedProduct.images.count > 0) {
             successBlock(operation.response.statusCode, [storedProduct.images allObjects]);
         }

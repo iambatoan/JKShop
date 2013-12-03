@@ -78,6 +78,7 @@
 #import "FacebookManager.h"
 #import "JKCategoryManager.h"
 #import "JKProductManager.h"
+#import "JKAppDelegate.h"
 
 //Categories
 #import "UIAlertView+Additions.h"

@@ -12,7 +12,7 @@
 
 @interface JKProductImages : _JKProductImages
 
-+ (void)getImagesForProduct:(JKProduct *)product
++ (void)getImagesForProduct:(NSInteger)product_id
                successBlock:(JKJSONRequestSuccessBlock)successBlock
                failureBlock:(JKJSONRequestFailureBlock)failureBlock;
 

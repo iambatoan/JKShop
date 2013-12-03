@@ -173,7 +173,7 @@ UITableViewDelegate
         // Back to master menu
         if (indexPath.row == 0) {
             [centralNavVC setViewControllers:[NSArray arrayWithObject:[[JKHomeViewController alloc] init]] animated:YES];
-            [deckViewController toggleLeftView];
+            [deckViewController toggleLeftViewAnimated:YES];
             return;
         }
         
@@ -205,14 +205,14 @@ UITableViewDelegate
             menu3.title = @"Hướng dẫn đặt hàng";
             
             [centralNavVC setViewControllers:[NSArray arrayWithObject:menu3] animated:YES];
-            [deckViewController toggleLeftView];
+            [deckViewController toggleLeftViewAnimated:YES];
             return;
         }
     }
     
     if (indexPath.section == 3) {
         [centralNavVC setViewControllers:[NSArray arrayWithObject:[[JKMapViewController alloc]init]] animated:YES];
-        [deckViewController toggleLeftView];
+        [deckViewController toggleLeftViewAnimated:YES];
         return;
     }
     
@@ -225,7 +225,7 @@ UITableViewDelegate
     productsVC.category_id = [[self.arrMenu objectAtIndex:indexPath.row] getCategoryId];
     productsVC.lblTitle = [[self.arrMenu objectAtIndex:indexPath.row] getCategoryName];
     [centralNavVC setViewControllers:[NSArray arrayWithObject:productsVC] animated:YES];
-    [deckViewController toggleLeftView];
+    [deckViewController toggleLeftViewAnimated:YES];
 }
 
 @end

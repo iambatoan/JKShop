@@ -50,4 +50,12 @@
     return product;
 }
 
+- (NSInteger)getProductId{
+    return [self.product_id integerValue];
+}
+
+- (NSString *)getProductName{
+    return self.name;
+}
+
 @end

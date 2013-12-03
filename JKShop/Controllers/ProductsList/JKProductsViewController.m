@@ -8,6 +8,7 @@
 
 #import "JKProductsViewController.h"
 #import "JKProductManager.h"
+#import "JKProductDetailViewController.h"
 
 @interface JKProductsViewController ()
 <
@@ -80,6 +81,14 @@ UISearchDisplayDelegate
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    IIViewDeckController *deckViewController = (IIViewDeckController*)[[(JKAppDelegate*)[[UIApplication sharedApplication] delegate] window] rootViewController];
+    JKNavigationViewController *centralNavVC = (JKNavigationViewController *) deckViewController.centerController;
+    JKProductDetailViewController *productDetailVC = [[JKProductDetailViewController alloc] init];
+    
+    productDetailVC.product_id = [[self.productsArr objectAtIndex:indexPath.item] getProductId];
+    productDetailVC.lblTitle = [[self.productsArr objectAtIndex:indexPath.item] getProductName];
+    
+    [centralNavVC pushViewController:productDetailVC animated:YES];
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
 }
 
