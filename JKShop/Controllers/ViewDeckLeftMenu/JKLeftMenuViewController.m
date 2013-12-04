@@ -206,6 +206,7 @@ UITableViewDelegate
             
             [centralNavVC setViewControllers:[NSArray arrayWithObject:menu3] animated:YES];
             [deckViewController toggleLeftViewAnimated:YES];
+            [menu3 addNavigationItems];
             return;
         }
     }

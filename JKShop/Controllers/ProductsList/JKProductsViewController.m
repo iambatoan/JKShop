@@ -41,7 +41,7 @@ IIViewDeckControllerDelegate
     
     [SVProgressHUD showWithStatus:@"Đang tải sản phẩm" maskType:SVProgressHUDMaskTypeGradient];
     [self.collectionProducts registerNib:[UINib nibWithNibName:@"JKProductsCollectionCell" bundle:nil] forCellWithReuseIdentifier:@"JKProductsCollectionCell"];
-    [self.collectionProducts setContentInset:UIEdgeInsetsMake(35, 0, 0, 0)];
+    [self.collectionProducts setContentInset:UIEdgeInsetsMake(45, 0, 0, 0)];
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
         [self.collectionProducts setContentInset:UIEdgeInsetsMake(67, 0, 0, 0)];
     }

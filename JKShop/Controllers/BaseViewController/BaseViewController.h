@@ -13,4 +13,6 @@
 
 @interface BaseViewController : GAITrackedViewController
 
+- (void)addNavigationItems;
+
 @end

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface JKProductDetailViewController : UIViewController
+@interface JKProductDetailViewController : BaseViewController
 
 @property (strong, nonatomic) JKProduct *product;
 
