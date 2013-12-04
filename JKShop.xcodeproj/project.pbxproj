@@ -28,6 +28,8 @@
 		0B26BE1B184C7E50008C1D79 /* _JKCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B26BE1A184C7E50008C1D79 /* _JKCategory.m */; };
 		0B26BE1D184C96B4008C1D79 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B26BE1C184C96B4008C1D79 /* logo.png */; };
 		0B26BE1F184C988E008C1D79 /* no_product.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0B26BE1E184C988E008C1D79 /* no_product.gif */; };
+		0B55CECA184EDEAA00A3E4ED /* JKProductsDetailCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B55CEC9184EDEAA00A3E4ED /* JKProductsDetailCollectionCell.m */; };
+		0B55CECC184EDEE800A3E4ED /* JKProductsDetailCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B55CECB184EDEE800A3E4ED /* JKProductsDetailCollectionCell.xib */; };
 		0B92A685184DAE6E009B33DE /* navbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B92A683184DAE6E009B33DE /* navbg.png */; };
 		0B92A686184DAE6E009B33DE /* navbg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B92A684184DAE6E009B33DE /* navbg@2x.png */; };
 		0B92A68B184DCA7F009B33DE /* JKProductDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B92A689184DCA7F009B33DE /* JKProductDetailViewController.m */; };
@@ -181,6 +183,9 @@
 		0B26BE1A184C7E50008C1D79 /* _JKCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _JKCategory.m; sourceTree = "<group>"; };
 		0B26BE1C184C96B4008C1D79 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = Resources/Home/logo.png; sourceTree = "<group>"; };
 		0B26BE1E184C988E008C1D79 /* no_product.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = no_product.gif; path = Resources/Home/no_product.gif; sourceTree = "<group>"; };
+		0B55CEC8184EDEAA00A3E4ED /* JKProductsDetailCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKProductsDetailCollectionCell.h; path = Controllers/ProductDetail/JKProductsDetailCollectionCell.h; sourceTree = "<group>"; };
+		0B55CEC9184EDEAA00A3E4ED /* JKProductsDetailCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKProductsDetailCollectionCell.m; path = Controllers/ProductDetail/JKProductsDetailCollectionCell.m; sourceTree = "<group>"; };
+		0B55CECB184EDEE800A3E4ED /* JKProductsDetailCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = JKProductsDetailCollectionCell.xib; path = Controllers/ProductDetail/JKProductsDetailCollectionCell.xib; sourceTree = "<group>"; };
 		0B92A683184DAE6E009B33DE /* navbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = navbg.png; path = Resources/Navigation/navbg.png; sourceTree = "<group>"; };
 		0B92A684184DAE6E009B33DE /* navbg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "navbg@2x.png"; path = "Resources/Navigation/navbg@2x.png"; sourceTree = "<group>"; };
 		0B92A688184DCA7F009B33DE /* JKProductDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKProductDetailViewController.h; path = Controllers/ProductDetail/JKProductDetailViewController.h; sourceTree = "<group>"; };
@@ -454,6 +459,9 @@
 				0B92A688184DCA7F009B33DE /* JKProductDetailViewController.h */,
 				0B92A689184DCA7F009B33DE /* JKProductDetailViewController.m */,
 				0B92A68A184DCA7F009B33DE /* JKProductDetailViewController.xib */,
+				0B55CEC8184EDEAA00A3E4ED /* JKProductsDetailCollectionCell.h */,
+				0B55CEC9184EDEAA00A3E4ED /* JKProductsDetailCollectionCell.m */,
+				0B55CECB184EDEE800A3E4ED /* JKProductsDetailCollectionCell.xib */,
 			);
 			name = ProductDetail;
 			sourceTree = "<group>";
@@ -1094,6 +1102,7 @@
 				0B92A68C184DCA7F009B33DE /* JKProductDetailViewController.xib in Resources */,
 				84F99F0F184A1AEC00356DB3 /* info.png in Resources */,
 				84F99F17184A262A00356DB3 /* nav-back-btn-bg.png in Resources */,
+				0B55CECC184EDEE800A3E4ED /* JKProductsDetailCollectionCell.xib in Resources */,
 				843D156C184A658500B65E35 /* JKLeftMenuSectionHeader.xib in Resources */,
 				84F99F0D184A1AEC00356DB3 /* setting.png in Resources */,
 				84F99F13184A1AEC00356DB3 /* category.png in Resources */,
@@ -1189,6 +1198,7 @@
 				8406450918499D880065BCA4 /* BaseAppDelegate.m in Sources */,
 				84A3BB8C184B096C00650BAF /* NSAttributeDescription+MagicalDataImport.m in Sources */,
 				84A3BB97184B096C00650BAF /* NSManagedObjectContext+MagicalObserving.m in Sources */,
+				0B55CECA184EDEAA00A3E4ED /* JKProductsDetailCollectionCell.m in Sources */,
 				84A3BB93184B096C00650BAF /* NSManagedObject+MagicalDataImport.m in Sources */,
 				84A3BB9B184B096C00650BAF /* NSManagedObjectModel+MagicalRecord.m in Sources */,
 				0B26BE18184C7E43008C1D79 /* JKCategory.m in Sources */,
