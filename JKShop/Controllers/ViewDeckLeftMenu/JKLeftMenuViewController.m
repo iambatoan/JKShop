@@ -18,15 +18,18 @@
 @interface JKLeftMenuViewController ()
 <
 UITableViewDataSource,
-UITableViewDelegate
+UITableViewDelegate,
+UISearchDisplayDelegate,
+UISearchBarDelegate
 >
 
 @property (strong, nonatomic) NSMutableArray        * arrMenu;
 @property (strong, nonatomic) NSArray               * arrSection;
 @property (strong, nonatomic) NSArray               * arrIconSection;
 @property (strong, nonatomic) NSArray               * arrSubMenuSectionOne;
-@property (weak, nonatomic) IBOutlet UITableView *menuTableView;
-
+@property (assign, nonatomic) BOOL                  isSearching;
+@property (strong, nonatomic) NSMutableArray        * filteredList;
+@property (weak, nonatomic) IBOutlet UITableView    *menuTableView;
 
 @end
 
@@ -63,22 +66,22 @@ UITableViewDelegate
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    // Hit
+    if (self.isSearching){
+        return self.filteredList.count;
+    }
+
     if (section == 0) {
         return self.arrSubMenuSectionOne.count;
     }
     
-    // Menu
     if (section == 1) {
         return self.arrMenu.count;
     }
     
-    // Information
     if (section == 2) {
         return 1;
     }
-    
-    // Log out
+
     if (section == 3) {
         return 1;
     }
@@ -136,6 +139,13 @@ UITableViewDelegate
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     NSString *cellIndentifier =  NSStringFromClass([JKSidebarMenuTableViewCell class]);
     JKSidebarMenuTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIndentifier];
+    
+    if (self.isSearching && [self.filteredList count]) {
+        if ([[self.filteredList objectAtIndex:indexPath.row] isKindOfClass:[JKProduct class]]) {
+#warning IMPORRRRTANT
+            return cell;
+        }
+    }
     
     if (indexPath.section == 0) {
         NSString *title = [self.arrSubMenuSectionOne objectAtIndex:indexPath.row];
@@ -227,6 +237,49 @@ UITableViewDelegate
     productsVC.lblTitle = [[self.arrMenu objectAtIndex:indexPath.row] getCategoryName];
     [centralNavVC setViewControllers:[NSArray arrayWithObject:productsVC] animated:YES];
     [deckViewController toggleLeftViewAnimated:YES];
+}
+
+- (void)searchDisplayControllerWillBeginSearch:(UISearchDisplayController *)controller{
+    self.isSearching = YES;
+}
+
+- (void)searchDisplayControllerWillEndSearch:(UISearchDisplayController *)controller{
+    self.isSearching = NO;
+}
+
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString{
+    [self filterListForSearchText:searchString];
+    return YES;
+}
+
+- (void)filterListForSearchText:(NSString *)searchText
+{
+    [self.filteredList removeAllObjects]; //clears the array from all the string objects it might contain from the previous searches
+    self.filteredList = [self arrProductsForSearchText:searchText];
+}
+
+- (NSMutableArray *)arrProductsForSearchText:(NSString *)searchText
+{
+    NSMutableArray *arrResultProduct = [[NSMutableArray alloc] init];
+    NSArray *arrProduct = [JKProduct MR_findAll];
+    
+    for (JKProduct *product in arrProduct) {
+        NSRange nameRange = [product.name rangeOfString:searchText options:NSCaseInsensitiveSearch];
+        if (nameRange.location != NSNotFound) {
+            [arrResultProduct addObject:product];
+        }
+    }
+    
+    if (arrResultProduct.count == 0) {
+        for (JKProduct *product in arrProduct) {
+            NSRange nameRange = [product.product_code rangeOfString:searchText options:NSCaseInsensitiveSearch];
+            if (nameRange.location != NSNotFound) {
+                [arrResultProduct addObject:product];
+            }
+        }
+    }
+    
+    return arrResultProduct;
 }
 
 @end
