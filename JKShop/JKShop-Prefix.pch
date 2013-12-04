@@ -59,6 +59,7 @@
 #import "JKNavigationViewController.h"
 #import "JKProductsCollectionCell.h"
 #import "JKProductsViewController.h"
+#import "MHFacebookImageViewer.h"
 
 
 //Vendors

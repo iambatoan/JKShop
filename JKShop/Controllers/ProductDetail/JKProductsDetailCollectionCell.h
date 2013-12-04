@@ -10,6 +10,7 @@
 
 @interface JKProductsDetailCollectionCell : UICollectionViewCell
 
+@property (weak, nonatomic) IBOutlet UIImageView *productImageView;
 - (void)customProductsDetailCellWithProductImage:(JKProductImages *)productImage;
 
 @end

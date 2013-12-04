@@ -8,12 +8,6 @@
 
 #import "JKProductsDetailCollectionCell.h"
 
-@interface JKProductsDetailCollectionCell()
-
-@property (weak, nonatomic) IBOutlet UIImageView *productImageView;
-
-@end
-
 @implementation JKProductsDetailCollectionCell
 
 - (void)customProductsDetailCellWithProductImage:(JKProductImages *)productImage{

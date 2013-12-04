@@ -43,7 +43,7 @@ IIViewDeckControllerDelegate
     [self.collectionProducts registerNib:[UINib nibWithNibName:@"JKProductsCollectionCell" bundle:nil] forCellWithReuseIdentifier:@"JKProductsCollectionCell"];
     [self.collectionProducts setContentInset:UIEdgeInsetsMake(45, 0, 0, 0)];
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
-        [self.collectionProducts setContentInset:UIEdgeInsetsMake(67, 0, 0, 0)];
+        [self.collectionProducts setContentInset:UIEdgeInsetsMake(60, 0, 0, 0)];
     }
     [self fillUpTableProductWithCategoryID:self.category_id];
 }
@@ -86,7 +86,7 @@ IIViewDeckControllerDelegate
     productDetailVC.product = [self.productsArr objectAtIndex:indexPath.item];
     
     [centralNavVC pushViewController:productDetailVC animated:YES];
-    [SVProgressHUD showWithStatus:@"Đang tải chi tiết sản phẩm"];
+    [SVProgressHUD showWithStatus:@"Đang tải chi tiết sản phẩm" maskType:SVProgressHUDMaskTypeGradient];
 }
 
 

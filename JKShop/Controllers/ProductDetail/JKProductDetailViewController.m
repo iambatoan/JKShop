@@ -35,14 +35,11 @@ UIScrollViewDelegate
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-//    [self.navigationController setNavigationBarHidden:YES animated:YES];
-//    self.viewDeckController.panningMode = IIViewDeckNoPanning;
     
-    [self.contentScrollView setScrollEnabled:NO];
-    self.navigationItem.leftBarButtonItem.enabled = NO;
     self.title = [self.product getProductName];
-
-    [self.contentScrollView setContentInset:UIEdgeInsetsMake(0, 0, 0, 0)];
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+        [self.contentScrollView setContentInset:UIEdgeInsetsMake(-35, 0, 0, 0)];
+    }
     [self.productCollectionView registerNib:[UINib nibWithNibName:@"JKProductsDetailCollectionCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"JKProductsDetailCollectionCell"];
     [self.relatedProductCollectionView registerNib:[UINib nibWithNibName:@"JKProductsCollectionCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"JKProductsCollectionCell"];
     [self fillUpTableProductWithCategoryID:[[self.product.category anyObject] getCategoryId]];
@@ -58,7 +55,6 @@ UIScrollViewDelegate
         [self.contentScrollView setScrollEnabled:YES];
         [self.productCollectionView reloadData];
         [SVProgressHUD dismiss];
-        self.navigationItem.leftBarButtonItem.enabled = YES;
         [self.imagePageControl setNumberOfPages:[self.productImageArray count]];
     } failureBlock:^(NSInteger statusCode, id obj) {
         [SVProgressHUD showErrorWithStatus:@"Xin vui lòng kiểm tra kết nối mạng và thử lại"];
@@ -101,6 +97,17 @@ UIScrollViewDelegate
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    if (collectionView == self.relatedProductCollectionView) {
+        IIViewDeckController *deckViewController = (IIViewDeckController*)[[(JKAppDelegate*)[[UIApplication sharedApplication] delegate] window] rootViewController];
+        JKNavigationViewController *centralNavVC = (JKNavigationViewController *) deckViewController.centerController;
+        JKProductDetailViewController *productDetailVC = [[JKProductDetailViewController alloc] init];
+        
+        productDetailVC.product = [self.productsArr objectAtIndex:indexPath.item];
+        
+        [centralNavVC pushViewController:productDetailVC animated:YES];
+        [SVProgressHUD showWithStatus:@"Đang tải chi tiết sản phẩm" maskType:SVProgressHUDMaskTypeGradient];
+
+    }
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
@@ -117,6 +124,10 @@ UIScrollViewDelegate
     if (collectionView == self.productCollectionView) {
         JKProductsDetailCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"JKProductsDetailCollectionCell" forIndexPath:indexPath];
         [cell customProductsDetailCellWithProductImage:[self.productImageArray objectAtIndex:indexPath.item]];
+        UIImageView *imageView = cell.productImageView;
+        [imageView setContentMode:UIViewContentModeScaleAspectFill];
+        [imageView setupImageViewer];
+        imageView.clipsToBounds = YES;
         return cell;
     }
     
