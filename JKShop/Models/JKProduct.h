@@ -16,5 +16,9 @@
 + (JKProduct *)productWithDictionary:(NSDictionary *)dictionary category:(JKCategory*)category;
 - (NSInteger)getProductId;
 - (NSString *)getProductName;
+- (NSSet *)getImageSet;
+- (NSString *)getProductSKU;
+- (NSString *)getProductDetail;
+- (NSString *)getProductPrice;
 
 @end

@@ -15,5 +15,8 @@
 + (void)getImagesForProduct:(NSInteger)product_id
                successBlock:(JKJSONRequestSuccessBlock)successBlock
                failureBlock:(JKJSONRequestFailureBlock)failureBlock;
+- (NSString *)getSmallImageURL;
+- (NSString *)getMediumImageURL;
+- (NSString *)getLargeImageURL;
 
 @end

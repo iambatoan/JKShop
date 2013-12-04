@@ -10,20 +10,22 @@
 
 @implementation JKProductImages
 
-+ (NSArray *)productImagesWithArray:(NSArray *)array
-{
-    __block NSMutableArray *result = [NSMutableArray array];
-    [array enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        [result addObject:[JKProductImages productImageWithURL:obj]];
-    }];
-    
-    return [result copy];
-}
-
-+ (JKProductImages *)productImageWithURL:(NSString *)stringURL
++ (JKProductImages *)productImagesWithArray:(NSArray *)array productID:(NSInteger)productID
 {
     JKProductImages *img = [JKProductImages MR_createEntity];
-//    [img setImageURL:stringURL];
+    img.product_id = [NSNumber numberWithInt:productID];
+    if (array.count == 3) {
+        img.small_URL = array[0];
+        img.medium_URL = array[1];
+        img.large_URL = array[2];
+        return img;
+    }
+    if (array.count == 2) {
+        img.small_URL = array[0];
+        img.medium_URL = array[1];
+        return img;
+    }
+    img.small_URL = array[0];
     return img;
 }
 
@@ -35,24 +37,18 @@
     [[JKHTTPClient sharedClient] getPath:[NSString stringWithFormat:@"%@%@",API_SERVER_HOST,API_GET_PRODUCT_BY_PRODUCT_ID] parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSArray *setOfImage = (NSArray *)[[responseObject[@"products"] firstObject] objectForKey:@"images"];
         JKProduct *storedProduct = [[JKProduct MR_findByAttribute:@"product_id" withValue:[NSNumber numberWithInteger:product_id]] lastObject];
-        NSArray *arrTmpImages = [[NSArray alloc] init];
-        NSMutableArray *arrImages = [[NSMutableArray alloc] init];
-        
+        NSArray *arrImages = [[NSArray alloc] init];
+        NSMutableArray *arrTmp = [[NSMutableArray alloc] init];
         for (int i = 0; i < [setOfImage count]; i++) {
-             arrTmpImages = [setOfImage[i] copy];
-            for (int j = 0; j < [arrTmpImages count]; j++) {
-                [arrImages addObject:[JKProductImages productImagesWithArray:arrTmpImages]];
-            }
+             arrImages = [setOfImage[i] copy];
+            [arrTmp addObject:[JKProductImages productImagesWithArray:arrImages productID:product_id]];
         }
-        
-        storedProduct.images = [NSSet setWithArray:arrImages];
-        
+        storedProduct.images = [NSSet setWithArray:arrTmp];
         NSManagedObjectContext *mainContext = [NSManagedObjectContext MR_defaultContext];
         [mainContext MR_saveToPersistentStoreWithCompletion:^(BOOL success, NSError *error) {
             DLog(@"Finish save to magical record");
         }];
-        
-        successBlock(operation.response.statusCode, arrImages);
+        successBlock(operation.response.statusCode, [storedProduct getImageSet]);
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
@@ -69,6 +65,18 @@
         }
     }];
     
+}
+
+- (NSString *)getSmallImageURL{
+    return self.small_URL;
+}
+
+- (NSString *)getMediumImageURL{
+    return self.medium_URL;
+}
+
+- (NSString *)getLargeImageURL{
+    return self.large_URL;
 }
 
 @end

@@ -10,7 +10,6 @@
 
 @interface JKProductDetailViewController : UIViewController
 
-@property (assign, nonatomic) NSInteger                    product_id;
-@property (assign, nonatomic) NSString*                   lblTitle;
+@property (strong, nonatomic) JKProduct *product;
 
 @end

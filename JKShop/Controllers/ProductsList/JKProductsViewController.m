@@ -14,9 +14,7 @@
 <
 UICollectionViewDataSource,
 UICollectionViewDelegate,
-IIViewDeckControllerDelegate,
-UISearchBarDelegate,
-UISearchDisplayDelegate
+IIViewDeckControllerDelegate
 >
 
 @property (strong, nonatomic) NSMutableArray            * productsArr;
@@ -85,11 +83,10 @@ UISearchDisplayDelegate
     JKNavigationViewController *centralNavVC = (JKNavigationViewController *) deckViewController.centerController;
     JKProductDetailViewController *productDetailVC = [[JKProductDetailViewController alloc] init];
     
-    productDetailVC.product_id = [[self.productsArr objectAtIndex:indexPath.item] getProductId];
-    productDetailVC.lblTitle = [[self.productsArr objectAtIndex:indexPath.item] getProductName];
+    productDetailVC.product = [self.productsArr objectAtIndex:indexPath.item];
     
     [centralNavVC pushViewController:productDetailVC animated:YES];
-    [collectionView deselectItemAtIndexPath:indexPath animated:YES];
+    [SVProgressHUD showWithStatus:@"Đang tải chi tiết sản phẩm"];
 }
 
 

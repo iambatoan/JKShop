@@ -58,4 +58,20 @@
     return self.name;
 }
 
+- (NSSet *)getImageSet{
+    return self.images;
+}
+
+- (NSString *)getProductPrice{
+    return self.price;
+}
+
+- (NSString *)getProductDetail{
+    return self.detail;
+}
+
+- (NSString *)getProductSKU{
+    return self.product_code;
+}
+
 @end
