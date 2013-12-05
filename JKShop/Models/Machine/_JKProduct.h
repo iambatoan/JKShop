@@ -6,7 +6,6 @@
 
 extern const struct JKProductAttributes {
 	__unsafe_unretained NSString *color;
-	__unsafe_unretained NSString *cover_image;
 	__unsafe_unretained NSString *detail;
 	__unsafe_unretained NSString *name;
 	__unsafe_unretained NSString *price;
@@ -40,7 +39,6 @@ extern const struct JKProductFetchedProperties {
 
 
 
-
 @interface JKProductID : NSManagedObjectID {}
 @end
 
@@ -59,16 +57,6 @@ extern const struct JKProductFetchedProperties {
 
 
 //- (BOOL)validateColor:(id*)value_ error:(NSError**)error_;
-
-
-
-
-
-@property (nonatomic, strong) NSString* cover_image;
-
-
-
-//- (BOOL)validateCover_image:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -204,12 +192,6 @@ extern const struct JKProductFetchedProperties {
 
 - (NSString*)primitiveColor;
 - (void)setPrimitiveColor:(NSString*)value;
-
-
-
-
-- (NSString*)primitiveCover_image;
-- (void)setPrimitiveCover_image:(NSString*)value;
 
 
 

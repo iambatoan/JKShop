@@ -21,6 +21,11 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		0B07C02218503761009EA61F /* ODRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B07C02118503761009EA61F /* ODRefreshControl.m */; };
+		0B07C02518505382009EA61F /* JKSearchProductCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B07C02418505382009EA61F /* JKSearchProductCell.m */; };
+		0B07C0271850539D009EA61F /* JKSearchProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B07C0261850539D009EA61F /* JKSearchProductCell.xib */; };
+		0B07C02A18505E74009EA61F /* search.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B07C02818505E74009EA61F /* search.png */; };
+		0B07C02B18505E74009EA61F /* search@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B07C02918505E74009EA61F /* search@2x.png */; };
 		0B26BE10184C5CFB008C1D79 /* UILabel+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B26BE0F184C5CFB008C1D79 /* UILabel+Additions.m */; };
 		0B26BE13184C611C008C1D79 /* JKProductsCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B26BE12184C611C008C1D79 /* JKProductsCollectionCell.m */; };
 		0B26BE15184C6182008C1D79 /* JKProductsCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B26BE14184C6182008C1D79 /* JKProductsCollectionCell.xib */; };
@@ -175,6 +180,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0B07C02018503761009EA61F /* ODRefreshControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODRefreshControl.h; sourceTree = "<group>"; };
+		0B07C02118503761009EA61F /* ODRefreshControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODRefreshControl.m; sourceTree = "<group>"; };
+		0B07C02318505382009EA61F /* JKSearchProductCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKSearchProductCell.h; path = Controllers/ProductsList/JKSearchProductCell.h; sourceTree = "<group>"; };
+		0B07C02418505382009EA61F /* JKSearchProductCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKSearchProductCell.m; path = Controllers/ProductsList/JKSearchProductCell.m; sourceTree = "<group>"; };
+		0B07C0261850539D009EA61F /* JKSearchProductCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = JKSearchProductCell.xib; path = Controllers/ProductsList/JKSearchProductCell.xib; sourceTree = "<group>"; };
+		0B07C02818505E74009EA61F /* search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = search.png; path = Resources/SidebarSection/search.png; sourceTree = "<group>"; };
+		0B07C02918505E74009EA61F /* search@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "search@2x.png"; path = "Resources/SidebarSection/search@2x.png"; sourceTree = "<group>"; };
 		0B26BE0E184C5CFB008C1D79 /* UILabel+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UILabel+Additions.h"; path = "Categories/UILabel+Additions.h"; sourceTree = "<group>"; };
 		0B26BE0F184C5CFB008C1D79 /* UILabel+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UILabel+Additions.m"; path = "Categories/UILabel+Additions.m"; sourceTree = "<group>"; };
 		0B26BE11184C611C008C1D79 /* JKProductsCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKProductsCollectionCell.h; path = Controllers/ProductsList/JKProductsCollectionCell.h; sourceTree = "<group>"; };
@@ -451,6 +463,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0B07C01F18503761009EA61F /* ODRefreshControl */ = {
+			isa = PBXGroup;
+			children = (
+				0B07C02018503761009EA61F /* ODRefreshControl.h */,
+				0B07C02118503761009EA61F /* ODRefreshControl.m */,
+			);
+			name = ODRefreshControl;
+			path = Vendors/ODRefreshControl;
+			sourceTree = "<group>";
+		};
 		0B26BE20184C9D94008C1D79 /* Font */ = {
 			isa = PBXGroup;
 			children = (
@@ -670,6 +692,7 @@
 		840644E3184996B90065BCA4 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				0B07C01F18503761009EA61F /* ODRefreshControl */,
 				84A3BB4F184B096C00650BAF /* MagicalRecord */,
 				840645DE1849CCAE0065BCA4 /* SVProgressHUD */,
 				840645911849AC010065BCA4 /* CrittercismSDK */,
@@ -890,6 +913,9 @@
 				0B26BE11184C611C008C1D79 /* JKProductsCollectionCell.h */,
 				0B26BE12184C611C008C1D79 /* JKProductsCollectionCell.m */,
 				0B26BE14184C6182008C1D79 /* JKProductsCollectionCell.xib */,
+				0B07C02318505382009EA61F /* JKSearchProductCell.h */,
+				0B07C02418505382009EA61F /* JKSearchProductCell.m */,
+				0B07C0261850539D009EA61F /* JKSearchProductCell.xib */,
 			);
 			name = ProductsList;
 			sourceTree = "<group>";
@@ -1013,6 +1039,8 @@
 		84F99F04184A1A3300356DB3 /* SidebarSection */ = {
 			isa = PBXGroup;
 			children = (
+				0B07C02818505E74009EA61F /* search.png */,
+				0B07C02918505E74009EA61F /* search@2x.png */,
 				84F99F05184A1AEC00356DB3 /* setting.png */,
 				84F99F06184A1AEC00356DB3 /* setting@2x.png */,
 				84F99F07184A1AEC00356DB3 /* info.png */,
@@ -1123,12 +1151,14 @@
 				84F99F18184A262A00356DB3 /* nav-back-btn-bg@2x.png in Resources */,
 				84F99F0E184A1AEC00356DB3 /* setting@2x.png in Resources */,
 				0B92A685184DAE6E009B33DE /* navbg.png in Resources */,
+				0B07C02B18505E74009EA61F /* search@2x.png in Resources */,
 				840645A51849B8CA0065BCA4 /* JKHomeViewController.xib in Resources */,
 				0B92A686184DAE6E009B33DE /* navbg@2x.png in Resources */,
 				84F99F12184A1AEC00356DB3 /* star@2x.png in Resources */,
 				84F99F10184A1AEC00356DB3 /* info@2x.png in Resources */,
 				0B92A68C184DCA7F009B33DE /* JKProductDetailViewController.xib in Resources */,
 				84F99F0F184A1AEC00356DB3 /* info.png in Resources */,
+				0B07C0271850539D009EA61F /* JKSearchProductCell.xib in Resources */,
 				84F99F17184A262A00356DB3 /* nav-back-btn-bg.png in Resources */,
 				0B55CECC184EDEE800A3E4ED /* JKProductsDetailCollectionCell.xib in Resources */,
 				843D156C184A658500B65E35 /* JKLeftMenuSectionHeader.xib in Resources */,
@@ -1138,6 +1168,7 @@
 				84A3BBA6184B12BE00650BAF /* GoogleMaps.bundle in Resources */,
 				0B55CED5184F2B8900A3E4ED /* Done@2x.png in Resources */,
 				843D1561184A638C00B65E35 /* JKProductsViewController.xib in Resources */,
+				0B07C02A18505E74009EA61F /* search.png in Resources */,
 				840645E21849CCAE0065BCA4 /* SVProgressHUD.bundle in Resources */,
 				84F99F11184A1AEC00356DB3 /* star.png in Resources */,
 				0B26BE15184C6182008C1D79 /* JKProductsCollectionCell.xib in Resources */,
@@ -1196,6 +1227,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B07C02218503761009EA61F /* ODRefreshControl.m in Sources */,
 				843D156F184A671600B65E35 /* JKProduct.m in Sources */,
 				8406454718499DCE0065BCA4 /* AFDownloadRequestOperation.m in Sources */,
 				84A3BBA2184B096C00650BAF /* MagicalRecord+Setup.m in Sources */,
@@ -1209,6 +1241,7 @@
 				84A3BB4E184B086E00650BAF /* _JKProductImages.m in Sources */,
 				840645C11849C2A00065BCA4 /* JKCategoryManager.m in Sources */,
 				840645881849A8210065BCA4 /* AFUrbanAirshipClient.m in Sources */,
+				0B07C02518505382009EA61F /* JKSearchProductCell.m in Sources */,
 				840645B31849BE190065BCA4 /* UIImage+Additions.m in Sources */,
 				843D1572184A69F400B65E35 /* JKProductImages.m in Sources */,
 				84A3BB8E184B096C00650BAF /* NSNumber+MagicalDataImport.m in Sources */,

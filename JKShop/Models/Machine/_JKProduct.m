@@ -5,7 +5,6 @@
 
 const struct JKProductAttributes JKProductAttributes = {
 	.color = @"color",
-	.cover_image = @"cover_image",
 	.detail = @"detail",
 	.name = @"name",
 	.price = @"price",
@@ -64,13 +63,6 @@ const struct JKProductFetchedProperties JKProductFetchedProperties = {
 
 
 @dynamic color;
-
-
-
-
-
-
-@dynamic cover_image;
 
 
 

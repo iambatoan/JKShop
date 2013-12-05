@@ -29,16 +29,8 @@
         product.size = dictionary[@"size"];
         product.stock = dictionary[@"stock"];
         product.stock_status = dictionary[@"stock_status"];
-        
-        NSArray *arrImages = dictionary[@"images"];
-        
-        NSArray *firstImage = nil;
-        if (arrImages.count > 0) {
-            firstImage = [arrImages objectAtIndex:0];
-        }
-        
-        if (firstImage && firstImage.count >= 2) {
-            product.cover_image = [firstImage objectAtIndex:1];
+        for (int i = 0; i < [dictionary[@"images"] count]; i++) {
+            [product.imagesSet addObject:[JKProductImages productImagesWithArray:[dictionary[@"images"] objectAtIndex:i] productID:(NSInteger)[NSNumber numberWithInt:[dictionary[@"id"] intValue]]]];
         }
     }
     return product;

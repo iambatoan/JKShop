@@ -11,7 +11,7 @@
 #import "JKHTTPClient.h"
 
 @interface JKProductImages : _JKProductImages
-
++ (JKProductImages *)productImagesWithArray:(NSArray *)array productID:(NSInteger)productID;
 + (void)getImagesForProduct:(NSInteger)product_id
                successBlock:(JKJSONRequestSuccessBlock)successBlock
                failureBlock:(JKJSONRequestFailureBlock)failureBlock;

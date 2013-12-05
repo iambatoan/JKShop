@@ -7,7 +7,6 @@
     </entity>
     <entity name="JKProduct" representedClassName="JKProduct" syncable="YES">
         <attribute name="color" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="cover_image" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="detail" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="price" optional="YES" attributeType="String" syncable="YES"/>
@@ -30,7 +29,7 @@
     </entity>
     <elements>
         <element name="JKCategory" positionX="396" positionY="137" width="128" height="88"/>
-        <element name="JKProduct" positionX="144" positionY="161" width="126" height="238"/>
+        <element name="JKProduct" positionX="144" positionY="161" width="126" height="223"/>
         <element name="JKProductImages" positionX="-137" positionY="153" width="128" height="133"/>
     </elements>
 </model>

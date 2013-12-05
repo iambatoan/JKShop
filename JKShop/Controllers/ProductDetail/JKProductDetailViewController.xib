@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="JKProductDetailViewController">
             <connections>
+                <outlet property="activityIndicator" destination="zKk-jW-Jwf" id="z1m-fe-O2u"/>
                 <outlet property="contentScrollView" destination="b0e-I7-8MV" id="IJs-tT-eAN"/>
                 <outlet property="imagePageControl" destination="Lyb-gf-96f" id="RNi-3q-33q"/>
                 <outlet property="labelProductDetail" destination="gyd-Vh-G5N" id="YJj-oB-cD4"/>
@@ -109,6 +110,10 @@
                             <color key="pageIndicatorTintColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="currentPageIndicatorTintColor" red="0.70196080207824707" green="0.70196080207824707" blue="0.70196080207824707" alpha="1" colorSpace="calibratedRGB"/>
                         </pageControl>
+                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" id="zKk-jW-Jwf">
+                            <rect key="frame" x="142" y="454" width="37" height="37"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </activityIndicatorView>
                     </subviews>
                 </scrollView>
             </subviews>

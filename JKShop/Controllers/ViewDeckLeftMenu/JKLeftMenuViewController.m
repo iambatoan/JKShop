@@ -14,6 +14,8 @@
 #import "JKLeftMenuFooter.h"
 #import "JKCategory.h"
 #import "JKHomeViewController.h"
+#import "JKSearchProductCell.h"
+#import "JKProductDetailViewController.h"
 
 @interface JKLeftMenuViewController ()
 <
@@ -49,7 +51,7 @@ UISearchBarDelegate
     [self.menuTableView registerNib:[UINib nibWithNibName:NSStringFromClass([JKSidebarMenuTableViewCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([JKSidebarMenuTableViewCell class])];
     
     self.arrMenu = [[JKCategory MR_findAll] mutableCopy];
-    
+    self.menuTableView.contentOffset = CGPointMake(0, self.searchDisplayController.searchBar.frame.size.height);
     [[JKCategoryManager sharedInstance] getMenuListOnComplete:^(NSArray *menu) {
         self.arrMenu = [menu mutableCopy];
         [self.menuTableView reloadData];
@@ -61,6 +63,9 @@ UISearchBarDelegate
 #pragma mark - Tableview datasource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    if (self.isSearching) {
+        return 1;
+    }
     return [self.arrSection count];
 }
 
@@ -94,6 +99,9 @@ UISearchBarDelegate
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (self.isSearching) {
+        return 128;
+    }
     return [JKSidebarMenuTableViewCell getHeight];
 }
 
@@ -107,12 +115,16 @@ UISearchBarDelegate
     if (!header) {
         header = [[JKLeftMenuSectionHeader alloc] init];
     }
-    
-    if ([[self.arrSection objectAtIndex:section] isKindOfClass:[NSString class]]) {
-        [header configTitleNameWithString:[self.arrSection objectAtIndex:section]];
-        [header configIconWithImageURL:[self.arrIconSection objectAtIndex:section]];
+    if (self.isSearching) {
+        [header configTitleNameWithString:@"Kết quả tìm kiếm"];
+        [header configIconWithImageURL:@"search"];
     }
-    
+    else{
+        if ([[self.arrSection objectAtIndex:section] isKindOfClass:[NSString class]]) {
+            [header configTitleNameWithString:[self.arrSection objectAtIndex:section]];
+            [header configIconWithImageURL:[self.arrIconSection objectAtIndex:section]];
+        }
+    }
     return header;
 
 }
@@ -142,34 +154,36 @@ UISearchBarDelegate
     
     if (self.isSearching && [self.filteredList count]) {
         if ([[self.filteredList objectAtIndex:indexPath.row] isKindOfClass:[JKProduct class]]) {
-#warning IMPORRRRTANT
-            return cell;
+            JKSearchProductCell * cell2 = [self.searchDisplayController.searchResultsTableView dequeueReusableCellWithIdentifier:@"JKSearchProductCell"];
+            [cell2 customCellWithProduct:[self.filteredList objectAtIndex:indexPath.row]];
+            return cell2;
         }
     }
+    else{
+        if (indexPath.section == 0) {
+            NSString *title = [self.arrSubMenuSectionOne objectAtIndex:indexPath.row];
+            NSDictionary *data = @{MENU_TITLE : title};
+            [cell configWithData:data];
+            return cell;
+        }
     
-    if (indexPath.section == 0) {
-        NSString *title = [self.arrSubMenuSectionOne objectAtIndex:indexPath.row];
-        NSDictionary *data = @{MENU_TITLE : title};
-        [cell configWithData:data];
-        return cell;
-    }
+        if (indexPath.section == 2) {
+            NSDictionary *data = @{MENU_TITLE : @"Cấu hình"};
+            [cell configWithData:data];
+            return cell;
+        }
     
-    if (indexPath.section == 2) {
-        NSDictionary *data = @{MENU_TITLE : @"Cấu hình"};
-        [cell configWithData:data];
-        return cell;
-    }
+        if (indexPath.section == 3) {
+            NSDictionary *data = @{MENU_TITLE : @"Bản đồ"};
+            [cell configWithData:data];
+            return cell;
+        }
     
-    if (indexPath.section == 3) {
-        NSDictionary *data = @{MENU_TITLE : @"Bản đồ"};
-        [cell configWithData:data];
-        return cell;
-    }
-    
-    if (indexPath.row < self.arrMenu.count)
-    {
-        JKCategory *category = [self.arrMenu objectAtIndex:indexPath.row];
-        [cell customCategoryCellWithCategory:category];
+        if (indexPath.row < self.arrMenu.count)
+        {
+            JKCategory *category = [self.arrMenu objectAtIndex:indexPath.row];
+            [cell customCategoryCellWithCategory:category];
+        }
     }
     return cell;
 }
@@ -177,74 +191,90 @@ UISearchBarDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     IIViewDeckController *deckViewController = (IIViewDeckController*)[[(JKAppDelegate*)[[UIApplication sharedApplication] delegate] window] rootViewController];
     JKNavigationViewController *centralNavVC = (JKNavigationViewController *) deckViewController.centerController;
-    
-    if (indexPath.section == 0) {
+    if (self.isSearching) {
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+        IIViewDeckController *deckViewController = (IIViewDeckController*)[[(JKAppDelegate*)[[UIApplication sharedApplication] delegate] window] rootViewController];
+        JKNavigationViewController *centralNavVC = (JKNavigationViewController *) deckViewController.centerController;
+        JKProductDetailViewController *productDetailVC = [[JKProductDetailViewController alloc] init];
         
-        // Back to master menu
-        if (indexPath.row == 0) {
-            [centralNavVC setViewControllers:[NSArray arrayWithObject:[[JKHomeViewController alloc] init]] animated:YES];
-            [deckViewController toggleLeftViewAnimated:YES];
-            return;
-        }
+        productDetailVC.product = [self.filteredList objectAtIndex:indexPath.item];
+        [self.view endEditing:YES];
+        [deckViewController toggleLeftView];
+        [centralNavVC pushViewController:productDetailVC animated:YES];
+        [SVProgressHUD showWithStatus:@"Đang tải chi tiết sản phẩm" maskType:SVProgressHUDMaskTypeGradient];
+
+    }
+    else{
+        if (indexPath.section == 0) {
         
-        // New products
+            // Back to master menu
+            if (indexPath.row == 0) {
+                [centralNavVC setViewControllers:[NSArray arrayWithObject:[[JKHomeViewController alloc] init]] animated:YES];
+                [deckViewController toggleLeftViewAnimated:YES];
+                return;
+            }
         
-        if (indexPath.row == 1) {
-//            OFProductsViewController *productsVC = [[OFProductsViewController alloc] init];
-//            productsVC.category_id = 21;
-//            productsVC.lblTitle = [self.arrSubMenuSectionOne objectAtIndex:indexPath.row];
+            // New products
+        
+            if (indexPath.row == 1) {
+//              OFProductsViewController *productsVC = [[OFProductsViewController alloc] init];
+//              productsVC.category_id = 21;
+//              productsVC.lblTitle = [self.arrSubMenuSectionOne objectAtIndex:indexPath.row];
 //            
-//            [centralNavVC pushViewController:productsVC animated:YES];
-//            [deckViewController toggleLeftView];
-            return;
-        }
+//              [centralNavVC pushViewController:productsVC animated:YES];
+//              [deckViewController toggleLeftView];
+                return;
+            }
         
-        // Contact screen
-        if (indexPath.row == 2) {
-            BaseViewController *menu3 = [[BaseViewController alloc] init];
-            CGRect frame = self.view.frame;
+            // Contact screen
+            if (indexPath.row == 2) {
+                BaseViewController *menu3 = [[BaseViewController alloc] init];
+                CGRect frame = self.view.frame;
             
-            UIWebView *web = [[UIWebView alloc] initWithFrame:frame];
-            [menu3.view addSubview:web];
+                UIWebView *web = [[UIWebView alloc] initWithFrame:frame];
+                [menu3.view addSubview:web];
             
-            NSString *path = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"thong-tin-thanh-toan.html"];
-            NSURL *url = [NSURL fileURLWithPath:path isDirectory:NO];
-            NSURLRequest *request = [NSURLRequest requestWithURL:url];
-            [web loadRequest:request];
+                NSString *path = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"thong-tin-thanh-toan.html"];
+                NSURL *url = [NSURL fileURLWithPath:path isDirectory:NO];
+                NSURLRequest *request = [NSURLRequest requestWithURL:url];
+                [web loadRequest:request];
             
-            menu3.title = @"Hướng dẫn đặt hàng";
+                menu3.title = @"Hướng dẫn đặt hàng";
             
-            [centralNavVC setViewControllers:[NSArray arrayWithObject:menu3] animated:YES];
+                [centralNavVC setViewControllers:[NSArray arrayWithObject:menu3] animated:YES];
+                [deckViewController toggleLeftViewAnimated:YES];
+                [menu3 addNavigationItems];
+                return;
+            }
+        }
+    
+        if (indexPath.section == 3) {
+            [centralNavVC setViewControllers:[NSArray arrayWithObject:[[JKMapViewController alloc]init]] animated:YES];
             [deckViewController toggleLeftViewAnimated:YES];
-            [menu3 addNavigationItems];
             return;
         }
-    }
     
-    if (indexPath.section == 3) {
-        [centralNavVC setViewControllers:[NSArray arrayWithObject:[[JKMapViewController alloc]init]] animated:YES];
+        if (indexPath.section == 2) {
+            [SVProgressHUD showErrorWithStatus:@"Chức năng hiện đang trong quá trình phát triển"];
+            return;
+        }
+    
+        JKProductsViewController *productsVC = [[JKProductsViewController alloc] init];
+        productsVC.category_id = [[self.arrMenu objectAtIndex:indexPath.row] getCategoryId];
+        productsVC.lblTitle = [[self.arrMenu objectAtIndex:indexPath.row] getCategoryName];
+        [centralNavVC setViewControllers:[NSArray arrayWithObject:productsVC] animated:YES];
         [deckViewController toggleLeftViewAnimated:YES];
-        return;
     }
-    
-    if (indexPath.section == 2) {
-        [SVProgressHUD showErrorWithStatus:@"Chức năng hiện đang trong quá trình phát triển"];
-        return;
-    }
-    
-    JKProductsViewController *productsVC = [[JKProductsViewController alloc] init];
-    productsVC.category_id = [[self.arrMenu objectAtIndex:indexPath.row] getCategoryId];
-    productsVC.lblTitle = [[self.arrMenu objectAtIndex:indexPath.row] getCategoryName];
-    [centralNavVC setViewControllers:[NSArray arrayWithObject:productsVC] animated:YES];
-    [deckViewController toggleLeftViewAnimated:YES];
 }
 
 - (void)searchDisplayControllerWillBeginSearch:(UISearchDisplayController *)controller{
     self.isSearching = YES;
+    [self.searchDisplayController.searchResultsTableView registerNib:[UINib nibWithNibName:NSStringFromClass([JKSearchProductCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([JKSearchProductCell class])];
 }
 
 - (void)searchDisplayControllerWillEndSearch:(UISearchDisplayController *)controller{
     self.isSearching = NO;
+    [self.menuTableView reloadData];
 }
 
 - (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString{
@@ -254,7 +284,7 @@ UISearchBarDelegate
 
 - (void)filterListForSearchText:(NSString *)searchText
 {
-    [self.filteredList removeAllObjects]; //clears the array from all the string objects it might contain from the previous searches
+    [self.filteredList removeAllObjects];
     self.filteredList = [self arrProductsForSearchText:searchText];
 }
 

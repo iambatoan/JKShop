@@ -27,6 +27,7 @@ UIScrollViewDelegate
 @property (strong, nonatomic) NSArray *productsArr;
 @property (weak, nonatomic) IBOutlet UIPageControl *relatedProductPage;
 @property (weak, nonatomic) IBOutlet UICollectionView *productCollectionView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @end
 
 @implementation JKProductDetailViewController
@@ -70,6 +71,7 @@ UIScrollViewDelegate
     self.labelRelatedProduct.frame = CGRectMake(self.labelRelatedProduct.frame.origin.x, self.labelProductDetail.frame.origin.y + self.labelProductDetail.frame.size.height + 10, self.labelRelatedProduct.frame.size.width, self.labelRelatedProduct.frame.size.height);
     self.relatedProductPage.frame = CGRectMake(self.relatedProductPage.frame.origin.x, self.labelRelatedProduct.frame.origin.y + self.labelRelatedProduct.frame.size.height + 10, self.relatedProductPage.frame.size.width, self.relatedProductPage.frame.size.height);
     self.relatedProductCollectionView.frame = CGRectMake(self.relatedProductCollectionView.frame.origin.x, self.relatedProductPage.frame.origin.y + self.relatedProductPage.frame.size.height, self.relatedProductCollectionView.frame.size.width, self.relatedProductCollectionView.frame.size.height);
+    self.activityIndicator.frame = CGRectMake(CGRectGetMidX([self.relatedProductCollectionView frame]) - 10, CGRectGetMidY([self.relatedProductCollectionView frame]) - 10, 30, 30);
     self.contentScrollView.contentSize = CGSizeMake(320,CGRectGetMaxY([self.relatedProductCollectionView frame]));
 }
 
@@ -90,6 +92,7 @@ UIScrollViewDelegate
         
         [self.relatedProductCollectionView reloadData];
         [self.relatedProductPage setNumberOfPages:([self.relatedProductCollectionView numberOfItemsInSection:0] + 1)/ 2];
+        [self.activityIndicator stopAnimating];
     } failure:^(NSInteger statusCode, id obj) {
         //Handle when failure
         [SVProgressHUD showErrorWithStatus:@"Xin vui lòng kiểm tra kết nối mạng và thử lại"];

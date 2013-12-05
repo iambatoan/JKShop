@@ -20,6 +20,7 @@ IIViewDeckControllerDelegate
 @property (strong, nonatomic) NSMutableArray            * productsArr;
 @property (assign, nonatomic) BOOL                        isSearching;
 @property (strong, nonatomic) NSMutableArray            * filteredList;
+@property (strong, nonatomic) UIRefreshControl            * refreshControl;
 
 @end
 
@@ -41,10 +42,15 @@ IIViewDeckControllerDelegate
     
     [SVProgressHUD showWithStatus:@"Đang tải sản phẩm" maskType:SVProgressHUDMaskTypeGradient];
     [self.collectionProducts registerNib:[UINib nibWithNibName:@"JKProductsCollectionCell" bundle:nil] forCellWithReuseIdentifier:@"JKProductsCollectionCell"];
-    [self.collectionProducts setContentInset:UIEdgeInsetsMake(45, 0, 0, 0)];
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
         [self.collectionProducts setContentInset:UIEdgeInsetsMake(60, 0, 0, 0)];
     }
+    else{
+        self.collectionProducts.frame = CGRectMake(8, 44, self.collectionProducts.frame.size.width, self.collectionProducts.frame.size.height);
+    }
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
+    [self.collectionProducts addSubview:self.refreshControl];
     [self fillUpTableProductWithCategoryID:self.category_id];
 }
 
@@ -87,6 +93,11 @@ IIViewDeckControllerDelegate
     
     [centralNavVC pushViewController:productDetailVC animated:YES];
     [SVProgressHUD showWithStatus:@"Đang tải chi tiết sản phẩm" maskType:SVProgressHUDMaskTypeGradient];
+}
+
+- (void)refresh{
+    [self fillUpTableProductWithCategoryID:self.category_id];
+    [self.refreshControl endRefreshing];
 }
 
 
