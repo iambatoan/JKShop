@@ -17,6 +17,9 @@
 #import "JKSearchProductCell.h"
 #import "JKProductDetailViewController.h"
 
+#warning Clean this
+static CGFloat const LEFT_SIZE = 10;
+
 @interface JKLeftMenuViewController ()
 <
 UITableViewDataSource,
@@ -61,6 +64,16 @@ UISearchBarDelegate
     }];
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    UITextField *txtSearchField = [self.searchDisplayController.searchBar valueForKey:@"_searchField"];
+    CGRect frame = txtSearchField.frame;
+    
+    #warning Clean this
+    frame.size.width = 276;
+    
+    txtSearchField.frame = frame;
+}
+
 #pragma mark - Tableview datasource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -76,6 +89,7 @@ UISearchBarDelegate
         return self.filteredList.count;
     }
 
+    #warning Clean this switch case
     if (section == 0) {
         return self.arrSubMenuSectionOne.count;
     }
@@ -101,6 +115,7 @@ UISearchBarDelegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (self.isSearching) {
+        #warning Clean this
         return 128;
     }
     return [JKSidebarMenuTableViewCell getHeight];
@@ -109,6 +124,7 @@ UISearchBarDelegate
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     JKLeftMenuSectionHeader *header = [tableView dequeueReusableHeaderFooterViewWithIdentifier:NSStringFromClass([JKLeftMenuSectionHeader class])];
     
+    #warning Clean this
     if (!header) {
         header = [[JKLeftMenuSectionHeader alloc] init];
     }
@@ -116,19 +132,23 @@ UISearchBarDelegate
     if (self.isSearching) {
         [header configTitleNameWithString:@"Kết quả tìm kiếm"];
         [header configIconWithImageURL:@"search"];
+        return header;
     }
-    else{
-        if ([[self.arrSection objectAtIndex:section] isKindOfClass:[NSString class]]) {
-            [header configTitleNameWithString:[self.arrSection objectAtIndex:section]];
-            [header configIconWithImageURL:[self.arrIconSection objectAtIndex:section]];
-        }
+
+    if ([[self.arrSection objectAtIndex:section] isKindOfClass:[NSString class]]) {
+        [header configTitleNameWithString:[self.arrSection objectAtIndex:section]];
+        [header configIconWithImageURL:[self.arrIconSection objectAtIndex:section]];
     }
+    
     return header;
 
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+    
     JKLeftMenuFooter *footer;
+    
+    #warning Clean this
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"6.0")) {
         footer = [tableView dequeueReusableHeaderFooterViewWithIdentifier:NSStringFromClass([JKLeftMenuFooter class])];
     }else{
@@ -141,8 +161,11 @@ UISearchBarDelegate
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    
+    #warning Clean this
     if(section == 3)
         return 65;
+    
     return 0;
 }
 
@@ -150,6 +173,7 @@ UISearchBarDelegate
     NSString *cellIndentifier =  NSStringFromClass([JKSidebarMenuTableViewCell class]);
     JKSidebarMenuTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIndentifier];
     
+    #warning Clean this
     if (self.isSearching && [self.filteredList count]) {
         if ([[self.filteredList objectAtIndex:indexPath.row] isKindOfClass:[JKProduct class]]) {
             JKSearchProductCell * cell2 = [self.searchDisplayController.searchResultsTableView dequeueReusableCellWithIdentifier:@"JKSearchProductCell"];
@@ -189,6 +213,8 @@ UISearchBarDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     IIViewDeckController *deckViewController = (IIViewDeckController*)[[(JKAppDelegate*)[[UIApplication sharedApplication] delegate] window] rootViewController];
     JKNavigationViewController *centralNavVC = (JKNavigationViewController *) deckViewController.centerController;
+    
+    #warning Clean this
     if (self.isSearching) {
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
         IIViewDeckController *deckViewController = (IIViewDeckController*)[[(JKAppDelegate*)[[UIApplication sharedApplication] delegate] window] rootViewController];
@@ -266,11 +292,14 @@ UISearchBarDelegate
 }
 
 - (void)searchDisplayControllerWillBeginSearch:(UISearchDisplayController *)controller{
+    
     self.isSearching = YES;
     [self.searchDisplayController.searchResultsTableView registerNib:[UINib nibWithNibName:NSStringFromClass([JKSearchProductCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([JKSearchProductCell class])];
     IIViewDeckController *deckViewController = (IIViewDeckController*)[[(JKAppDelegate*)[[UIApplication sharedApplication] delegate] window] rootViewController];
     [deckViewController setLeftSize:0];
     CGRect frame = self.menuTableView.frame;
+    
+    #warning Clean this
     frame.size.width = 320;
     self.menuTableView.frame = frame;
     self.searchDisplayController.searchResultsTableView.frame = frame;
@@ -279,13 +308,14 @@ UISearchBarDelegate
 - (void)searchDisplayControllerWillEndSearch:(UISearchDisplayController *)controller{
     self.isSearching = NO;
     [self.menuTableView reloadData];
+    
+    #warning Clean this
     IIViewDeckController *deckViewController = (IIViewDeckController*)[[(JKAppDelegate*)[[UIApplication sharedApplication] delegate] window] rootViewController];
     [deckViewController setLeftSize:44];
     CGRect frame = self.menuTableView.frame;
     frame.size.width = 276;
     [UIView animateWithDuration:0 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
         self.menuTableView.frame = frame;
-        self.searchDisplayController.searchResultsTableView.frame = frame;
     } completion:nil];
 }
 
@@ -296,7 +326,7 @@ UISearchBarDelegate
         frame.origin.y = -20;
         self.searchDisplayController.searchResultsTableView.frame = frame;
     }
-    return YES; 
+    return YES;
 }
 
 - (void)filterListForSearchText:(NSString *)searchText

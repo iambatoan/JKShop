@@ -14,6 +14,7 @@ SINGLETON_MACRO
 
 #pragma mark - Get product details from server
 
+#warning Clean this return the array of categories
 - (void)getProductsWithCategoryID:(NSInteger)category_id onSuccess:(JKJSONRequestSuccessBlock)successBlock failure:(JKJSONRequestFailureBlock)failureBlock
 {
     NSDictionary *params = @{

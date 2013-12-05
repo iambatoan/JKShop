@@ -8,7 +8,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="JKLeftMenuViewController">
             <connections>
                 <outlet property="menuTableView" destination="A86-vs-MQA" id="7Py-NR-2h4"/>
-                <outlet property="searchBar" destination="m2n-bT-mlE" id="7fR-P6-WHB"/>
                 <outlet property="searchDisplayController" destination="T2k-wW-KIQ" id="8fi-Iu-3Xu"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>

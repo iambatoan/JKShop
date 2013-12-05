@@ -15,8 +15,10 @@ UICollectionViewDataSource,
 UICollectionViewDelegate,
 UIScrollViewDelegate
 >
-@property (weak, nonatomic) IBOutlet UICollectionView *relatedProductCollectionView;
-@property (weak, nonatomic) IBOutlet UIPageControl *imagePageControl;
+
+#warning Clean this
+@property (weak, nonatomic) IBOutlet UICollectionView               * relatedProductCollectionView;
+@property (weak, nonatomic) IBOutlet UIPageControl                  * imagePageControl;
 @property (strong, nonatomic) NSArray *productImageArray;
 @property (weak, nonatomic) IBOutlet UILabel *labelProductName;
 @property (weak, nonatomic) IBOutlet UILabel *labelProductPrice;
@@ -63,6 +65,8 @@ UIScrollViewDelegate
 }
 
 - (void)loadProductDetail{
+    
+    #warning Clean this
     self.labelProductName.text = [self.product getProductName];
     self.labelProductPrice.text = [NSString stringWithFormat:@"Giá: %@ VNĐ",[self.product getProductPrice]];
     self.labelProductDetail.text = [NSString stringWithFormat:@"Chi tiết sản phẩm: %@",[self.product getProductDetail]];
@@ -76,7 +80,10 @@ UIScrollViewDelegate
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    
     CGFloat pageWidth = self.productCollectionView.frame.size.width;
+    
+    #warning Clean this
     int page = floor((self.productCollectionView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
     self.imagePageControl.currentPage = page;
 
@@ -93,6 +100,7 @@ UIScrollViewDelegate
         [self.relatedProductCollectionView reloadData];
         [self.relatedProductPage setNumberOfPages:([self.relatedProductCollectionView numberOfItemsInSection:0] + 1)/ 2];
         [self.activityIndicator stopAnimating];
+        
     } failure:^(NSInteger statusCode, id obj) {
         //Handle when failure
         [SVProgressHUD showErrorWithStatus:@"Xin vui lòng kiểm tra kết nối mạng và thử lại"];
@@ -114,9 +122,11 @@ UIScrollViewDelegate
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    
     if (collectionView == self.productCollectionView) {
         return [self.productImageArray count];
     }
+    
     if(self.productsArr.count > 5){
         return 5;
     }
@@ -124,7 +134,9 @@ UIScrollViewDelegate
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    
     if (collectionView == self.productCollectionView) {
+        #warning Clean this
         JKProductsDetailCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"JKProductsDetailCollectionCell" forIndexPath:indexPath];
         [cell customProductsDetailCellWithProductImage:[self.productImageArray objectAtIndex:indexPath.item]];
         UIImageView *imageView = cell.productImageView;
@@ -134,10 +146,13 @@ UIScrollViewDelegate
         return cell;
     }
     
+    #warning Clean this
     JKProductsCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"JKProductsCollectionCell" forIndexPath:indexPath];
     [cell customProductCellWithProduct:[self.productsArr objectAtIndex:indexPath.item]];
     return cell;
     
 }
+
+#pragma mark - Helper methods
 
 @end

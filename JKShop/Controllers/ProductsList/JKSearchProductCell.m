@@ -21,12 +21,16 @@
 @implementation JKSearchProductCell
 
 - (void)customCellWithProduct:(JKProduct *)product{
+    
+    // product name
     self.productName.text = product.name;
     [self.productName setFont:[UIFont fontWithName:@"Lato" size:20]];
     [self.productName setTextColor:[UIColor titleColor]];
+    
     if ([[product.images anyObject] getSmallImageURL]) {
         [self.productImage setImageWithURL:[NSURL URLWithString:[[product.images anyObject] getSmallImageURL]]];
     }
+    
     self.productPrice.text = [NSString stringWithFormat:@"%@ VNĐ",product.price];
     self.productCode.text = [NSString stringWithFormat:@"Mã sản phẩm: %@",product.product_code];
 }

@@ -36,12 +36,12 @@ IIViewDeckControllerDelegate
     }
     
     self.productsArr = [[NSMutableArray alloc] init];
-    
     self.isSearching = NO;
     self.filteredList = [[NSMutableArray alloc] init];
     
     [SVProgressHUD showWithStatus:@"Đang tải sản phẩm" maskType:SVProgressHUDMaskTypeGradient];
     [self.collectionProducts registerNib:[UINib nibWithNibName:@"JKProductsCollectionCell" bundle:nil] forCellWithReuseIdentifier:@"JKProductsCollectionCell"];
+    
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
         [self.collectionProducts setContentInset:UIEdgeInsetsMake(60, 0, 0, 0)];
     }
@@ -51,13 +51,14 @@ IIViewDeckControllerDelegate
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
     [self.collectionProducts addSubview:self.refreshControl];
+    
     [self fillUpTableProductWithCategoryID:self.category_id];
 }
 
 
 - (void)fillUpTableProductWithCategoryID:(NSInteger)categoryID
 {
-    [[JKProductManager sharedInstance] getProductsWithCategoryID:categoryID onSuccess:^(NSInteger statusCode, id obj) {
+    [[JKProductManager sharedInstance] getProductsWithCategoryID:categoryID onSuccess:^(NSInteger statusCode, NSArray *arrayProducts) {
         [SVProgressHUD dismiss];
         
         self.productsArr = obj;
@@ -78,14 +79,21 @@ IIViewDeckControllerDelegate
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    #warning Clean this
     NSString *cellIdentifier = @"JKProductsCollectionCell";
+    
     JKProductsCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
     [cell customProductCellWithProduct:[self.productsArr objectAtIndex:indexPath.item]];
     return cell;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    #warning Clean this
     IIViewDeckController *deckViewController = (IIViewDeckController*)[[(JKAppDelegate*)[[UIApplication sharedApplication] delegate] window] rootViewController];
+    
+    
     JKNavigationViewController *centralNavVC = (JKNavigationViewController *) deckViewController.centerController;
     JKProductDetailViewController *productDetailVC = [[JKProductDetailViewController alloc] init];
     
