@@ -49,6 +49,7 @@ UISearchBarDelegate
     self.arrIconSection = @[@"star.png",@"category.png",@"setting.png",@"info.png"];
     
     [self.menuTableView registerNib:[UINib nibWithNibName:NSStringFromClass([JKSidebarMenuTableViewCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([JKSidebarMenuTableViewCell class])];
+    [self.menuTableView registerNib:[UINib nibWithNibName:NSStringFromClass([JKLeftMenuSectionHeader class]) bundle:nil] forHeaderFooterViewReuseIdentifier:NSStringFromClass([JKLeftMenuSectionHeader class])];
     
     self.arrMenu = [[JKCategory MR_findAll] mutableCopy];
     self.menuTableView.contentOffset = CGPointMake(0, self.searchDisplayController.searchBar.frame.size.height);
@@ -106,15 +107,12 @@ UISearchBarDelegate
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    JKLeftMenuSectionHeader *header;
-    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"6.0")) {
-        header = [tableView dequeueReusableHeaderFooterViewWithIdentifier:NSStringFromClass([JKLeftMenuSectionHeader class])];
-    }else{
-        header = [[JKLeftMenuSectionHeader alloc] init];
-    }
+    JKLeftMenuSectionHeader *header = [tableView dequeueReusableHeaderFooterViewWithIdentifier:NSStringFromClass([JKLeftMenuSectionHeader class])];
+    
     if (!header) {
         header = [[JKLeftMenuSectionHeader alloc] init];
     }
+    
     if (self.isSearching) {
         [header configTitleNameWithString:@"Kết quả tìm kiếm"];
         [header configIconWithImageURL:@"search"];
@@ -279,6 +277,11 @@ UISearchBarDelegate
 
 - (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString{
     [self filterListForSearchText:searchString];
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+        CGRect frame = self.searchDisplayController.searchResultsTableView.frame;
+        frame.origin.y = -20;
+        self.searchDisplayController.searchResultsTableView.frame = frame;
+    }
     return YES;
 }
 

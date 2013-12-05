@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface JKLeftMenuSectionHeader : UIView
+@interface JKLeftMenuSectionHeader : UITableViewHeaderFooterView
 
 - (void)configTitleNameWithString:(NSString *)title;
 - (void)configIconWithImageURL:(NSString *)iconURL;
