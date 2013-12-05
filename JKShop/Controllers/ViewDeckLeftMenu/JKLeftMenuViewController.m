@@ -268,11 +268,25 @@ UISearchBarDelegate
 - (void)searchDisplayControllerWillBeginSearch:(UISearchDisplayController *)controller{
     self.isSearching = YES;
     [self.searchDisplayController.searchResultsTableView registerNib:[UINib nibWithNibName:NSStringFromClass([JKSearchProductCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([JKSearchProductCell class])];
+    IIViewDeckController *deckViewController = (IIViewDeckController*)[[(JKAppDelegate*)[[UIApplication sharedApplication] delegate] window] rootViewController];
+    [deckViewController setLeftSize:0];
+    CGRect frame = self.menuTableView.frame;
+    frame.size.width = 320;
+    self.menuTableView.frame = frame;
+    self.searchDisplayController.searchResultsTableView.frame = frame;
 }
 
 - (void)searchDisplayControllerWillEndSearch:(UISearchDisplayController *)controller{
     self.isSearching = NO;
     [self.menuTableView reloadData];
+    IIViewDeckController *deckViewController = (IIViewDeckController*)[[(JKAppDelegate*)[[UIApplication sharedApplication] delegate] window] rootViewController];
+    [deckViewController setLeftSize:44];
+    CGRect frame = self.menuTableView.frame;
+    frame.size.width = 276;
+    [UIView animateWithDuration:0 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
+        self.menuTableView.frame = frame;
+        self.searchDisplayController.searchResultsTableView.frame = frame;
+    } completion:nil];
 }
 
 - (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString{
@@ -282,7 +296,7 @@ UISearchBarDelegate
         frame.origin.y = -20;
         self.searchDisplayController.searchResultsTableView.frame = frame;
     }
-    return YES;
+    return YES; 
 }
 
 - (void)filterListForSearchText:(NSString *)searchText
