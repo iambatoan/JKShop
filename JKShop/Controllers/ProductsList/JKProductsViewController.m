@@ -61,7 +61,7 @@ IIViewDeckControllerDelegate
     [[JKProductManager sharedInstance] getProductsWithCategoryID:categoryID onSuccess:^(NSInteger statusCode, NSArray *arrayProducts) {
         [SVProgressHUD dismiss];
         
-        self.productsArr = obj;
+        self.productsArr = [arrayProducts mutableCopy];
         
         [self.collectionProducts reloadData];
     } failure:^(NSInteger statusCode, id obj) {

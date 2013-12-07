@@ -17,8 +17,7 @@
 #import "JKSearchProductCell.h"
 #import "JKProductDetailViewController.h"
 
-#warning Clean this
-static CGFloat const LEFT_SIZE = 10;
+static CGFloat const LEFT_SIZE = 44;
 
 @interface JKLeftMenuViewController ()
 <
@@ -28,12 +27,12 @@ UISearchDisplayDelegate,
 UISearchBarDelegate
 >
 
+@property (assign, nonatomic) BOOL                  isSearching;
 @property (strong, nonatomic) NSMutableArray        * arrMenu;
+@property (strong, nonatomic) NSMutableArray        * filteredList;
 @property (strong, nonatomic) NSArray               * arrSection;
 @property (strong, nonatomic) NSArray               * arrIconSection;
 @property (strong, nonatomic) NSArray               * arrSubMenuSectionOne;
-@property (assign, nonatomic) BOOL                  isSearching;
-@property (strong, nonatomic) NSMutableArray        * filteredList;
 @property (weak, nonatomic) IBOutlet UITableView    *menuTableView;
 
 @end
@@ -46,6 +45,7 @@ UISearchBarDelegate
 {
     [super viewDidLoad];
     self.arrMenu = [[NSMutableArray alloc] init];
+    self.arrMenu = [[JKCategory MR_findAll] mutableCopy];
     
     self.arrSubMenuSectionOne = @[@"JK Shop", @"Hàng mới về", @"Liên hệ"];
     self.arrSection = @[@"Nổi Bật", @"Danh Mục", @"Tuỳ Chỉnh", @"Thông Tin"];
@@ -53,25 +53,14 @@ UISearchBarDelegate
     
     [self.menuTableView registerNib:[UINib nibWithNibName:NSStringFromClass([JKSidebarMenuTableViewCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([JKSidebarMenuTableViewCell class])];
     [self.menuTableView registerNib:[UINib nibWithNibName:NSStringFromClass([JKLeftMenuSectionHeader class]) bundle:nil] forHeaderFooterViewReuseIdentifier:NSStringFromClass([JKLeftMenuSectionHeader class])];
-    
-    self.arrMenu = [[JKCategory MR_findAll] mutableCopy];
     self.menuTableView.contentOffset = CGPointMake(0, self.searchDisplayController.searchBar.frame.size.height);
+    
     [[JKCategoryManager sharedInstance] getMenuListOnComplete:^(NSArray *menu) {
         self.arrMenu = [menu mutableCopy];
         [self.menuTableView reloadData];
     } orFailure:^(NSError *error) {
         DLog(@"Error when load menu");
     }];
-}
-
-- (void)viewWillAppear:(BOOL)animated{
-    UITextField *txtSearchField = [self.searchDisplayController.searchBar valueForKey:@"_searchField"];
-    CGRect frame = txtSearchField.frame;
-    
-    #warning Clean this
-    frame.size.width = 276;
-    
-    txtSearchField.frame = frame;
 }
 
 #pragma mark - Tableview datasource
@@ -88,25 +77,19 @@ UISearchBarDelegate
     if (self.isSearching){
         return self.filteredList.count;
     }
-
-    #warning Clean this switch case
-    if (section == 0) {
-        return self.arrSubMenuSectionOne.count;
-    }
     
-    if (section == 1) {
-        return self.arrMenu.count;
+    switch (section) {
+        case 0:
+            return self.arrSubMenuSectionOne.count;
+        case 1:
+            return self.arrMenu.count;
+        case 2:
+            return 1;
+        case 3:
+            return 1;
+        default:
+            return self.arrMenu.count;
     }
-    
-    if (section == 2) {
-        return 1;
-    }
-
-    if (section == 3) {
-        return 1;
-    }
-    
-    return self.arrMenu.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
@@ -115,16 +98,14 @@ UISearchBarDelegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (self.isSearching) {
-        #warning Clean this
-        return 128;
+        return [JKSearchProductCell getHeight];
     }
     return [JKSidebarMenuTableViewCell getHeight];
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     JKLeftMenuSectionHeader *header = [tableView dequeueReusableHeaderFooterViewWithIdentifier:NSStringFromClass([JKLeftMenuSectionHeader class])];
-    
-    #warning Clean this
+
     if (!header) {
         header = [[JKLeftMenuSectionHeader alloc] init];
     }
@@ -135,90 +116,80 @@ UISearchBarDelegate
         return header;
     }
 
-    if ([[self.arrSection objectAtIndex:section] isKindOfClass:[NSString class]]) {
-        [header configTitleNameWithString:[self.arrSection objectAtIndex:section]];
-        [header configIconWithImageURL:[self.arrIconSection objectAtIndex:section]];
-    }
-    
+    [header configTitleNameWithString:[self.arrSection objectAtIndex:section]];
+    [header configIconWithImageURL:[self.arrIconSection objectAtIndex:section]];
     return header;
 
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+
+    JKLeftMenuFooter *footer = [tableView dequeueReusableHeaderFooterViewWithIdentifier:NSStringFromClass([JKLeftMenuFooter class])];
     
-    JKLeftMenuFooter *footer;
-    
-    #warning Clean this
-    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"6.0")) {
-        footer = [tableView dequeueReusableHeaderFooterViewWithIdentifier:NSStringFromClass([JKLeftMenuFooter class])];
-    }else{
-        footer = [[JKLeftMenuFooter alloc] init];
-    }
     if (!footer) {
         footer = [[JKLeftMenuFooter alloc] init];
     }
+    
     return footer;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     
-    #warning Clean this
     if(section == 3)
-        return 65;
+        return [JKLeftMenuFooter getHeight];
     
     return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSString *cellIndentifier =  NSStringFromClass([JKSidebarMenuTableViewCell class]);
-    JKSidebarMenuTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIndentifier];
     
-    #warning Clean this
     if (self.isSearching && [self.filteredList count]) {
         if ([[self.filteredList objectAtIndex:indexPath.row] isKindOfClass:[JKProduct class]]) {
-            JKSearchProductCell * cell2 = [self.searchDisplayController.searchResultsTableView dequeueReusableCellWithIdentifier:@"JKSearchProductCell"];
-            [cell2 customCellWithProduct:[self.filteredList objectAtIndex:indexPath.row]];
-            return cell2;
+            
+            JKSearchProductCell * cell = [self.searchDisplayController.searchResultsTableView dequeueReusableCellWithIdentifier:NSStringFromClass([JKSearchProductCell class])];
+            [cell customCellWithProduct:[self.filteredList objectAtIndex:indexPath.row]];
+            return cell;
         }
     }
-    else{
-        if (indexPath.section == 0) {
+    
+    JKSidebarMenuTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([JKSidebarMenuTableViewCell class])];
+    
+    switch (indexPath.section) {
+        case 0:
+        {
             NSString *title = [self.arrSubMenuSectionOne objectAtIndex:indexPath.row];
             NSDictionary *data = @{MENU_TITLE : title};
             [cell configWithData:data];
             return cell;
         }
-    
-        if (indexPath.section == 2) {
+        case 2:
+        {
             NSDictionary *data = @{MENU_TITLE : @"Cấu hình"};
             [cell configWithData:data];
             return cell;
         }
-    
-        if (indexPath.section == 3) {
+        case 3:
+        {
             NSDictionary *data = @{MENU_TITLE : @"Bản đồ"};
             [cell configWithData:data];
             return cell;
         }
-    
-        if (indexPath.row < self.arrMenu.count)
+        default:
         {
             JKCategory *category = [self.arrMenu objectAtIndex:indexPath.row];
             [cell customCategoryCellWithCategory:category];
+            return cell;
         }
     }
-    return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    IIViewDeckController *deckViewController = (IIViewDeckController*)[[(JKAppDelegate*)[[UIApplication sharedApplication] delegate] window] rootViewController];
-    JKNavigationViewController *centralNavVC = (JKNavigationViewController *) deckViewController.centerController;
     
-    #warning Clean this
+    IIViewDeckController *deckViewController = (IIViewDeckController*)[JKAppDelegate getRootViewController];
+    JKNavigationViewController *centralNavVC = (JKNavigationViewController *) deckViewController.centerController;
+
     if (self.isSearching) {
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
-        IIViewDeckController *deckViewController = (IIViewDeckController*)[[(JKAppDelegate*)[[UIApplication sharedApplication] delegate] window] rootViewController];
-        JKNavigationViewController *centralNavVC = (JKNavigationViewController *) deckViewController.centerController;
         JKProductDetailViewController *productDetailVC = [[JKProductDetailViewController alloc] init];
         
         productDetailVC.product = [self.filteredList objectAtIndex:indexPath.item];
@@ -226,68 +197,67 @@ UISearchBarDelegate
         [deckViewController toggleLeftView];
         [centralNavVC pushViewController:productDetailVC animated:YES];
         [SVProgressHUD showWithStatus:@"Đang tải chi tiết sản phẩm" maskType:SVProgressHUDMaskTypeGradient];
-
+        return;
     }
-    else{
-        if (indexPath.section == 0) {
-        
-            // Back to master menu
+    
+    switch (indexPath.section) {
+        case 0:
             if (indexPath.row == 0) {
                 [centralNavVC setViewControllers:[NSArray arrayWithObject:[[JKHomeViewController alloc] init]] animated:YES];
                 [deckViewController toggleLeftViewAnimated:YES];
                 return;
             }
-        
+            
             // New products
-        
+            
             if (indexPath.row == 1) {
-//              OFProductsViewController *productsVC = [[OFProductsViewController alloc] init];
-//              productsVC.category_id = 21;
-//              productsVC.lblTitle = [self.arrSubMenuSectionOne objectAtIndex:indexPath.row];
-//            
-//              [centralNavVC pushViewController:productsVC animated:YES];
-//              [deckViewController toggleLeftView];
+                //              OFProductsViewController *productsVC = [[OFProductsViewController alloc] init];
+                //              productsVC.category_id = 21;
+                //              productsVC.lblTitle = [self.arrSubMenuSectionOne objectAtIndex:indexPath.row];
+                //
+                //              [centralNavVC pushViewController:productsVC animated:YES];
+                //              [deckViewController toggleLeftView];
                 return;
             }
-        
+            
             // Contact screen
             if (indexPath.row == 2) {
                 BaseViewController *menu3 = [[BaseViewController alloc] init];
                 CGRect frame = self.view.frame;
-            
+                
                 UIWebView *web = [[UIWebView alloc] initWithFrame:frame];
                 [menu3.view addSubview:web];
-            
+                
                 NSString *path = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"thong-tin-thanh-toan.html"];
-                NSURL *url = [NSURL fileURLWithPath:path isDirectory:NO];
-                NSURLRequest *request = [NSURLRequest requestWithURL:url];
+                NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL fileURLWithPath:path isDirectory:NO]];
                 [web loadRequest:request];
-            
+                
                 menu3.title = @"Hướng dẫn đặt hàng";
-            
+                
                 [centralNavVC setViewControllers:[NSArray arrayWithObject:menu3] animated:YES];
                 [deckViewController toggleLeftViewAnimated:YES];
                 [menu3 addNavigationItems];
                 return;
             }
-        }
-    
-        if (indexPath.section == 3) {
-            [centralNavVC setViewControllers:[NSArray arrayWithObject:[[JKMapViewController alloc]init]] animated:YES];
+        case 1:
+        {
+            JKProductsViewController *productsVC = [[JKProductsViewController alloc] init];
+            productsVC.category_id = [[self.arrMenu objectAtIndex:indexPath.row] getCategoryId];
+            productsVC.lblTitle = [[self.arrMenu objectAtIndex:indexPath.row] getCategoryName];
+            
+            [centralNavVC setViewControllers:[NSArray arrayWithObject:productsVC] animated:YES];
             [deckViewController toggleLeftViewAnimated:YES];
             return;
         }
-    
-        if (indexPath.section == 2) {
+        case 2:
             [SVProgressHUD showErrorWithStatus:@"Chức năng hiện đang trong quá trình phát triển"];
             return;
-        }
-    
-        JKProductsViewController *productsVC = [[JKProductsViewController alloc] init];
-        productsVC.category_id = [[self.arrMenu objectAtIndex:indexPath.row] getCategoryId];
-        productsVC.lblTitle = [[self.arrMenu objectAtIndex:indexPath.row] getCategoryName];
-        [centralNavVC setViewControllers:[NSArray arrayWithObject:productsVC] animated:YES];
-        [deckViewController toggleLeftViewAnimated:YES];
+        case 3:
+            [centralNavVC setViewControllers:[NSArray arrayWithObject:[[JKMapViewController alloc]init]] animated:YES];
+            [deckViewController toggleLeftViewAnimated:YES];
+            return;
+        default:
+            break;
     }
 }
 
@@ -295,12 +265,11 @@ UISearchBarDelegate
     
     self.isSearching = YES;
     [self.searchDisplayController.searchResultsTableView registerNib:[UINib nibWithNibName:NSStringFromClass([JKSearchProductCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([JKSearchProductCell class])];
-    IIViewDeckController *deckViewController = (IIViewDeckController*)[[(JKAppDelegate*)[[UIApplication sharedApplication] delegate] window] rootViewController];
+    IIViewDeckController *deckViewController = (IIViewDeckController*)[JKAppDelegate getRootViewController];
     [deckViewController setLeftSize:0];
-    CGRect frame = self.menuTableView.frame;
     
-    #warning Clean this
-    frame.size.width = 320;
+    CGRect frame = self.menuTableView.frame;
+    frame.size.width = [[UIScreen mainScreen] bounds].size.width;
     self.menuTableView.frame = frame;
     self.searchDisplayController.searchResultsTableView.frame = frame;
 }
@@ -309,14 +278,8 @@ UISearchBarDelegate
     self.isSearching = NO;
     [self.menuTableView reloadData];
     
-    #warning Clean this
-    IIViewDeckController *deckViewController = (IIViewDeckController*)[[(JKAppDelegate*)[[UIApplication sharedApplication] delegate] window] rootViewController];
-    [deckViewController setLeftSize:44];
-    CGRect frame = self.menuTableView.frame;
-    frame.size.width = 276;
-    [UIView animateWithDuration:0 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
-        self.menuTableView.frame = frame;
-    } completion:nil];
+    IIViewDeckController *deckViewController = (IIViewDeckController*)[JKAppDelegate getRootViewController];
+    [deckViewController setLeftSize:LEFT_SIZE];
 }
 
 - (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString{
@@ -340,13 +303,6 @@ UISearchBarDelegate
     NSMutableArray *arrResultProduct = [[NSMutableArray alloc] init];
     NSArray *arrProduct = [JKProduct MR_findAll];
     
-    for (JKProduct *product in arrProduct) {
-        NSRange nameRange = [product.name rangeOfString:searchText options:NSCaseInsensitiveSearch];
-        if (nameRange.location != NSNotFound) {
-            [arrResultProduct addObject:product];
-        }
-    }
-    
     if (arrResultProduct.count == 0) {
         for (JKProduct *product in arrProduct) {
             NSRange nameRange = [product.product_code rangeOfString:searchText options:NSCaseInsensitiveSearch];
@@ -354,8 +310,15 @@ UISearchBarDelegate
                 [arrResultProduct addObject:product];
             }
         }
+        return arrResultProduct;
     }
     
+    for (JKProduct *product in arrProduct) {
+        NSRange nameRange = [product.name rangeOfString:searchText options:NSCaseInsensitiveSearch];
+        if (nameRange.location != NSNotFound) {
+            [arrResultProduct addObject:product];
+        }
+    }
     return arrResultProduct;
 }
 

@@ -10,4 +10,6 @@
 
 @interface JKLeftMenuFooter : UIView
 
++ (CGFloat)getHeight;
+
 @end

@@ -35,4 +35,8 @@
     self.productCode.text = [NSString stringWithFormat:@"Mã sản phẩm: %@",product.product_code];
 }
 
++ (CGFloat)getHeight{
+    return 128;
+}
+
 @end

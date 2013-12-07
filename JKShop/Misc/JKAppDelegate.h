@@ -22,5 +22,6 @@
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
++ (JKAppDelegate *)getRootViewController;
 
 @end

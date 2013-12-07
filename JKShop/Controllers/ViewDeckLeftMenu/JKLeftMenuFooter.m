@@ -12,7 +12,6 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *callButton;
 
-
 @end
 
 @implementation JKLeftMenuFooter
@@ -21,9 +20,13 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self = [[[NSBundle mainBundle] loadNibNamed:@"JKLeftMenuFooter" owner:nil options:nil] objectAtIndex:0];
+        self = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:nil options:nil] objectAtIndex:0];
     }
     return self;
+}
+
++ (CGFloat)getHeight{
+    return 65;
 }
 
 @end

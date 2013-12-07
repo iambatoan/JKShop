@@ -11,5 +11,6 @@
 @interface JKSearchProductCell : UITableViewCell
 
 - (void)customCellWithProduct:(JKProduct *)product;
++ (CGFloat)getHeight;
 
 @end

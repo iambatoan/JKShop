@@ -184,4 +184,10 @@
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
+#pragma mark - Helper
+
++ (JKAppDelegate *)getRootViewController{
+    return (JKAppDelegate* )[[[[UIApplication sharedApplication] delegate] window] rootViewController];
+}
+
 @end

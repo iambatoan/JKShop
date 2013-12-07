@@ -10,8 +10,8 @@
 
 @interface JKSidebarMenuTableViewCell()
 
-@property (weak, nonatomic) IBOutlet UIImageView *sidebarMenuImage;
-@property (weak, nonatomic) IBOutlet UILabel *sidebarMenuTitle;
+@property (weak, nonatomic) IBOutlet UIImageView            * sidebarMenuImage;
+@property (weak, nonatomic) IBOutlet UILabel                * sidebarMenuTitle;
 
 @end
 
