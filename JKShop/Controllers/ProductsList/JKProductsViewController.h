@@ -11,8 +11,8 @@
 static NSString* const DEFAULT_NAVIGATION_TITLE = @"Danh sách sản phẩm";
 
 @interface JKProductsViewController : BaseViewController
-@property (strong, nonatomic) NSString                    * lblTitle;
 @property (assign, nonatomic) NSInteger                     category_id;
-@property (weak, nonatomic) IBOutlet UICollectionView *collectionProducts;
+@property (strong, nonatomic) NSString                    * lblTitle;
+@property (weak, nonatomic) IBOutlet UICollectionView     * collectionProducts;
 
 @end

@@ -12,7 +12,6 @@
 
 - (void)sizeToFitKeepHeight;
 - (void)sizeToFitKeepWidth;
-
 - (void)applyDrawerTextShadow;
 
 @end

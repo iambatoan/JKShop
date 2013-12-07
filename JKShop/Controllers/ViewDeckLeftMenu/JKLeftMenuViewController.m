@@ -261,6 +261,8 @@ UISearchBarDelegate
     }
 }
 
+#pragma Search Display Controller Delegate
+
 - (void)searchDisplayControllerWillBeginSearch:(UISearchDisplayController *)controller{
     
     self.isSearching = YES;

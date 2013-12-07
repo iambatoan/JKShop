@@ -10,6 +10,6 @@
 
 @interface JKProductDetailViewController : BaseViewController
 
-@property (strong, nonatomic) JKProduct *product;
+@property (strong, nonatomic) JKProduct                     *product;
 
 @end

@@ -10,10 +10,9 @@
 
 @interface JKProductsCollectionCell()
 
-@property (weak, nonatomic) IBOutlet UIImageView *productImageView;
-@property (weak, nonatomic) IBOutlet UILabel *productName;
-@property (weak, nonatomic) IBOutlet UILabel *productPrice;
-
+@property (weak, nonatomic) IBOutlet UIImageView            * productImageView;
+@property (weak, nonatomic) IBOutlet UILabel                * productName;
+@property (weak, nonatomic) IBOutlet UILabel                * productPrice;
 
 @end
 

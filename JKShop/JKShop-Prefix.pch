@@ -87,6 +87,7 @@
 #import "UIColor+Custom.h"
 #import "UIColor+Hex.h"
 #import "UILabel+Additions.h"
+#import "UIView+Additions.h"
 
 //Models
 #import "JKCategory.h"

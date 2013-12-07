@@ -10,6 +10,10 @@
 #import "JKProductManager.h"
 #import "JKProductDetailViewController.h"
 
+static CGFloat const IOS_7_CONTENT_INSET = 60;
+static CGFloat const IOS_6_ORIGIN_X = 8;
+static CGFloat const IOS_6_ORIGIN_Y = 44;
+
 @interface JKProductsViewController ()
 <
 UICollectionViewDataSource,
@@ -18,9 +22,7 @@ IIViewDeckControllerDelegate
 >
 
 @property (strong, nonatomic) NSMutableArray            * productsArr;
-@property (assign, nonatomic) BOOL                        isSearching;
-@property (strong, nonatomic) NSMutableArray            * filteredList;
-@property (strong, nonatomic) UIRefreshControl            * refreshControl;
+@property (strong, nonatomic) UIRefreshControl          * refreshControl;
 
 @end
 
@@ -36,18 +38,18 @@ IIViewDeckControllerDelegate
     }
     
     self.productsArr = [[NSMutableArray alloc] init];
-    self.isSearching = NO;
-    self.filteredList = [[NSMutableArray alloc] init];
     
     [SVProgressHUD showWithStatus:@"Đang tải sản phẩm" maskType:SVProgressHUDMaskTypeGradient];
-    [self.collectionProducts registerNib:[UINib nibWithNibName:@"JKProductsCollectionCell" bundle:nil] forCellWithReuseIdentifier:@"JKProductsCollectionCell"];
+    
+    [self.collectionProducts registerNib:[UINib nibWithNibName:NSStringFromClass([JKProductsCollectionCell class]) bundle:nil] forCellWithReuseIdentifier:NSStringFromClass([JKProductsCollectionCell class])];
     
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
-        [self.collectionProducts setContentInset:UIEdgeInsetsMake(60, 0, 0, 0)];
+        [self.collectionProducts setContentInset:UIEdgeInsetsMake(IOS_7_CONTENT_INSET, 0, 0, 0)];
     }
     else{
-        self.collectionProducts.frame = CGRectMake(8, 44, self.collectionProducts.frame.size.width, self.collectionProducts.frame.size.height);
+        self.collectionProducts.frame = CGRectMake(IOS_6_ORIGIN_X, IOS_6_ORIGIN_Y, CGRectGetWidth(self.collectionProducts.frame), CGRectGetHeight(self.collectionProducts.frame) - IOS_6_ORIGIN_Y);
     }
+    
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
     [self.collectionProducts addSubview:self.refreshControl];
@@ -59,13 +61,11 @@ IIViewDeckControllerDelegate
 - (void)fillUpTableProductWithCategoryID:(NSInteger)categoryID
 {
     [[JKProductManager sharedInstance] getProductsWithCategoryID:categoryID onSuccess:^(NSInteger statusCode, NSArray *arrayProducts) {
-        [SVProgressHUD dismiss];
-        
         self.productsArr = [arrayProducts mutableCopy];
-        
         [self.collectionProducts reloadData];
+        
+        [SVProgressHUD dismiss];
     } failure:^(NSInteger statusCode, id obj) {
-        //Handle when failure
         [SVProgressHUD showErrorWithStatus:@"Xin vui lòng kiểm tra kết nối mạng và thử lại"];
     }];
 }
@@ -74,29 +74,20 @@ IIViewDeckControllerDelegate
     if (self.productsArr.count != 0) {
         self.collectionProducts.hidden = NO;
     }
-    
     return self.productsArr.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    
-    #warning Clean this
-    NSString *cellIdentifier = @"JKProductsCollectionCell";
-    
-    JKProductsCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
+    JKProductsCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([JKProductsCollectionCell class]) forIndexPath:indexPath];
     [cell customProductCellWithProduct:[self.productsArr objectAtIndex:indexPath.item]];
     return cell;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    
-    #warning Clean this
-    IIViewDeckController *deckViewController = (IIViewDeckController*)[[(JKAppDelegate*)[[UIApplication sharedApplication] delegate] window] rootViewController];
-    
-    
+    IIViewDeckController *deckViewController = (IIViewDeckController*)[JKAppDelegate getRootViewController];
     JKNavigationViewController *centralNavVC = (JKNavigationViewController *) deckViewController.centerController;
-    JKProductDetailViewController *productDetailVC = [[JKProductDetailViewController alloc] init];
     
+    JKProductDetailViewController *productDetailVC = [[JKProductDetailViewController alloc] init];
     productDetailVC.product = [self.productsArr objectAtIndex:indexPath.item];
     
     [centralNavVC pushViewController:productDetailVC animated:YES];
@@ -104,6 +95,7 @@ IIViewDeckControllerDelegate
 }
 
 - (void)refresh{
+    [SVProgressHUD showWithStatus:@"Đang tải sản phẩm" maskType:SVProgressHUDMaskTypeGradient];
     [self fillUpTableProductWithCategoryID:self.category_id];
     [self.refreshControl endRefreshing];
 }

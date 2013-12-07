@@ -15,14 +15,12 @@
 @property (weak, nonatomic) IBOutlet UILabel *productPrice;
 @property (weak, nonatomic) IBOutlet UILabel *productCode;
 
-
 @end
 
 @implementation JKSearchProductCell
 
 - (void)customCellWithProduct:(JKProduct *)product{
     
-    // product name
     self.productName.text = product.name;
     [self.productName setFont:[UIFont fontWithName:@"Lato" size:20]];
     [self.productName setTextColor:[UIColor titleColor]];

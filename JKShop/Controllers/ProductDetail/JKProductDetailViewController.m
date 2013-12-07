@@ -9,6 +9,8 @@
 #import "JKProductDetailViewController.h"
 #import "JKProductsDetailCollectionCell.h"
 
+static CGFloat const IOS_7_TOP_CONTENT_INSET = -35;
+
 @interface JKProductDetailViewController ()
 <
 UICollectionViewDataSource,
@@ -16,20 +18,21 @@ UICollectionViewDelegate,
 UIScrollViewDelegate
 >
 
-#warning Clean this
-@property (weak, nonatomic) IBOutlet UICollectionView               * relatedProductCollectionView;
+@property (strong, nonatomic) NSArray                               * productImageArray;
+@property (strong, nonatomic) NSArray                               * productsArr;
+
+@property (weak, nonatomic) IBOutlet UILabel                        * labelProductName;
+@property (weak, nonatomic) IBOutlet UILabel                        * labelProductPrice;
+@property (weak, nonatomic) IBOutlet UILabel                        * labelProductDetail;
+@property (weak, nonatomic) IBOutlet UILabel                        * labelProductSKU;
+@property (weak, nonatomic) IBOutlet UILabel                        * labelRelatedProduct;
+@property (weak, nonatomic) IBOutlet UIScrollView                   * contentScrollView;
 @property (weak, nonatomic) IBOutlet UIPageControl                  * imagePageControl;
-@property (strong, nonatomic) NSArray *productImageArray;
-@property (weak, nonatomic) IBOutlet UILabel *labelProductName;
-@property (weak, nonatomic) IBOutlet UILabel *labelProductPrice;
-@property (weak, nonatomic) IBOutlet UILabel *labelProductDetail;
-@property (weak, nonatomic) IBOutlet UILabel *labelProductSKU;
-@property (weak, nonatomic) IBOutlet UIScrollView *contentScrollView;
-@property (weak, nonatomic) IBOutlet UILabel *labelRelatedProduct;
-@property (strong, nonatomic) NSArray *productsArr;
-@property (weak, nonatomic) IBOutlet UIPageControl *relatedProductPage;
-@property (weak, nonatomic) IBOutlet UICollectionView *productCollectionView;
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (weak, nonatomic) IBOutlet UIPageControl                  * relatedProductPage;
+@property (weak, nonatomic) IBOutlet UICollectionView               * productCollectionView;
+@property (weak, nonatomic) IBOutlet UICollectionView               * relatedProductCollectionView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView        * activityIndicator;
+
 @end
 
 @implementation JKProductDetailViewController
@@ -37,53 +40,62 @@ UIScrollViewDelegate
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    
     self.title = [self.product getProductName];
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
-        [self.contentScrollView setContentInset:UIEdgeInsetsMake(-35, 0, 0, 0)];
+        [self.contentScrollView setContentInset:UIEdgeInsetsMake(IOS_7_TOP_CONTENT_INSET, 0, 0, 0)];
     }
-    [self.productCollectionView registerNib:[UINib nibWithNibName:@"JKProductsDetailCollectionCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"JKProductsDetailCollectionCell"];
-    [self.relatedProductCollectionView registerNib:[UINib nibWithNibName:@"JKProductsCollectionCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"JKProductsCollectionCell"];
+    
+    [self.productCollectionView registerNib:[UINib nibWithNibName:NSStringFromClass([JKProductsDetailCollectionCell class]) bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:NSStringFromClass([JKProductsDetailCollectionCell class])];
+    [self.relatedProductCollectionView registerNib:[UINib nibWithNibName:NSStringFromClass([JKProductsCollectionCell class]) bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:NSStringFromClass([JKProductsCollectionCell class])];
+    
     [self fillUpTableProductWithCategoryID:[[self.product.category anyObject] getCategoryId]];
+    
     [self loadProductDetail];
+    
     [self getImageFromProduct];
     
     
 }
 
 - (void)getImageFromProduct{
-    [JKProductImages getImagesForProduct:[self.product getProductId] successBlock:^(NSInteger statusCode, id obj) {
-        self.productImageArray = [obj allObjects];
+    [JKProductImages getImagesForProduct:[self.product getProductId] successBlock:^(NSInteger statusCode, NSSet *productImageSet) {
+        self.productImageArray = [productImageSet allObjects];
+        [self.imagePageControl setNumberOfPages:[self.productImageArray count]];
+        
         [self.contentScrollView setScrollEnabled:YES];
         [self.productCollectionView reloadData];
+        
         [SVProgressHUD dismiss];
-        [self.imagePageControl setNumberOfPages:[self.productImageArray count]];
     } failureBlock:^(NSInteger statusCode, id obj) {
         [SVProgressHUD showErrorWithStatus:@"Xin vui lòng kiểm tra kết nối mạng và thử lại"];
     }];;
 }
 
 - (void)loadProductDetail{
-    
-    #warning Clean this
     self.labelProductName.text = [self.product getProductName];
+    
     self.labelProductPrice.text = [NSString stringWithFormat:@"Giá: %@ VNĐ",[self.product getProductPrice]];
+    
     self.labelProductDetail.text = [NSString stringWithFormat:@"Chi tiết sản phẩm: %@",[self.product getProductDetail]];
     [self.labelProductDetail sizeToFitKeepWidth];
+    
     self.labelProductSKU.text = [NSString stringWithFormat:@"Mã sản phẩm: %@",[self.product getProductSKU]];
-    self.labelRelatedProduct.frame = CGRectMake(self.labelRelatedProduct.frame.origin.x, self.labelProductDetail.frame.origin.y + self.labelProductDetail.frame.size.height + 10, self.labelRelatedProduct.frame.size.width, self.labelRelatedProduct.frame.size.height);
-    self.relatedProductPage.frame = CGRectMake(self.relatedProductPage.frame.origin.x, self.labelRelatedProduct.frame.origin.y + self.labelRelatedProduct.frame.size.height + 10, self.relatedProductPage.frame.size.width, self.relatedProductPage.frame.size.height);
-    self.relatedProductCollectionView.frame = CGRectMake(self.relatedProductCollectionView.frame.origin.x, self.relatedProductPage.frame.origin.y + self.relatedProductPage.frame.size.height, self.relatedProductCollectionView.frame.size.width, self.relatedProductCollectionView.frame.size.height);
+    
+    [self.labelRelatedProduct alignBelowView:self.labelProductDetail offsetY:10 sameWidth:YES];
+    
+    [self.relatedProductPage alignBelowView:self.labelRelatedProduct offsetY:10 sameWidth:YES];
+    
+    [self.relatedProductCollectionView alignBelowView:self.relatedProductPage offsetY:0 sameWidth:YES];
+    
     self.activityIndicator.frame = CGRectMake(CGRectGetMidX([self.relatedProductCollectionView frame]) - 10, CGRectGetMidY([self.relatedProductCollectionView frame]) - 10, 30, 30);
-    self.contentScrollView.contentSize = CGSizeMake(320,CGRectGetMaxY([self.relatedProductCollectionView frame]));
+    
+    self.contentScrollView.contentSize = CGSizeMake([[UIScreen mainScreen] bounds].size.width,CGRectGetMaxY([self.relatedProductCollectionView frame]));
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    
+#warning clean this code
     CGFloat pageWidth = self.productCollectionView.frame.size.width;
     
-    #warning Clean this
     int page = floor((self.productCollectionView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
     self.imagePageControl.currentPage = page;
 
@@ -94,25 +106,25 @@ UIScrollViewDelegate
 
 - (void)fillUpTableProductWithCategoryID:(NSInteger)categoryID
 {
-    [[JKProductManager sharedInstance] getProductsWithCategoryID:categoryID onSuccess:^(NSInteger statusCode, id obj) {
-        self.productsArr = obj;
+    [[JKProductManager sharedInstance] getProductsWithCategoryID:categoryID onSuccess:^(NSInteger statusCode, NSArray *productsArray) {
+        self.productsArr = [productsArray mutableCopy];
         
         [self.relatedProductCollectionView reloadData];
         [self.relatedProductPage setNumberOfPages:([self.relatedProductCollectionView numberOfItemsInSection:0] + 1)/ 2];
+        
         [self.activityIndicator stopAnimating];
         
     } failure:^(NSInteger statusCode, id obj) {
-        //Handle when failure
         [SVProgressHUD showErrorWithStatus:@"Xin vui lòng kiểm tra kết nối mạng và thử lại"];
     }];
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     if (collectionView == self.relatedProductCollectionView) {
-        IIViewDeckController *deckViewController = (IIViewDeckController*)[[(JKAppDelegate*)[[UIApplication sharedApplication] delegate] window] rootViewController];
+        IIViewDeckController *deckViewController = (IIViewDeckController*)[JKAppDelegate getRootViewController];
         JKNavigationViewController *centralNavVC = (JKNavigationViewController *) deckViewController.centerController;
-        JKProductDetailViewController *productDetailVC = [[JKProductDetailViewController alloc] init];
         
+        JKProductDetailViewController *productDetailVC = [[JKProductDetailViewController alloc] init];
         productDetailVC.product = [self.productsArr objectAtIndex:indexPath.item];
         
         [centralNavVC pushViewController:productDetailVC animated:YES];
@@ -130,24 +142,25 @@ UIScrollViewDelegate
     if(self.productsArr.count > 5){
         return 5;
     }
+    
     return self.productsArr.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
     if (collectionView == self.productCollectionView) {
-        #warning Clean this
-        JKProductsDetailCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"JKProductsDetailCollectionCell" forIndexPath:indexPath];
+        JKProductsDetailCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([JKProductsDetailCollectionCell class]) forIndexPath:indexPath];
         [cell customProductsDetailCellWithProductImage:[self.productImageArray objectAtIndex:indexPath.item]];
+        
         UIImageView *imageView = cell.productImageView;
         [imageView setContentMode:UIViewContentModeScaleAspectFill];
         [imageView setupImageViewer];
         imageView.clipsToBounds = YES;
+        
         return cell;
     }
     
-    #warning Clean this
-    JKProductsCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"JKProductsCollectionCell" forIndexPath:indexPath];
+    JKProductsCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([JKProductsCollectionCell class]) forIndexPath:indexPath];
     [cell customProductCellWithProduct:[self.productsArr objectAtIndex:indexPath.item]];
     return cell;
     
