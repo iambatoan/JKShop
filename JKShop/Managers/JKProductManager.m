@@ -14,7 +14,6 @@ SINGLETON_MACRO
 
 #pragma mark - Get product details from server
 
-#warning Clean this return the array of categories
 - (void)getProductsWithCategoryID:(NSInteger)category_id onSuccess:(JKJSONRequestSuccessBlock)successBlock failure:(JKJSONRequestFailureBlock)failureBlock
 {
     NSDictionary *params = @{
@@ -69,12 +68,12 @@ SINGLETON_MACRO
 
 #pragma mark - Helpers
 
-- (void)productsFromReponseObject:(id)responseObject
+- (void)productsFromReponseObject:(NSArray *)productDictionaryArray
 {
     NSMutableArray *arrProduct = [[NSMutableArray alloc] init];
     
     NSBlockOperation *saveInBackground = [NSBlockOperation blockOperationWithBlock:^{
-        [responseObject enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        [productDictionaryArray enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
             JKProduct *product;
             product = [JKProduct productWithDictionary:obj];
             [arrProduct addObject:product];

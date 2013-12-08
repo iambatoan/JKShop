@@ -11,7 +11,6 @@
 #import "JKLeftMenuSectionHeader.h"
 #import "JKAppDelegate.h"
 #import "JKNavigationViewController.h"
-#import "JKLeftMenuFooter.h"
 #import "JKCategory.h"
 #import "JKHomeViewController.h"
 #import "JKSearchProductCell.h"
@@ -26,7 +25,6 @@ UITableViewDelegate,
 UISearchDisplayDelegate,
 UISearchBarDelegate
 >
-
 @property (assign, nonatomic) BOOL                  isSearching;
 @property (strong, nonatomic) NSMutableArray        * arrMenu;
 @property (strong, nonatomic) NSMutableArray        * filteredList;
@@ -48,8 +46,8 @@ UISearchBarDelegate
     self.arrMenu = [[JKCategory MR_findAll] mutableCopy];
     
     self.arrSubMenuSectionOne = @[@"JK Shop", @"Hàng mới về", @"Liên hệ"];
-    self.arrSection = @[@"Nổi Bật", @"Danh Mục", @"Tuỳ Chỉnh", @"Thông Tin"];
-    self.arrIconSection = @[@"star.png",@"category.png",@"setting.png",@"info.png"];
+    self.arrSection = @[@"Nổi Bật", @"Danh Mục", @"Tuỳ Chỉnh"];
+    self.arrIconSection = @[@"star.png",@"category.png",@"setting.png"];
     
     [self.menuTableView registerNib:[UINib nibWithNibName:NSStringFromClass([JKSidebarMenuTableViewCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([JKSidebarMenuTableViewCell class])];
     [self.menuTableView registerNib:[UINib nibWithNibName:NSStringFromClass([JKLeftMenuSectionHeader class]) bundle:nil] forHeaderFooterViewReuseIdentifier:NSStringFromClass([JKLeftMenuSectionHeader class])];
@@ -62,6 +60,7 @@ UISearchBarDelegate
         DLog(@"Error when load menu");
     }];
 }
+
 
 #pragma mark - Tableview datasource
 
@@ -82,7 +81,10 @@ UISearchBarDelegate
         case 0:
             return self.arrSubMenuSectionOne.count;
         case 1:
-            return self.arrMenu.count;
+            if (self.arrMenu.count) {
+                return self.arrMenu.count;
+            }
+            return 1;
         case 2:
             return 1;
         case 3:
@@ -122,25 +124,6 @@ UISearchBarDelegate
 
 }
 
-- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
-
-    JKLeftMenuFooter *footer = [tableView dequeueReusableHeaderFooterViewWithIdentifier:NSStringFromClass([JKLeftMenuFooter class])];
-    
-    if (!footer) {
-        footer = [[JKLeftMenuFooter alloc] init];
-    }
-    
-    return footer;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    
-    if(section == 3)
-        return [JKLeftMenuFooter getHeight];
-    
-    return 0;
-}
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     if (self.isSearching && [self.filteredList count]) {
@@ -168,17 +151,24 @@ UISearchBarDelegate
             [cell configWithData:data];
             return cell;
         }
-        case 3:
-        {
-            NSDictionary *data = @{MENU_TITLE : @"Bản đồ"};
-            [cell configWithData:data];
-            return cell;
-        }
         default:
         {
-            JKCategory *category = [self.arrMenu objectAtIndex:indexPath.row];
-            [cell customCategoryCellWithCategory:category];
-            return cell;
+            if(self.arrMenu)
+            {
+                JKCategory *category = [self.arrMenu objectAtIndex:indexPath.row];
+                [cell customCategoryCellWithCategory:category];
+                return cell;
+            }
+            
+            UITableViewCell *refreshCell = [[UITableViewCell alloc] init];
+            UIButton *refreshButton = [UIButton buttonWithType:UIButtonTypeCustom];
+            [refreshButton addTarget:self
+                       action:@selector(refreshButtonPressed:)
+             forControlEvents:UIControlEventTouchDown];
+            [refreshButton setTitle:@"Refresh" forState:UIControlStateNormal];
+            refreshButton.frame = CGRectMake(45, 7, 215, 27);
+            [refreshCell addSubview:refreshButton];
+            return refreshCell;
         }
     }
 }
@@ -252,10 +242,7 @@ UISearchBarDelegate
         case 2:
             [SVProgressHUD showErrorWithStatus:@"Chức năng hiện đang trong quá trình phát triển"];
             return;
-        case 3:
-            [centralNavVC setViewControllers:[NSArray arrayWithObject:[[JKMapViewController alloc]init]] animated:YES];
-            [deckViewController toggleLeftViewAnimated:YES];
-            return;
+            
         default:
             break;
     }
@@ -305,6 +292,15 @@ UISearchBarDelegate
     NSMutableArray *arrResultProduct = [[NSMutableArray alloc] init];
     NSArray *arrProduct = [JKProduct MR_findAll];
     
+    for (JKProduct *product in arrProduct) {
+        NSRange nameRange = [product.name rangeOfString:searchText options:NSCaseInsensitiveSearch];
+        if (nameRange.location != NSNotFound) {
+            [arrResultProduct addObject:product];
+        }
+    }
+    return arrResultProduct;
+    
+    
     if (arrResultProduct.count == 0) {
         for (JKProduct *product in arrProduct) {
             NSRange nameRange = [product.product_code rangeOfString:searchText options:NSCaseInsensitiveSearch];
@@ -315,13 +311,22 @@ UISearchBarDelegate
         return arrResultProduct;
     }
     
-    for (JKProduct *product in arrProduct) {
-        NSRange nameRange = [product.name rangeOfString:searchText options:NSCaseInsensitiveSearch];
-        if (nameRange.location != NSNotFound) {
-            [arrResultProduct addObject:product];
-        }
-    }
-    return arrResultProduct;
+    
+}
+
+- (IBAction)buttonMapPressed:(id)sender {
+    IIViewDeckController *deckViewController = (IIViewDeckController*)[JKAppDelegate getRootViewController];
+    JKNavigationViewController *centralNavVC = (JKNavigationViewController *) deckViewController.centerController;
+    [centralNavVC setViewControllers:[NSArray arrayWithObject:[[JKMapViewController alloc]init]] animated:YES];
+    [deckViewController toggleLeftViewAnimated:YES];
+}
+
+- (IBAction)buttonCallPressed:(id)sender {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tel:0909226976"]];
+}
+
+- (void)refreshButtonPressed{
+    [self.menuTableView reloadData];
 }
 
 @end

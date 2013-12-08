@@ -116,11 +116,9 @@
 		84203AD6184A386800F26638 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 84203AD5184A386800F26638 /* libc++.dylib */; };
 		84203ADA184A39DE00F26638 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 84203AD9184A39DE00F26638 /* libicucore.dylib */; };
 		84203ADC184A39ED00F26638 /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 84203ADB184A39ED00F26638 /* libz.1.2.5.dylib */; };
-		843D1556184A48F200B65E35 /* JKLeftMenuFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 843D1555184A48F200B65E35 /* JKLeftMenuFooter.m */; };
 		843D155B184A5FE600B65E35 /* JKProductManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 843D155A184A5FE600B65E35 /* JKProductManager.m */; };
 		843D1560184A638C00B65E35 /* JKProductsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 843D155E184A638C00B65E35 /* JKProductsViewController.m */; };
 		843D1561184A638C00B65E35 /* JKProductsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 843D155F184A638C00B65E35 /* JKProductsViewController.xib */; };
-		843D156B184A658500B65E35 /* JKLeftMenuFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 843D1569184A658500B65E35 /* JKLeftMenuFooter.xib */; };
 		843D156C184A658500B65E35 /* JKLeftMenuSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 843D156A184A658500B65E35 /* JKLeftMenuSectionHeader.xib */; };
 		843D156F184A671600B65E35 /* JKProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = 843D156E184A671600B65E35 /* JKProduct.m */; };
 		843D1572184A69F400B65E35 /* JKProductImages.m in Sources */ = {isa = PBXBuildFile; fileRef = 843D1571184A69F400B65E35 /* JKProductImages.m */; };
@@ -157,8 +155,6 @@
 		84D7FC9F184CD49B0084D805 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84D7FC9E184CD49B0084D805 /* Lato-Regular.ttf */; };
 		84F99F0D184A1AEC00356DB3 /* setting.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F99F05184A1AEC00356DB3 /* setting.png */; };
 		84F99F0E184A1AEC00356DB3 /* setting@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F99F06184A1AEC00356DB3 /* setting@2x.png */; };
-		84F99F0F184A1AEC00356DB3 /* info.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F99F07184A1AEC00356DB3 /* info.png */; };
-		84F99F10184A1AEC00356DB3 /* info@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F99F08184A1AEC00356DB3 /* info@2x.png */; };
 		84F99F11184A1AEC00356DB3 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F99F09184A1AEC00356DB3 /* star.png */; };
 		84F99F12184A1AEC00356DB3 /* star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F99F0A184A1AEC00356DB3 /* star@2x.png */; };
 		84F99F13184A1AEC00356DB3 /* category.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F99F0B184A1AEC00356DB3 /* category.png */; };
@@ -333,14 +329,11 @@
 		84203AD5184A386800F26638 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		84203AD9184A39DE00F26638 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		84203ADB184A39ED00F26638 /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
-		843D1554184A48F200B65E35 /* JKLeftMenuFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKLeftMenuFooter.h; path = Controllers/ViewDeckLeftMenu/JKLeftMenuFooter.h; sourceTree = "<group>"; };
-		843D1555184A48F200B65E35 /* JKLeftMenuFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKLeftMenuFooter.m; path = Controllers/ViewDeckLeftMenu/JKLeftMenuFooter.m; sourceTree = "<group>"; };
 		843D1559184A5FE600B65E35 /* JKProductManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKProductManager.h; path = Managers/JKProductManager.h; sourceTree = "<group>"; };
 		843D155A184A5FE600B65E35 /* JKProductManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKProductManager.m; path = Managers/JKProductManager.m; sourceTree = "<group>"; };
 		843D155D184A638C00B65E35 /* JKProductsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKProductsViewController.h; path = Controllers/ProductsList/JKProductsViewController.h; sourceTree = "<group>"; };
 		843D155E184A638C00B65E35 /* JKProductsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKProductsViewController.m; path = Controllers/ProductsList/JKProductsViewController.m; sourceTree = "<group>"; };
 		843D155F184A638C00B65E35 /* JKProductsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = JKProductsViewController.xib; path = Controllers/ProductsList/JKProductsViewController.xib; sourceTree = "<group>"; };
-		843D1569184A658500B65E35 /* JKLeftMenuFooter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = JKLeftMenuFooter.xib; path = Controllers/ViewDeckLeftMenu/JKLeftMenuFooter.xib; sourceTree = "<group>"; };
 		843D156A184A658500B65E35 /* JKLeftMenuSectionHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = JKLeftMenuSectionHeader.xib; path = Controllers/ViewDeckLeftMenu/JKLeftMenuSectionHeader.xib; sourceTree = "<group>"; };
 		843D156D184A671600B65E35 /* JKProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKProduct.h; path = Models/JKProduct.h; sourceTree = "<group>"; };
 		843D156E184A671600B65E35 /* JKProduct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKProduct.m; path = Models/JKProduct.m; sourceTree = "<group>"; };
@@ -410,8 +403,6 @@
 		84D7FC9E184CD49B0084D805 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
 		84F99F05184A1AEC00356DB3 /* setting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = setting.png; path = Resources/SidebarSection/setting.png; sourceTree = "<group>"; };
 		84F99F06184A1AEC00356DB3 /* setting@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "setting@2x.png"; path = "Resources/SidebarSection/setting@2x.png"; sourceTree = "<group>"; };
-		84F99F07184A1AEC00356DB3 /* info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = info.png; path = Resources/SidebarSection/info.png; sourceTree = "<group>"; };
-		84F99F08184A1AEC00356DB3 /* info@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "info@2x.png"; path = "Resources/SidebarSection/info@2x.png"; sourceTree = "<group>"; };
 		84F99F09184A1AEC00356DB3 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = star.png; path = Resources/SidebarSection/star.png; sourceTree = "<group>"; };
 		84F99F0A184A1AEC00356DB3 /* star@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "star@2x.png"; path = "Resources/SidebarSection/star@2x.png"; sourceTree = "<group>"; };
 		84F99F0B184A1AEC00356DB3 /* category.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = category.png; path = Resources/SidebarSection/category.png; sourceTree = "<group>"; };
@@ -860,9 +851,6 @@
 				840645BA1849BF260065BCA4 /* JKLeftMenuSectionHeader.h */,
 				840645BB1849BF260065BCA4 /* JKLeftMenuSectionHeader.m */,
 				843D156A184A658500B65E35 /* JKLeftMenuSectionHeader.xib */,
-				843D1554184A48F200B65E35 /* JKLeftMenuFooter.h */,
-				843D1555184A48F200B65E35 /* JKLeftMenuFooter.m */,
-				843D1569184A658500B65E35 /* JKLeftMenuFooter.xib */,
 			);
 			name = ViewDeckLeftMenu;
 			sourceTree = "<group>";
@@ -1048,8 +1036,6 @@
 				0B07C02918505E74009EA61F /* search@2x.png */,
 				84F99F05184A1AEC00356DB3 /* setting.png */,
 				84F99F06184A1AEC00356DB3 /* setting@2x.png */,
-				84F99F07184A1AEC00356DB3 /* info.png */,
-				84F99F08184A1AEC00356DB3 /* info@2x.png */,
 				84F99F09184A1AEC00356DB3 /* star.png */,
 				84F99F0A184A1AEC00356DB3 /* star@2x.png */,
 				84F99F0B184A1AEC00356DB3 /* category.png */,
@@ -1151,7 +1137,6 @@
 				840645D11849C8A40065BCA4 /* left-nav-button@2x.png in Resources */,
 				84F99F1F184A263400356DB3 /* bookmark_list@2x.png in Resources */,
 				0B26BE1D184C96B4008C1D79 /* logo.png in Resources */,
-				843D156B184A658500B65E35 /* JKLeftMenuFooter.xib in Resources */,
 				840644B5184992750065BCA4 /* InfoPlist.strings in Resources */,
 				84F99F18184A262A00356DB3 /* nav-back-btn-bg@2x.png in Resources */,
 				84F99F0E184A1AEC00356DB3 /* setting@2x.png in Resources */,
@@ -1160,9 +1145,7 @@
 				840645A51849B8CA0065BCA4 /* JKHomeViewController.xib in Resources */,
 				0B92A686184DAE6E009B33DE /* navbg@2x.png in Resources */,
 				84F99F12184A1AEC00356DB3 /* star@2x.png in Resources */,
-				84F99F10184A1AEC00356DB3 /* info@2x.png in Resources */,
 				0B92A68C184DCA7F009B33DE /* JKProductDetailViewController.xib in Resources */,
-				84F99F0F184A1AEC00356DB3 /* info.png in Resources */,
 				0B07C0271850539D009EA61F /* JKSearchProductCell.xib in Resources */,
 				84F99F17184A262A00356DB3 /* nav-back-btn-bg.png in Resources */,
 				0B55CECC184EDEE800A3E4ED /* JKProductsDetailCollectionCell.xib in Resources */,
@@ -1255,7 +1238,6 @@
 				84A3BB99184B096C00650BAF /* NSManagedObjectContext+MagicalSaves.m in Sources */,
 				8406451B18499DB60065BCA4 /* BaseLocationManager.m in Sources */,
 				0B26BE10184C5CFB008C1D79 /* UILabel+Additions.m in Sources */,
-				843D1556184A48F200B65E35 /* JKLeftMenuFooter.m in Sources */,
 				84A3BB4D184B086E00650BAF /* _JKProduct.m in Sources */,
 				84A3BB96184B096C00650BAF /* NSManagedObject+MagicalRequests.m in Sources */,
 				843D155B184A5FE600B65E35 /* JKProductManager.m in Sources */,

@@ -9,7 +9,7 @@
 #import "JKProductDetailViewController.h"
 #import "JKProductsDetailCollectionCell.h"
 
-static CGFloat const IOS_7_TOP_CONTENT_INSET = -35;
+static CGFloat const IOS_7_TOP_CONTENT_INSET = -25;
 
 @interface JKProductDetailViewController ()
 <
@@ -19,7 +19,7 @@ UIScrollViewDelegate
 >
 
 @property (strong, nonatomic) NSArray                               * productImageArray;
-@property (strong, nonatomic) NSArray                               * productsArr;
+@property (strong, nonatomic) NSMutableArray                        * productsArr;
 
 @property (weak, nonatomic) IBOutlet UILabel                        * labelProductName;
 @property (weak, nonatomic) IBOutlet UILabel                        * labelProductPrice;
@@ -28,7 +28,6 @@ UIScrollViewDelegate
 @property (weak, nonatomic) IBOutlet UILabel                        * labelRelatedProduct;
 @property (weak, nonatomic) IBOutlet UIScrollView                   * contentScrollView;
 @property (weak, nonatomic) IBOutlet UIPageControl                  * imagePageControl;
-@property (weak, nonatomic) IBOutlet UIPageControl                  * relatedProductPage;
 @property (weak, nonatomic) IBOutlet UICollectionView               * productCollectionView;
 @property (weak, nonatomic) IBOutlet UICollectionView               * relatedProductCollectionView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView        * activityIndicator;
@@ -83,9 +82,7 @@ UIScrollViewDelegate
     
     [self.labelRelatedProduct alignBelowView:self.labelProductDetail offsetY:10 sameWidth:YES];
     
-    [self.relatedProductPage alignBelowView:self.labelRelatedProduct offsetY:10 sameWidth:YES];
-    
-    [self.relatedProductCollectionView alignBelowView:self.relatedProductPage offsetY:0 sameWidth:YES];
+    [self.relatedProductCollectionView alignBelowView:self.labelRelatedProduct offsetY:10 sameWidth:YES];
     
     self.activityIndicator.frame = CGRectMake(CGRectGetMidX([self.relatedProductCollectionView frame]) - 10, CGRectGetMidY([self.relatedProductCollectionView frame]) - 10, 30, 30);
     
@@ -98,19 +95,19 @@ UIScrollViewDelegate
     
     int page = floor((self.productCollectionView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
     self.imagePageControl.currentPage = page;
-
-    CGFloat relatedProductPageWidth = self.relatedProductCollectionView.frame.size.width;
-    int relatedProductPage = floor((self.relatedProductCollectionView.contentOffset.x - relatedProductPageWidth / 2) / relatedProductPageWidth) + 1;
-    self.relatedProductPage.currentPage = relatedProductPage;
 }
 
 - (void)fillUpTableProductWithCategoryID:(NSInteger)categoryID
 {
     [[JKProductManager sharedInstance] getProductsWithCategoryID:categoryID onSuccess:^(NSInteger statusCode, NSArray *productsArray) {
-        self.productsArr = [productsArray mutableCopy];
+        self.productsArr = [[NSMutableArray alloc] init];
+        for(JKProduct *product in productsArray){
+            if (product != self.product) {
+                [self.productsArr addObject:product];
+            }
+        }
         
         [self.relatedProductCollectionView reloadData];
-        [self.relatedProductPage setNumberOfPages:([self.relatedProductCollectionView numberOfItemsInSection:0] + 1)/ 2];
         
         [self.activityIndicator stopAnimating];
         
@@ -139,10 +136,6 @@ UIScrollViewDelegate
         return [self.productImageArray count];
     }
     
-    if(self.productsArr.count > 5){
-        return 5;
-    }
-    
     return self.productsArr.count;
 }
 
@@ -155,7 +148,7 @@ UIScrollViewDelegate
         UIImageView *imageView = cell.productImageView;
         [imageView setContentMode:UIViewContentModeScaleAspectFill];
         [imageView setupImageViewer];
-        imageView.clipsToBounds = YES;
+        imageView.clipsToBounds = NO;
         
         return cell;
     }

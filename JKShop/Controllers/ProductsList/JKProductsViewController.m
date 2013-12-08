@@ -61,7 +61,12 @@ IIViewDeckControllerDelegate
 - (void)fillUpTableProductWithCategoryID:(NSInteger)categoryID
 {
     [[JKProductManager sharedInstance] getProductsWithCategoryID:categoryID onSuccess:^(NSInteger statusCode, NSArray *arrayProducts) {
-        self.productsArr = [arrayProducts mutableCopy];
+        for (JKProduct *product in arrayProducts) {
+            if ([[[product getImageSet] anyObject] getMediumImageURL]) {
+                [self.productsArr addObject:product];
+            }
+        }
+
         [self.collectionProducts reloadData];
         
         [SVProgressHUD dismiss];

@@ -30,7 +30,7 @@
 }
 
 + (void)getImagesForProduct:(NSInteger)product_id
-               successBlock:(JKJSONRequestSuccessBlock)successBlock
+               successBlock:(JKJSONRequestImageSuccessBlock)successBlock
                failureBlock:(JKJSONRequestFailureBlock)failureBlock{
     NSDictionary *params = @{@"product_id": [NSNumber numberWithInteger:product_id]};
     

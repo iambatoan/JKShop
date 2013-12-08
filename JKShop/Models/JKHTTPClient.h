@@ -8,7 +8,8 @@
 
 #import "AFHTTPClient.h"
 
-typedef void (^JKJSONRequestSuccessBlock) (NSInteger statusCode, id obj);
+typedef void (^JKJSONRequestSuccessBlock) (NSInteger statusCode, NSArray *productArray);
+typedef void (^JKJSONRequestImageSuccessBlock) (NSInteger statusCode, NSSet *productImageSet);
 typedef void (^JKJSONRequestFailureBlock) (NSInteger statusCode, id obj);
 
 typedef void (^JKRequestSuccessBlock) (NSInteger statusCode, id obj);

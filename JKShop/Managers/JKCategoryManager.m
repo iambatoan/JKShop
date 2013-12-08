@@ -15,16 +15,14 @@ SINGLETON_MACRO
 - (void)getMenuListOnComplete:(void(^)(NSArray *menu))complete orFailure:(void(^)(NSError *error))failure{
     NSString *path = [NSString stringWithFormat:@"%@%@",API_SERVER_HOST,API_GET_LIST_CATEGORY];
     [[JKHTTPClient sharedClient] getPath:path parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
         [self storeMenuList:[responseObject objectForKey:@"categories"]];
         NSArray *menuList = [self getMenuList];
         
-        //Handle success
         if (complete) {
             complete(menuList);
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        //Handle failure
-        
         NSArray *menuList = [self getMenuList];
         if (complete) {
             complete(menuList);
@@ -64,7 +62,7 @@ SINGLETON_MACRO
 - (NSArray *)getMenuList
 {
     NSArray *arrMenu = [[NSArray alloc] init];
-    arrMenu = [JKCategory MR_findAll];
+    arrMenu = [JKCategory MR_findAllSortedBy:@"category_id" ascending:YES];
     return arrMenu;
 }
 
