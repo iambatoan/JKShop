@@ -31,7 +31,8 @@ UISearchBarDelegate
 @property (strong, nonatomic) NSArray               * arrSection;
 @property (strong, nonatomic) NSArray               * arrIconSection;
 @property (strong, nonatomic) NSArray               * arrSubMenuSectionOne;
-@property (weak, nonatomic) IBOutlet UITableView    *menuTableView;
+@property (weak, nonatomic) IBOutlet UITableView    * menuTableView;
+@property (weak, nonatomic) IBOutlet UIView         * searchBarView;
 
 @end
 
@@ -254,11 +255,7 @@ UISearchBarDelegate
     [self.searchDisplayController.searchResultsTableView registerNib:[UINib nibWithNibName:NSStringFromClass([JKSearchProductCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([JKSearchProductCell class])];
     IIViewDeckController *deckViewController = (IIViewDeckController*)[JKAppDelegate getRootViewController];
     [deckViewController setLeftSize:0];
-    
-    CGRect frame = self.menuTableView.frame;
-    frame.size.width = [[UIScreen mainScreen] bounds].size.width;
-    self.menuTableView.frame = frame;
-    self.searchDisplayController.searchResultsTableView.frame = frame;
+    [self.searchBarView setWidth:320];
 }
 
 - (void)searchDisplayControllerWillEndSearch:(UISearchDisplayController *)controller{
@@ -267,15 +264,11 @@ UISearchBarDelegate
     
     IIViewDeckController *deckViewController = (IIViewDeckController*)[JKAppDelegate getRootViewController];
     [deckViewController setLeftSize:LEFT_SIZE];
+    [self.searchBarView setWidth:275];
 }
 
 - (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString{
     [self filterListForSearchText:searchString];
-    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
-        CGRect frame = self.searchDisplayController.searchResultsTableView.frame;
-        frame.origin.y = -20;
-        self.searchDisplayController.searchResultsTableView.frame = frame;
-    }
     return YES;
 }
 
@@ -291,7 +284,8 @@ UISearchBarDelegate
     NSArray *arrProduct = [JKProduct MR_findAll];
     
     for (JKProduct *product in arrProduct) {
-        NSRange nameRange = [product.name rangeOfString:searchText options:NSCaseInsensitiveSearch];
+        NSString *productNameWithoutUnicode = [[NSString alloc] initWithData:[product.name dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES] encoding:NSASCIIStringEncoding];
+        NSRange nameRange = [productNameWithoutUnicode rangeOfString:searchText options:NSCaseInsensitiveSearch];
         if (nameRange.location != NSNotFound) {
             [arrResultProduct addObject:product];
         }

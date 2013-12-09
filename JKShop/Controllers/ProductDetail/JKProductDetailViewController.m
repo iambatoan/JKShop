@@ -67,7 +67,7 @@ UIScrollViewDelegate
 - (void)loadProductDetail{
     self.labelProductName.text = [self.product getProductName];
     
-    self.labelProductPrice.text = [NSString stringWithFormat:@"Giá: %@ VNĐ",[self.product getProductPrice]];
+    self.labelProductPrice.text = [NSString stringWithFormat:@"%d,000 VNĐ",[[self.product getProductPrice] intValue]/1000 > 0 ? [[self.product getProductPrice] intValue]/1000 : [[self.product getProductPrice] intValue] ];
     
     self.labelProductDetail.text = [NSString stringWithFormat:@"Chi tiết sản phẩm: %@",[self.product getProductDetail]];
     [self.labelProductDetail sizeToFitKeepWidth];

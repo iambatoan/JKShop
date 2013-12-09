@@ -77,8 +77,12 @@
         if([subView isKindOfClass:UIButton.class])
         {
             cancelButton = (UIButton*)subView;
-            [cancelButton setTitle:title forState:state];
-            [cancelButton setTintColor:[UIColor colorWithHexString:@"D26E4B"]];
+            if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+                [cancelButton setTitleColor:[UIColor colorWithHexString:@"D26E4B"] forState:UIControlStateNormal];
+                return;
+            }
+            [cancelButton setBackgroundImage:[UIImage imageNamed:@"search_button_background"] forState:UIControlStateNormal];
+            [cancelButton setTitleShadowColor:nil forState:UIControlStateNormal];
             return;
         }
         else
