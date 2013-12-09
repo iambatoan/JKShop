@@ -36,10 +36,10 @@ IIViewDeckControllerDelegate
     if (![self.lblTitle isEqualToString:@""]) {
         self.title = self.lblTitle;
     }
+    [SVProgressHUD showWithStatus:@"Đang tải sản phẩm" maskType:SVProgressHUDMaskTypeGradient];
     
     self.productsArr = [[NSMutableArray alloc] init];
-    
-    [SVProgressHUD showWithStatus:@"Đang tải sản phẩm" maskType:SVProgressHUDMaskTypeGradient];
+    self.productsArr = [[[JKProductManager alloc] getStoredProductsWithCategoryId:self.category_id] mutableCopy];
     
     [self.collectionProducts registerNib:[UINib nibWithNibName:NSStringFromClass([JKProductsCollectionCell class]) bundle:nil] forCellWithReuseIdentifier:NSStringFromClass([JKProductsCollectionCell class])];
     
@@ -61,15 +61,17 @@ IIViewDeckControllerDelegate
 - (void)fillUpTableProductWithCategoryID:(NSInteger)categoryID
 {
     [[JKProductManager sharedInstance] getProductsWithCategoryID:categoryID onSuccess:^(NSInteger statusCode, NSArray *arrayProducts) {
+        self.productsArr = [arrayProducts mutableCopy];
         for (JKProduct *product in arrayProducts) {
-            if ([[[product getImageSet] anyObject] getMediumImageURL]) {
-                [self.productsArr addObject:product];
+            if (![[[product getImageSet] anyObject] getMediumImageURL]) {
+                [self.productsArr removeObject:product];
             }
         }
 
+        [SVProgressHUD dismiss];
         [self.collectionProducts reloadData];
         
-        [SVProgressHUD dismiss];
+
     } failure:^(NSInteger statusCode, id obj) {
         [SVProgressHUD showErrorWithStatus:@"Xin vui lòng kiểm tra kết nối mạng và thử lại"];
     }];

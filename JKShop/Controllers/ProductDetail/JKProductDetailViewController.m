@@ -41,7 +41,7 @@ UIScrollViewDelegate
     [self.productCollectionView registerNib:[UINib nibWithNibName:NSStringFromClass([JKProductsDetailCollectionCell class]) bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:NSStringFromClass([JKProductsDetailCollectionCell class])];
     [self.relatedProductCollectionView registerNib:[UINib nibWithNibName:NSStringFromClass([JKProductsCollectionCell class]) bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:NSStringFromClass([JKProductsCollectionCell class])];
     
-    [self fillUpTableProductWithCategoryID:[[self.product.category anyObject] getCategoryId]];
+    [self fillUpCollectionRelatedProductWithCategoryID:[[self.product.category anyObject] getCategoryId]];
     
     [self loadProductDetail];
     
@@ -91,7 +91,7 @@ UIScrollViewDelegate
     self.imagePageControl.currentPage = page;
 }
 
-- (void)fillUpTableProductWithCategoryID:(NSInteger)categoryID
+- (void)fillUpCollectionRelatedProductWithCategoryID:(NSInteger)categoryID
 {
     [[JKProductManager sharedInstance] getProductsWithCategoryID:categoryID onSuccess:^(NSInteger statusCode, NSArray *productsArray) {
         self.productsArr = [[NSMutableArray alloc] init];

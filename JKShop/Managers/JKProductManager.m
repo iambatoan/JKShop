@@ -14,7 +14,9 @@ SINGLETON_MACRO
 
 #pragma mark - Get product details from server
 
-- (void)getProductsWithCategoryID:(NSInteger)category_id onSuccess:(JKJSONRequestSuccessBlock)successBlock failure:(JKJSONRequestFailureBlock)failureBlock
+- (void)getProductsWithCategoryID:(NSInteger)category_id
+                        onSuccess:(JKJSONRequestSuccessBlock)successBlock
+                          failure:(JKJSONRequestFailureBlock)failureBlock
 {
     NSDictionary *params = @{
                              @"category_id"     : [NSNumber numberWithInteger:category_id]
@@ -23,16 +25,13 @@ SINGLETON_MACRO
     [[JKHTTPClient sharedClient] getPath:[NSString stringWithFormat:@"%@%@",API_SERVER_HOST,API_GET_PRODUCT_BY_CATEGORY_ID] parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         [[JKProductManager sharedInstance] productsFromReponseObject:responseObject[@"products"]];
-        
-        if (successBlock) {
-            JKProduct *product;
-            NSMutableArray *arrProduct = [[NSMutableArray alloc] init];
-            for (int i = 0; i < [responseObject[@"products"] count]; i++) {
-                product = [JKProduct productWithDictionary:[responseObject[@"products"] objectAtIndex:i] category:[[JKCategory MR_findByAttribute:@"category_id" withValue:@(category_id)] firstObject]];
-                [arrProduct addObject:product];
-            }
-            successBlock(operation.response.statusCode, arrProduct);
+        NSMutableArray *arrProduct = [[NSMutableArray alloc] init];
+        for (int i = 0; i < [responseObject[@"products"] count]; i++) {
+            JKProduct *product = [JKProduct productWithDictionary:[responseObject[@"products"] objectAtIndex:i]
+                                              category:[[JKCategory MR_findByAttribute:@"category_id" withValue:@(category_id)] firstObject]];
+            [arrProduct addObject:product];
         }
+          successBlock(operation.response.statusCode, arrProduct);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
         NSArray *arr = [self getStoredProductsWithCategoryId:category_id];
@@ -62,6 +61,9 @@ SINGLETON_MACRO
     
     JKCategory * category = [[JKCategory MR_findByAttribute:@"category_id" withValue:catID] firstObject];
     arrProducts = [category.product allObjects];
+    if (arrProducts.count) {
+        [SVProgressHUD dismiss];
+    }
     return arrProducts;
 }
 

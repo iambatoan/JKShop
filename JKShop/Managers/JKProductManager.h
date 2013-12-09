@@ -15,4 +15,6 @@
                         onSuccess:(JKJSONRequestSuccessBlock)successBlock
                           failure:(JKJSONRequestFailureBlock)failureBlock;
 
+- (NSArray *)getStoredProductsWithCategoryId:(NSInteger)category_id;
+
 @end

@@ -44,6 +44,7 @@
     }
     self.backgroundColor = [UIColor headerMenuColor];
     [self clearSearchBarBackground];
+    [self setCloseButtonTitle:@"Cancel" forState:UIControlStateNormal];
     [super layoutSubviews];
 }
 
@@ -62,6 +63,29 @@
         }
     }
     
+}
+
+- (void) setCloseButtonTitle: (NSString *) title forState: (UIControlState)state
+{
+    [self setTitle: title forState: state forView:self];
+}
+
+-(void) setTitle: (NSString *) title forState: (UIControlState)state forView: (UIView *)view
+{
+    UIButton *cancelButton = nil;
+    for(UIView *subView in view.subviews){
+        if([subView isKindOfClass:UIButton.class])
+        {
+            cancelButton = (UIButton*)subView;
+            [cancelButton setTitle:title forState:state];
+            [cancelButton setTintColor:[UIColor colorWithHexString:@"D26E4B"]];
+            return;
+        }
+        else
+        {
+            [self setTitle:title forState:state forView:subView];
+        }
+    }
 }
 
 @end

@@ -43,7 +43,7 @@ UISearchBarDelegate
 {
     [super viewDidLoad];
     self.arrMenu = [[NSMutableArray alloc] init];
-    self.arrMenu = [[JKCategory MR_findAll] mutableCopy];
+    self.arrMenu = [[JKCategoryManager alloc] getMenuList];
     
     self.arrSubMenuSectionOne = @[@"JK Shop", @"Hàng mới về", @"Liên hệ"];
     self.arrSection = @[@"Nổi Bật", @"Danh Mục", @"Tuỳ Chỉnh"];
