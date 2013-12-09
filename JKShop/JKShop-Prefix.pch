@@ -95,6 +95,9 @@
 #import "JKProduct.h"
 #import "JKProductImages.h"
 
+//Views
+#import "JKSearchBar.h"
+
 //------------------------------------------------------------------------------------------------------
 
 //

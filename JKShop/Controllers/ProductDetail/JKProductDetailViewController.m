@@ -1,4 +1,4 @@
-//
+ //
 //  JKProductDetailViewController.m
 //  JKShop
 //
@@ -37,10 +37,11 @@ UIScrollViewDelegate
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [SVProgressHUD showWithStatus:@"Đang tải chi tiết sản phẩm" maskType:SVProgressHUDMaskTypeGradient];
     self.title = [self.product getProductName];
     [self.productCollectionView registerNib:[UINib nibWithNibName:NSStringFromClass([JKProductsDetailCollectionCell class]) bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:NSStringFromClass([JKProductsDetailCollectionCell class])];
     [self.relatedProductCollectionView registerNib:[UINib nibWithNibName:NSStringFromClass([JKProductsCollectionCell class]) bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:NSStringFromClass([JKProductsCollectionCell class])];
-    
+     
     [self fillUpCollectionRelatedProductWithCategoryID:[[self.product.category anyObject] getCategoryId]];
     
     [self loadProductDetail];
@@ -78,7 +79,7 @@ UIScrollViewDelegate
     
     [self.relatedProductCollectionView alignBelowView:self.labelRelatedProduct offsetY:10 sameWidth:YES];
     
-    self.activityIndicator.frame = CGRectMake(CGRectGetMidX([self.relatedProductCollectionView frame]) - 10, CGRectGetMidY([self.relatedProductCollectionView frame]) - 10, 30, 30);
+    [self.activityIndicator alignBelowView:self.labelRelatedProduct offsetY:40 sameWidth:NO];
     
     self.contentScrollView.contentSize = CGSizeMake([[UIScreen mainScreen] bounds].size.width,CGRectGetMaxY([self.relatedProductCollectionView frame]));
 }
@@ -96,14 +97,16 @@ UIScrollViewDelegate
     [[JKProductManager sharedInstance] getProductsWithCategoryID:categoryID onSuccess:^(NSInteger statusCode, NSArray *productsArray) {
         self.productsArr = [[NSMutableArray alloc] init];
         for(JKProduct *product in productsArray){
-            if (product != self.product) {
+            if (product != self.product && [[product getImageSet] count]) {
                 [self.productsArr addObject:product];
             }
         }
-        
-        [self.relatedProductCollectionView reloadData];
-        
-        [self.activityIndicator stopAnimating];
+        if (self.productsArr.count) {
+            [self.relatedProductCollectionView reloadData];
+            [self.relatedProductCollectionView setHidden:NO];
+            [self.activityIndicator stopAnimating];
+            [SVProgressHUD dismiss];
+        }
         
     } failure:^(NSInteger statusCode, id obj) {
         [SVProgressHUD showErrorWithStatus:@"Xin vui lòng kiểm tra kết nối mạng và thử lại"];
@@ -119,8 +122,6 @@ UIScrollViewDelegate
         productDetailVC.product = [self.productsArr objectAtIndex:indexPath.item];
         
         [centralNavVC pushViewController:productDetailVC animated:YES];
-        [SVProgressHUD showWithStatus:@"Đang tải chi tiết sản phẩm" maskType:SVProgressHUDMaskTypeGradient];
-
     }
 }
 

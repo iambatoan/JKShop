@@ -35,7 +35,8 @@
     
     JKProduct *storedProduct = [[JKProduct MR_findByAttribute:@"product_id" withValue:@(product_id)] lastObject];
     if(storedProduct){
-        successBlock(200 ,[storedProduct getImageSet]);
+        [SVProgressHUD dismiss];
+        successBlock(200, [storedProduct getImageSet]);
         return;
     }
     

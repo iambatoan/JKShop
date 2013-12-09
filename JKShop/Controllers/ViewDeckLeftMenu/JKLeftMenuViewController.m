@@ -44,7 +44,7 @@ UISearchBarDelegate
 {
     [super viewDidLoad];
     self.arrMenu = [[NSMutableArray alloc] init];
-    self.arrMenu = [[JKCategoryManager alloc] getMenuList];
+    self.arrMenu = [[[JKCategoryManager sharedInstance] getMenuList] mutableCopy];
     
     self.arrSubMenuSectionOne = @[@"JK Shop", @"Hàng mới về", @"Liên hệ"];
     self.arrSection = @[@"Nổi Bật", @"Danh Mục", @"Tuỳ Chỉnh"];
@@ -52,7 +52,7 @@ UISearchBarDelegate
     
     [self.menuTableView registerNib:[UINib nibWithNibName:NSStringFromClass([JKSidebarMenuTableViewCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([JKSidebarMenuTableViewCell class])];
     [self.menuTableView registerNib:[UINib nibWithNibName:NSStringFromClass([JKLeftMenuSectionHeader class]) bundle:nil] forHeaderFooterViewReuseIdentifier:NSStringFromClass([JKLeftMenuSectionHeader class])];
-    self.menuTableView.contentOffset = CGPointMake(0, self.searchDisplayController.searchBar.frame.size.height);
+    [self.menuTableView setContentOffset:CGPointMake(0, 200) animated:YES];
     [self loadCategoryMenu];
 }
 

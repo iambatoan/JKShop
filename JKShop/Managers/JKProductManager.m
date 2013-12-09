@@ -8,6 +8,10 @@
 
 #import "JKProductManager.h"
 
+static NSString * const STORE_PRODUCT_BOOKMARK      =   @"store_product_bookmark";
+static NSString * const STORE_PRODUCT_ID            =   @"store_product_id";
+static NSString * const STORE_PRODUCT_NUMBER        =   @"store_product_number";
+
 @implementation JKProductManager
 
 SINGLETON_MACRO
@@ -92,6 +96,102 @@ SINGLETON_MACRO
     [saveInBackground start];
 }
 
+- (void)saveBookmarkProductWithArray:(NSArray *)array
+{
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    [userDefault setObject:array forKey:STORE_PRODUCT_BOOKMARK];
+    [userDefault synchronize];
+}
+
+- (void)saveBookmarkProductWithMutableArray:(NSMutableArray *)array
+{
+    [self saveBookmarkProductWithArray:array];
+}
+
+- (NSMutableArray *)getBookmarkProducts
+{
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    NSMutableArray *arr = [[userDefault objectForKey:STORE_PRODUCT_BOOKMARK] mutableCopy];
+    
+    if (arr) {
+        return arr;
+    }
+    
+    return [[NSMutableArray alloc] init];
+}
+
+- (void)removeBookmarkProductWithProductID:(NSNumber *)productID
+{
+    NSMutableArray *bookmarkedProducts = [self getBookmarkProducts];
+    
+    for (NSDictionary *data in bookmarkedProducts) {
+        NSNumber *product = data[STORE_PRODUCT_ID];
+        if ([productID integerValue] == [product integerValue]) {
+            [bookmarkedProducts removeObject:data];
+        }
+    }
+    
+    [self saveBookmarkProductWithArray:bookmarkedProducts];
+}
+
+- (void)bookmarkProductWithProduct:(JKProduct *)product
+{
+    NSNumber *productID = product.product_id;
+    [self bookmarkProductWithProductID:productID withNumber:1];
+}
+
+- (void)bookmarkProductWithProductID:(NSNumber *)productID
+{
+    [self bookmarkProductWithProductID:productID withNumber:1];
+}
+
+- (BOOL)isBookmarkedAlreadyWithProductID:(NSNumber *)productID
+{
+    NSMutableArray *bookmarkProducts = [self getBookmarkProducts];
+    
+    for (NSDictionary *data in bookmarkProducts) {
+        NSNumber *product = data[STORE_PRODUCT_ID];
+        if ([productID integerValue] == [product integerValue]) {
+            return YES;
+        }
+    }
+    
+    return NO;
+}
+
+- (void)bookmarkProductWithProductID:(NSNumber *)productID withNumber:(NSInteger)number
+{
+    NSDictionary *data = @{STORE_PRODUCT_ID: productID,
+                           STORE_PRODUCT_NUMBER : @(number)};
+    
+    NSMutableArray *bookmarkProducts = [self getBookmarkProducts];
+    
+    if ([self isBookmarkedAlreadyWithProductID:productID])
+        return;
+    
+    [bookmarkProducts addObject:data];
+    [self saveBookmarkProductWithMutableArray:bookmarkProducts];
+}
+
+- (void)updateProductWithProductID:(NSNumber *)productID withNumber:(NSInteger)number
+{
+    NSMutableArray *bookmarkedProducts = [self getBookmarkProducts];
+    int index = 0;
+    for (NSDictionary *data in bookmarkedProducts) {
+        NSNumber *product = data[STORE_PRODUCT_ID];
+        if ([productID integerValue] == [product integerValue]) {
+            break;
+        }
+        index++;
+    }
+    
+    NSDictionary *data = [bookmarkedProducts objectAtIndex:index];
+    NSDictionary *newData = @{STORE_PRODUCT_ID : data[STORE_PRODUCT_ID],
+                              STORE_PRODUCT_NUMBER : @(number)};
+    [bookmarkedProducts replaceObjectAtIndex:index withObject:newData];
+    
+    [self saveBookmarkProductWithArray:bookmarkedProducts];
+}
 
 
 @end

@@ -39,7 +39,7 @@ IIViewDeckControllerDelegate
     [SVProgressHUD showWithStatus:@"Đang tải sản phẩm" maskType:SVProgressHUDMaskTypeGradient];
     
     self.productsArr = [[NSMutableArray alloc] init];
-    self.productsArr = [[[JKProductManager alloc] getStoredProductsWithCategoryId:self.category_id] mutableCopy];
+    self.productsArr = [[[JKProductManager sharedInstance] getStoredProductsWithCategoryId:self.category_id] mutableCopy];
     
     [self.collectionProducts registerNib:[UINib nibWithNibName:NSStringFromClass([JKProductsCollectionCell class]) bundle:nil] forCellWithReuseIdentifier:NSStringFromClass([JKProductsCollectionCell class])];
     
@@ -98,7 +98,6 @@ IIViewDeckControllerDelegate
     productDetailVC.product = [self.productsArr objectAtIndex:indexPath.item];
     
     [centralNavVC pushViewController:productDetailVC animated:YES];
-    [SVProgressHUD showWithStatus:@"Đang tải chi tiết sản phẩm" maskType:SVProgressHUDMaskTypeGradient];
 }
 
 - (void)refresh{

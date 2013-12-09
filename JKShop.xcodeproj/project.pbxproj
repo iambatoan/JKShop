@@ -126,6 +126,12 @@
 		843D156C184A658500B65E35 /* JKLeftMenuSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 843D156A184A658500B65E35 /* JKLeftMenuSectionHeader.xib */; };
 		843D156F184A671600B65E35 /* JKProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = 843D156E184A671600B65E35 /* JKProduct.m */; };
 		843D1572184A69F400B65E35 /* JKProductImages.m in Sources */ = {isa = PBXBuildFile; fileRef = 843D1571184A69F400B65E35 /* JKProductImages.m */; };
+		8444FF6F18562594008C9D77 /* JKBookmarkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8444FF6D18562594008C9D77 /* JKBookmarkViewController.m */; };
+		8444FF7018562594008C9D77 /* JKBookmarkViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8444FF6E18562594008C9D77 /* JKBookmarkViewController.xib */; };
+		8444FF73185625C2008C9D77 /* JKBookmarkTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8444FF72185625C2008C9D77 /* JKBookmarkTableViewCell.m */; };
+		8444FF75185625E0008C9D77 /* JKBookmarkTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8444FF74185625E0008C9D77 /* JKBookmarkTableViewCell.xib */; };
+		8444FF7818562604008C9D77 /* JKBookmarkTableHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 8444FF7718562604008C9D77 /* JKBookmarkTableHeader.m */; };
+		8444FF7A1856261C008C9D77 /* JKBookmarkTableHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8444FF791856261C008C9D77 /* JKBookmarkTableHeader.xib */; };
 		84A3BB4D184B086E00650BAF /* _JKProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A3BB4A184B086E00650BAF /* _JKProduct.m */; };
 		84A3BB4E184B086E00650BAF /* _JKProductImages.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A3BB4C184B086E00650BAF /* _JKProductImages.m */; };
 		84A3BB8B184B096C00650BAF /* MagicalImportFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A3BB53184B096C00650BAF /* MagicalImportFunctions.m */; };
@@ -348,6 +354,15 @@
 		843D156E184A671600B65E35 /* JKProduct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKProduct.m; path = Models/JKProduct.m; sourceTree = "<group>"; };
 		843D1570184A69F400B65E35 /* JKProductImages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKProductImages.h; path = Models/JKProductImages.h; sourceTree = "<group>"; };
 		843D1571184A69F400B65E35 /* JKProductImages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKProductImages.m; path = Models/JKProductImages.m; sourceTree = "<group>"; };
+		8444FF6C18562594008C9D77 /* JKBookmarkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKBookmarkViewController.h; path = Controllers/BookmarkViewController/JKBookmarkViewController.h; sourceTree = "<group>"; };
+		8444FF6D18562594008C9D77 /* JKBookmarkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKBookmarkViewController.m; path = Controllers/BookmarkViewController/JKBookmarkViewController.m; sourceTree = "<group>"; };
+		8444FF6E18562594008C9D77 /* JKBookmarkViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = JKBookmarkViewController.xib; path = Controllers/BookmarkViewController/JKBookmarkViewController.xib; sourceTree = "<group>"; };
+		8444FF71185625C2008C9D77 /* JKBookmarkTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKBookmarkTableViewCell.h; path = Controllers/BookmarkViewController/JKBookmarkTableViewCell.h; sourceTree = "<group>"; };
+		8444FF72185625C2008C9D77 /* JKBookmarkTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKBookmarkTableViewCell.m; path = Controllers/BookmarkViewController/JKBookmarkTableViewCell.m; sourceTree = "<group>"; };
+		8444FF74185625E0008C9D77 /* JKBookmarkTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = JKBookmarkTableViewCell.xib; path = Controllers/BookmarkViewController/JKBookmarkTableViewCell.xib; sourceTree = "<group>"; };
+		8444FF7618562604008C9D77 /* JKBookmarkTableHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKBookmarkTableHeader.h; path = Controllers/BookmarkViewController/JKBookmarkTableHeader.h; sourceTree = "<group>"; };
+		8444FF7718562604008C9D77 /* JKBookmarkTableHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKBookmarkTableHeader.m; path = Controllers/BookmarkViewController/JKBookmarkTableHeader.m; sourceTree = "<group>"; };
+		8444FF791856261C008C9D77 /* JKBookmarkTableHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = JKBookmarkTableHeader.xib; path = Controllers/BookmarkViewController/JKBookmarkTableHeader.xib; sourceTree = "<group>"; };
 		84A3BB49184B086E00650BAF /* _JKProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _JKProduct.h; sourceTree = "<group>"; };
 		84A3BB4A184B086E00650BAF /* _JKProduct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _JKProduct.m; sourceTree = "<group>"; };
 		84A3BB4B184B086E00650BAF /* _JKProductImages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _JKProductImages.h; sourceTree = "<group>"; };
@@ -635,6 +650,7 @@
 		840644DE1849967B0065BCA4 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				8444FF6B185621CF008C9D77 /* BookmarkViewController */,
 				0B55CECD184F2B8900A3E4ED /* MHFBImageViewController */,
 				0B92A687184DCA43009B33DE /* ProductDetail */,
 				843D155C184A635100B65E35 /* ProductsList */,
@@ -924,6 +940,22 @@
 			name = ProductsList;
 			sourceTree = "<group>";
 		};
+		8444FF6B185621CF008C9D77 /* BookmarkViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8444FF6C18562594008C9D77 /* JKBookmarkViewController.h */,
+				8444FF6D18562594008C9D77 /* JKBookmarkViewController.m */,
+				8444FF6E18562594008C9D77 /* JKBookmarkViewController.xib */,
+				8444FF71185625C2008C9D77 /* JKBookmarkTableViewCell.h */,
+				8444FF72185625C2008C9D77 /* JKBookmarkTableViewCell.m */,
+				8444FF74185625E0008C9D77 /* JKBookmarkTableViewCell.xib */,
+				8444FF7618562604008C9D77 /* JKBookmarkTableHeader.h */,
+				8444FF7718562604008C9D77 /* JKBookmarkTableHeader.m */,
+				8444FF791856261C008C9D77 /* JKBookmarkTableHeader.xib */,
+			);
+			name = BookmarkViewController;
+			sourceTree = "<group>";
+		};
 		84A3BB48184B086E00650BAF /* Machine */ = {
 			isa = PBXGroup;
 			children = (
@@ -1148,11 +1180,14 @@
 			files = (
 				84F99F14184A1AEC00356DB3 /* category@2x.png in Resources */,
 				8406459F1849B2770065BCA4 /* home.jpg in Resources */,
+				8444FF75185625E0008C9D77 /* JKBookmarkTableViewCell.xib in Resources */,
 				840645D11849C8A40065BCA4 /* left-nav-button@2x.png in Resources */,
 				84F99F1F184A263400356DB3 /* bookmark_list@2x.png in Resources */,
+				8444FF7A1856261C008C9D77 /* JKBookmarkTableHeader.xib in Resources */,
 				0B26BE1D184C96B4008C1D79 /* logo.png in Resources */,
 				840644B5184992750065BCA4 /* InfoPlist.strings in Resources */,
 				84F99F18184A262A00356DB3 /* nav-back-btn-bg@2x.png in Resources */,
+				8444FF7018562594008C9D77 /* JKBookmarkViewController.xib in Resources */,
 				84F99F0E184A1AEC00356DB3 /* setting@2x.png in Resources */,
 				0B92A685184DAE6E009B33DE /* navbg.png in Resources */,
 				0B07C02B18505E74009EA61F /* search@2x.png in Resources */,
@@ -1238,6 +1273,7 @@
 				84A3BBA2184B096C00650BAF /* MagicalRecord+Setup.m in Sources */,
 				840645901849ABC90065BCA4 /* UIAlertView+Additions.m in Sources */,
 				840645AE1849BA780065BCA4 /* JKSidebarMenuTableViewCell.m in Sources */,
+				8444FF7818562604008C9D77 /* JKBookmarkTableHeader.m in Sources */,
 				8406455518499DCE0065BCA4 /* IIWrapController.m in Sources */,
 				84A3BB91184B096C00650BAF /* NSString+MagicalDataImport.m in Sources */,
 				84A3BB9E184B096C00650BAF /* MagicalRecord+Actions.m in Sources */,
@@ -1274,6 +1310,7 @@
 				84A3BBA4184B096C00650BAF /* MagicalRecord.m in Sources */,
 				843D1560184A638C00B65E35 /* JKProductsViewController.m in Sources */,
 				8406455B18499DF00065BCA4 /* BaseTableViewController.m in Sources */,
+				8444FF73185625C2008C9D77 /* JKBookmarkTableViewCell.m in Sources */,
 				8406454E18499DCE0065BCA4 /* AFPropertyListRequestOperation.m in Sources */,
 				840645B81849BE5B0065BCA4 /* UIColor+Custom.m in Sources */,
 				840645DC1849CC2C0065BCA4 /* JKMapViewController.m in Sources */,
@@ -1314,6 +1351,7 @@
 				84A3BB94184B096C00650BAF /* NSManagedObject+MagicalFinders.m in Sources */,
 				8406454B18499DCE0065BCA4 /* AFJSONRequestOperation.m in Sources */,
 				84A3BB98184B096C00650BAF /* NSManagedObjectContext+MagicalRecord.m in Sources */,
+				8444FF6F18562594008C9D77 /* JKBookmarkViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
