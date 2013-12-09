@@ -153,7 +153,7 @@ UISearchBarDelegate
         }
         default:
         {
-            if(self.arrMenu)
+            if(self.arrMenu.count)
             {
                 JKCategory *category = [self.arrMenu objectAtIndex:indexPath.row];
                 [cell customCategoryCellWithCategory:category];
@@ -163,7 +163,7 @@ UISearchBarDelegate
             UITableViewCell *refreshCell = [[UITableViewCell alloc] init];
             UIButton *refreshButton = [UIButton buttonWithType:UIButtonTypeCustom];
             [refreshButton addTarget:self
-                       action:@selector(refreshButtonPressed:)
+                       action:@selector(refreshButtonPressed)
              forControlEvents:UIControlEventTouchDown];
             [refreshButton setTitle:@"Refresh" forState:UIControlStateNormal];
             refreshButton.frame = CGRectMake(45, 7, 215, 27);

@@ -6,6 +6,7 @@
 const struct JKCategoryAttributes JKCategoryAttributes = {
 	.category_id = @"category_id",
 	.name = @"name",
+	.parent_id = @"parent_id",
 };
 
 const struct JKCategoryRelationships JKCategoryRelationships = {
@@ -46,6 +47,11 @@ const struct JKCategoryFetchedProperties JKCategoryFetchedProperties = {
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
 		return keyPaths;
 	}
+	if ([key isEqualToString:@"parent_idValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"parent_id"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
+	}
 
 	return keyPaths;
 }
@@ -81,6 +87,32 @@ const struct JKCategoryFetchedProperties JKCategoryFetchedProperties = {
 
 @dynamic name;
 
+
+
+
+
+
+@dynamic parent_id;
+
+
+
+- (int32_t)parent_idValue {
+	NSNumber *result = [self parent_id];
+	return [result intValue];
+}
+
+- (void)setParent_idValue:(int32_t)value_ {
+	[self setParent_id:[NSNumber numberWithInt:value_]];
+}
+
+- (int32_t)primitiveParent_idValue {
+	NSNumber *result = [self primitiveParent_id];
+	return [result intValue];
+}
+
+- (void)setPrimitiveParent_idValue:(int32_t)value_ {
+	[self setPrimitiveParent_id:[NSNumber numberWithInt:value_]];
+}
 
 
 

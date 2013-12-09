@@ -9,8 +9,6 @@
 #import "JKProductDetailViewController.h"
 #import "JKProductsDetailCollectionCell.h"
 
-static CGFloat const IOS_7_TOP_CONTENT_INSET = -25;
-
 @interface JKProductDetailViewController ()
 <
 UICollectionViewDataSource,
@@ -40,10 +38,6 @@ UIScrollViewDelegate
 {
     [super viewDidLoad];
     self.title = [self.product getProductName];
-    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
-        [self.contentScrollView setContentInset:UIEdgeInsetsMake(IOS_7_TOP_CONTENT_INSET, 0, 0, 0)];
-    }
-    
     [self.productCollectionView registerNib:[UINib nibWithNibName:NSStringFromClass([JKProductsDetailCollectionCell class]) bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:NSStringFromClass([JKProductsDetailCollectionCell class])];
     [self.relatedProductCollectionView registerNib:[UINib nibWithNibName:NSStringFromClass([JKProductsCollectionCell class]) bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:NSStringFromClass([JKProductsCollectionCell class])];
     

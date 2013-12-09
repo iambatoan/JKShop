@@ -7,6 +7,7 @@
 extern const struct JKCategoryAttributes {
 	__unsafe_unretained NSString *category_id;
 	__unsafe_unretained NSString *name;
+	__unsafe_unretained NSString *parent_id;
 } JKCategoryAttributes;
 
 extern const struct JKCategoryRelationships {
@@ -17,6 +18,7 @@ extern const struct JKCategoryFetchedProperties {
 } JKCategoryFetchedProperties;
 
 @class JKProduct;
+
 
 
 
@@ -58,6 +60,20 @@ extern const struct JKCategoryFetchedProperties {
 
 
 
+@property (nonatomic, strong) NSNumber* parent_id;
+
+
+
+@property int32_t parent_idValue;
+- (int32_t)parent_idValue;
+- (void)setParent_idValue:(int32_t)value_;
+
+//- (BOOL)validateParent_id:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
 @property (nonatomic, strong) NSSet *product;
 
 - (NSMutableSet*)productSet;
@@ -91,6 +107,15 @@ extern const struct JKCategoryFetchedProperties {
 
 - (NSString*)primitiveName;
 - (void)setPrimitiveName:(NSString*)value;
+
+
+
+
+- (NSNumber*)primitiveParent_id;
+- (void)setPrimitiveParent_id:(NSNumber*)value;
+
+- (int32_t)primitiveParent_idValue;
+- (void)setPrimitiveParent_idValue:(int32_t)value_;
 
 
 

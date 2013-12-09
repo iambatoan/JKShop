@@ -13,6 +13,7 @@
         category = [JKCategory MR_createEntity];
         category.category_id = [NSNumber numberWithInt:[dictionary[@"term_id"] intValue]];
         category.name = dictionary[@"name"];
+        category.parent_id = [NSNumber numberWithInt:[dictionary[@"parent"] intValue]];
     }
     return category;
 }
