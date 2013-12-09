@@ -20,6 +20,9 @@
 - (void)customCategoryCellWithCategory:(JKCategory *)category
 {
     self.sidebarMenuTitle.text = [category name];
+    if ([category getParentId]) {
+        self.sidebarMenuTitle.text = [NSString stringWithFormat:@"    %@",[category name]];
+    }
 }
 
 - (void)configWithData:(id)data

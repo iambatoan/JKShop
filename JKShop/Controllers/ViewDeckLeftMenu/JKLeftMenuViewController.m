@@ -52,13 +52,7 @@ UISearchBarDelegate
     [self.menuTableView registerNib:[UINib nibWithNibName:NSStringFromClass([JKSidebarMenuTableViewCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([JKSidebarMenuTableViewCell class])];
     [self.menuTableView registerNib:[UINib nibWithNibName:NSStringFromClass([JKLeftMenuSectionHeader class]) bundle:nil] forHeaderFooterViewReuseIdentifier:NSStringFromClass([JKLeftMenuSectionHeader class])];
     self.menuTableView.contentOffset = CGPointMake(0, self.searchDisplayController.searchBar.frame.size.height);
-    
-    [[JKCategoryManager sharedInstance] getMenuListOnComplete:^(NSArray *menu) {
-        self.arrMenu = [menu mutableCopy];
-        [self.menuTableView reloadData];
-    } orFailure:^(NSError *error) {
-        DLog(@"Error when load menu");
-    }];
+    [self loadCategoryMenu];
 }
 
 
@@ -161,12 +155,16 @@ UISearchBarDelegate
             }
             
             UITableViewCell *refreshCell = [[UITableViewCell alloc] init];
+            
             UIButton *refreshButton = [UIButton buttonWithType:UIButtonTypeCustom];
             [refreshButton addTarget:self
-                       action:@selector(refreshButtonPressed)
-             forControlEvents:UIControlEventTouchDown];
-            [refreshButton setTitle:@"Refresh" forState:UIControlStateNormal];
-            refreshButton.frame = CGRectMake(45, 7, 215, 27);
+                              action:@selector(refreshButtonPressed)
+                    forControlEvents:UIControlEventTouchUpInside];
+            [refreshButton setTitle:@"Refresh Menu" forState:UIControlStateNormal];
+            [refreshButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+            [refreshButton setBackgroundColor:[UIColor grayColor]];
+            refreshButton.frame = CGRectMake(30, 7, 215, 27);
+            
             [refreshCell addSubview:refreshButton];
             return refreshCell;
         }
@@ -326,7 +324,15 @@ UISearchBarDelegate
 }
 
 - (void)refreshButtonPressed{
-    [self.menuTableView reloadData];
+    [self loadCategoryMenu];
 }
 
+- (void)loadCategoryMenu{
+    [[JKCategoryManager sharedInstance] getMenuListOnComplete:^(NSArray *menu) {
+        self.arrMenu = [menu mutableCopy];
+        [self.menuTableView reloadData];
+    } orFailure:^(NSError *error) {
+        DLog(@"Error when load menu");
+    }];
+}
 @end

@@ -61,8 +61,15 @@ SINGLETON_MACRO
 
 - (NSArray *)getMenuList
 {
-    NSArray *arrMenu = [[NSArray alloc] init];
-    arrMenu = [JKCategory MR_findAllSortedBy:@"category_id" ascending:YES];
+    NSMutableArray *arrMenu = [[NSMutableArray alloc] init];
+    for (JKCategory *category in [JKCategory MR_findByAttribute:@"parent_id" withValue:@0]) {
+        [arrMenu addObject:category];
+        for (JKCategory *categoryChild in [JKCategory MR_findAll]) {
+            if ([categoryChild getParentId] == [category getCategoryId]) {
+                [arrMenu addObject:categoryChild];
+            }
+        }
+    }
     return arrMenu;
 }
 

@@ -26,4 +26,8 @@
     return self.name;
 }
 
+- (NSInteger)getParentId{
+    return [self.parent_id integerValue];
+}
+
 @end

@@ -5,5 +5,6 @@
 + (JKCategory *)categoryWithDictionary:(NSDictionary *)dictionary;
 - (NSInteger)getCategoryId;
 - (NSString *)getCategoryName;
+- (NSInteger)getParentId;
 
 @end
