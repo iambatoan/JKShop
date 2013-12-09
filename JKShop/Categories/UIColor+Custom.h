@@ -14,5 +14,6 @@
 + (UIColor *)appBobyTextColor;
 + (UIColor *)appBackgroundGreyColor;
 + (UIColor *)titleColor;
++ (UIColor *)headerMenuColor;
 
 @end

@@ -29,4 +29,8 @@
     return [UIColor colorWithRed:98/255.0 green:127/255.0 blue:154/255.5 alpha:1];
 }
 
++ (UIColor *)headerMenuColor{
+    return [UIColor colorWithRed:204/255.0 green:204/255.0 blue:204/255.5 alpha:1];
+}
+
 @end
