@@ -24,5 +24,6 @@
 - (void)bookmarkProductWithProductID:(NSNumber *)productID;
 - (void)bookmarkProductWithProductID:(NSNumber *)productID withNumber:(NSInteger)number;
 - (void)updateProductWithProductID:(NSNumber *)productID withNumber:(NSInteger)number;
++ (void)removeAllBookmarkProduct;
 
 @end

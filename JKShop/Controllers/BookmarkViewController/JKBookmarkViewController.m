@@ -22,7 +22,6 @@ UITableViewDelegate
 >
 
 @property (strong, nonatomic) NSMutableArray * bookmarkProductArray;
-@property (weak, nonatomic) IBOutlet UITableView *bookmarkTableView;
 
 @end
 
@@ -34,6 +33,11 @@ UITableViewDelegate
     [self.bookmarkTableView registerNib:[UINib nibWithNibName:NSStringFromClass([JKBookmarkTableViewCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([JKBookmarkTableViewCell class])];
     [self.bookmarkTableView registerNib:[UINib nibWithNibName:NSStringFromClass([JKBookmarkTableHeader class]) bundle:nil] forHeaderFooterViewReuseIdentifier:NSStringFromClass([JKBookmarkTableHeader class])];
     [self.bookmarkTableView registerNib:[UINib nibWithNibName:NSStringFromClass([JKBookmarkTableFooter class]) bundle:nil] forHeaderFooterViewReuseIdentifier:NSStringFromClass([JKBookmarkTableFooter class])];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(reloadTable:)
+                                                 name:@"ReloadTableView"
+                                               object:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -90,6 +94,16 @@ UITableViewDelegate
     return footer;
 }
 
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        nil;
+    }
+}
+
 - (JKProduct *)getProductFromStoreBookmark:(NSDictionary *)storeBookmark{
     return [[JKProduct MR_findByAttribute:@"product_id" withValue:[storeBookmark objectForKey:STORE_PRODUCT_ID]] lastObject];
 }
@@ -108,6 +122,10 @@ UITableViewDelegate
         count += [[dic objectForKey:STORE_PRODUCT_NUMBER] integerValue];
     }
     return count;
+}
+- (void)reloadTable:(NSNotification*)notif{
+    self.bookmarkProductArray = [[JKProductManager alloc] getBookmarkProducts];
+    [self.bookmarkTableView reloadData];
 }
 
 @end

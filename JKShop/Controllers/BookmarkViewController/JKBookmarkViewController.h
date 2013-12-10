@@ -10,4 +10,6 @@
 
 @interface JKBookmarkViewController : BaseViewController
 
+@property (weak, nonatomic) IBOutlet UITableView *bookmarkTableView;
+
 @end

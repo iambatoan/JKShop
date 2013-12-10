@@ -139,6 +139,11 @@ SINGLETON_MACRO
     [self saveBookmarkProductWithArray:bookmarkedProducts];
 }
 
++ (void)removeAllBookmarkProduct{
+    NSArray *bookmarkedProducts = nil;
+    [[JKProductManager alloc]saveBookmarkProductWithArray:bookmarkedProducts];
+}
+
 - (void)bookmarkProductWithProduct:(JKProduct *)product
 {
     NSNumber *productID = product.product_id;

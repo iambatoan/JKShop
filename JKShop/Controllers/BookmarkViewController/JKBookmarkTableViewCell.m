@@ -45,25 +45,11 @@
     self.lblProductPrice.text = [NSString stringWithFormat:@"%d,000 VNĐ",[product.price intValue]/1000 > 0 ? [product.price intValue]/1000 : [product.price intValue]];
     
     self.lblNumber.text = [NSString stringWithFormat:@"X %d", number];
-    
-//    UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressToDeleteBookmark:)];
-//    [self addGestureRecognizer:longPress];
 }
 
 + (CGFloat)getHeight
 {
     return 80;
 }
-
-#pragma mark - Actions
-
-- (void)longPressToDeleteBookmark:(id)sender
-{
-    if ([self.delegate respondsToSelector:@selector(onLongPress:)]) {
-        [self.delegate onLongPress:@{   @"guesture": sender,
-                                        @"productId": self.product.product_id}];
-    }
-}
-
 
 @end

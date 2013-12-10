@@ -41,4 +41,8 @@
     return 84;
 }
 
+- (IBAction)checkoutButtonPressed:(id)sender {
+    [SVProgressHUD showErrorWithStatus:@"Login to checkout !!!"];
+}
+
 @end
