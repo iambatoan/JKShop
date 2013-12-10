@@ -8,12 +8,14 @@
 
 #import "JKProductDetailViewController.h"
 #import "JKProductsDetailCollectionCell.h"
+#import "JKPopup.h"
 
 @interface JKProductDetailViewController ()
 <
 UICollectionViewDataSource,
 UICollectionViewDelegate,
-UIScrollViewDelegate
+UIScrollViewDelegate,
+UAModalPanelDelegate
 >
 
 @property (strong, nonatomic) NSArray                               * productImageArray;
@@ -168,13 +170,17 @@ UIScrollViewDelegate
 
 #pragma mark - Helper methods
 - (IBAction)addToCartButton:(id)sender {
-    if ([[JKProductManager sharedInstance] isBookmarkedAlreadyWithProductID:self.product.product_id]) {
-        [SVProgressHUD showErrorWithStatus:@"Sản phẩm đã được Bookmark rồi!"];
-        return;
-    }
+//    if ([[JKProductManager sharedInstance] isBookmarkedAlreadyWithProductID:self.product.product_id]) {
+//        [SVProgressHUD showErrorWithStatus:@"Sản phẩm đã được Bookmark rồi!"];
+//        return;
+//    }
+//    
+//    [[JKProductManager sharedInstance] bookmarkProductWithProductID:self.product.product_id];
+//    [SVProgressHUD showSuccessWithStatus:@"Bookmark thành công"];
     
-    [[JKProductManager sharedInstance] bookmarkProductWithProductID:self.product.product_id];
-    [SVProgressHUD showSuccessWithStatus:@"Bookmark thành công"];
+    JKPopup *modalPanel = [[JKPopup alloc] initWithFrame:self.view.bounds title:@"test"];
+    [self.navigationController.view addSubview:modalPanel];
+    [modalPanel showFromPoint:CGPointMake(CGRectGetMidX([sender frame]), CGRectGetMidY([sender frame]))];
 }
 
 - (NSInteger) numberImagesForImageViewer:(MHFacebookImageViewer *)imageViewer {
