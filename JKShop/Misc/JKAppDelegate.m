@@ -58,22 +58,16 @@
 - (IIViewDeckController*)generateControllerStack {
     
     JKLeftMenuViewController* leftController = [[JKLeftMenuViewController alloc] init];
-//    OFBookmarkViewViewController* rightController = [[OFBookmarkViewViewController alloc] init];
-//    
-//    // Set up ViewDeck central
-//    OFPageMenuViewController *centralViewController = [[OFPageMenuViewController alloc] init];
-//    OFNavigationViewController *centralNavController = [[OFNavigationViewController alloc] initWithRootViewController:centralViewController];
-    
     JKHomeViewController* centralVievController = [[JKHomeViewController alloc] init];
     JKNavigationViewController* centralNavController = [[JKNavigationViewController alloc] initWithRootViewController:centralVievController];
-    JKHomeViewController* rightController = [[JKHomeViewController alloc] init];
+    JKBookmarkViewController* rightController = [[JKBookmarkViewController alloc] init];
     
     IIViewDeckController* deckController =  [[IIViewDeckController alloc] initWithCenterViewController:centralNavController leftViewController:leftController rightViewController:rightController];
     
     [deckController setNavigationControllerBehavior:IIViewDeckNavigationControllerIntegrated];
     [deckController setCenterhiddenInteractivity:IIViewDeckCenterHiddenNotUserInteractiveWithTapToCloseBouncing];
     
-    deckController.rightSize = 60;
+    deckController.rightSize = 40;
     
     return deckController;
 }

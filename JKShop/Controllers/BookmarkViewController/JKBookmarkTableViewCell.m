@@ -8,6 +8,16 @@
 
 #import "JKBookmarkTableViewCell.h"
 
+@interface JKBookmarkTableViewCell()
+
+@property (weak, nonatomic) IBOutlet UIImageView *imgProductImage;
+@property (weak, nonatomic) IBOutlet UILabel *lblProductName;
+@property (weak, nonatomic) IBOutlet UILabel *lblProductPrice;
+@property (weak, nonatomic) IBOutlet UILabel *lblNumber;
+@property (weak, nonatomic) IBOutlet UIImageView *imgProductWrapImage;
+@property (strong, nonatomic) JKProduct *product;
+@end
+
 @implementation JKBookmarkTableViewCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -25,21 +35,19 @@
     self.imgProductWrapImage.layer.borderWidth = 1;
     self.imgProductWrapImage.layer.borderColor = [UIColor colorWithHexString:@"beb7a9"].CGColor;
     
-    NSString *imgUrl = [NSString stringWithFormat:@"http://orangefashion.vn/store/%@/%@_small.jpg", product.product_id, product.product_id];
-    [self.imgProductImage setImageWithURL:[NSURL URLWithString:imgUrl] placeholderImage:nil];
+    [self.imgProductImage setImageWithURL:[NSURL URLWithString:[[product.images anyObject] getSmallImageURL]]];
     
     self.lblProductName.text = product.name;
+    [self.lblProductName setFont:[UIFont fontWithName:@"Lato" size:14]];
+    
     [self.lblProductName sizeToFitKeepWidth];
     
-    self.lblProductPrice.text = product.price;
-    CGRect priceFrame = self.lblProductPrice.frame;
-    priceFrame.origin.y = CGRectGetMaxY(self.lblProductName.frame);
-    self.lblProductPrice.frame = priceFrame;
+    self.lblProductPrice.text = [NSString stringWithFormat:@"%d,000 VNĐ",[product.price intValue]/1000 > 0 ? [product.price intValue]/1000 : [product.price intValue]];
     
-    self.lblNumber.text = [NSString stringWithFormat:@"x %d", number];
+    self.lblNumber.text = [NSString stringWithFormat:@"X %d", number];
     
-    UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressToDeleteBookmark:)];
-    [self addGestureRecognizer:longPress];
+//    UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressToDeleteBookmark:)];
+//    [self addGestureRecognizer:longPress];
 }
 
 + (CGFloat)getHeight

@@ -55,16 +55,21 @@ SINGLETON_MACRO
 - (NSArray *)getStoredProductsWithCategoryId:(NSInteger)category_id
 {
     NSNumber *catID = @(category_id);
-    NSArray *arrProducts = [[NSArray alloc] init];
+    NSMutableArray *arrProducts = [[NSMutableArray alloc] init];
     
     // if new arrived
     if (category_id == 21) {
-        arrProducts = [JKProduct MR_findAllSortedBy:@"public_date" ascending:NO];
+        arrProducts = [[JKProduct MR_findAllSortedBy:@"public_date" ascending:NO] mutableCopy];
         return arrProducts;
     }
     
     JKCategory * category = [[JKCategory MR_findByAttribute:@"category_id" withValue:catID] firstObject];
-    arrProducts = [category.product allObjects];
+    for (JKProduct *product in [category.product allObjects]) {
+        if (product.images.count) {
+            [arrProducts addObject:product];
+        }
+    }
+    
     if (arrProducts.count) {
         [SVProgressHUD dismiss];
     }

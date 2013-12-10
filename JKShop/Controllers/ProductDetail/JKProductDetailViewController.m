@@ -29,6 +29,12 @@ UIScrollViewDelegate
 @property (weak, nonatomic) IBOutlet UICollectionView               * productCollectionView;
 @property (weak, nonatomic) IBOutlet UICollectionView               * relatedProductCollectionView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView        * activityIndicator;
+@property (weak, nonatomic) IBOutlet UILabel                        * labelSizeTitle;
+@property (weak, nonatomic) IBOutlet UILabel                        * labelColorTitle;
+@property (weak, nonatomic) IBOutlet UILabel                        * labelSize;
+@property (weak, nonatomic) IBOutlet UILabel                        * labelColor;
+@property (weak, nonatomic) IBOutlet UIView                         * separatorView;
+@property (strong, nonatomic) IBOutlet UIView                       * separatorBreakView;
 
 @end
 
@@ -41,7 +47,7 @@ UIScrollViewDelegate
     self.title = [self.product getProductName];
     [self.productCollectionView registerNib:[UINib nibWithNibName:NSStringFromClass([JKProductsDetailCollectionCell class]) bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:NSStringFromClass([JKProductsDetailCollectionCell class])];
     [self.relatedProductCollectionView registerNib:[UINib nibWithNibName:NSStringFromClass([JKProductsCollectionCell class]) bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:NSStringFromClass([JKProductsCollectionCell class])];
-     
+    
     [self fillUpCollectionRelatedProductWithCategoryID:[[self.product.category anyObject] getCategoryId]];
     
     [self loadProductDetail];
@@ -75,12 +81,22 @@ UIScrollViewDelegate
     
     self.labelProductSKU.text = [NSString stringWithFormat:@"Mã sản phẩm: %@",[self.product getProductSKU]];
     
-    [self.labelRelatedProduct alignBelowView:self.labelProductDetail offsetY:10 sameWidth:YES];
+    [self.labelSizeTitle alignBelowView:self.labelProductDetail offsetY:50 sameWidth:NO];
+    self.labelSize.text = [self.product.size  isEqual: @""] ? @"Updating..." : self.product.size;
+    [self.labelSize alignVerticallyCenterToView:self.labelSizeTitle];
+
+    [self.separatorView alignBelowView:self.labelSizeTitle offsetY:10 sameWidth:NO];
+
+    self.labelColor.text = [self.product.color isEqual: @""] ? @"Updating..." : self.product.color;
+    [self.labelColorTitle alignBelowView:self.separatorView offsetY:10 sameWidth:NO];
+    [self.labelColor alignVerticallyCenterToView:self.labelColorTitle];
     
-    [self.relatedProductCollectionView alignBelowView:self.labelRelatedProduct offsetY:10 sameWidth:YES];
+    [self.separatorBreakView alignBelowView:self.labelColorTitle offsetY:50 sameWidth:NO];
+
+    [self.labelRelatedProduct alignBelowView:self.separatorBreakView offsetY:10 sameWidth:NO];
+    [self.relatedProductCollectionView alignBelowView:self.labelRelatedProduct offsetY:10 sameWidth:NO];
     
     [self.activityIndicator alignBelowView:self.labelRelatedProduct offsetY:40 sameWidth:NO];
-    
     self.contentScrollView.contentSize = CGSizeMake([[UIScreen mainScreen] bounds].size.width,CGRectGetMaxY([self.relatedProductCollectionView frame]));
 }
 
@@ -94,23 +110,18 @@ UIScrollViewDelegate
 
 - (void)fillUpCollectionRelatedProductWithCategoryID:(NSInteger)categoryID
 {
-    [[JKProductManager sharedInstance] getProductsWithCategoryID:categoryID onSuccess:^(NSInteger statusCode, NSArray *productsArray) {
-        self.productsArr = [[NSMutableArray alloc] init];
-        for(JKProduct *product in productsArray){
-            if (product != self.product && [[product getImageSet] count]) {
-                [self.productsArr addObject:product];
-            }
-        }
-        if (self.productsArr.count) {
-            [self.relatedProductCollectionView reloadData];
-            [self.relatedProductCollectionView setHidden:NO];
-            [self.activityIndicator stopAnimating];
-            [SVProgressHUD dismiss];
-        }
-        
-    } failure:^(NSInteger statusCode, id obj) {
-        [SVProgressHUD showErrorWithStatus:@"Xin vui lòng kiểm tra kết nối mạng và thử lại"];
-    }];
+    self.productsArr = [[[JKProductManager alloc] getStoredProductsWithCategoryId:[[self.product.category anyObject] getCategoryId]] mutableCopy];
+    [self showCollectionView];
+}
+
+- (void)showCollectionView
+{
+    if (self.productsArr.count) {
+        [self.relatedProductCollectionView reloadData];
+        [self.relatedProductCollectionView setHidden:NO];
+        [self.activityIndicator stopAnimating];
+        [SVProgressHUD dismiss];
+    }
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -155,5 +166,14 @@ UIScrollViewDelegate
 }
 
 #pragma mark - Helper methods
+- (IBAction)addToCartButton:(id)sender {
+    if ([[JKProductManager sharedInstance] isBookmarkedAlreadyWithProductID:self.product.product_id]) {
+        [SVProgressHUD showErrorWithStatus:@"Sản phẩm đã được Bookmark rồi!"];
+        return;
+    }
+    
+    [[JKProductManager sharedInstance] bookmarkProductWithProductID:self.product.product_id];
+    [SVProgressHUD showSuccessWithStatus:@"Bookmark thành công"];
+}
 
 @end

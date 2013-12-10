@@ -23,7 +23,7 @@
     self.productName.text = aProduct.name;
     [self.productName setFont:[UIFont fontWithName:@"Lato" size:14]];
     [self.productName setTextColor:[UIColor titleColor]];
-    self.productPrice.text = [NSString stringWithFormat:@"%@",aProduct.price];
+    self.productPrice.text = [NSString stringWithFormat:@"%d,000 VNĐ",[aProduct.price intValue]/1000 > 0 ? [aProduct.price intValue]/1000 : [aProduct.price intValue]];
 }
 
 @end

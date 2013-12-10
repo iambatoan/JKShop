@@ -44,6 +44,8 @@
 		0B92A686184DAE6E009B33DE /* navbg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B92A684184DAE6E009B33DE /* navbg@2x.png */; };
 		0B92A68B184DCA7F009B33DE /* JKProductDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B92A689184DCA7F009B33DE /* JKProductDetailViewController.m */; };
 		0B92A68C184DCA7F009B33DE /* JKProductDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B92A68A184DCA7F009B33DE /* JKProductDetailViewController.xib */; };
+		0BAD4A601857172E009E5303 /* JKBookmarkTableFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BAD4A5F1857172E009E5303 /* JKBookmarkTableFooter.m */; };
+		0BAD4A621857174F009E5303 /* JKBookmarkTableFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0BAD4A611857174F009E5303 /* JKBookmarkTableFooter.xib */; };
 		0BD4F9B81855CD3800BCC995 /* search_button_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 0BD4F9B61855CD3800BCC995 /* search_button_background.png */; };
 		0BD4F9B91855CD3800BCC995 /* search_button_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0BD4F9B71855CD3800BCC995 /* search_button_background@2x.png */; };
 		840644A9184992740065BCA4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 840644A8184992740065BCA4 /* Foundation.framework */; };
@@ -220,6 +222,9 @@
 		0B92A688184DCA7F009B33DE /* JKProductDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKProductDetailViewController.h; path = Controllers/ProductDetail/JKProductDetailViewController.h; sourceTree = "<group>"; };
 		0B92A689184DCA7F009B33DE /* JKProductDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKProductDetailViewController.m; path = Controllers/ProductDetail/JKProductDetailViewController.m; sourceTree = "<group>"; };
 		0B92A68A184DCA7F009B33DE /* JKProductDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = JKProductDetailViewController.xib; path = Controllers/ProductDetail/JKProductDetailViewController.xib; sourceTree = "<group>"; };
+		0BAD4A5E1857172E009E5303 /* JKBookmarkTableFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKBookmarkTableFooter.h; path = Controllers/BookmarkViewController/JKBookmarkTableFooter.h; sourceTree = "<group>"; };
+		0BAD4A5F1857172E009E5303 /* JKBookmarkTableFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKBookmarkTableFooter.m; path = Controllers/BookmarkViewController/JKBookmarkTableFooter.m; sourceTree = "<group>"; };
+		0BAD4A611857174F009E5303 /* JKBookmarkTableFooter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = JKBookmarkTableFooter.xib; path = Controllers/BookmarkViewController/JKBookmarkTableFooter.xib; sourceTree = "<group>"; };
 		0BD4F9B61855CD3800BCC995 /* search_button_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = search_button_background.png; path = Resources/SidebarSection/search_button_background.png; sourceTree = "<group>"; };
 		0BD4F9B71855CD3800BCC995 /* search_button_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "search_button_background@2x.png"; path = "Resources/SidebarSection/search_button_background@2x.png"; sourceTree = "<group>"; };
 		840644A5184992740065BCA4 /* JKShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JKShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -650,8 +655,8 @@
 		840644DE1849967B0065BCA4 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				8444FF6B185621CF008C9D77 /* BookmarkViewController */,
 				0B55CECD184F2B8900A3E4ED /* MHFBImageViewController */,
+				8444FF6B185621CF008C9D77 /* BookmarkViewController */,
 				0B92A687184DCA43009B33DE /* ProductDetail */,
 				843D155C184A635100B65E35 /* ProductsList */,
 				840645D81849CBF70065BCA4 /* MapViewController */,
@@ -952,6 +957,9 @@
 				8444FF7618562604008C9D77 /* JKBookmarkTableHeader.h */,
 				8444FF7718562604008C9D77 /* JKBookmarkTableHeader.m */,
 				8444FF791856261C008C9D77 /* JKBookmarkTableHeader.xib */,
+				0BAD4A5E1857172E009E5303 /* JKBookmarkTableFooter.h */,
+				0BAD4A5F1857172E009E5303 /* JKBookmarkTableFooter.m */,
+				0BAD4A611857174F009E5303 /* JKBookmarkTableFooter.xib */,
 			);
 			name = BookmarkViewController;
 			sourceTree = "<group>";
@@ -1188,6 +1196,7 @@
 				840644B5184992750065BCA4 /* InfoPlist.strings in Resources */,
 				84F99F18184A262A00356DB3 /* nav-back-btn-bg@2x.png in Resources */,
 				8444FF7018562594008C9D77 /* JKBookmarkViewController.xib in Resources */,
+				0BAD4A621857174F009E5303 /* JKBookmarkTableFooter.xib in Resources */,
 				84F99F0E184A1AEC00356DB3 /* setting@2x.png in Resources */,
 				0B92A685184DAE6E009B33DE /* navbg.png in Resources */,
 				0B07C02B18505E74009EA61F /* search@2x.png in Resources */,
@@ -1351,6 +1360,7 @@
 				84A3BB94184B096C00650BAF /* NSManagedObject+MagicalFinders.m in Sources */,
 				8406454B18499DCE0065BCA4 /* AFJSONRequestOperation.m in Sources */,
 				84A3BB98184B096C00650BAF /* NSManagedObjectContext+MagicalRecord.m in Sources */,
+				0BAD4A601857172E009E5303 /* JKBookmarkTableFooter.m in Sources */,
 				8444FF6F18562594008C9D77 /* JKBookmarkViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

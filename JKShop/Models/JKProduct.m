@@ -66,4 +66,8 @@
     return self.product_code;
 }
 
++ (NSInteger)getProductPriceWithProductId:(NSString *)productId{
+    return [[[[JKProduct MR_findByAttribute:@"product_id" withValue:productId] lastObject] getProductPrice] integerValue];
+}
+
 @end

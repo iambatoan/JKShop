@@ -34,7 +34,6 @@
 #define API_GET_PRODUCT_BY_CATEGORY_ID              @"/tk_get_products_by_category/"
 #define API_GET_PRODUCT_BY_PRODUCT_ID               @"/tk_get_product_by_product_id/"
 
-
 #define ENABLE_FAKE_LOCATION                        YES         //Use the coordinate below, ignore location server
 #define FAKE_COORDINATE                             CLLocationCoordinate2DMake(3.18985899, 101.64969727)
 
@@ -60,6 +59,7 @@
 #import "JKProductsCollectionCell.h"
 #import "JKProductsViewController.h"
 #import "MHFacebookImageViewer.h"
+#import "JKBookmarkViewController.h"
 
 
 //Vendors

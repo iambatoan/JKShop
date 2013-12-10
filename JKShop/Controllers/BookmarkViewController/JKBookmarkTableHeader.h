@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface JKBookmarkTableHeader : UIView
+@interface JKBookmarkTableHeader : UITableViewHeaderFooterView
+
+@property (weak, nonatomic) IBOutlet UILabel *labelTotal;
 
 - (void)changeNumberOfBookmarkProduct:(NSInteger)numberProducts;
 + (CGFloat)getHeight;

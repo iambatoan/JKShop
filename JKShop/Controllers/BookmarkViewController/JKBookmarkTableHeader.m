@@ -8,13 +8,20 @@
 
 #import "JKBookmarkTableHeader.h"
 
+@interface JKBookmarkTableHeader()
+
+@property (weak, nonatomic) IBOutlet UILabel *lblNumberOfProducts;
+@property (weak, nonatomic) IBOutlet UILabel *lblInCart;
+
+@end
+
 @implementation JKBookmarkTableHeader
 
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self = [[[NSBundle mainBundle] loadNibNamed:@"JKBookmarkTableHeader" owner:nil options:nil] objectAtIndex:0];
+        self = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:nil options:nil] objectAtIndex:0];
     }
     return self;
 }
@@ -31,7 +38,7 @@
 
 + (CGFloat)getHeight
 {
-    return 35;
+    return 84;
 }
 
 @end

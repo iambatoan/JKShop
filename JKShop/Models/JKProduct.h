@@ -20,5 +20,6 @@
 - (NSString *)getProductSKU;
 - (NSString *)getProductDetail;
 - (NSString *)getProductPrice;
++ (NSInteger)getProductPriceWithProductId:(NSString *)productId;
 
 @end

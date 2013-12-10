@@ -29,7 +29,7 @@
         [self.productImage setImageWithURL:[NSURL URLWithString:[[product.images anyObject] getSmallImageURL]]];
     }
     
-    self.productPrice.text = [NSString stringWithFormat:@"%@ VNĐ",product.price];
+    self.productPrice.text = [NSString stringWithFormat:@"%d,000 VNĐ",[product.price intValue]/1000 > 0 ? [product.price intValue]/1000 : [product.price intValue]];
     self.productCode.text = [NSString stringWithFormat:@"Mã sản phẩm: %@",product.product_code];
 }
 
