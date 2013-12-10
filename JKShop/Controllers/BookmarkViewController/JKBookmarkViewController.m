@@ -9,7 +9,6 @@
 #import "JKBookmarkViewController.h"
 #import "JKBookmarkTableHeader.h"
 #import "JKBookmarkTableViewCell.h"
-#import "JKBookmarkTableFooter.h"
 
 static NSString * const STORE_PRODUCT_BOOKMARK      =   @"store_product_bookmark";
 static NSString * const STORE_PRODUCT_ID            =   @"store_product_id";
@@ -18,7 +17,8 @@ static NSString * const STORE_PRODUCT_NUMBER        =   @"store_product_number";
 @interface JKBookmarkViewController ()
 <
 UITableViewDataSource,
-UITableViewDelegate
+UITableViewDelegate,
+UIAlertViewDelegate
 >
 
 @property (strong, nonatomic) NSMutableArray * bookmarkProductArray;
@@ -32,12 +32,6 @@ UITableViewDelegate
     [super viewDidLoad];
     [self.bookmarkTableView registerNib:[UINib nibWithNibName:NSStringFromClass([JKBookmarkTableViewCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([JKBookmarkTableViewCell class])];
     [self.bookmarkTableView registerNib:[UINib nibWithNibName:NSStringFromClass([JKBookmarkTableHeader class]) bundle:nil] forHeaderFooterViewReuseIdentifier:NSStringFromClass([JKBookmarkTableHeader class])];
-    [self.bookmarkTableView registerNib:[UINib nibWithNibName:NSStringFromClass([JKBookmarkTableFooter class]) bundle:nil] forHeaderFooterViewReuseIdentifier:NSStringFromClass([JKBookmarkTableFooter class])];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(reloadTable:)
-                                                 name:@"ReloadTableView"
-                                               object:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -47,7 +41,17 @@ UITableViewDelegate
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     JKBookmarkTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([JKBookmarkTableViewCell class]) forIndexPath:indexPath];
+
     [cell configWithProduct:[self getProductFromStoreBookmark:[self.bookmarkProductArray objectAtIndex:indexPath.row]] andNumber:1];
+    NSMutableArray *rightUtilityButtons = [NSMutableArray new];
+    [rightUtilityButtons sw_addUtilityButtonWithColor:
+     [UIColor colorWithRed:0.78f green:0.78f blue:0.8f alpha:1.0]
+                                                title:@"More"];
+    [rightUtilityButtons sw_addUtilityButtonWithColor:
+     [UIColor colorWithRed:1.0f green:0.231f blue:0.188 alpha:1.0f]
+                                                title:@"Delete"];
+//    cell.rightUtilityButtons = rightUtilityButtons;
+//    cell.delegate = self;
     return cell;
 }
 
@@ -61,10 +65,6 @@ UITableViewDelegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return [JKBookmarkTableViewCell getHeight];
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    return [JKBookmarkTableFooter getHeight];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -86,24 +86,6 @@ UITableViewDelegate
     return header;
 }
 
-- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
-    JKBookmarkTableFooter *footer = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([JKBookmarkTableFooter class])];
-    if (!footer) {
-        footer = [[JKBookmarkTableFooter alloc] init];
-    }
-    return footer;
-}
-
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
-    return YES;
-}
-
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        nil;
-    }
-}
-
 - (JKProduct *)getProductFromStoreBookmark:(NSDictionary *)storeBookmark{
     return [[JKProduct MR_findByAttribute:@"product_id" withValue:[storeBookmark objectForKey:STORE_PRODUCT_ID]] lastObject];
 }
@@ -123,9 +105,45 @@ UITableViewDelegate
     }
     return count;
 }
-- (void)reloadTable:(NSNotification*)notif{
-    self.bookmarkProductArray = [[JKProductManager alloc] getBookmarkProducts];
-    [self.bookmarkTableView reloadData];
+
+- (IBAction)buttonDeleteAllPressed:(id)sender {
+    if (![[JKProductManager sharedInstance] getBookmarkProducts].count) {
+        [SVProgressHUD showErrorWithStatus:@"Không có sản phẩm trong giỏ hàng!"];
+        return;
+    }
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning" message:@"Do you want to delete all?"
+                                                   delegate:self
+                                          cancelButtonTitle:@"Yes"
+                                          otherButtonTitles:@"No", nil];
+    [alert show];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 0) {
+        [JKProductManager removeAllBookmarkProduct];
+        self.bookmarkProductArray = [[JKProductManager alloc] getBookmarkProducts];
+        [self.bookmarkTableView reloadData];
+    }
+}
+
+- (void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerRightUtilityButtonWithIndex:(NSInteger)index {
+    switch (index) {
+        case 0:
+            NSLog(@"More button was pressed");
+            break;
+        case 1:
+        {
+            // Delete button was pressed
+            NSIndexPath *cellIndexPath = [self.bookmarkTableView indexPathForCell:cell];
+            
+            [self.bookmarkProductArray removeObjectAtIndex:cellIndexPath.row];
+            [self.bookmarkTableView deleteRowsAtIndexPaths:@[cellIndexPath]
+                                  withRowAnimation:UITableViewRowAnimationAutomatic];
+            break;
+        }
+        default:
+            break;
+    }
 }
 
 @end

@@ -20,15 +20,6 @@
 
 @implementation JKBookmarkTableViewCell
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
-{
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {
-        self = [[[NSBundle mainBundle] loadNibNamed:@"JKBookmarkTableViewCell" owner:nil options:nil] objectAtIndex:0];
-    }
-    return self;
-}
-
 - (void)configWithProduct:(JKProduct *)product andNumber:(NSInteger)number
 {
     self.product = product;

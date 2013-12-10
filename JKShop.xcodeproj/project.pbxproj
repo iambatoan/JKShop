@@ -23,7 +23,6 @@
 /* Begin PBXBuildFile section */
 		0B02CE3F18557B6600E97DE1 /* marker@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B02CE3E18557B6600E97DE1 /* marker@2x.png */; };
 		0B02CE4218557FA200E97DE1 /* JKSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B02CE4118557FA200E97DE1 /* JKSearchBar.m */; };
-		0B07C02218503761009EA61F /* ODRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B07C02118503761009EA61F /* ODRefreshControl.m */; };
 		0B07C02518505382009EA61F /* JKSearchProductCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B07C02418505382009EA61F /* JKSearchProductCell.m */; };
 		0B07C0271850539D009EA61F /* JKSearchProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B07C0261850539D009EA61F /* JKSearchProductCell.xib */; };
 		0B07C02A18505E74009EA61F /* search.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B07C02818505E74009EA61F /* search.png */; };
@@ -44,10 +43,14 @@
 		0B92A686184DAE6E009B33DE /* navbg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B92A684184DAE6E009B33DE /* navbg@2x.png */; };
 		0B92A68B184DCA7F009B33DE /* JKProductDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B92A689184DCA7F009B33DE /* JKProductDetailViewController.m */; };
 		0B92A68C184DCA7F009B33DE /* JKProductDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B92A68A184DCA7F009B33DE /* JKProductDetailViewController.xib */; };
-		0BAD4A601857172E009E5303 /* JKBookmarkTableFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BAD4A5F1857172E009E5303 /* JKBookmarkTableFooter.m */; };
-		0BAD4A621857174F009E5303 /* JKBookmarkTableFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0BAD4A611857174F009E5303 /* JKBookmarkTableFooter.xib */; };
 		0BD4F9B81855CD3800BCC995 /* search_button_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 0BD4F9B61855CD3800BCC995 /* search_button_background.png */; };
 		0BD4F9B91855CD3800BCC995 /* search_button_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0BD4F9B71855CD3800BCC995 /* search_button_background@2x.png */; };
+		8404E61B18575D4100EE0F16 /* SWTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8404E61A18575D4100EE0F16 /* SWTableViewCell.m */; };
+		8404E62718575D8800EE0F16 /* NSMutableArray+SWUtilityButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = 8404E61E18575D8800EE0F16 /* NSMutableArray+SWUtilityButtons.m */; };
+		8404E62818575D8800EE0F16 /* SWCellScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8404E62018575D8800EE0F16 /* SWCellScrollView.m */; };
+		8404E62918575D8800EE0F16 /* SWLongPressGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8404E62218575D8800EE0F16 /* SWLongPressGestureRecognizer.m */; };
+		8404E62A18575D8800EE0F16 /* SWUtilityButtonTapGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8404E62418575D8800EE0F16 /* SWUtilityButtonTapGestureRecognizer.m */; };
+		8404E62B18575D8800EE0F16 /* SWUtilityButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8404E62618575D8800EE0F16 /* SWUtilityButtonView.m */; };
 		840644A9184992740065BCA4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 840644A8184992740065BCA4 /* Foundation.framework */; };
 		840644AB184992740065BCA4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 840644AA184992740065BCA4 /* CoreGraphics.framework */; };
 		840644AD184992750065BCA4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 840644AC184992740065BCA4 /* UIKit.framework */; };
@@ -192,8 +195,6 @@
 		0B02CE3E18557B6600E97DE1 /* marker@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "marker@2x.png"; path = "Resources/SidebarSection/marker@2x.png"; sourceTree = "<group>"; };
 		0B02CE4018557FA200E97DE1 /* JKSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKSearchBar.h; path = NIBs/JKSearchBar.h; sourceTree = "<group>"; };
 		0B02CE4118557FA200E97DE1 /* JKSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKSearchBar.m; path = NIBs/JKSearchBar.m; sourceTree = "<group>"; };
-		0B07C02018503761009EA61F /* ODRefreshControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODRefreshControl.h; sourceTree = "<group>"; };
-		0B07C02118503761009EA61F /* ODRefreshControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODRefreshControl.m; sourceTree = "<group>"; };
 		0B07C02318505382009EA61F /* JKSearchProductCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKSearchProductCell.h; path = Controllers/ProductsList/JKSearchProductCell.h; sourceTree = "<group>"; };
 		0B07C02418505382009EA61F /* JKSearchProductCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKSearchProductCell.m; path = Controllers/ProductsList/JKSearchProductCell.m; sourceTree = "<group>"; };
 		0B07C0261850539D009EA61F /* JKSearchProductCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = JKSearchProductCell.xib; path = Controllers/ProductsList/JKSearchProductCell.xib; sourceTree = "<group>"; };
@@ -222,11 +223,21 @@
 		0B92A688184DCA7F009B33DE /* JKProductDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKProductDetailViewController.h; path = Controllers/ProductDetail/JKProductDetailViewController.h; sourceTree = "<group>"; };
 		0B92A689184DCA7F009B33DE /* JKProductDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKProductDetailViewController.m; path = Controllers/ProductDetail/JKProductDetailViewController.m; sourceTree = "<group>"; };
 		0B92A68A184DCA7F009B33DE /* JKProductDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = JKProductDetailViewController.xib; path = Controllers/ProductDetail/JKProductDetailViewController.xib; sourceTree = "<group>"; };
-		0BAD4A5E1857172E009E5303 /* JKBookmarkTableFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKBookmarkTableFooter.h; path = Controllers/BookmarkViewController/JKBookmarkTableFooter.h; sourceTree = "<group>"; };
-		0BAD4A5F1857172E009E5303 /* JKBookmarkTableFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKBookmarkTableFooter.m; path = Controllers/BookmarkViewController/JKBookmarkTableFooter.m; sourceTree = "<group>"; };
-		0BAD4A611857174F009E5303 /* JKBookmarkTableFooter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = JKBookmarkTableFooter.xib; path = Controllers/BookmarkViewController/JKBookmarkTableFooter.xib; sourceTree = "<group>"; };
 		0BD4F9B61855CD3800BCC995 /* search_button_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = search_button_background.png; path = Resources/SidebarSection/search_button_background.png; sourceTree = "<group>"; };
 		0BD4F9B71855CD3800BCC995 /* search_button_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "search_button_background@2x.png"; path = "Resources/SidebarSection/search_button_background@2x.png"; sourceTree = "<group>"; };
+		8404E61918575D4100EE0F16 /* SWTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWTableViewCell.h; sourceTree = "<group>"; };
+		8404E61A18575D4100EE0F16 /* SWTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWTableViewCell.m; sourceTree = "<group>"; };
+		8404E61C18575D8800EE0F16 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		8404E61D18575D8800EE0F16 /* NSMutableArray+SWUtilityButtons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+SWUtilityButtons.h"; sourceTree = "<group>"; };
+		8404E61E18575D8800EE0F16 /* NSMutableArray+SWUtilityButtons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+SWUtilityButtons.m"; sourceTree = "<group>"; };
+		8404E61F18575D8800EE0F16 /* SWCellScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWCellScrollView.h; sourceTree = "<group>"; };
+		8404E62018575D8800EE0F16 /* SWCellScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWCellScrollView.m; sourceTree = "<group>"; };
+		8404E62118575D8800EE0F16 /* SWLongPressGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWLongPressGestureRecognizer.h; sourceTree = "<group>"; };
+		8404E62218575D8800EE0F16 /* SWLongPressGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWLongPressGestureRecognizer.m; sourceTree = "<group>"; };
+		8404E62318575D8800EE0F16 /* SWUtilityButtonTapGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWUtilityButtonTapGestureRecognizer.h; sourceTree = "<group>"; };
+		8404E62418575D8800EE0F16 /* SWUtilityButtonTapGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWUtilityButtonTapGestureRecognizer.m; sourceTree = "<group>"; };
+		8404E62518575D8800EE0F16 /* SWUtilityButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWUtilityButtonView.h; sourceTree = "<group>"; };
+		8404E62618575D8800EE0F16 /* SWUtilityButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWUtilityButtonView.m; sourceTree = "<group>"; };
 		840644A5184992740065BCA4 /* JKShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JKShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		840644A8184992740065BCA4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		840644AA184992740065BCA4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -486,16 +497,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0B07C01F18503761009EA61F /* ODRefreshControl */ = {
-			isa = PBXGroup;
-			children = (
-				0B07C02018503761009EA61F /* ODRefreshControl.h */,
-				0B07C02118503761009EA61F /* ODRefreshControl.m */,
-			);
-			name = ODRefreshControl;
-			path = Vendors/ODRefreshControl;
-			sourceTree = "<group>";
-		};
 		0B26BE20184C9D94008C1D79 /* Font */ = {
 			isa = PBXGroup;
 			children = (
@@ -536,6 +537,27 @@
 				0B55CECB184EDEE800A3E4ED /* JKProductsDetailCollectionCell.xib */,
 			);
 			name = ProductDetail;
+			sourceTree = "<group>";
+		};
+		8404E61818575D4100EE0F16 /* SWTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				8404E61918575D4100EE0F16 /* SWTableViewCell.h */,
+				8404E61A18575D4100EE0F16 /* SWTableViewCell.m */,
+				8404E61C18575D8800EE0F16 /* Constants.h */,
+				8404E61D18575D8800EE0F16 /* NSMutableArray+SWUtilityButtons.h */,
+				8404E61E18575D8800EE0F16 /* NSMutableArray+SWUtilityButtons.m */,
+				8404E61F18575D8800EE0F16 /* SWCellScrollView.h */,
+				8404E62018575D8800EE0F16 /* SWCellScrollView.m */,
+				8404E62118575D8800EE0F16 /* SWLongPressGestureRecognizer.h */,
+				8404E62218575D8800EE0F16 /* SWLongPressGestureRecognizer.m */,
+				8404E62318575D8800EE0F16 /* SWUtilityButtonTapGestureRecognizer.h */,
+				8404E62418575D8800EE0F16 /* SWUtilityButtonTapGestureRecognizer.m */,
+				8404E62518575D8800EE0F16 /* SWUtilityButtonView.h */,
+				8404E62618575D8800EE0F16 /* SWUtilityButtonView.m */,
+			);
+			name = SWTableViewCell;
+			path = Vendors/SWTableViewCell;
 			sourceTree = "<group>";
 		};
 		8406449C184992740065BCA4 = {
@@ -720,7 +742,7 @@
 		840644E3184996B90065BCA4 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
-				0B07C01F18503761009EA61F /* ODRefreshControl */,
+				8404E61818575D4100EE0F16 /* SWTableViewCell */,
 				84A3BB4F184B096C00650BAF /* MagicalRecord */,
 				840645DE1849CCAE0065BCA4 /* SVProgressHUD */,
 				840645911849AC010065BCA4 /* CrittercismSDK */,
@@ -957,9 +979,6 @@
 				8444FF7618562604008C9D77 /* JKBookmarkTableHeader.h */,
 				8444FF7718562604008C9D77 /* JKBookmarkTableHeader.m */,
 				8444FF791856261C008C9D77 /* JKBookmarkTableHeader.xib */,
-				0BAD4A5E1857172E009E5303 /* JKBookmarkTableFooter.h */,
-				0BAD4A5F1857172E009E5303 /* JKBookmarkTableFooter.m */,
-				0BAD4A611857174F009E5303 /* JKBookmarkTableFooter.xib */,
 			);
 			name = BookmarkViewController;
 			sourceTree = "<group>";
@@ -1196,7 +1215,6 @@
 				840644B5184992750065BCA4 /* InfoPlist.strings in Resources */,
 				84F99F18184A262A00356DB3 /* nav-back-btn-bg@2x.png in Resources */,
 				8444FF7018562594008C9D77 /* JKBookmarkViewController.xib in Resources */,
-				0BAD4A621857174F009E5303 /* JKBookmarkTableFooter.xib in Resources */,
 				84F99F0E184A1AEC00356DB3 /* setting@2x.png in Resources */,
 				0B92A685184DAE6E009B33DE /* navbg.png in Resources */,
 				0B07C02B18505E74009EA61F /* search@2x.png in Resources */,
@@ -1276,15 +1294,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0B07C02218503761009EA61F /* ODRefreshControl.m in Sources */,
 				843D156F184A671600B65E35 /* JKProduct.m in Sources */,
 				8406454718499DCE0065BCA4 /* AFDownloadRequestOperation.m in Sources */,
 				84A3BBA2184B096C00650BAF /* MagicalRecord+Setup.m in Sources */,
 				840645901849ABC90065BCA4 /* UIAlertView+Additions.m in Sources */,
 				840645AE1849BA780065BCA4 /* JKSidebarMenuTableViewCell.m in Sources */,
+				8404E62A18575D8800EE0F16 /* SWUtilityButtonTapGestureRecognizer.m in Sources */,
 				8444FF7818562604008C9D77 /* JKBookmarkTableHeader.m in Sources */,
 				8406455518499DCE0065BCA4 /* IIWrapController.m in Sources */,
+				8404E62918575D8800EE0F16 /* SWLongPressGestureRecognizer.m in Sources */,
 				84A3BB91184B096C00650BAF /* NSString+MagicalDataImport.m in Sources */,
+				8404E61B18575D4100EE0F16 /* SWTableViewCell.m in Sources */,
 				84A3BB9E184B096C00650BAF /* MagicalRecord+Actions.m in Sources */,
 				84A3BBA0184B096C00650BAF /* MagicalRecord+iCloud.m in Sources */,
 				84A3BB8B184B096C00650BAF /* MagicalImportFunctions.m in Sources */,
@@ -1341,6 +1361,7 @@
 				8406455018499DCE0065BCA4 /* AFXMLRequestOperation.m in Sources */,
 				8406455318499DCE0065BCA4 /* IISideController.m in Sources */,
 				84A3BB8F184B096C00650BAF /* NSObject+MagicalDataImport.m in Sources */,
+				8404E62B18575D8800EE0F16 /* SWUtilityButtonView.m in Sources */,
 				8406451C18499DB60065BCA4 /* BaseManager.m in Sources */,
 				84A3BB9C184B096C00650BAF /* NSPersistentStore+MagicalRecord.m in Sources */,
 				8406455C18499DF00065BCA4 /* BaseViewController.m in Sources */,
@@ -1348,10 +1369,12 @@
 				84A3BB9F184B096C00650BAF /* MagicalRecord+ErrorHandling.m in Sources */,
 				840645C41849C3780065BCA4 /* JKHTTPClient.m in Sources */,
 				8406455418499DCE0065BCA4 /* IIViewDeckController.m in Sources */,
+				8404E62818575D8800EE0F16 /* SWCellScrollView.m in Sources */,
 				840644BE184992750065BCA4 /* JKShop.xcdatamodeld in Sources */,
 				84A3BBA3184B096C00650BAF /* MagicalRecord+ShorthandSupport.m in Sources */,
 				8406451A18499DB60065BCA4 /* BaseDeviceLibrary.m in Sources */,
 				0B92A68B184DCA7F009B33DE /* JKProductDetailViewController.m in Sources */,
+				8404E62718575D8800EE0F16 /* NSMutableArray+SWUtilityButtons.m in Sources */,
 				84A3BB95184B096C00650BAF /* NSManagedObject+MagicalRecord.m in Sources */,
 				840645E31849CCAE0065BCA4 /* SVProgressHUD.m in Sources */,
 				8406450A18499D880065BCA4 /* JKAppDelegate.m in Sources */,
@@ -1360,7 +1383,6 @@
 				84A3BB94184B096C00650BAF /* NSManagedObject+MagicalFinders.m in Sources */,
 				8406454B18499DCE0065BCA4 /* AFJSONRequestOperation.m in Sources */,
 				84A3BB98184B096C00650BAF /* NSManagedObjectContext+MagicalRecord.m in Sources */,
-				0BAD4A601857172E009E5303 /* JKBookmarkTableFooter.m in Sources */,
 				8444FF6F18562594008C9D77 /* JKBookmarkViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

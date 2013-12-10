@@ -151,9 +151,10 @@ UIScrollViewDelegate
         JKProductsDetailCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([JKProductsDetailCollectionCell class]) forIndexPath:indexPath];
         [cell customProductsDetailCellWithProductImage:[self.productImageArray objectAtIndex:indexPath.item]];
         
-        UIImageView *imageView = cell.productImageView;
-        [imageView setContentMode:UIViewContentModeScaleAspectFill];
-        [imageView setupImageViewer];
+        UIImageView *imageView = (UIImageView *)[cell viewWithTag:1];
+        [imageView setImageWithURL:[NSURL URLWithString:[[self.productImageArray objectAtIndex:indexPath.item] getMediumImageURL]]];
+        [imageView setupImageViewerWithDatasource:self initialIndex:indexPath.row onOpen:nil onClose:nil];
+        imageView.contentMode = UIViewContentModeScaleAspectFill;
         imageView.clipsToBounds = NO;
         
         return cell;
@@ -176,4 +177,15 @@ UIScrollViewDelegate
     [SVProgressHUD showSuccessWithStatus:@"Bookmark thành công"];
 }
 
+- (NSInteger) numberImagesForImageViewer:(MHFacebookImageViewer *)imageViewer {
+    return self.productImageArray.count;
+}
+
+-  (NSURL*) imageURLAtIndex:(NSInteger)index imageViewer:(MHFacebookImageViewer *)imageViewer {
+    return [NSURL URLWithString:[[self.productImageArray objectAtIndex:index] getMediumImageURL]];
+}
+
+- (UIImage*) imageDefaultAtIndex:(NSInteger)index imageViewer:(MHFacebookImageViewer *)imageViewer{
+    return nil;
+}
 @end
