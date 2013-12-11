@@ -111,7 +111,7 @@ static NSString * const kTableViewCellContentView = @"UITableViewCellContentView
     
     SWLongPressGestureRecognizer *longPressGestureRecognizer = [[SWLongPressGestureRecognizer alloc] initWithTarget:self
                                                                                                              action:@selector(scrollViewPressed:)];
-    longPressGestureRecognizer.minimumPressDuration = 0.1;
+    longPressGestureRecognizer.minimumPressDuration = 0.5;
     [cellScrollView addGestureRecognizer:longPressGestureRecognizer];
     
     self.longPressGestureRecognizer = longPressGestureRecognizer;
