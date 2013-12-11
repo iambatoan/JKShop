@@ -213,10 +213,11 @@ UISearchBarDelegate
                 CGRect frame = self.view.frame;
                 
                 UIWebView *web = [[UIWebView alloc] initWithFrame:frame];
+                web.autoresizingMask = UIViewAutoresizingFlexibleHeight;
                 [menu3.view addSubview:web];
                 
-                NSString *path = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"thong-tin-thanh-toan.html"];
-                NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL fileURLWithPath:path isDirectory:NO]];
+                NSString *path = @"http://google.com";
+                NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:path]];
                 [web loadRequest:request];
                 
                 menu3.title = @"Hướng dẫn đặt hàng";

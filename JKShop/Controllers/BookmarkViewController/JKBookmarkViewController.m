@@ -18,7 +18,8 @@ static NSString * const STORE_PRODUCT_NUMBER        =   @"store_product_number";
 <
 UITableViewDataSource,
 UITableViewDelegate,
-UIAlertViewDelegate
+UIAlertViewDelegate,
+SWTableViewCellDelegate
 >
 
 @property (strong, nonatomic) NSMutableArray * bookmarkProductArray;
@@ -40,23 +41,18 @@ UIAlertViewDelegate
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    JKBookmarkTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([JKBookmarkTableViewCell class]) forIndexPath:indexPath];
+    JKBookmarkTableViewCell *cell = [self.bookmarkTableView dequeueReusableCellWithIdentifier:NSStringFromClass([JKBookmarkTableViewCell class]) forIndexPath:indexPath];
 
+    [cell setHeight:[JKBookmarkTableViewCell getHeight]];
     [cell configWithProduct:[self getProductFromStoreBookmark:[self.bookmarkProductArray objectAtIndex:indexPath.row]] andNumber:[[[self.bookmarkProductArray objectAtIndex:indexPath.row] objectForKey:STORE_PRODUCT_NUMBER] intValue]];
-    NSMutableArray *rightUtilityButtons = [NSMutableArray new];
-    [rightUtilityButtons sw_addUtilityButtonWithColor:
-     [UIColor colorWithRed:0.78f green:0.78f blue:0.8f alpha:1.0]
-                                                title:@"More"];
-    [rightUtilityButtons sw_addUtilityButtonWithColor:
-     [UIColor colorWithRed:1.0f green:0.231f blue:0.188 alpha:1.0f]
-                                                title:@"Delete"];
-//    cell.rightUtilityButtons = rightUtilityButtons;
-//    cell.delegate = self;
+
+    cell.rightUtilityButtons = [self rightButtons];
+    cell.delegate = self;
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
@@ -135,6 +131,19 @@ UIAlertViewDelegate
         default:
             break;
     }
+}
+
+- (NSArray *)rightButtons
+{
+    NSMutableArray *rightUtilityButtons = [NSMutableArray new];
+    [rightUtilityButtons sw_addUtilityButtonWithColor:
+     [UIColor colorWithRed:0.78f green:0.78f blue:0.8f alpha:1.0]
+                                                title:@"More"];
+    [rightUtilityButtons sw_addUtilityButtonWithColor:
+     [UIColor colorWithRed:1.0f green:0.231f blue:0.188 alpha:1.0f]
+                                                title:@"Delete"];
+    
+    return rightUtilityButtons;
 }
 
 @end

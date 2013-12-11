@@ -63,7 +63,7 @@
     [rightButton addTarget:self.viewDeckController action:@selector(toggleRightView) forControlEvents:UIControlEventTouchUpInside];
     rightButton.frame = CGRectMake(0, 0, 25, 25);
     
-    UILabel *labelCount = [[UILabel alloc] initWithFrame:CGRectMake(5, 6.7, 15, 15)];
+    UILabel *labelCount = [[UILabel alloc] initWithFrame:CGRectMake(4.5, 7, 15, 15)];
     [labelCount setFont:[UIFont fontWithName:@"Lato" size:10]];
     [labelCount setTextColor:[UIColor titleColor]];
     labelCount.textAlignment = NSTextAlignmentCenter;

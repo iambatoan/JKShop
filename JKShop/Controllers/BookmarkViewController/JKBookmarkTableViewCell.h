@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface JKBookmarkTableViewCell : UITableViewCell
+@interface JKBookmarkTableViewCell : SWTableViewCell
 
 - (void)configWithProduct:(JKProduct *)product andNumber:(NSInteger)number;
 + (CGFloat)getHeight;
