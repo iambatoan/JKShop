@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *labelProductSku;
 @property (weak, nonatomic) IBOutlet UILabel *labelProductPrice;
 @property (weak, nonatomic) IBOutlet UILabel *labelProductDetail;
+@property (weak, nonatomic) IBOutlet UIImageView *productImageWrapper;
 
 @end
 
@@ -45,10 +46,12 @@
     self.labelProductName.text = product.name;
     [self.labelProductName setFont:[UIFont fontWithName:@"Lato" size:17]];
     [self.labelProductName setTextColor:[UIColor titleColor]];
-    self.labelProductSku.text = [NSString stringWithFormat:@"Mã: %@",product.product_code];
+    self.labelProductSku.text = [NSString stringWithFormat:@"Mã sản phẩm: %@",product.product_code];
     self.labelProductPrice.text = [NSString getVNCurrencyFormatterWithNumber:@([product.price intValue])];
     self.labelProductDetail.text = product.detail;
     [self.productImage setImageWithURL:[NSURL URLWithString:[[product.images anyObject] getSmallImageURL]]];
+    self.productImageWrapper.layer.borderWidth = 1;
+    self.productImageWrapper.layer.borderColor = [UIColor titleColor].CGColor;
     [self.labelQuantity setText:[NSString stringWithFormat:@"%d",(int)[self.stepper value]]];
 }
 

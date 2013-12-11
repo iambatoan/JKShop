@@ -28,7 +28,7 @@ static NSString * const STORE_PRODUCT_NUMBER        =   @"store_product_number";
     
     self.product = [self getProductFromStoreBookmark:dictionaryProduct];
     self.imgProductWrapImage.layer.borderWidth = 1;
-    self.imgProductWrapImage.layer.borderColor = [UIColor colorWithHexString:@"beb7a9"].CGColor;
+    self.imgProductWrapImage.layer.borderColor = [UIColor titleColor].CGColor;
     
     [self.imgProductImage setImageWithURL:[NSURL URLWithString:[[self.product.images anyObject] getSmallImageURL]]];
     
