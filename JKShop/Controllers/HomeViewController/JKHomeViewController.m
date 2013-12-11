@@ -9,6 +9,10 @@
 #import "JKHomeViewController.h"
 
 @interface JKHomeViewController ()
+<
+FBLoginViewDelegate
+>
+@property (weak, nonatomic) IBOutlet FBLoginView *loginView;
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImage;
 
 @end
@@ -19,7 +23,8 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+//        self.loginView.readPermissions = @[@"publish_actions", @"email", @"user_likes"];
+//        self.loginView.defaultAudience = FBSessionDefaultAudienceFriends;
     }
     return self;
 }
