@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface JKPopup : UATitledModalPanel
+@interface JKPopup : UAModalPanel
 
-- (id)initWithFrame:(CGRect)frame title:(NSString *)title;
+- (id)initWithFrame:(CGRect)frame;
+
+- (void)loadDetailWithProduct:(JKProduct *)product;
 
 @end

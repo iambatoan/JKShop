@@ -76,7 +76,7 @@ UAModalPanelDelegate
 - (void)loadProductDetail{
     self.labelProductName.text = [self.product getProductName];
     
-    self.labelProductPrice.text = [NSString stringWithFormat:@"%d,000 VNĐ",[[self.product getProductPrice] intValue]/1000 > 0 ? [[self.product getProductPrice] intValue]/1000 : [[self.product getProductPrice] intValue] ];
+    self.labelProductPrice.text = [NSString getVNCurrencyFormatterWithNumber:@([[self.product getProductPrice] intValue]) ];
     
     self.labelProductDetail.text = [NSString stringWithFormat:@"Chi tiết sản phẩm: %@",[self.product getProductDetail]];
     [self.labelProductDetail sizeToFitKeepWidth];
@@ -170,17 +170,11 @@ UAModalPanelDelegate
 
 #pragma mark - Helper methods
 - (IBAction)addToCartButton:(id)sender {
-//    if ([[JKProductManager sharedInstance] isBookmarkedAlreadyWithProductID:self.product.product_id]) {
-//        [SVProgressHUD showErrorWithStatus:@"Sản phẩm đã được Bookmark rồi!"];
-//        return;
-//    }
-//    
-//    [[JKProductManager sharedInstance] bookmarkProductWithProductID:self.product.product_id];
-//    [SVProgressHUD showSuccessWithStatus:@"Bookmark thành công"];
     
-    JKPopup *modalPanel = [[JKPopup alloc] initWithFrame:self.view.bounds title:@"test"];
+    JKPopup *modalPanel = [[JKPopup alloc] initWithFrame:self.view.bounds];
+    [modalPanel loadDetailWithProduct:self.product];
     [self.navigationController.view addSubview:modalPanel];
-    [modalPanel showFromPoint:CGPointMake(CGRectGetMidX([sender frame]), CGRectGetMidY([sender frame]))];
+    [modalPanel showFromPoint:[self.view center]];
 }
 
 - (NSInteger) numberImagesForImageViewer:(MHFacebookImageViewer *)imageViewer {

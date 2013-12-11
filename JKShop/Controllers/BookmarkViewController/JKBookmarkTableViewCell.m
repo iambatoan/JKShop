@@ -33,7 +33,8 @@
     
     [self.lblProductName sizeToFitKeepWidth];
     
-    self.lblProductPrice.text = [NSString stringWithFormat:@"%d,000 VNĐ",[product.price intValue]/1000 > 0 ? [product.price intValue]/1000 : [product.price intValue]];
+    
+    self.lblProductPrice.text = [NSString getVNCurrencyFormatterWithNumber:@([product.price intValue])];
     
     self.lblNumber.text = [NSString stringWithFormat:@"X %d", number];
 }

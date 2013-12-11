@@ -22,6 +22,12 @@
     [super viewDidLoad];
     [self trackCritercismBreadCrumb:__LINE__];
     [self addNavigationItems];
+    
+    [[NSNotificationCenter defaultCenter]
+     addObserver:self
+     selector:@selector(addNavigationItems)
+     name:NOTIF_CHANGE_BOOKMARK_PRODUCT_COUNT
+     object:nil];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -53,9 +59,17 @@
     
     // Nav right button
     UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [rightButton setImage:[UIImage imageNamed:@"bookmark_list"] forState:UIControlStateNormal];
+    [rightButton setBackgroundImage:[UIImage imageNamed:@"bookmark_list"] forState:UIControlStateNormal];
     [rightButton addTarget:self.viewDeckController action:@selector(toggleRightView) forControlEvents:UIControlEventTouchUpInside];
     rightButton.frame = CGRectMake(0, 0, 25, 25);
+    
+    UILabel *labelCount = [[UILabel alloc] initWithFrame:CGRectMake(5, 6.7, 15, 15)];
+    [labelCount setFont:[UIFont fontWithName:@"Lato" size:10]];
+    [labelCount setTextColor:[UIColor titleColor]];
+    labelCount.textAlignment = NSTextAlignmentCenter;
+    labelCount.text = [NSString stringWithFormat:@"%d",[JKProductManager getAllBookmarkProductCount]];
+    [rightButton addSubview:labelCount];
+    
     UIBarButtonItem *rightButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightButton];
     self.navigationItem.rightBarButtonItem = rightButtonItem;
 }

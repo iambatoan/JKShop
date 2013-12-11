@@ -42,7 +42,7 @@ UIAlertViewDelegate
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     JKBookmarkTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([JKBookmarkTableViewCell class]) forIndexPath:indexPath];
 
-    [cell configWithProduct:[self getProductFromStoreBookmark:[self.bookmarkProductArray objectAtIndex:indexPath.row]] andNumber:1];
+    [cell configWithProduct:[self getProductFromStoreBookmark:[self.bookmarkProductArray objectAtIndex:indexPath.row]] andNumber:[[[self.bookmarkProductArray objectAtIndex:indexPath.row] objectForKey:STORE_PRODUCT_NUMBER] intValue]];
     NSMutableArray *rightUtilityButtons = [NSMutableArray new];
     [rightUtilityButtons sw_addUtilityButtonWithColor:
      [UIColor colorWithRed:0.78f green:0.78f blue:0.8f alpha:1.0]
@@ -77,11 +77,9 @@ UIAlertViewDelegate
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     JKBookmarkTableHeader *header = [tableView dequeueReusableHeaderFooterViewWithIdentifier:NSStringFromClass([JKBookmarkTableHeader class])];
-    [header changeNumberOfBookmarkProduct:[self getNumberOfBookmarkProduct]];
+    [header changeNumberOfBookmarkProduct:[JKProductManager getAllBookmarkProductCount]];
     
-    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
-    [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
-    header.labelTotal.text = [NSString stringWithFormat:@"%@ VNĐ", [formatter stringFromNumber:[NSNumber numberWithInteger:[self getTotalPrice]]]];
+    header.labelTotal.text = [NSString getVNCurrencyFormatterWithNumber:@([self getTotalPrice])];
     
     return header;
 }
@@ -96,14 +94,6 @@ UIAlertViewDelegate
         total += [[dic objectForKey:STORE_PRODUCT_NUMBER] integerValue] * [JKProduct getProductPriceWithProductId:[dic objectForKey:STORE_PRODUCT_ID]];
     }
     return total;
-}
-
-- (NSInteger)getNumberOfBookmarkProduct{
-    int count = 0;
-    for (NSDictionary *dic in self.bookmarkProductArray) {
-        count += [[dic objectForKey:STORE_PRODUCT_NUMBER] integerValue];
-    }
-    return count;
 }
 
 - (IBAction)buttonDeleteAllPressed:(id)sender {
@@ -122,6 +112,7 @@ UIAlertViewDelegate
     if (buttonIndex == 0) {
         [JKProductManager removeAllBookmarkProduct];
         self.bookmarkProductArray = [[JKProductManager alloc] getBookmarkProducts];
+        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIF_CHANGE_BOOKMARK_PRODUCT_COUNT object:self];
         [self.bookmarkTableView reloadData];
     }
 }

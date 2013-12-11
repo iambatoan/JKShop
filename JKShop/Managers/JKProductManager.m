@@ -125,6 +125,21 @@ SINGLETON_MACRO
     return [[NSMutableArray alloc] init];
 }
 
++ (NSInteger)getAllBookmarkProductCount{
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    NSMutableArray *arr = [[userDefault objectForKey:STORE_PRODUCT_BOOKMARK] mutableCopy];
+    
+    if (arr) {
+        int count = 0;
+        for (NSDictionary *dic in arr) {
+            count += [[dic objectForKey:STORE_PRODUCT_NUMBER] integerValue];
+        };
+        return count;
+    }
+    
+    return 0;
+}
+
 - (void)removeBookmarkProductWithProductID:(NSNumber *)productID
 {
     NSMutableArray *bookmarkedProducts = [self getBookmarkProducts];

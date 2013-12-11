@@ -34,6 +34,8 @@
 #define API_GET_PRODUCT_BY_CATEGORY_ID              @"/tk_get_products_by_category/"
 #define API_GET_PRODUCT_BY_PRODUCT_ID               @"/tk_get_product_by_product_id/"
 
+#define NOTIF_CHANGE_BOOKMARK_PRODUCT_COUNT         @"changBookmarkProductCount"
+
 #define ENABLE_FAKE_LOCATION                        YES         //Use the coordinate below, ignore location server
 #define FAKE_COORDINATE                             CLLocationCoordinate2DMake(3.18985899, 101.64969727)
 
@@ -91,6 +93,7 @@
 #import "UIColor+Hex.h"
 #import "UILabel+Additions.h"
 #import "UIView+Additions.h"
+#import "NSString+Additions.h"
 
 //Models
 #import "JKCategory.h"
