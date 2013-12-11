@@ -22,8 +22,7 @@ UITableViewDelegate,
 UIAlertViewDelegate,
 SWTableViewCellDelegate,
 UAModalPanelDelegate,
-JKPopupBookmarkDelegate,
-JKBookmarkTableViewCellDelegate
+JKPopupBookmarkDelegate
 >
 
 @property (strong, nonatomic) NSMutableArray * bookmarkProductArray;
@@ -185,35 +184,23 @@ JKBookmarkTableViewCellDelegate
 
 - (void)onLongPress:(UILongPressGestureRecognizer *)gestureRecognizer
 {
-//    UIGestureRecognizer *recognizer = (UIGestureRecognizer*) sender;
-//    if (recognizer.state == UIGestureRecognizerStateEnded)
-//    {
-//        JKPopupBookmark *modalPanel = [[JKPopupBookmark alloc] initWithFrame:self.view.bounds];
-//        [modalPanel.stepper setValue:[self getNumberProductFromStoreBookmarkAtIndex:indexPath.row]];
-//        [modalPanel loadDetailWithProduct:[self getProductFromStoreBookmarkAtIndex:indexPath.row]];
-//        IIViewDeckController *deckViewController = (IIViewDeckController*)[JKAppDelegate getRootViewController];
-//        [deckViewController setRightSize:0];
-//        [self.view addSubview:modalPanel];
-//        modalPanel.onClosePressed = ^(UAModalPanel* panel) {
-//            [deckViewController setRightSize:40];
-//            [panel hide];
-//        };
-//        modalPanel.JKDelegate = self;
-//        [modalPanel showFromPoint:[self.view center]];
-//    }
-    if (gestureRecognizer.state == UIGestureRecognizerStateBegan) {
-        
+    if (gestureRecognizer.state == UIGestureRecognizerStateBegan)
+    {
         CGPoint p = [gestureRecognizer locationInView:self.bookmarkTableView];
         
         NSIndexPath *indexPath = [self.bookmarkTableView indexPathForRowAtPoint:p];
-        if (indexPath == nil) {
-            NSLog(@"long press on table view but not on a row");
-        } else {
-            UITableViewCell *cell = [self.bookmarkTableView cellForRowAtIndexPath:indexPath];
-            if (cell.isHighlighted) {
-                NSLog(@"long press on table view at section %d row %d", indexPath.section, indexPath.row);
-            }
-        }
+        JKPopupBookmark *modalPanel = [[JKPopupBookmark alloc] initWithFrame:self.view.bounds];
+        [modalPanel.stepper setValue:[self getNumberProductFromStoreBookmarkAtIndex:indexPath.row]];
+        [modalPanel loadDetailWithProduct:[self getProductFromStoreBookmarkAtIndex:indexPath.row]];
+        IIViewDeckController *deckViewController = (IIViewDeckController*)[JKAppDelegate getRootViewController];
+        [deckViewController setRightSize:0];
+        [self.view addSubview:modalPanel];
+        modalPanel.onClosePressed = ^(UAModalPanel* panel) {
+            [deckViewController setRightSize:40];
+            [panel hide];
+        };
+        modalPanel.JKDelegate = self;
+        [modalPanel showFromPoint:[self.view center]];
     }
 }
 

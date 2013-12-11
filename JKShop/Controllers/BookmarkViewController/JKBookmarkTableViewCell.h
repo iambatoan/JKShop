@@ -8,15 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol JKBookmarkTableViewCellDelegate <NSObject>
-
-- (void)onLongPress:(id)sender;
-
-@end
-
 @interface JKBookmarkTableViewCell : SWTableViewCell
-
-@property (strong, nonatomic) id <JKBookmarkTableViewCellDelegate> delegate;
 
 - (void)configWithDictionary:(NSDictionary *)dictionaryProduct;
 + (CGFloat)getHeight;

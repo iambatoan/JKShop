@@ -207,7 +207,6 @@ static NSString * const kTableViewCellContentView = @"UITableViewCellContentView
     {
         // Gesture recognizer ended without failing so we select the cell
         [self selectCell];
-        
         // Set back to deselected
         [self setSelected:NO];
     }
@@ -221,6 +220,9 @@ static NSString * const kTableViewCellContentView = @"UITableViewCellContentView
         else
         {
             [self highlightCell];
+        }
+        if ([self.delegate respondsToSelector:@selector(onLongPress:)]) {
+            [self.delegate onLongPress:longPressGestureRecognizer];
         }
     }
 }
@@ -568,6 +570,13 @@ static NSString * const kTableViewCellContentView = @"UITableViewCellContentView
     {
         self.containingTableView.scrollEnabled = YES;
         self.longPressGestureRecognizer.enabled = YES;
+    }
+}
+
+- (void)longPressToShowOption:(UILongPressGestureRecognizer*)gestureRecognizer
+{
+    if ([self.delegate respondsToSelector:@selector(onLongPress:)]) {
+        [self.delegate onLongPress:gestureRecognizer];
     }
 }
 

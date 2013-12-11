@@ -41,20 +41,10 @@ static NSString * const STORE_PRODUCT_NUMBER        =   @"store_product_number";
     self.lblProductPrice.text = [NSString getVNCurrencyFormatterWithNumber:@([self.product.price intValue])];
     
     self.lblNumber.text = [NSString stringWithFormat:@"X %d", [dictionaryProduct[STORE_PRODUCT_NUMBER] integerValue]];
-    
-    UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressToShowOption:)];
-    [self addGestureRecognizer:longPress];
 }
                     
 - (JKProduct *)getProductFromStoreBookmark:(NSDictionary *)storeBookmark{
     return [[JKProduct MR_findByAttribute:@"product_id" withValue:[storeBookmark objectForKey:STORE_PRODUCT_ID]] lastObject];
-}
-
-- (void)longPressToShowOption:(id)sender
-{
-    if ([self.delegate respondsToSelector:@selector(onLongPress:)]) {
-        [self.delegate onLongPress:self];
-    }
 }
 
 + (CGFloat)getHeight

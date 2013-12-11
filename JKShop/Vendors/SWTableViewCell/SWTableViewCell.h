@@ -28,6 +28,7 @@ typedef enum {
 - (void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerLeftUtilityButtonWithIndex:(NSInteger)index;
 - (void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerRightUtilityButtonWithIndex:(NSInteger)index;
 - (void)swipeableTableViewCell:(SWTableViewCell *)cell scrollingToState:(SWCellState)state;
+- (void)onLongPress:(id)sender;
 
 @end
 
@@ -35,7 +36,7 @@ typedef enum {
 
 @property (nonatomic, strong) NSArray *leftUtilityButtons;
 @property (nonatomic, strong) NSArray *rightUtilityButtons;
-@property (nonatomic) id <SWTableViewCellDelegate> delegate;
+@property (nonatomic, assign) id <SWTableViewCellDelegate> delegate;
 @property (nonatomic, weak) UITableView *containingTableView;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier containingTableView:(UITableView *)containingTableView leftUtilityButtons:(NSArray *)leftUtilityButtons rightUtilityButtons:(NSArray *)rightUtilityButtons;
