@@ -41,7 +41,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Yuw-58-2uM">
-                            <rect key="frame" x="238" y="0.0" width="83" height="48"/>
+                            <rect key="frame" x="230" y="0.0" width="91" height="48"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="0.82352941176470584" green="0.43137254901960786" blue="0.29411764705882354" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>

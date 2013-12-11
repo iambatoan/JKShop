@@ -34,6 +34,8 @@
 		0B26BE1B184C7E50008C1D79 /* _JKCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B26BE1A184C7E50008C1D79 /* _JKCategory.m */; };
 		0B26BE1D184C96B4008C1D79 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B26BE1C184C96B4008C1D79 /* logo.png */; };
 		0B26BE1F184C988E008C1D79 /* no_product.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0B26BE1E184C988E008C1D79 /* no_product.gif */; };
+		0B513E811858612000E6DFBC /* JKPopupBookmark.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B513E801858612000E6DFBC /* JKPopupBookmark.m */; };
+		0B513E831858613400E6DFBC /* JKPopupBookmark.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B513E821858613400E6DFBC /* JKPopupBookmark.xib */; };
 		0B55CECA184EDEAA00A3E4ED /* JKProductsDetailCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B55CEC9184EDEAA00A3E4ED /* JKProductsDetailCollectionCell.m */; };
 		0B55CECC184EDEE800A3E4ED /* JKProductsDetailCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B55CECB184EDEE800A3E4ED /* JKProductsDetailCollectionCell.xib */; };
 		0B55CED3184F2B8900A3E4ED /* MHFacebookImageViewer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B55CECF184F2B8900A3E4ED /* MHFacebookImageViewer.m */; };
@@ -226,6 +228,9 @@
 		0B26BE1A184C7E50008C1D79 /* _JKCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _JKCategory.m; sourceTree = "<group>"; };
 		0B26BE1C184C96B4008C1D79 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = Resources/Home/logo.png; sourceTree = "<group>"; };
 		0B26BE1E184C988E008C1D79 /* no_product.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = no_product.gif; path = Resources/Home/no_product.gif; sourceTree = "<group>"; };
+		0B513E7F1858612000E6DFBC /* JKPopupBookmark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKPopupBookmark.h; path = NIBs/JKPopupBookmark.h; sourceTree = "<group>"; };
+		0B513E801858612000E6DFBC /* JKPopupBookmark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKPopupBookmark.m; path = NIBs/JKPopupBookmark.m; sourceTree = "<group>"; };
+		0B513E821858613400E6DFBC /* JKPopupBookmark.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = JKPopupBookmark.xib; path = NIBs/JKPopupBookmark.xib; sourceTree = "<group>"; };
 		0B55CEC8184EDEAA00A3E4ED /* JKProductsDetailCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKProductsDetailCollectionCell.h; path = Controllers/ProductDetail/JKProductsDetailCollectionCell.h; sourceTree = "<group>"; };
 		0B55CEC9184EDEAA00A3E4ED /* JKProductsDetailCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKProductsDetailCollectionCell.m; path = Controllers/ProductDetail/JKProductsDetailCollectionCell.m; sourceTree = "<group>"; };
 		0B55CECB184EDEE800A3E4ED /* JKProductsDetailCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = JKProductsDetailCollectionCell.xib; path = Controllers/ProductDetail/JKProductsDetailCollectionCell.xib; sourceTree = "<group>"; };
@@ -820,6 +825,9 @@
 				8404E62C185779E700EE0F16 /* JKPopup.h */,
 				8404E62D185779E700EE0F16 /* JKPopup.m */,
 				8404E62F185779FD00EE0F16 /* JKPopup.xib */,
+				0B513E7F1858612000E6DFBC /* JKPopupBookmark.h */,
+				0B513E801858612000E6DFBC /* JKPopupBookmark.m */,
+				0B513E821858613400E6DFBC /* JKPopupBookmark.xib */,
 			);
 			name = NIBs;
 			sourceTree = "<group>";
@@ -1314,6 +1322,7 @@
 				840645D11849C8A40065BCA4 /* left-nav-button@2x.png in Resources */,
 				84F99F1F184A263400356DB3 /* bookmark_list@2x.png in Resources */,
 				8444FF7A1856261C008C9D77 /* JKBookmarkTableHeader.xib in Resources */,
+				0B513E831858613400E6DFBC /* JKPopupBookmark.xib in Resources */,
 				0B26BE1D184C96B4008C1D79 /* logo.png in Resources */,
 				8404E64E1857802300EE0F16 /* modalButton@2x.png in Resources */,
 				840644B5184992750065BCA4 /* InfoPlist.strings in Resources */,
@@ -1407,6 +1416,7 @@
 				8406454718499DCE0065BCA4 /* AFDownloadRequestOperation.m in Sources */,
 				84A3BBA2184B096C00650BAF /* MagicalRecord+Setup.m in Sources */,
 				840645901849ABC90065BCA4 /* UIAlertView+Additions.m in Sources */,
+				0B513E811858612000E6DFBC /* JKPopupBookmark.m in Sources */,
 				840645AE1849BA780065BCA4 /* JKSidebarMenuTableViewCell.m in Sources */,
 				8404E62A18575D8800EE0F16 /* SWUtilityButtonTapGestureRecognizer.m in Sources */,
 				8444FF7818562604008C9D77 /* JKBookmarkTableHeader.m in Sources */,

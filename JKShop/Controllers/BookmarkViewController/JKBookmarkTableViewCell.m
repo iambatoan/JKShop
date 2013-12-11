@@ -8,6 +8,9 @@
 
 #import "JKBookmarkTableViewCell.h"
 
+static NSString * const STORE_PRODUCT_ID            =   @"store_product_id";
+static NSString * const STORE_PRODUCT_NUMBER        =   @"store_product_number";
+
 @interface JKBookmarkTableViewCell()
 
 @property (weak, nonatomic) IBOutlet UIImageView *imgProductImage;
@@ -20,23 +23,38 @@
 
 @implementation JKBookmarkTableViewCell
 
-- (void)configWithProduct:(JKProduct *)product andNumber:(NSInteger)number
+- (void)configWithDictionary:(NSDictionary *)dictionaryProduct
 {
-    self.product = product;
+    
+    self.product = [self getProductFromStoreBookmark:dictionaryProduct];
     self.imgProductWrapImage.layer.borderWidth = 1;
     self.imgProductWrapImage.layer.borderColor = [UIColor colorWithHexString:@"beb7a9"].CGColor;
     
-    [self.imgProductImage setImageWithURL:[NSURL URLWithString:[[product.images anyObject] getSmallImageURL]]];
+    [self.imgProductImage setImageWithURL:[NSURL URLWithString:[[self.product.images anyObject] getSmallImageURL]]];
     
-    self.lblProductName.text = product.name;
+    self.lblProductName.text = self.product.name;
     [self.lblProductName setFont:[UIFont fontWithName:@"Lato" size:14]];
     
     [self.lblProductName sizeToFitKeepWidth];
     
     
-    self.lblProductPrice.text = [NSString getVNCurrencyFormatterWithNumber:@([product.price intValue])];
+    self.lblProductPrice.text = [NSString getVNCurrencyFormatterWithNumber:@([self.product.price intValue])];
     
-    self.lblNumber.text = [NSString stringWithFormat:@"X %d", number];
+    self.lblNumber.text = [NSString stringWithFormat:@"X %d", [dictionaryProduct[STORE_PRODUCT_NUMBER] integerValue]];
+    
+    UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressToShowOption:)];
+    [self addGestureRecognizer:longPress];
+}
+                    
+- (JKProduct *)getProductFromStoreBookmark:(NSDictionary *)storeBookmark{
+    return [[JKProduct MR_findByAttribute:@"product_id" withValue:[storeBookmark objectForKey:STORE_PRODUCT_ID]] lastObject];
+}
+
+- (void)longPressToShowOption:(id)sender
+{
+    if ([self.delegate respondsToSelector:@selector(onLongPress:)]) {
+        [self.delegate onLongPress:self];
+    }
 }
 
 + (CGFloat)getHeight

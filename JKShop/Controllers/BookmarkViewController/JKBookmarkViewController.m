@@ -9,6 +9,7 @@
 #import "JKBookmarkViewController.h"
 #import "JKBookmarkTableHeader.h"
 #import "JKBookmarkTableViewCell.h"
+#import "JKPopupBookmark.h"
 
 static NSString * const STORE_PRODUCT_BOOKMARK      =   @"store_product_bookmark";
 static NSString * const STORE_PRODUCT_ID            =   @"store_product_id";
@@ -19,7 +20,10 @@ static NSString * const STORE_PRODUCT_NUMBER        =   @"store_product_number";
 UITableViewDataSource,
 UITableViewDelegate,
 UIAlertViewDelegate,
-SWTableViewCellDelegate
+SWTableViewCellDelegate,
+UAModalPanelDelegate,
+JKPopupBookmarkDelegate,
+JKBookmarkTableViewCellDelegate
 >
 
 @property (strong, nonatomic) NSMutableArray * bookmarkProductArray;
@@ -41,10 +45,11 @@ SWTableViewCellDelegate
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    JKBookmarkTableViewCell *cell = [self.bookmarkTableView dequeueReusableCellWithIdentifier:NSStringFromClass([JKBookmarkTableViewCell class]) forIndexPath:indexPath];
+    JKBookmarkTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([JKBookmarkTableViewCell class]) forIndexPath:indexPath];
 
     [cell setHeight:[JKBookmarkTableViewCell getHeight]];
-    [cell configWithProduct:[self getProductFromStoreBookmark:[self.bookmarkProductArray objectAtIndex:indexPath.row]] andNumber:[[[self.bookmarkProductArray objectAtIndex:indexPath.row] objectForKey:STORE_PRODUCT_NUMBER] intValue]];
+    
+    [cell configWithDictionary:[self.bookmarkProductArray objectAtIndex:indexPath.row]];
 
     cell.rightUtilityButtons = [self rightButtons];
     cell.delegate = self;
@@ -80,10 +85,6 @@ SWTableViewCellDelegate
     return header;
 }
 
-- (JKProduct *)getProductFromStoreBookmark:(NSDictionary *)storeBookmark{
-    return [[JKProduct MR_findByAttribute:@"product_id" withValue:[storeBookmark objectForKey:STORE_PRODUCT_ID]] lastObject];
-}
-
 - (NSInteger)getTotalPrice{
     int total = 0;
     for (NSDictionary *dic in self.bookmarkProductArray) {
@@ -114,18 +115,34 @@ SWTableViewCellDelegate
 }
 
 - (void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerRightUtilityButtonWithIndex:(NSInteger)index {
+    NSIndexPath *indexPath = [self.bookmarkTableView indexPathForCell:cell];
+    
     switch (index) {
         case 0:
-            NSLog(@"More button was pressed");
+        {
+            JKPopupBookmark *modalPanel = [[JKPopupBookmark alloc] initWithFrame:self.view.bounds];
+            [modalPanel.stepper setValue:[self getNumberProductFromStoreBookmarkAtIndex:indexPath.row]];
+            [modalPanel loadDetailWithProduct:[self getProductFromStoreBookmarkAtIndex:indexPath.row]];
+            IIViewDeckController *deckViewController = (IIViewDeckController*)[JKAppDelegate getRootViewController];
+            [deckViewController setRightSize:0];
+            [self.view addSubview:modalPanel];
+            modalPanel.onClosePressed = ^(UAModalPanel* panel) {
+                [deckViewController setRightSize:40];
+                [panel hide];
+            };
+            modalPanel.JKDelegate = self;
+            [modalPanel showFromPoint:[self.view center]];
             break;
+        }
         case 1:
         {
-            // Delete button was pressed
-            NSIndexPath *cellIndexPath = [self.bookmarkTableView indexPathForCell:cell];
-            
-            [self.bookmarkProductArray removeObjectAtIndex:cellIndexPath.row];
-            [self.bookmarkTableView deleteRowsAtIndexPaths:@[cellIndexPath]
+            [[JKProductManager sharedInstance] removeBookmarkProductWithProductID:[[self.bookmarkProductArray objectAtIndex:indexPath.row] objectForKey:STORE_PRODUCT_ID]];
+            [self.bookmarkProductArray removeObjectAtIndex:indexPath.row];
+            [self.bookmarkTableView deleteRowsAtIndexPaths:@[indexPath]
                                   withRowAnimation:UITableViewRowAnimationAutomatic];
+            [[NSNotificationCenter defaultCenter] postNotificationName:NOTIF_CHANGE_BOOKMARK_PRODUCT_COUNT object:self];
+            
+            [self.bookmarkTableView reloadData];
             break;
         }
         default:
@@ -145,5 +162,60 @@ SWTableViewCellDelegate
     
     return rightUtilityButtons;
 }
+
+- (JKProduct *)getProductFromStoreBookmarkAtIndex:(NSInteger)index{
+    return [[JKProduct MR_findByAttribute:@"product_id" withValue:[[self.bookmarkProductArray objectAtIndex:index] objectForKey:STORE_PRODUCT_ID]] lastObject];
+}
+
+- (NSInteger)getNumberProductFromStoreBookmarkAtIndex:(NSInteger)index{
+    return [[[self.bookmarkProductArray objectAtIndex:index] objectForKey:STORE_PRODUCT_NUMBER] integerValue];
+}
+
+
+- (void)didPressConfirmButton:(JKPopupBookmark *)modalPanel{
+    [[JKProductManager sharedInstance] updateProductWithProductID:modalPanel.product.product_id withNumber:[modalPanel.stepper value]];
+    [SVProgressHUD showSuccessWithStatus:@"Xác nhận thành công"];
+    [[NSNotificationCenter defaultCenter] postNotificationName:NOTIF_CHANGE_BOOKMARK_PRODUCT_COUNT object:self];
+    IIViewDeckController *deckViewController = (IIViewDeckController*)[JKAppDelegate getRootViewController];
+    [deckViewController setRightSize:40];
+    
+    self.bookmarkProductArray = [[JKProductManager alloc] getBookmarkProducts];
+    [self.bookmarkTableView reloadData];
+}
+
+- (void)onLongPress:(UILongPressGestureRecognizer *)gestureRecognizer
+{
+//    UIGestureRecognizer *recognizer = (UIGestureRecognizer*) sender;
+//    if (recognizer.state == UIGestureRecognizerStateEnded)
+//    {
+//        JKPopupBookmark *modalPanel = [[JKPopupBookmark alloc] initWithFrame:self.view.bounds];
+//        [modalPanel.stepper setValue:[self getNumberProductFromStoreBookmarkAtIndex:indexPath.row]];
+//        [modalPanel loadDetailWithProduct:[self getProductFromStoreBookmarkAtIndex:indexPath.row]];
+//        IIViewDeckController *deckViewController = (IIViewDeckController*)[JKAppDelegate getRootViewController];
+//        [deckViewController setRightSize:0];
+//        [self.view addSubview:modalPanel];
+//        modalPanel.onClosePressed = ^(UAModalPanel* panel) {
+//            [deckViewController setRightSize:40];
+//            [panel hide];
+//        };
+//        modalPanel.JKDelegate = self;
+//        [modalPanel showFromPoint:[self.view center]];
+//    }
+    if (gestureRecognizer.state == UIGestureRecognizerStateBegan) {
+        
+        CGPoint p = [gestureRecognizer locationInView:self.bookmarkTableView];
+        
+        NSIndexPath *indexPath = [self.bookmarkTableView indexPathForRowAtPoint:p];
+        if (indexPath == nil) {
+            NSLog(@"long press on table view but not on a row");
+        } else {
+            UITableViewCell *cell = [self.bookmarkTableView cellForRowAtIndexPath:indexPath];
+            if (cell.isHighlighted) {
+                NSLog(@"long press on table view at section %d row %d", indexPath.section, indexPath.row);
+            }
+        }
+    }
+}
+
 
 @end

@@ -11,7 +11,6 @@
 @interface JKPopup : UAModalPanel
 
 - (id)initWithFrame:(CGRect)frame;
-
 - (void)loadDetailWithProduct:(JKProduct *)product;
 
 @end
