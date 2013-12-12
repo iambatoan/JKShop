@@ -40,7 +40,7 @@ SINGLETON_MACRO
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
-    [FBSession.activeSession close];
+    
 }
 
 
@@ -108,15 +108,6 @@ SINGLETON_MACRO
     // So to make it work when the number is not changed, we set it to 1 first.
     [UIApplication sharedApplication].applicationIconBadgeNumber = 1;
     [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
-}
-
-
-
-#pragma mark - FacebookSDK
-
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
-{
-    return [FBSession.activeSession handleOpenURL:url];
 }
 
 @end

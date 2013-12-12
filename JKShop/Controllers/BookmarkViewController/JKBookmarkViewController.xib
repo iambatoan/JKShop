@@ -37,6 +37,9 @@
                             <state key="normal" title="Delete All">
                                 <color key="titleShadowColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
                             </state>
+                            <state key="highlighted">
+                                <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
                             <connections>
                                 <action selector="buttonDeleteAllPressed:" destination="-1" eventType="touchUpInside" id="fX7-kS-fWh"/>
                             </connections>

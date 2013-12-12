@@ -8,7 +8,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="JKHomeViewController">
             <connections>
                 <outlet property="backgroundImage" destination="Pf9-SM-4ir" id="CYW-Cv-J62"/>
-                <outlet property="loginView" destination="QV2-2S-EfB" id="Big-Vw-lcB"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
         </placeholder>
@@ -21,11 +20,6 @@
                     <rect key="frame" x="72" y="186" width="176" height="176"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <view contentMode="scaleToFill" id="QV2-2S-EfB" customClass="FBLoginView">
-                    <rect key="frame" x="55" y="392" width="216" height="57"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>

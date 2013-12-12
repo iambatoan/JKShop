@@ -49,6 +49,9 @@
                                 <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="titleShadowColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
                             </state>
+                            <state key="highlighted">
+                                <color key="titleColor" red="0.24500800766656738" green="0.3216865420707018" blue="0.39287707270408168" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
                             <connections>
                                 <action selector="checkoutButtonPressed:" destination="1" eventType="touchUpInside" id="fJS-5s-L5R"/>
                             </connections>

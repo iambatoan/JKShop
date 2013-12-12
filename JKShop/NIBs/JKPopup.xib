@@ -54,6 +54,9 @@
                     <state key="normal" title="Add to cart">
                         <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <state key="highlighted">
+                        <color key="titleColor" red="0.27058824896812439" green="0.40392160415649414" blue="0.60000002384185791" alpha="1" colorSpace="deviceRGB"/>
+                    </state>
                     <connections>
                         <action selector="addToCartButtonPress:" destination="-1" eventType="touchUpInside" id="YF0-nY-KzO"/>
                     </connections>

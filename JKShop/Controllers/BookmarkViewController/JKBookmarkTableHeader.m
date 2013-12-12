@@ -42,6 +42,10 @@
 }
 
 - (IBAction)checkoutButtonPressed:(id)sender {
+    if ([FBSession activeSession].isOpen) {
+        [SVProgressHUD showSuccessWithStatus:@"Checkout Successfully!!!"];
+        return;
+    }
     [SVProgressHUD showErrorWithStatus:@"Login to checkout !!!"];
 }
 

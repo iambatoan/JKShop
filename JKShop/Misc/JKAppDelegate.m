@@ -32,13 +32,7 @@
     self.leftController = deckController.leftController;
     self.centerController = deckController.centerController;
     self.navController = (JKNavigationViewController *)deckController.centerController;
-    
-    
-    [FBLoginView class];
-//    [FacebookManager sharedInstance].delegate = (id)self;
-    if (FBSession.activeSession.state == FBSessionStateCreatedTokenLoaded){
-        [self openSession];
-    }
+
     self.window.rootViewController = deckController;
     [self.window makeKeyAndVisible];
     return YES;
@@ -81,13 +75,13 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    [FBSession.activeSession handleDidBecomeActive];
+    [FBAppCall handleDidBecomeActive];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
-    [FBSession.activeSession close];
     // Saves changes in the application's managed object context before the application terminates.
+    [FBSession.activeSession close];
     [self saveContext];
 }
 
@@ -186,20 +180,12 @@
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
-#pragma mark - Facebook
+#pragma - Facebook
 
-- (void)openSession
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
-    [[FacebookManager sharedInstance] openSession];
+    return [FBAppCall handleOpenURL:url sourceApplication:sourceApplication];
 }
-
-- (void)showLoginView
-{
-    UIViewController *topViewController = [self.navController topViewController];
-    JKHomeViewController* loginViewController = [[JKHomeViewController alloc]initWithNibName:NSStringFromClass([JKHomeViewController class]) bundle:nil];
-    [topViewController presentModalViewController:loginViewController animated:NO];
-}
-
 
 #pragma mark - Helper
 

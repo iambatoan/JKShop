@@ -9,23 +9,12 @@
 #import "JKHomeViewController.h"
 
 @interface JKHomeViewController ()
-<
-FBLoginViewDelegate
->
-@property (weak, nonatomic) IBOutlet FBLoginView *loginView;
+
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImage;
 
 @end
 
 @implementation JKHomeViewController
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
