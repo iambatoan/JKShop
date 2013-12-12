@@ -23,16 +23,23 @@ static CGFloat const LEFT_SIZE = 44;
 UITableViewDataSource,
 UITableViewDelegate,
 UISearchDisplayDelegate,
-UISearchBarDelegate
+UISearchBarDelegate,
+FacebookManagerDelegate,
+FBLoginViewDelegate
 >
-@property (assign, nonatomic) BOOL                  isSearching;
-@property (strong, nonatomic) NSMutableArray        * arrMenu;
-@property (strong, nonatomic) NSMutableArray        * filteredList;
-@property (strong, nonatomic) NSArray               * arrSection;
-@property (strong, nonatomic) NSArray               * arrIconSection;
-@property (strong, nonatomic) NSArray               * arrSubMenuSectionOne;
-@property (weak, nonatomic) IBOutlet UITableView    * menuTableView;
-@property (weak, nonatomic) IBOutlet UIView         * searchBarView;
+@property (assign, nonatomic) BOOL                              isSearching;
+@property (strong, nonatomic) NSMutableArray                    * arrMenu;
+@property (strong, nonatomic) NSMutableArray                    * filteredList;
+@property (strong, nonatomic) NSArray                           * arrSection;
+@property (strong, nonatomic) NSArray                           * arrIconSection;
+@property (strong, nonatomic) NSArray                           * arrSubMenuSectionOne;
+@property (weak, nonatomic) IBOutlet UITableView                * menuTableView;
+@property (weak, nonatomic) IBOutlet UIView                     * searchBarView;
+@property (weak, nonatomic) IBOutlet UIView                     * profileView;
+@property (weak, nonatomic) IBOutlet UILabel                    * userName;
+@property (weak, nonatomic) IBOutlet UIView                     * loginView;
+@property (weak, nonatomic) IBOutlet FBProfilePictureView       * userProfilePicture;
+
 
 @end
 
@@ -43,6 +50,7 @@ UISearchBarDelegate
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [FacebookManager sharedInstance].delegate = self;
     self.arrMenu = [[[JKCategoryManager sharedInstance] getMenuList] mutableCopy];
     
     self.arrSubMenuSectionOne = @[@"JK Shop", @"Hàng mới về", @"Liên hệ"];
@@ -51,9 +59,17 @@ UISearchBarDelegate
     
     [self.menuTableView registerNib:[UINib nibWithNibName:NSStringFromClass([JKSidebarMenuTableViewCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([JKSidebarMenuTableViewCell class])];
     [self.menuTableView registerNib:[UINib nibWithNibName:NSStringFromClass([JKLeftMenuSectionHeader class]) bundle:nil] forHeaderFooterViewReuseIdentifier:NSStringFromClass([JKLeftMenuSectionHeader class])];
+    [self customFBLoginView];
     [self loadCategoryMenu];
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:YES];
+    
+    if ([[FacebookManager sharedInstance] isOpenSession]) {
+        [self populateUserDetails];
+    }
+}
 
 #pragma mark - Tableview datasource
 
@@ -337,4 +353,55 @@ UISearchBarDelegate
         DLog(@"Error when load menu");
     }];
 }
+
+- (void)customFBLoginView{
+    FBLoginView *loginview =
+    [[FBLoginView alloc] initWithReadPermissions:@[@"basic_info",
+                                                   @"user_location",
+                                                   @"user_birthday"]];
+    
+    
+    loginview.frame = CGRectMake(20, 10, 240, 50);
+    for (id obj in loginview.subviews)
+    {
+        if ([obj isKindOfClass:[UIButton class]])
+        {
+            UIButton * loginButton =  obj;
+            UIImage *loginImage = [UIImage imageNamed:@"fb_button.png"];
+            [loginButton setBackgroundImage:loginImage forState:UIControlStateNormal];
+            [loginButton setBackgroundImage:nil forState:UIControlStateSelected];
+            [loginButton setBackgroundImage:nil forState:UIControlStateHighlighted];
+            [loginButton sizeToFit];
+        }
+        if ([obj isKindOfClass:[UILabel class]])
+        {
+            UILabel * loginLabel =  obj;
+            loginLabel.frame = CGRectMake(5, 0, 200, 50);
+        }
+    }
+    [self.loginView addSubview:loginview];
+}
+
+- (void)populateUserDetails
+{
+    if ([FBSession activeSession].isOpen) {
+        [[FBRequest requestForMe] startWithCompletionHandler:
+         ^(FBRequestConnection *connection, NSDictionary<FBGraphUser> *user, NSError *error) {
+             if (!error) {
+                 self.userName.text = user.name;
+                 self.userProfilePicture.profileID = user[@"id"];
+                 self.profileView.hidden = NO;
+             }
+         }];
+    }
+}
+
+- (void)loginViewShowingLoggedOutUser:(FBLoginView *)loginView{
+    [[FacebookManager sharedInstance] logout];
+}
+
+- (void)facebookSessionStateChanged:(FacebookManager *)facebookManager{
+    [self populateUserDetails];
+}
+
 @end

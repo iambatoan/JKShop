@@ -46,6 +46,9 @@
 		0B92A686184DAE6E009B33DE /* navbg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B92A684184DAE6E009B33DE /* navbg@2x.png */; };
 		0B92A68B184DCA7F009B33DE /* JKProductDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B92A689184DCA7F009B33DE /* JKProductDetailViewController.m */; };
 		0B92A68C184DCA7F009B33DE /* JKProductDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B92A68A184DCA7F009B33DE /* JKProductDetailViewController.xib */; };
+		0BCF863E185969600058FC74 /* JKOrderManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BCF863D185969600058FC74 /* JKOrderManager.m */; };
+		0BCF8645185978BE0058FC74 /* fb_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 0BCF8643185978BE0058FC74 /* fb_button.png */; };
+		0BCF8646185978BE0058FC74 /* fb_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0BCF8644185978BE0058FC74 /* fb_button@2x.png */; };
 		0BD4F9B81855CD3800BCC995 /* search_button_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 0BD4F9B61855CD3800BCC995 /* search_button_background.png */; };
 		0BD4F9B91855CD3800BCC995 /* search_button_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0BD4F9B71855CD3800BCC995 /* search_button_background@2x.png */; };
 		8404E61B18575D4100EE0F16 /* SWTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8404E61A18575D4100EE0F16 /* SWTableViewCell.m */; };
@@ -245,6 +248,10 @@
 		0B92A688184DCA7F009B33DE /* JKProductDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKProductDetailViewController.h; path = Controllers/ProductDetail/JKProductDetailViewController.h; sourceTree = "<group>"; };
 		0B92A689184DCA7F009B33DE /* JKProductDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKProductDetailViewController.m; path = Controllers/ProductDetail/JKProductDetailViewController.m; sourceTree = "<group>"; };
 		0B92A68A184DCA7F009B33DE /* JKProductDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = JKProductDetailViewController.xib; path = Controllers/ProductDetail/JKProductDetailViewController.xib; sourceTree = "<group>"; };
+		0BCF863C185969600058FC74 /* JKOrderManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKOrderManager.h; path = Managers/JKOrderManager.h; sourceTree = "<group>"; };
+		0BCF863D185969600058FC74 /* JKOrderManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKOrderManager.m; path = Managers/JKOrderManager.m; sourceTree = "<group>"; };
+		0BCF8643185978BE0058FC74 /* fb_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fb_button.png; path = Resources/SidebarSection/fb_button.png; sourceTree = "<group>"; };
+		0BCF8644185978BE0058FC74 /* fb_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "fb_button@2x.png"; path = "Resources/SidebarSection/fb_button@2x.png"; sourceTree = "<group>"; };
 		0BD4F9B61855CD3800BCC995 /* search_button_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = search_button_background.png; path = Resources/SidebarSection/search_button_background.png; sourceTree = "<group>"; };
 		0BD4F9B71855CD3800BCC995 /* search_button_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "search_button_background@2x.png"; path = "Resources/SidebarSection/search_button_background@2x.png"; sourceTree = "<group>"; };
 		8404E61918575D4100EE0F16 /* SWTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWTableViewCell.h; sourceTree = "<group>"; };
@@ -813,6 +820,8 @@
 				840645C01849C2A00065BCA4 /* JKCategoryManager.m */,
 				843D1559184A5FE600B65E35 /* JKProductManager.h */,
 				843D155A184A5FE600B65E35 /* JKProductManager.m */,
+				0BCF863C185969600058FC74 /* JKOrderManager.h */,
+				0BCF863D185969600058FC74 /* JKOrderManager.m */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -1212,6 +1221,8 @@
 		84F99F04184A1A3300356DB3 /* SidebarSection */ = {
 			isa = PBXGroup;
 			children = (
+				0BCF8643185978BE0058FC74 /* fb_button.png */,
+				0BCF8644185978BE0058FC74 /* fb_button@2x.png */,
 				0B07C02818505E74009EA61F /* search.png */,
 				0B07C02918505E74009EA61F /* search@2x.png */,
 				84F99F05184A1AEC00356DB3 /* setting.png */,
@@ -1318,6 +1329,7 @@
 				8404E6491857802300EE0F16 /* close.png in Resources */,
 				84F99F14184A1AEC00356DB3 /* category@2x.png in Resources */,
 				8406459F1849B2770065BCA4 /* home.jpg in Resources */,
+				0BCF8646185978BE0058FC74 /* fb_button@2x.png in Resources */,
 				8444FF75185625E0008C9D77 /* JKBookmarkTableViewCell.xib in Resources */,
 				840645D11849C8A40065BCA4 /* left-nav-button@2x.png in Resources */,
 				84F99F1F184A263400356DB3 /* bookmark_list@2x.png in Resources */,
@@ -1362,6 +1374,7 @@
 				84F99F1E184A263400356DB3 /* bookmark_list.png in Resources */,
 				840644C0184992750065BCA4 /* Images.xcassets in Resources */,
 				8404E64B1857802300EE0F16 /* modalButton-selected.png in Resources */,
+				0BCF8645185978BE0058FC74 /* fb_button.png in Resources */,
 				84D7FC9F184CD49B0084D805 /* Lato-Regular.ttf in Resources */,
 				8404E64A1857802300EE0F16 /* close@2x.png in Resources */,
 			);
@@ -1431,6 +1444,7 @@
 				8404E64F1857802300EE0F16 /* UAModalPanel.m in Sources */,
 				84A3BB8B184B096C00650BAF /* MagicalImportFunctions.m in Sources */,
 				84A3BB4E184B086E00650BAF /* _JKProductImages.m in Sources */,
+				0BCF863E185969600058FC74 /* JKOrderManager.m in Sources */,
 				840645C11849C2A00065BCA4 /* JKCategoryManager.m in Sources */,
 				840645881849A8210065BCA4 /* AFUrbanAirshipClient.m in Sources */,
 				0B07C02518505382009EA61F /* JKSearchProductCell.m in Sources */,

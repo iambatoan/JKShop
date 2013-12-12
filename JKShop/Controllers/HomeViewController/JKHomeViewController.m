@@ -23,8 +23,6 @@ FBLoginViewDelegate
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-//        self.loginView.readPermissions = @[@"publish_actions", @"email", @"user_likes"];
-//        self.loginView.defaultAudience = FBSessionDefaultAudienceFriends;
     }
     return self;
 }

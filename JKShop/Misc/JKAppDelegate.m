@@ -35,8 +35,10 @@
     
     
     [FBLoginView class];
-    [FacebookManager sharedInstance].delegate = (id)self;
-    
+//    [FacebookManager sharedInstance].delegate = (id)self;
+    if (FBSession.activeSession.state == FBSessionStateCreatedTokenLoaded){
+        [self openSession];
+    }
     self.window.rootViewController = deckController;
     [self.window makeKeyAndVisible];
     return YES;
