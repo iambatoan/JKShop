@@ -9,6 +9,8 @@
 #import "JKAppDelegate.h"
 #import "JKHomeViewController.h"
 
+static NSString *const kTrackingPreferenceKey = @"allowTracking";
+
 @interface JKAppDelegate()
 <
 FacebookManagerDelegate
@@ -87,6 +89,7 @@ FacebookManagerDelegate
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    [GAI sharedInstance].optOut = ![[NSUserDefaults standardUserDefaults] boolForKey:kTrackingPreferenceKey];
     [FBAppCall handleDidBecomeActive];
 }
 
@@ -214,6 +217,6 @@ FacebookManagerDelegate
     // Optional: set debug to YES for extra debugging information.
     [GAI sharedInstance].debug = YES;
     // Create tracker instance.
-    id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:GOOGLE_TRACKING_ID];
+    self.tracker = [[GAI sharedInstance] trackerWithTrackingId:SETTING_GAI_APP_ID];
 }
 @end

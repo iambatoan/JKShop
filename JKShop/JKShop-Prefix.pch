@@ -25,6 +25,7 @@
 
 #define SETTINGS_GOOGLE_MAP_API_TOKEN               @"AIzaSyB9WLInu2QhsVM8X0KQGW0mnNZJqvXgZsE"
 
+#define SETTING_GAI_APP_ID                          @"UA-46437583-1"
 #define SETTING_CRITTERCISM_APP_ID                  @"52ab2ef997c8f22bfe000002"
 
 #define JK_SHOP_MAP_SNIPPET                         @"Address : 351/1/12 Lạc Long Quân, Phường 5, Quận 11, TP. Hồ Chí Minh\nContact : 0909 226 976 - Tùng"
@@ -54,7 +55,6 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 #import <UIKit/UIKit.h>
 #import <FacebookSDK/FacebookSDK.h>
-#import <GAI.h>
 
 //Controllers
 #import "BaseViewController.h"
@@ -79,6 +79,11 @@
 #import "SWTableViewCell.h"
 #import "UAModalPanel.h"
 #import "UATitledModalPanel.h"
+#import "GAI.h"
+#import "GAITrackedViewController.h"
+#import "GAITracker.h"
+#import "GAITransaction.h"
+#import "GAITransactionItem.h"
 
 //Managers
 #import "BaseManager.h"
