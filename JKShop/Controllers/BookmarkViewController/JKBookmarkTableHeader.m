@@ -7,6 +7,7 @@
 //
 
 #import "JKBookmarkTableHeader.h"
+#import "JKOrderManager.h"
 
 @interface JKBookmarkTableHeader()
 
@@ -43,7 +44,14 @@
 
 - (IBAction)checkoutButtonPressed:(id)sender {
     if ([FBSession activeSession].isOpen) {
-        [SVProgressHUD showSuccessWithStatus:@"Checkout Successfully!!!"];
+        [[JKOrderManager sharedInstance] createOrderOnSuccess:^(NSInteger statusCode, id obj)
+        {
+            [SVProgressHUD showSuccessWithStatus:@"Create order successfully!"];
+        }
+                                                    onFailure:^(NSInteger statusCode, NSError *error)
+        {
+            DLog(@"%d, %@", statusCode, error);
+        }];
         return;
     }
     [SVProgressHUD showErrorWithStatus:@"Login to checkout !!!"];

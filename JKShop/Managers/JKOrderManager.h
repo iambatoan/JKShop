@@ -10,4 +10,7 @@
 
 @interface JKOrderManager : BaseManager
 
+- (void)createOrderOnSuccess:(JKJSONRequestSuccessBlock)successBlock
+                   onFailure:(JKJSONRequestFailureBlock)failureBlock;
+
 @end

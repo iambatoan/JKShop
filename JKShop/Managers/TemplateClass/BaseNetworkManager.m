@@ -71,7 +71,6 @@ SINGLETON_MACRO
 
 - (NSMutableDictionary*)getAuthParams
 {
-  NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
   return nil;
   
 //  //client_id
@@ -427,7 +426,6 @@ SINGLETON_MACRO
     
 #warning update later
       
-      NSDictionary *rawDictionary = (NSDictionary*)responseObject;
     //Crazy generic code to convert raw dictionary to proper model
 //    id model = [[BaseStorageManager sharedInstance] addOrUpdateClassModel:[modelObject class]
 //                                                           withDictionary:rawDictionary];

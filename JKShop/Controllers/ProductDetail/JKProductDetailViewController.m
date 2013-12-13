@@ -104,7 +104,6 @@ MHFacebookImageViewerDatasource
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-#warning clean this code
     CGFloat pageWidth = self.productCollectionView.frame.size.width;
     
     int page = floor((self.productCollectionView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;

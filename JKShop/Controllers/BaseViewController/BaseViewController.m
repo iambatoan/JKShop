@@ -9,9 +9,10 @@
 #import "BaseViewController.h"
 #import "IIViewDeckController.h"
 
-@interface BaseViewController() <IIViewDeckControllerDelegate>
-
-- (void)rightButtonClicked;
+@interface BaseViewController()
+<
+IIViewDeckControllerDelegate
+>
 
 @end
 

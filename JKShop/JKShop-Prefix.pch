@@ -6,7 +6,7 @@
 
 #ifdef DEBUG
 
-#define API_SERVER_HOST                             @"http://jkshop.vn/api/products"
+#define API_SERVER_HOST                             @"http://jkshop.vn/api"
 #define URBAN_AIRSHIP_APP_KEY                       @"S4NTYF0UReqCkkxBtTsjgQ"
 #define URBAN_AIRSHIP_APP_SECRET                    @"gOhq1D_yQmuS7FcKIzu0SQ"
 #define GOOGLE_TRACKING_ID                          @"UA-22523153-3"
@@ -25,15 +25,18 @@
 
 #define SETTINGS_GOOGLE_MAP_API_TOKEN               @"AIzaSyB9WLInu2QhsVM8X0KQGW0mnNZJqvXgZsE"
 
+#define SETTING_CRITTERCISM_APP_ID                  @"52ab2ef997c8f22bfe000002"
+
 #define JK_SHOP_MAP_SNIPPET                         @"Address : 351/1/12 Lạc Long Quân, Phường 5, Quận 11, TP. Hồ Chí Minh\nContact : 0909 226 976 - Tùng"
 
 #define API_OAUTH_TOKEN                             @"/oauth/token"      //This is not inside API_PREFIX
 #define API_PREFIX                                  @"/api/v1"
 #define CLASS_PREFIX_LENGTH                         2
-#define API_GET_LIST_CATEGORY                       @"/tk_get_list_categories/"
-#define API_GET_PRODUCT_BY_CATEGORY_ID              @"/tk_get_products_by_category/"
-#define API_GET_PRODUCT_BY_PRODUCT_ID               @"/tk_get_product_by_product_id/"
+#define API_GET_LIST_CATEGORY                       @"/products/tk_get_list_categories/"
+#define API_GET_PRODUCT_BY_CATEGORY_ID              @"/products/tk_get_products_by_category/"
+#define API_GET_PRODUCT_BY_PRODUCT_ID               @"/products/tk_get_product_by_product_id/"
 
+#define API_GET_NONCE                               @"/get_nonce/"
 #define NOTIF_CHANGE_BOOKMARK_PRODUCT_COUNT         @"changBookmarkProductCount"
 
 #define ENABLE_FAKE_LOCATION                        YES         //Use the coordinate below, ignore location server
@@ -42,7 +45,6 @@
 #import <Availability.h>
 #import <CoreData/CoreData.h>
 #import <CoreLocation/CoreLocation.h>
-#import <FacebookSDK/FacebookSDK.h>
 #import <Foundation/Foundation.h>
 #import <GoogleMaps/GoogleMaps.h>
 #import <MapKit/MapKit.h>
@@ -51,6 +53,8 @@
 #import <SystemConfiguration/SystemConfiguration.h>
 #import <MobileCoreServices/MobileCoreServices.h>
 #import <UIKit/UIKit.h>
+#import <FacebookSDK/FacebookSDK.h>
+#import <GAI.h>
 
 //Controllers
 #import "BaseViewController.h"
@@ -94,6 +98,8 @@
 #import "UILabel+Additions.h"
 #import "UIView+Additions.h"
 #import "NSString+Additions.h"
+#import "NSString+ActiveSupportInflector.h"
+#import "ActiveSupportInflector.h"
 
 //Models
 #import "JKCategory.h"

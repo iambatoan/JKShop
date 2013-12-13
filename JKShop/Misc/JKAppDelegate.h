@@ -20,12 +20,6 @@
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
-@property (strong, nonatomic) NSString *loggedInUserID;
-@property (strong, nonatomic) FBSession *loggedInSession;
-
-- (BOOL)openSessionWithAllowLoginUI:(BOOL)allowLoginUI;
-- (void) closeSession;
-
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 + (JKAppDelegate *)getRootViewController;

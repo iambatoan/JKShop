@@ -27,12 +27,18 @@ FacebookManagerDelegate
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [MagicalRecord setupCoreDataStack];
+    
     [GMSServices provideAPIKey:SETTINGS_GOOGLE_MAP_API_TOKEN];
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     
+    [self setUpGoogleAnalytic];
+    
     [FacebookManager sharedInstance].delegate = self;
     [[FacebookManager sharedInstance] openSessionWithAllowLoginUI:NO];
+    
+    [Crittercism enableWithAppID:SETTING_CRITTERCISM_APP_ID];
     
     IIViewDeckController *deckController = [self generateControllerStack];
     self.leftController = deckController.leftController;
@@ -199,4 +205,15 @@ FacebookManagerDelegate
     return (JKAppDelegate* )[[[[UIApplication sharedApplication] delegate] window] rootViewController];
 }
 
+- (void)setUpGoogleAnalytic
+{
+    // Optional: automatically send uncaught exceptions to Google Analytics.
+    [GAI sharedInstance].trackUncaughtExceptions = YES;
+    // Optional: set Google Analytics dispatch interval to e.g. 20 seconds.
+    [GAI sharedInstance].dispatchInterval = 20;
+    // Optional: set debug to YES for extra debugging information.
+    [GAI sharedInstance].debug = YES;
+    // Create tracker instance.
+    id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:GOOGLE_TRACKING_ID];
+}
 @end

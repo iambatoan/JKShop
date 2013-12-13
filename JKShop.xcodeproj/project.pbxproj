@@ -39,7 +39,6 @@
 		0B55CED3184F2B8900A3E4ED /* MHFacebookImageViewer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B55CECF184F2B8900A3E4ED /* MHFacebookImageViewer.m */; };
 		0B55CED4184F2B8900A3E4ED /* Done.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B55CED1184F2B8900A3E4ED /* Done.png */; };
 		0B55CED5184F2B8900A3E4ED /* Done@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B55CED2184F2B8900A3E4ED /* Done@2x.png */; };
-		0B6F0A14185815460077A331 /* NSString+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B6F0A13185815460077A331 /* NSString+Additions.m */; };
 		0B739AEB185ABC92005958AD /* AMBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B739AE6185ABC92005958AD /* AMBlurView.m */; };
 		0B739AEC185ABC92005958AD /* MYBlurIntroductionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B739AE8185ABC92005958AD /* MYBlurIntroductionView.m */; };
 		0B739AED185ABC92005958AD /* MYIntroductionPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B739AEA185ABC92005958AD /* MYIntroductionPanel.m */; };
@@ -164,6 +163,13 @@
 		8444FF75185625E0008C9D77 /* JKBookmarkTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8444FF74185625E0008C9D77 /* JKBookmarkTableViewCell.xib */; };
 		8444FF7818562604008C9D77 /* JKBookmarkTableHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 8444FF7718562604008C9D77 /* JKBookmarkTableHeader.m */; };
 		8444FF7A1856261C008C9D77 /* JKBookmarkTableHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8444FF791856261C008C9D77 /* JKBookmarkTableHeader.xib */; };
+		84819F41185B637F00D0F336 /* ActiveSupportInflector.m in Sources */ = {isa = PBXBuildFile; fileRef = 84819F3A185B637F00D0F336 /* ActiveSupportInflector.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		84819F42185B637F00D0F336 /* NSString+ActiveSupportInflector.m in Sources */ = {isa = PBXBuildFile; fileRef = 84819F3C185B637F00D0F336 /* NSString+ActiveSupportInflector.m */; };
+		84819F43185B637F00D0F336 /* NSString+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 84819F3E185B637F00D0F336 /* NSString+Additions.m */; };
+		84819F44185B637F00D0F336 /* NSString+Validation.m in Sources */ = {isa = PBXBuildFile; fileRef = 84819F40185B637F00D0F336 /* NSString+Validation.m */; };
+		84819F47185B63DC00D0F336 /* ISO8601DateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 84819F46185B63DC00D0F336 /* ISO8601DateFormatter.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		84819F49185B642A00D0F336 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84819F48185B642A00D0F336 /* CoreTelephony.framework */; };
+		84819F4A185B6DCF00D0F336 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 840645811849A1EE0065BCA4 /* FacebookSDK.framework */; };
 		84A3BB4D184B086E00650BAF /* _JKProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A3BB4A184B086E00650BAF /* _JKProduct.m */; };
 		84A3BB4E184B086E00650BAF /* _JKProductImages.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A3BB4C184B086E00650BAF /* _JKProductImages.m */; };
 		84A3BB8B184B096C00650BAF /* MagicalImportFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A3BB53184B096C00650BAF /* MagicalImportFunctions.m */; };
@@ -246,8 +252,6 @@
 		0B55CECF184F2B8900A3E4ED /* MHFacebookImageViewer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHFacebookImageViewer.m; sourceTree = "<group>"; };
 		0B55CED1184F2B8900A3E4ED /* Done.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Done.png; sourceTree = "<group>"; };
 		0B55CED2184F2B8900A3E4ED /* Done@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Done@2x.png"; sourceTree = "<group>"; };
-		0B6F0A12185815460077A331 /* NSString+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+Additions.h"; path = "Categories/NSString+Additions.h"; sourceTree = "<group>"; };
-		0B6F0A13185815460077A331 /* NSString+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+Additions.m"; path = "Categories/NSString+Additions.m"; sourceTree = "<group>"; };
 		0B739AE5185ABC92005958AD /* AMBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMBlurView.h; sourceTree = "<group>"; };
 		0B739AE6185ABC92005958AD /* AMBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMBlurView.m; sourceTree = "<group>"; };
 		0B739AE7185ABC92005958AD /* MYBlurIntroductionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYBlurIntroductionView.h; sourceTree = "<group>"; };
@@ -446,6 +450,17 @@
 		8444FF7618562604008C9D77 /* JKBookmarkTableHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKBookmarkTableHeader.h; path = Controllers/BookmarkViewController/JKBookmarkTableHeader.h; sourceTree = "<group>"; };
 		8444FF7718562604008C9D77 /* JKBookmarkTableHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKBookmarkTableHeader.m; path = Controllers/BookmarkViewController/JKBookmarkTableHeader.m; sourceTree = "<group>"; };
 		8444FF791856261C008C9D77 /* JKBookmarkTableHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = JKBookmarkTableHeader.xib; path = Controllers/BookmarkViewController/JKBookmarkTableHeader.xib; sourceTree = "<group>"; };
+		84819F39185B637F00D0F336 /* ActiveSupportInflector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActiveSupportInflector.h; path = Categories/ActiveSupportInflector.h; sourceTree = "<group>"; };
+		84819F3A185B637F00D0F336 /* ActiveSupportInflector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActiveSupportInflector.m; path = Categories/ActiveSupportInflector.m; sourceTree = "<group>"; };
+		84819F3B185B637F00D0F336 /* NSString+ActiveSupportInflector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+ActiveSupportInflector.h"; path = "Categories/NSString+ActiveSupportInflector.h"; sourceTree = "<group>"; };
+		84819F3C185B637F00D0F336 /* NSString+ActiveSupportInflector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+ActiveSupportInflector.m"; path = "Categories/NSString+ActiveSupportInflector.m"; sourceTree = "<group>"; };
+		84819F3D185B637F00D0F336 /* NSString+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+Additions.h"; path = "Categories/NSString+Additions.h"; sourceTree = "<group>"; };
+		84819F3E185B637F00D0F336 /* NSString+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+Additions.m"; path = "Categories/NSString+Additions.m"; sourceTree = "<group>"; };
+		84819F3F185B637F00D0F336 /* NSString+Validation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+Validation.h"; path = "Categories/NSString+Validation.h"; sourceTree = "<group>"; };
+		84819F40185B637F00D0F336 /* NSString+Validation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+Validation.m"; path = "Categories/NSString+Validation.m"; sourceTree = "<group>"; };
+		84819F45185B63DC00D0F336 /* ISO8601DateFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ISO8601DateFormatter.h; path = Categories/ISO8601DateFormatter.h; sourceTree = "<group>"; };
+		84819F46185B63DC00D0F336 /* ISO8601DateFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ISO8601DateFormatter.m; path = Categories/ISO8601DateFormatter.m; sourceTree = "<group>"; };
+		84819F48185B642A00D0F336 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		84A3BB49184B086E00650BAF /* _JKProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _JKProduct.h; sourceTree = "<group>"; };
 		84A3BB4A184B086E00650BAF /* _JKProduct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _JKProduct.m; sourceTree = "<group>"; };
 		84A3BB4B184B086E00650BAF /* _JKProductImages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _JKProductImages.h; sourceTree = "<group>"; };
@@ -526,6 +541,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84819F49185B642A00D0F336 /* CoreTelephony.framework in Frameworks */,
 				840645831849A1EE0065BCA4 /* FacebookSDK.framework in Frameworks */,
 				84203ADC184A39ED00F26638 /* libz.1.2.5.dylib in Frameworks */,
 				84203ADA184A39DE00F26638 /* libicucore.dylib in Frameworks */,
@@ -554,6 +570,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84819F4A185B6DCF00D0F336 /* FacebookSDK.framework in Frameworks */,
 				840644C7184992750065BCA4 /* XCTest.framework in Frameworks */,
 				840644CA184992750065BCA4 /* CoreData.framework in Frameworks */,
 				840644C9184992750065BCA4 /* UIKit.framework in Frameworks */,
@@ -721,6 +738,7 @@
 		840644A7184992740065BCA4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				84819F48185B642A00D0F336 /* CoreTelephony.framework */,
 				84203ADB184A39ED00F26638 /* libz.1.2.5.dylib */,
 				84203AD9184A39DE00F26638 /* libicucore.dylib */,
 				84A3BBA5184B12BE00650BAF /* GoogleMaps.bundle */,
@@ -797,6 +815,16 @@
 		840644DD184996710065BCA4 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				84819F45185B63DC00D0F336 /* ISO8601DateFormatter.h */,
+				84819F46185B63DC00D0F336 /* ISO8601DateFormatter.m */,
+				84819F39185B637F00D0F336 /* ActiveSupportInflector.h */,
+				84819F3A185B637F00D0F336 /* ActiveSupportInflector.m */,
+				84819F3B185B637F00D0F336 /* NSString+ActiveSupportInflector.h */,
+				84819F3C185B637F00D0F336 /* NSString+ActiveSupportInflector.m */,
+				84819F3D185B637F00D0F336 /* NSString+Additions.h */,
+				84819F3E185B637F00D0F336 /* NSString+Additions.m */,
+				84819F3F185B637F00D0F336 /* NSString+Validation.h */,
+				84819F40185B637F00D0F336 /* NSString+Validation.m */,
 				0B26BE0E184C5CFB008C1D79 /* UILabel+Additions.h */,
 				0B26BE0F184C5CFB008C1D79 /* UILabel+Additions.m */,
 				840645B41849BE5B0065BCA4 /* UIColor+Custom.h */,
@@ -809,8 +837,6 @@
 				8406458F1849ABC90065BCA4 /* UIAlertView+Additions.m */,
 				84B3BC8818530C38007CD797 /* UIView+Additions.h */,
 				84B3BC8918530C38007CD797 /* UIView+Additions.m */,
-				0B6F0A12185815460077A331 /* NSString+Additions.h */,
-				0B6F0A13185815460077A331 /* NSString+Additions.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -1518,7 +1544,6 @@
 				0B02CE4218557FA200E97DE1 /* JKSearchBar.m in Sources */,
 				84A3BBA4184B096C00650BAF /* MagicalRecord.m in Sources */,
 				843D1560184A638C00B65E35 /* JKProductsViewController.m in Sources */,
-				0B6F0A14185815460077A331 /* NSString+Additions.m in Sources */,
 				8406455B18499DF00065BCA4 /* BaseTableViewController.m in Sources */,
 				8444FF73185625C2008C9D77 /* JKBookmarkTableViewCell.m in Sources */,
 				8404E6501857802300EE0F16 /* UATitledModalPanel.m in Sources */,
@@ -1537,9 +1562,11 @@
 				840645AA1849B9030065BCA4 /* JKLeftMenuViewController.m in Sources */,
 				8406454918499DCE0065BCA4 /* AFHTTPRequestOperation.m in Sources */,
 				840645B91849BE5B0065BCA4 /* UIColor+Hex.m in Sources */,
+				84819F47185B63DC00D0F336 /* ISO8601DateFormatter.m in Sources */,
 				8406454D18499DCE0065BCA4 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				8406452018499DB60065BCA4 /* FacebookManager.m in Sources */,
 				84A3BB9D184B096C00650BAF /* NSPersistentStoreCoordinator+MagicalRecord.m in Sources */,
+				84819F42185B637F00D0F336 /* NSString+ActiveSupportInflector.m in Sources */,
 				8406454C18499DCE0065BCA4 /* AFJSONUtilities.m in Sources */,
 				8406455018499DCE0065BCA4 /* AFXMLRequestOperation.m in Sources */,
 				8406455318499DCE0065BCA4 /* IISideController.m in Sources */,
@@ -1554,6 +1581,7 @@
 				840645C41849C3780065BCA4 /* JKHTTPClient.m in Sources */,
 				8406455418499DCE0065BCA4 /* IIViewDeckController.m in Sources */,
 				8404E62818575D8800EE0F16 /* SWCellScrollView.m in Sources */,
+				84819F41185B637F00D0F336 /* ActiveSupportInflector.m in Sources */,
 				840644BE184992750065BCA4 /* JKShop.xcdatamodeld in Sources */,
 				84A3BBA3184B096C00650BAF /* MagicalRecord+ShorthandSupport.m in Sources */,
 				8406451A18499DB60065BCA4 /* BaseDeviceLibrary.m in Sources */,
@@ -1562,9 +1590,11 @@
 				84A3BB95184B096C00650BAF /* NSManagedObject+MagicalRecord.m in Sources */,
 				840645E31849CCAE0065BCA4 /* SVProgressHUD.m in Sources */,
 				8406450A18499D880065BCA4 /* JKAppDelegate.m in Sources */,
+				84819F43185B637F00D0F336 /* NSString+Additions.m in Sources */,
 				8406451D18499DB60065BCA4 /* BaseNetworkManager.m in Sources */,
 				84A3BB90184B096C00650BAF /* NSRelationshipDescription+MagicalDataImport.m in Sources */,
 				84A3BB94184B096C00650BAF /* NSManagedObject+MagicalFinders.m in Sources */,
+				84819F44185B637F00D0F336 /* NSString+Validation.m in Sources */,
 				8406454B18499DCE0065BCA4 /* AFJSONRequestOperation.m in Sources */,
 				84A3BB98184B096C00650BAF /* NSManagedObjectContext+MagicalRecord.m in Sources */,
 				8444FF6F18562594008C9D77 /* JKBookmarkViewController.m in Sources */,
@@ -1741,6 +1771,7 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					/Users/admin/Documents/Work/JKShop,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JKShop/JKShop-Prefix.pch";
@@ -1764,6 +1795,7 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					/Users/admin/Documents/Work/JKShop,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JKShop/JKShop-Prefix.pch";

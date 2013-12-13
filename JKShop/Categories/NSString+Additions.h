@@ -1,15 +1,29 @@
 //
 //  NSString+Additions.h
-//  JKShop
+//  Aurora
 //
-//  Created by Toan Slan on 12/11/13.
-//  Copyright (c) 2013 Nguyễn Bá Toàn. All rights reserved.
+//  Created by Daud Abas on 24/2/12.
+//  Copyright (c) 2012 2359 Media Pte Ltd. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+
 
 @interface NSString (Additions)
 
-+ (NSString *)getVNCurrencyFormatterWithNumber:(NSNumber *)inputNumber;
+- (NSUInteger)wordCount;
+- (BOOL)contains:(NSString*)needle;
+- (BOOL)startsWith:(NSString*)needle;
+- (BOOL)endsWith:(NSString*)needle;
 
+- (NSString*)URLEncodedString;
+- (NSString*)URLEncodeEverything;
+
+- (NSString *)sha1;
+- (NSString *)md5;
+
+- (NSDate*)dateFromString;
+
++ (NSString*)facebookUserProfileImageUrlWithId:(NSNumber*)fbID;
+
++ (NSString *)getVNCurrencyFormatterWithNumber:(NSNumber *)inputNumber;
 @end

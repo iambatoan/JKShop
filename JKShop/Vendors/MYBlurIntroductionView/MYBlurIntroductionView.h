@@ -77,6 +77,4 @@ typedef enum {
 //Enables or disables use of the introductionView. Use this if you want to hold someone on a panel until they have completed some task
 -(void)setEnabled:(BOOL)enabled;
 
-//Customization Methods
--(void)setBlurTintColor:(UIColor *)blurTintColor;
 @end

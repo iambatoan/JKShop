@@ -28,6 +28,7 @@ MYIntroductionDelegate
     self.title = @"JK Shop";
     if (![[NSUserDefaults standardUserDefaults] boolForKey:@"logged_in"]) {
         [self buildIntro];
+        return;
     }
     if (![FBSession activeSession].isOpen) {
         [self showAlert];

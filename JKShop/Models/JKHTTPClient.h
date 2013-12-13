@@ -10,6 +10,8 @@
 
 typedef void (^JKJSONRequestSuccessBlock) (NSInteger statusCode, NSArray *productArray);
 typedef void (^JKJSONRequestImageSuccessBlock) (NSInteger statusCode, NSSet *productImageSet);
+typedef void (^JKJSONRequestNonceSuccessBlock) (NSInteger statusCode, NSString *nonce);
+
 typedef void (^JKJSONRequestFailureBlock) (NSInteger statusCode, id obj);
 
 typedef void (^JKRequestSuccessBlock) (NSInteger statusCode, id obj);
