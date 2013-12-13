@@ -10,6 +10,9 @@
 #import "JKHomeViewController.h"
 
 @interface JKAppDelegate()
+<
+FacebookManagerDelegate
+>
 
 @property (strong, nonatomic) JKNavigationViewController *navController;
 
@@ -27,6 +30,9 @@
     [GMSServices provideAPIKey:SETTINGS_GOOGLE_MAP_API_TOKEN];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    
+    [FacebookManager sharedInstance].delegate = self;
+    [[FacebookManager sharedInstance] openSessionWithAllowLoginUI:NO];
     
     IIViewDeckController *deckController = [self generateControllerStack];
     self.leftController = deckController.leftController;
@@ -80,8 +86,8 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
+    [[FBSession activeSession] close];
     // Saves changes in the application's managed object context before the application terminates.
-    [FBSession.activeSession close];
     [self saveContext];
 }
 

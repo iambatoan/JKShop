@@ -52,21 +52,21 @@ SINGLETON_MACRO
   return FBSession.activeSession.isOpen;
 }
 
-- (void)openSession
+- (void)openSessionWithAllowLoginUI:(BOOL)allowLoginUI
 {
     [FBSession openActiveSessionWithReadPermissions:@[@"email", @"user_birthday", @"user_status", @"friends_status"]
-                                       allowLoginUI:YES
+                                       allowLoginUI:allowLoginUI
                                   completionHandler:^(FBSession *session, FBSessionState state, NSError *error)
    {
      [self sessionStateChanged:session state:state error:error];
    }];
 }
 
-- (void)openSessionForPublishing
+- (void)openSessionForPublishingWithAllowLoginUI:(BOOL)allowLoginUI
 {
   [FBSession openActiveSessionWithPublishPermissions:@[@"publish_stream"]
                                      defaultAudience:FBSessionDefaultAudienceFriends
-                                        allowLoginUI:YES completionHandler:^(FBSession *session, FBSessionState state, NSError *error)
+                                        allowLoginUI:allowLoginUI completionHandler:^(FBSession *session, FBSessionState state, NSError *error)
    {
      [self sessionStateChanged:session state:state error:error];
    }];

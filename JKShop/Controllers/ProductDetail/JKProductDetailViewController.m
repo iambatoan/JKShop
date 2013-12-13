@@ -15,7 +15,8 @@
 UICollectionViewDataSource,
 UICollectionViewDelegate,
 UIScrollViewDelegate,
-UAModalPanelDelegate
+UAModalPanelDelegate,
+MHFacebookImageViewerDatasource
 >
 
 @property (strong, nonatomic) NSArray                               * productImageArray;

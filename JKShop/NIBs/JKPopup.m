@@ -11,7 +11,7 @@
 @interface JKPopup()
 
 @property (strong, nonatomic) JKProduct *product;
-@property (strong, nonatomic) IBOutlet UIView *test;
+@property (strong, nonatomic) IBOutlet UIView *popupView;
 @property (weak, nonatomic) IBOutlet UIStepper *stepper;
 @property (weak, nonatomic) IBOutlet UILabel *labelQuantity;
 @property (weak, nonatomic) IBOutlet UIImageView *productImage;
@@ -30,7 +30,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:self options:nil];
-        [self.contentView addSubview:self.test];
+        [self.contentView addSubview:self.popupView];
         self.contentColor = [UIColor whiteColor];
         self.borderColor = [UIColor titleColor];
         
@@ -41,7 +41,7 @@
 - (void)layoutSubviews {
 	[super layoutSubviews];
 	
-	[self.test setFrame:self.contentView.bounds];
+	[self.popupView setFrame:self.contentView.bounds];
 }
 
 - (IBAction)stepperValueChanged:(id)sender {

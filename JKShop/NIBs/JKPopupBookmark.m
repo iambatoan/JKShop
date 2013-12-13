@@ -10,7 +10,7 @@
 
 @interface JKPopupBookmark()
 
-@property (strong, nonatomic) IBOutlet UIView *test;
+@property (strong, nonatomic) IBOutlet UIView *popupView;
 @property (weak, nonatomic) IBOutlet UILabel *labelQuantity;
 @property (weak, nonatomic) IBOutlet UIImageView *productImage;
 @property (weak, nonatomic) IBOutlet UILabel *labelProductName;
@@ -28,7 +28,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:self options:nil];
-        [self.contentView addSubview:self.test];
+        [self.contentView addSubview:self.popupView];
         self.contentColor = [UIColor whiteColor];
         self.borderColor = [UIColor titleColor];
     }
@@ -38,7 +38,7 @@
 - (void)layoutSubviews {
 	[super layoutSubviews];
 	
-	[self.test setFrame:self.contentView.bounds];
+	[self.popupView setFrame:self.contentView.bounds];
 }
 
 - (void)loadDetailWithProduct:(JKProduct *)product{

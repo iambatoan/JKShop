@@ -25,10 +25,11 @@ UITableViewDelegate,
 UISearchDisplayDelegate,
 UISearchBarDelegate,
 UIAlertViewDelegate,
-FacebookManagerDelegate
+FacebookManagerDelegate,
+UIScrollViewDelegate
 >
 
-@property (assign, nonatomic) BOOL                              isSearching;
+@property (assign, nonatomic) BOOL                                isSearching;
 @property (strong, nonatomic) NSMutableArray                    * arrMenu;
 @property (strong, nonatomic) NSMutableArray                    * filteredList;
 @property (strong, nonatomic) NSArray                           * arrSection;
@@ -40,8 +41,6 @@ FacebookManagerDelegate
 @property (weak, nonatomic) IBOutlet UILabel                    * userName;
 @property (weak, nonatomic) IBOutlet UIView                     * loginView;
 @property (weak, nonatomic) IBOutlet FBProfilePictureView       * userProfilePicture;
-@property (weak, nonatomic) IBOutlet UIButton *signOutButtonAction;
-
 
 @end
 
@@ -60,7 +59,38 @@ FacebookManagerDelegate
     
     [self.menuTableView registerNib:[UINib nibWithNibName:NSStringFromClass([JKSidebarMenuTableViewCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([JKSidebarMenuTableViewCell class])];
     [self.menuTableView registerNib:[UINib nibWithNibName:NSStringFromClass([JKLeftMenuSectionHeader class]) bundle:nil] forHeaderFooterViewReuseIdentifier:NSStringFromClass([JKLeftMenuSectionHeader class])];
+    
     [self loadCategoryMenu];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.menuTableView setContentOffset:CGPointMake(0, 44)];
+    
+    if ([FBSession activeSession].isOpen) {
+        CGRect newFrame = CGRectMake(0, 0, 320, 70);
+        self.profileView.frame = newFrame;
+        
+        [[FBRequest requestForMe] startWithCompletionHandler:
+         ^(FBRequestConnection *connection, NSDictionary<FBGraphUser> *user, NSError *error) {
+             if (!error) {
+                 self.userName.text = user.name;
+                 self.userProfilePicture.profileID = user[@"id"];
+             }
+         }];
+    }
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    if (scrollView.contentOffset.y < 22) {
+        CGRect frame = CGRectMake(self.menuTableView.origin.x, 0, self.menuTableView.size.width, self.menuTableView.size.height);
+        [scrollView scrollRectToVisible:frame animated:YES];
+    }else if (scrollView.contentOffset.y >= 22 && scrollView.contentOffset.y < 44){
+        CGRect frame = CGRectMake(self.menuTableView.origin.x, 44, self.menuTableView.size.width, self.menuTableView.size.height);
+        [scrollView scrollRectToVisible:frame animated:YES];
+    }
 }
 
 #pragma mark - Tableview datasource
@@ -348,7 +378,7 @@ FacebookManagerDelegate
 
 - (IBAction)loginButtonAction:(id)sender {
     [FacebookManager sharedInstance].delegate = self;
-    [[FacebookManager sharedInstance] openSession];
+    [[FacebookManager sharedInstance] openSessionWithAllowLoginUI:YES];
 }
 
 - (void)facebookSessionStateChanged:(FacebookManager *)facebookManager{
@@ -385,6 +415,11 @@ FacebookManagerDelegate
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     if (buttonIndex == 0) {
         [[FacebookManager sharedInstance] logout];
+        [UIView animateWithDuration:0.5
+                         animations:^{
+                             CGRect newFrame = CGRectMake(0, -70, 320, 70);
+                             self.profileView.frame = newFrame;
+                         }];
     }
 }
 

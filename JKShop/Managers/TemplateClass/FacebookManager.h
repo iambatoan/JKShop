@@ -21,8 +21,8 @@
 @property (nonatomic, weak) id<FacebookManagerDelegate> delegate;
 
 - (BOOL)isOpenSession;
-- (void)openSession;
-- (void)openSessionForPublishing;
+- (void)openSessionWithAllowLoginUI:(BOOL)allowLoginUI;
+- (void)openSessionForPublishingWithAllowLoginUI:(BOOL)allowLoginUI;
 - (void)logout;
 
 @end
