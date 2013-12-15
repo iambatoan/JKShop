@@ -32,6 +32,19 @@
         [self.contentView addSubview:self.popupView];
         self.contentColor = [UIColor whiteColor];
         self.borderColor = [UIColor titleColor];
+        
+        float contentWidth = 245;
+        float contentHeight = 350;
+        
+        float xCenter = (frame.size.width / 2);
+        float yCenter = (frame.size.height / 2);
+        
+        float topEdge = frame.size.height - (yCenter + (contentHeight / 2));
+        float bottomEdge = (yCenter - (contentHeight / 2));
+        float leftEdge = (xCenter - (contentWidth / 2));
+        float rightEdge = frame.size.width - (xCenter + (contentWidth / 2));
+        
+        self.margin = UIEdgeInsetsMake(topEdge, leftEdge, bottomEdge, rightEdge);
     }
     return self;
 }
@@ -39,7 +52,7 @@
 - (void)layoutSubviews {
 	[super layoutSubviews];
 	[self.popupView setFrame:self.contentView.bounds];
-    [self.popupContentView alignVerticallyCenterToView:self];
+//    [self.popupContentView alignVerticallyCenterToView:self];
 }
 
 - (void)loadDetailWithProduct:(JKProduct *)product{

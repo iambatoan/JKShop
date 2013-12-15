@@ -22,7 +22,7 @@
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="merry_christmas.jpg" id="i5D-Xd-qzZ">
                     <rect key="frame" x="0.0" y="183" width="320" height="181"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <view contentMode="scaleToFill" id="Osf-C6-5Qh">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

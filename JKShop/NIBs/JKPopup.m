@@ -33,6 +33,18 @@
         [self.contentView addSubview:self.popupView];
         self.contentColor = [UIColor whiteColor];
         self.borderColor = [UIColor titleColor];
+        float contentWidth = 245;
+        float contentHeight = 350;
+        
+        float xCenter = (frame.size.width / 2);
+        float yCenter = (frame.size.height / 2);
+        
+        float topEdge = frame.size.height - (yCenter + (contentHeight / 2));
+        float bottomEdge = (yCenter - (contentHeight / 2));
+        float leftEdge = (xCenter - (contentWidth / 2));
+        float rightEdge = frame.size.width - (xCenter + (contentWidth / 2));
+        
+        self.margin = UIEdgeInsetsMake(topEdge, leftEdge, bottomEdge, rightEdge);
         
     }
     return self;
@@ -40,7 +52,6 @@
 
 - (void)layoutSubviews {
 	[super layoutSubviews];
-	
 	[self.popupView setFrame:self.contentView.bounds];
 }
 
@@ -63,12 +74,6 @@
 }
 
 - (IBAction)addToCartButtonPress:(id)sender {
-    if ([[JKProductManager sharedInstance] isBookmarkedAlreadyWithProductID:self.product.product_id]) {
-         [SVProgressHUD showErrorWithStatus:@"Already in your cart!"];
-        [self hide];
-         return;
-     }
-
     [[JKProductManager sharedInstance] bookmarkProductWithProductID:self.product.product_id withNumber:[self.stepper value]];
     [SVProgressHUD showSuccessWithStatus:@"Add to cart successful"];
     [[NSNotificationCenter defaultCenter] postNotificationName:NOTIF_CHANGE_BOOKMARK_PRODUCT_COUNT object:self];

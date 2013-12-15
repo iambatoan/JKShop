@@ -179,7 +179,10 @@ MHFacebookImageViewerDatasource
 
 #pragma mark - Helper methods
 - (IBAction)addToCartButton:(id)sender {
-    
+    if ([[JKProductManager sharedInstance] isBookmarkedAlreadyWithProductID:self.product.product_id]) {
+        [SVProgressHUD showErrorWithStatus:@"Already in your cart!"];
+        return;
+    }
     JKPopup *modalPanel = [[JKPopup alloc] initWithFrame:self.view.bounds];
     [modalPanel loadDetailWithProduct:self.product];
     [self.navigationController.view addSubview:modalPanel];
