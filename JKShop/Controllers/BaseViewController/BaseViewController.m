@@ -34,7 +34,9 @@ IIViewDeckControllerDelegate
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    self.trackedViewName = self.title;
+    if (self.title) {
+        self.trackedViewName = self.title;
+    }
 }
 
 - (void)addNavigationItems

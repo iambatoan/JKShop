@@ -23,6 +23,7 @@ IIViewDeckControllerDelegate
 
 @property (strong, nonatomic) NSMutableArray            * productsArr;
 @property (strong, nonatomic) UIRefreshControl          * refreshControl;
+@property (weak, nonatomic) IBOutlet UIImageView *noImageCover;
 
 @end
 
@@ -33,6 +34,7 @@ IIViewDeckControllerDelegate
     [super viewDidLoad];
     
     self.title = DEFAULT_NAVIGATION_TITLE;
+    self.viewDeckController.centerController.title = DEFAULT_NAVIGATION_TITLE;
     if (![self.lblTitle isEqualToString:@""]) {
         self.title = self.lblTitle;
     }
@@ -41,7 +43,7 @@ IIViewDeckControllerDelegate
     self.productsArr = [[[JKProductManager sharedInstance] getStoredProductsWithCategoryId:self.category_id] mutableCopy];
     if (!self.productsArr.count)
     {
-        [SVProgressHUD showWithStatus:@"Đang tải sản phẩm" maskType:SVProgressHUDMaskTypeGradient];
+        [SVProgressHUD showWithStatus:@"Loading" maskType:SVProgressHUDMaskTypeGradient];
     }
     
     [self.collectionProducts registerNib:[UINib nibWithNibName:NSStringFromClass([JKProductsCollectionCell class]) bundle:nil] forCellWithReuseIdentifier:NSStringFromClass([JKProductsCollectionCell class])];
@@ -72,11 +74,14 @@ IIViewDeckControllerDelegate
         }
 
         [SVProgressHUD dismiss];
+        if (!self.productsArr.count) {
+            [self.noImageCover setHidden:NO];
+        }
         [self.collectionProducts reloadData];
         
 
     } failure:^(NSInteger statusCode, id obj) {
-        [SVProgressHUD showErrorWithStatus:@"Xin vui lòng kiểm tra kết nối mạng và thử lại"];
+        [SVProgressHUD showErrorWithStatus:@"Please check connection and try again"];
     }];
 }
 
@@ -104,7 +109,7 @@ IIViewDeckControllerDelegate
 }
 
 - (void)refresh{
-    [SVProgressHUD showWithStatus:@"Đang tải sản phẩm" maskType:SVProgressHUDMaskTypeGradient];
+    [SVProgressHUD showWithStatus:@"Loading" maskType:SVProgressHUDMaskTypeGradient];
     [self fillUpTableProductWithCategoryID:self.category_id];
     [self.refreshControl endRefreshing];
 }

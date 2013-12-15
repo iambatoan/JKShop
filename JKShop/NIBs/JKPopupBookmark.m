@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *labelProductPrice;
 @property (weak, nonatomic) IBOutlet UILabel *labelProductDetail;
 @property (weak, nonatomic) IBOutlet UIImageView *productImageWrapper;
+@property (weak, nonatomic) IBOutlet UIView *popupContentView;
 
 @end
 
@@ -37,8 +38,8 @@
 
 - (void)layoutSubviews {
 	[super layoutSubviews];
-	
 	[self.popupView setFrame:self.contentView.bounds];
+    [self.popupContentView alignVerticallyCenterToView:self];
 }
 
 - (void)loadDetailWithProduct:(JKProduct *)product{
@@ -46,7 +47,7 @@
     self.labelProductName.text = product.name;
     [self.labelProductName setFont:[UIFont fontWithName:@"Lato" size:17]];
     [self.labelProductName setTextColor:[UIColor titleColor]];
-    self.labelProductSku.text = [NSString stringWithFormat:@"Mã sản phẩm: %@",product.product_code];
+    self.labelProductSku.text = [NSString stringWithFormat:@"Product code: %@",product.product_code];
     self.labelProductPrice.text = [NSString getVNCurrencyFormatterWithNumber:@([product.price intValue])];
     self.labelProductDetail.text = product.detail;
     [self.productImage setImageWithURL:[NSURL URLWithString:[[product.images anyObject] getSmallImageURL]]];

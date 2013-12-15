@@ -30,7 +30,7 @@
     }
     
     self.productPrice.text = [NSString getVNCurrencyFormatterWithNumber:@([product.price intValue])];
-    self.productCode.text = [NSString stringWithFormat:@"Mã sản phẩm: %@",product.product_code];
+    self.productCode.text = [NSString stringWithFormat:@"Product code: %@",product.product_code];
 }
 
 + (CGFloat)getHeight{

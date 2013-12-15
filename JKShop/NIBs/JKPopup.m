@@ -54,7 +54,7 @@
     self.labelProductName.text = product.name;
     [self.labelProductName setFont:[UIFont fontWithName:@"Lato" size:17]];
     [self.labelProductName setTextColor:[UIColor titleColor]];
-    self.labelProductSku.text = [NSString stringWithFormat:@"Mã sản phẩm: %@",product.product_code];
+    self.labelProductSku.text = [NSString stringWithFormat:@"Product code: %@",product.product_code];
     self.labelProductPrice.text = [NSString getVNCurrencyFormatterWithNumber:@([product.price intValue])];
     self.labelProductDetail.text = product.detail;
     [self.productImage setImageWithURL:[NSURL URLWithString:[[product.images anyObject] getSmallImageURL]]];
@@ -64,13 +64,13 @@
 
 - (IBAction)addToCartButtonPress:(id)sender {
     if ([[JKProductManager sharedInstance] isBookmarkedAlreadyWithProductID:self.product.product_id]) {
-         [SVProgressHUD showErrorWithStatus:@"Sản phẩm đã được Bookmark rồi!"];
+         [SVProgressHUD showErrorWithStatus:@"Already in your cart!"];
         [self hide];
          return;
      }
 
     [[JKProductManager sharedInstance] bookmarkProductWithProductID:self.product.product_id withNumber:[self.stepper value]];
-    [SVProgressHUD showSuccessWithStatus:@"Bookmark thành công"];
+    [SVProgressHUD showSuccessWithStatus:@"Add to cart successful"];
     [[NSNotificationCenter defaultCenter] postNotificationName:NOTIF_CHANGE_BOOKMARK_PRODUCT_COUNT object:self];
     [self hide];
 }

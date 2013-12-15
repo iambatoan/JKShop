@@ -94,7 +94,7 @@ JKPopupBookmarkDelegate
 
 - (IBAction)buttonDeleteAllPressed:(id)sender {
     if (![[JKProductManager sharedInstance] getBookmarkProducts].count) {
-        [SVProgressHUD showErrorWithStatus:@"Không có sản phẩm trong giỏ hàng!"];
+        [SVProgressHUD showErrorWithStatus:@"List is empty!"];
         return;
     }
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning" message:@"Do you want to delete all?"
@@ -173,7 +173,7 @@ JKPopupBookmarkDelegate
 
 - (void)didPressConfirmButton:(JKPopupBookmark *)modalPanel{
     [[JKProductManager sharedInstance] updateProductWithProductID:modalPanel.product.product_id withNumber:[modalPanel.stepper value]];
-    [SVProgressHUD showSuccessWithStatus:@"Xác nhận thành công"];
+    [SVProgressHUD showSuccessWithStatus:@"Confirm successful"];
     [[NSNotificationCenter defaultCenter] postNotificationName:NOTIF_CHANGE_BOOKMARK_PRODUCT_COUNT object:self];
     IIViewDeckController *deckViewController = (IIViewDeckController*)[JKAppDelegate getRootViewController];
     [deckViewController setRightSize:40];

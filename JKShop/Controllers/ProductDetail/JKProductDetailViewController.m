@@ -47,6 +47,7 @@ MHFacebookImageViewerDatasource
 {
     [super viewDidLoad];
     self.title = [self.product getProductName];
+    self.viewDeckController.centerController.title = self.title;
     
     [self.productCollectionView registerNib:[UINib nibWithNibName:NSStringFromClass([JKProductsDetailCollectionCell class]) bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:NSStringFromClass([JKProductsDetailCollectionCell class])];
     [self.relatedProductCollectionView registerNib:[UINib nibWithNibName:NSStringFromClass([JKProductsCollectionCell class]) bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:NSStringFromClass([JKProductsCollectionCell class])];
@@ -70,7 +71,7 @@ MHFacebookImageViewerDatasource
         
         [SVProgressHUD dismiss];
     } failureBlock:^(NSInteger statusCode, id obj) {
-        [SVProgressHUD showErrorWithStatus:@"Xin vui lòng kiểm tra kết nối mạng và thử lại"];
+        [SVProgressHUD showErrorWithStatus:@"Please check connection and try again"];
     }];;
 }
 
@@ -79,22 +80,24 @@ MHFacebookImageViewerDatasource
     
     self.labelProductPrice.text = [NSString getVNCurrencyFormatterWithNumber:@([[self.product getProductPrice] intValue]) ];
     
-    self.labelProductDetail.text = [NSString stringWithFormat:@"Chi tiết sản phẩm: %@",[self.product getProductDetail]];
+    self.labelProductDetail.text = [NSString stringWithFormat:@"Detail: %@",[self.product getProductDetail]];
     [self.labelProductDetail sizeToFitKeepWidth];
     
-    self.labelProductSKU.text = [NSString stringWithFormat:@"Mã sản phẩm: %@",[self.product getProductSKU]];
+    self.labelProductSKU.text = [NSString stringWithFormat:@"Product code: %@",[self.product getProductSKU]];
     
     [self.labelSizeTitle alignBelowView:self.labelProductDetail offsetY:50 sameWidth:NO];
-    self.labelSize.text = [self.product.size  isEqual: @""] ? @"Updating..." : self.product.size;
-    [self.labelSize alignVerticallyCenterToView:self.labelSizeTitle];
-
-    [self.separatorView alignBelowView:self.labelSizeTitle offsetY:10 sameWidth:NO];
-
-    self.labelColor.text = [self.product.color isEqual: @""] ? @"Updating..." : self.product.color;
-    [self.labelColorTitle alignBelowView:self.separatorView offsetY:10 sameWidth:NO];
-    [self.labelColor alignVerticallyCenterToView:self.labelColorTitle];
     
-    [self.separatorBreakView alignBelowView:self.labelColorTitle offsetY:50 sameWidth:NO];
+//    self.labelSize.text = [self.product.size  isEqual: @""] ? @"Updating..." : self.product.size;
+//    [self.labelSize alignVerticallyCenterToView:self.labelSizeTitle];
+//
+//    [self.separatorView alignBelowView:self.labelSizeTitle offsetY:10 sameWidth:NO];
+//
+//    self.labelColor.text = [self.product.color isEqual: @""] ? @"Updating..." : self.product.color;
+//    [self.labelColorTitle alignBelowView:self.separatorView offsetY:10 sameWidth:NO];
+//    
+//    [self.labelColor alignVerticallyCenterToView:self.labelColorTitle];
+    
+    [self.separatorBreakView alignBelowView:self.labelProductDetail offsetY:20 sameWidth:NO];
 
     [self.labelRelatedProduct alignBelowView:self.separatorBreakView offsetY:10 sameWidth:NO];
     [self.relatedProductCollectionView alignBelowView:self.labelRelatedProduct offsetY:10 sameWidth:NO];
@@ -122,6 +125,12 @@ MHFacebookImageViewerDatasource
         [self.relatedProductCollectionView reloadData];
         [self.relatedProductCollectionView setHidden:NO];
         [self.activityIndicator stopAnimating];
+        if (self.productsArr.count < 3) {
+            [self.relatedProductCollectionView setHeight:253];
+        }
+        if (self.productsArr.count == 0) {
+            [self.relatedProductCollectionView setHeight:0];
+        }
         [SVProgressHUD dismiss];
     }
 }

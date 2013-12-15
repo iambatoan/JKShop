@@ -29,7 +29,7 @@
 
 - (void)changeNumberOfBookmarkProduct:(NSInteger)numberProducts
 {
-    self.lblNumberOfProducts.text = [NSString stringWithFormat:@"%d sản phẩm", numberProducts];
+    self.lblNumberOfProducts.text = [NSString stringWithFormat:@"%d product(s)", numberProducts];
     [self.lblNumberOfProducts sizeToFitKeepHeight];
     
     CGRect frame = self.lblInCart.frame;
@@ -43,6 +43,10 @@
 }
 
 - (IBAction)checkoutButtonPressed:(id)sender {
+    if (![[JKProductManager sharedInstance] getBookmarkProducts].count) {
+        [SVProgressHUD showErrorWithStatus:@"List is empty!"];
+        return;
+    }
     if ([FBSession activeSession].isOpen) {
         [[JKOrderManager sharedInstance] createOrderOnSuccess:^(NSInteger statusCode, id obj)
         {

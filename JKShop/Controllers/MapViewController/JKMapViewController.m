@@ -23,7 +23,7 @@
     [SVProgressHUD dismiss];
     
     [self.view setBackgroundColor:[UIColor whiteColor]];
-    self.title = @"Bản đồ";
+    self.title = @"Map";
     [self.navigationController setNavigationBarHidden:NO animated:NO];
     // Do any additional setup after loading the view from its nib.
     

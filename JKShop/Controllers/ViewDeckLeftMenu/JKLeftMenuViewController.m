@@ -53,8 +53,8 @@ UIScrollViewDelegate
     [super viewDidLoad];
     self.arrMenu = [[[JKCategoryManager sharedInstance] getMenuList] mutableCopy];
     
-    self.arrSubMenuSectionOne = @[@"JK Shop", @"Hàng mới về", @"Liên hệ"];
-    self.arrSection = @[@"Nổi Bật", @"Danh Mục", @"Tuỳ Chỉnh"];
+    self.arrSubMenuSectionOne = @[@"JK Shop", @"New arrival", @"Contact us"];
+    self.arrSection = @[@"Featured", @"Category", @"Setting"];
     self.arrIconSection = @[@"star.png",@"category.png",@"setting.png"];
     
     [self.menuTableView registerNib:[UINib nibWithNibName:NSStringFromClass([JKSidebarMenuTableViewCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([JKSidebarMenuTableViewCell class])];
@@ -133,7 +133,7 @@ UIScrollViewDelegate
     }
     
     if (self.isSearching) {
-        [header configTitleNameWithString:@"Kết quả tìm kiếm"];
+        [header configTitleNameWithString:@"Result"];
         [header configIconWithImageURL:@"search"];
         return header;
     }
@@ -167,7 +167,7 @@ UIScrollViewDelegate
         }
         case 2:
         {
-            NSDictionary *data = @{MENU_TITLE : @"Cấu hình"};
+            NSDictionary *data = @{MENU_TITLE : @"Setting"};
             [cell configWithData:data];
             return cell;
         }
@@ -224,6 +224,9 @@ UIScrollViewDelegate
             // New products
             
             if (indexPath.row == 1) {
+                
+                [SVProgressHUD showErrorWithStatus:@"This feature comming soon.."];
+                [tableView deselectRowAtIndexPath:indexPath animated:NO];
                 //              OFProductsViewController *productsVC = [[OFProductsViewController alloc] init];
                 //              productsVC.category_id = 21;
                 //              productsVC.lblTitle = [self.arrSubMenuSectionOne objectAtIndex:indexPath.row];
@@ -246,7 +249,7 @@ UIScrollViewDelegate
                 NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:path]];
                 [web loadRequest:request];
                 
-                menu3.title = @"Hướng dẫn đặt hàng";
+                menu3.title = @"How to order";
                 
                 [centralNavVC setViewControllers:[NSArray arrayWithObject:menu3] animated:YES];
                 [deckViewController toggleLeftViewAnimated:YES];
@@ -264,7 +267,8 @@ UIScrollViewDelegate
             return;
         }
         case 2:
-            [SVProgressHUD showErrorWithStatus:@"Chức năng hiện đang trong quá trình phát triển"];
+            [SVProgressHUD showErrorWithStatus:@"This feature comming soon.."];
+            [tableView deselectRowAtIndexPath:indexPath animated:NO];
             return;
             
         default:
@@ -281,6 +285,12 @@ UIScrollViewDelegate
     IIViewDeckController *deckViewController = (IIViewDeckController*)[JKAppDelegate getRootViewController];
     [deckViewController setLeftSize:0];
     [self.searchBarView setWidth:320];
+    CGRect frame = self.menuTableView.frame;
+    frame.origin.y = 0;
+    frame.size.height = [[UIScreen mainScreen] bounds].size.height;
+    [UIView animateWithDuration:0.3f animations:^{
+        self.menuTableView.frame = frame;
+    }];
 }
 
 - (void)searchDisplayControllerWillEndSearch:(UISearchDisplayController *)controller{
@@ -288,7 +298,12 @@ UIScrollViewDelegate
     
     IIViewDeckController *deckViewController = (IIViewDeckController*)[JKAppDelegate getRootViewController];
     [deckViewController setLeftSize:LEFT_SIZE];
-    [self.searchBarView setWidth:275];
+    CGRect frame = self.menuTableView.frame;
+    frame.origin.y = 78;
+    frame.size.height = 429;
+    [UIView animateWithDuration:0.3f animations:^{
+        self.menuTableView.frame = frame;
+    }];
 }
 
 - (void) searchDisplayControllerDidEndSearch:(UISearchDisplayController *)controller{
@@ -299,6 +314,8 @@ UIScrollViewDelegate
     [self filterListForSearchText:searchString];
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
         CGRect frame = self.menuTableView.frame;
+        frame.origin.y = -20;
+        frame.size.height = [[UIScreen mainScreen] bounds].size.height + 20;
         self.searchDisplayController.searchResultsTableView.frame = frame;
     }
     return YES;
@@ -313,12 +330,12 @@ UIScrollViewDelegate
 - (NSMutableArray *)arrProductsForSearchText:(NSString *)searchText
 {
     NSMutableArray *arrResultProduct = [[NSMutableArray alloc] init];
-    NSArray *arrProduct = [JKProduct MR_findAll];
+    NSArray *arrProduct = [JKProduct MR_findAllSortedBy:@"name" ascending:YES];
     
     for (JKProduct *product in arrProduct) {
         NSString *productNameWithoutUnicode = [[NSString alloc] initWithData:[product.name dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES] encoding:NSASCIIStringEncoding];
         NSRange nameRange = [productNameWithoutUnicode rangeOfString:searchText options:NSCaseInsensitiveSearch];
-        if (nameRange.location != NSNotFound) {
+        if (nameRange.location != NSNotFound && product.images.count) {
             [arrResultProduct addObject:product];
         }
     }
@@ -346,7 +363,12 @@ UIScrollViewDelegate
 }
 
 - (IBAction)buttonCallPressed:(id)sender {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tel:0909226976"]];
+    if ([DEVICE_NAME isEqualToString:@"iPhone"]) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tel:0909226976"]];
+        return;
+    }
+    [SVProgressHUD showErrorWithStatus:@"No calling service"];
+    
 }
 
 - (void)refreshButtonPressed{

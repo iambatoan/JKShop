@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="JKProductsViewController">
             <connections>
                 <outlet property="collectionProducts" destination="k0r-1h-k45" id="cHA-u6-Bdq"/>
+                <outlet property="noImageCover" destination="4ei-rJ-MFo" id="3ne-ni-Zmq"/>
                 <outlet property="searchDisplayController" destination="7Ql-nc-h2l" id="lxd-Ye-229"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
@@ -17,7 +18,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_product.gif" id="4ei-rJ-MFo">
+                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_product.gif" id="4ei-rJ-MFo">
                     <rect key="frame" x="40" y="198" width="240" height="172"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>

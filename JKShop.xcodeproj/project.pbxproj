@@ -139,6 +139,7 @@
 		84203AD6184A386800F26638 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 84203AD5184A386800F26638 /* libc++.dylib */; };
 		84203ADA184A39DE00F26638 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 84203AD9184A39DE00F26638 /* libicucore.dylib */; };
 		84203ADC184A39ED00F26638 /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 84203ADB184A39ED00F26638 /* libz.1.2.5.dylib */; };
+		84224EF7185E05C2002D4947 /* merry_christmas.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 84224EF6185E05C2002D4947 /* merry_christmas.jpg */; };
 		843D155B184A5FE600B65E35 /* JKProductManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 843D155A184A5FE600B65E35 /* JKProductManager.m */; };
 		843D1560184A638C00B65E35 /* JKProductsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 843D155E184A638C00B65E35 /* JKProductsViewController.m */; };
 		843D1561184A638C00B65E35 /* JKProductsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 843D155F184A638C00B65E35 /* JKProductsViewController.xib */; };
@@ -413,6 +414,7 @@
 		84203AD5184A386800F26638 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		84203AD9184A39DE00F26638 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		84203ADB184A39ED00F26638 /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
+		84224EF6185E05C2002D4947 /* merry_christmas.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = merry_christmas.jpg; path = Resources/Home/merry_christmas.jpg; sourceTree = "<group>"; };
 		843D1559184A5FE600B65E35 /* JKProductManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKProductManager.h; path = Managers/JKProductManager.h; sourceTree = "<group>"; };
 		843D155A184A5FE600B65E35 /* JKProductManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKProductManager.m; path = Managers/JKProductManager.m; sourceTree = "<group>"; };
 		843D155D184A638C00B65E35 /* JKProductsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKProductsViewController.h; path = Controllers/ProductsList/JKProductsViewController.h; sourceTree = "<group>"; };
@@ -995,6 +997,7 @@
 		8406459D1849B26B0065BCA4 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				84224EF6185E05C2002D4947 /* merry_christmas.jpg */,
 				0B739B00185ACCBC005958AD /* CheckMarkWhite.png */,
 				0B739B01185ACCBC005958AD /* CheckMarkWhite@2x.png */,
 				0B739AF2185ACA94005958AD /* home1.jpg */,
@@ -1398,6 +1401,7 @@
 				840644B5184992750065BCA4 /* InfoPlist.strings in Resources */,
 				84F99F18184A262A00356DB3 /* nav-back-btn-bg@2x.png in Resources */,
 				0B739B0C185AD8FA005958AD /* fb_button_logo@2x.jpg in Resources */,
+				84224EF7185E05C2002D4947 /* merry_christmas.jpg in Resources */,
 				8444FF7018562594008C9D77 /* JKBookmarkViewController.xib in Resources */,
 				84F99F0E184A1AEC00356DB3 /* setting@2x.png in Resources */,
 				0B92A685184DAE6E009B33DE /* navbg.png in Resources */,

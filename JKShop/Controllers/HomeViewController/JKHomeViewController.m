@@ -26,6 +26,7 @@ MYIntroductionDelegate
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = @"JK Shop";
+    self.viewDeckController.centerController.title = @"JK Shop";
     if (![[NSUserDefaults standardUserDefaults] boolForKey:@"logged_in"]) {
         [self buildIntro];
         return;
