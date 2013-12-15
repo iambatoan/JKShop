@@ -35,10 +35,10 @@
     
     JKProduct *storedProduct = [[JKProduct MR_findByAttribute:@"product_id" withValue:@(product_id)] lastObject];
     if(storedProduct){
-        [SVProgressHUD dismiss];
         successBlock(200, [storedProduct getImageSet]);
         return;
     }
+    [SVProgressHUD showWithStatus:@"Đang tải chi tiết sản phẩm" maskType:SVProgressHUDMaskTypeGradient];
     
     NSDictionary *params = @{@"product_id": [NSNumber numberWithInteger:product_id]};
     

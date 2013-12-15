@@ -36,10 +36,13 @@ IIViewDeckControllerDelegate
     if (![self.lblTitle isEqualToString:@""]) {
         self.title = self.lblTitle;
     }
-    [SVProgressHUD showWithStatus:@"Đang tải sản phẩm" maskType:SVProgressHUDMaskTypeGradient];
     
     self.productsArr = [[NSMutableArray alloc] init];
     self.productsArr = [[[JKProductManager sharedInstance] getStoredProductsWithCategoryId:self.category_id] mutableCopy];
+    if (!self.productsArr.count)
+    {
+        [SVProgressHUD showWithStatus:@"Đang tải sản phẩm" maskType:SVProgressHUDMaskTypeGradient];
+    }
     
     [self.collectionProducts registerNib:[UINib nibWithNibName:NSStringFromClass([JKProductsCollectionCell class]) bundle:nil] forCellWithReuseIdentifier:NSStringFromClass([JKProductsCollectionCell class])];
     

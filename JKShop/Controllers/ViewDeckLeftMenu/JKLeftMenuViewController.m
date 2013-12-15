@@ -82,17 +82,6 @@ UIScrollViewDelegate
     }
 }
 
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
-{
-    if (scrollView.contentOffset.y < 22) {
-        CGRect frame = CGRectMake(self.menuTableView.origin.x, 0, self.menuTableView.size.width, self.menuTableView.size.height);
-        [scrollView scrollRectToVisible:frame animated:YES];
-    }else if (scrollView.contentOffset.y >= 22 && scrollView.contentOffset.y < 44){
-        CGRect frame = CGRectMake(self.menuTableView.origin.x, 44, self.menuTableView.size.width, self.menuTableView.size.height);
-        [scrollView scrollRectToVisible:frame animated:YES];
-    }
-}
-
 #pragma mark - Tableview datasource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -221,7 +210,6 @@ UIScrollViewDelegate
         [self.view endEditing:YES];
         [deckViewController toggleLeftView];
         [centralNavVC pushViewController:productDetailVC animated:YES];
-        [SVProgressHUD showWithStatus:@"Đang tải chi tiết sản phẩm" maskType:SVProgressHUDMaskTypeGradient];
         return;
     }
     
@@ -310,9 +298,7 @@ UIScrollViewDelegate
 - (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString{
     [self filterListForSearchText:searchString];
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
-        CGRect frame = self.searchDisplayController.searchResultsTableView.frame;
-        frame.origin.y = -20;
-        frame.size.height = 500;
+        CGRect frame = self.menuTableView.frame;
         self.searchDisplayController.searchResultsTableView.frame = frame;
     }
     return YES;

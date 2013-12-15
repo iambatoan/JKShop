@@ -49,6 +49,10 @@ FacebookManagerDelegate
 
     self.window.rootViewController = deckController;
     [self.window makeKeyAndVisible];
+    
+    if (![FBSession activeSession].isOpen && [[NSUserDefaults standardUserDefaults] boolForKey:@"logged_in"]) {
+        [self showAlert];
+    }
     return YES;
 }
 
@@ -208,15 +212,25 @@ FacebookManagerDelegate
     return (JKAppDelegate* )[[[[UIApplication sharedApplication] delegate] window] rootViewController];
 }
 
+- (void)showAlert{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"JK Shop"
+                                                    message:@"Login to have fully feature supported!"
+                                                   delegate:self
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    
+    [alert show];
+}
+
 - (void)setUpGoogleAnalytic
 {
     // Optional: automatically send uncaught exceptions to Google Analytics.
     [GAI sharedInstance].trackUncaughtExceptions = YES;
     // Optional: set Google Analytics dispatch interval to e.g. 20 seconds.
     [GAI sharedInstance].dispatchInterval = 20;
-    // Optional: set debug to YES for extra debugging information.
-    [GAI sharedInstance].debug = YES;
     // Create tracker instance.
     self.tracker = [[GAI sharedInstance] trackerWithTrackingId:SETTING_GAI_APP_ID];
+    // Optional: set debug to YES for extra debugging information.
+    [GAI sharedInstance].debug = YES;
 }
 @end

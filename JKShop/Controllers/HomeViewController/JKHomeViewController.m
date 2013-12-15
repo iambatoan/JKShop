@@ -30,9 +30,6 @@ MYIntroductionDelegate
         [self buildIntro];
         return;
     }
-    if (![FBSession activeSession].isOpen) {
-        [self showAlert];
-    }
 }
 
 -(void)buildIntro{
@@ -66,16 +63,6 @@ MYIntroductionDelegate
     self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"logged_in"];
     [[NSUserDefaults standardUserDefaults] synchronize];
-}
-
-- (void)showAlert{
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"JK Shop"
-                                                    message:@"Login to have fully feature supported!"
-                                                   delegate:self
-                                          cancelButtonTitle:@"OK"
-                                          otherButtonTitles:nil];
-    
-    [alert show];
 }
 
 @end
