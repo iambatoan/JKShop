@@ -21,6 +21,8 @@ MYIntroductionDelegate
 
 @implementation JKHomeViewController
 
+#pragma mark - View controller lifecycle
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -32,6 +34,8 @@ MYIntroductionDelegate
         return;
     }
 }
+
+#pragma mark - Introduction view helper
 
 -(void)buildIntro{
     CGRect panelFrame = [[UIScreen mainScreen] bounds];

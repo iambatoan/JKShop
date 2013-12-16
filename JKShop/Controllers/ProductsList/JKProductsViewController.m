@@ -29,6 +29,8 @@ IIViewDeckControllerDelegate
 
 @implementation JKProductsViewController
 
+#pragma mark - View controller lifecycle
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -62,31 +64,7 @@ IIViewDeckControllerDelegate
     [self fillUpTableProductWithCategoryID:self.category_id];
 }
 
-
-- (void)fillUpTableProductWithCategoryID:(NSInteger)categoryID
-{
-    if (self.category_id == 21) {
-        return;
-    }
-    [[JKProductManager sharedInstance] getProductsWithCategoryID:categoryID onSuccess:^(NSInteger statusCode, NSArray *arrayProducts) {
-        self.productsArr = [arrayProducts mutableCopy];
-        for (JKProduct *product in arrayProducts) {
-            if (![[[product getImageSet] anyObject] getMediumImageURL]) {
-                [self.productsArr removeObject:product];
-            }
-        }
-
-        [SVProgressHUD dismiss];
-        if (!self.productsArr.count) {
-            [self.noImageCover setHidden:NO];
-        }
-        [self.collectionProducts reloadData];
-        
-
-    } failure:^(NSInteger statusCode, id obj) {
-        [SVProgressHUD showErrorWithStatus:@"Please check connection and try again"];
-    }];
-}
+#pragma mark - Collection view datasource
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     if (self.productsArr.count != 0) {
@@ -109,6 +87,33 @@ IIViewDeckControllerDelegate
     productDetailVC.product = [self.productsArr objectAtIndex:indexPath.item];
     
     [centralNavVC pushViewController:productDetailVC animated:YES];
+}
+
+#pragma mark - Helper method
+
+- (void)fillUpTableProductWithCategoryID:(NSInteger)categoryID
+{
+    if (self.category_id == 21) {
+        return;
+    }
+    [[JKProductManager sharedInstance] getProductsWithCategoryID:categoryID onSuccess:^(NSInteger statusCode, NSArray *arrayProducts) {
+        self.productsArr = [arrayProducts mutableCopy];
+        for (JKProduct *product in arrayProducts) {
+            if (![[[product getImageSet] anyObject] getMediumImageURL]) {
+                [self.productsArr removeObject:product];
+            }
+        }
+        
+        [SVProgressHUD dismiss];
+        if (!self.productsArr.count) {
+            [self.noImageCover setHidden:NO];
+        }
+        [self.collectionProducts reloadData];
+        
+        
+    } failure:^(NSInteger statusCode, id obj) {
+        [SVProgressHUD showErrorWithStatus:@"Please check connection and try again"];
+    }];
 }
 
 - (void)refresh{

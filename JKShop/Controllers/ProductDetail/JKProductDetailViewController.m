@@ -38,6 +38,8 @@ MHFacebookImageViewerDatasource
 
 @implementation JKProductDetailViewController
 
+#pragma mark - View controller lifecycle
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -56,73 +58,7 @@ MHFacebookImageViewerDatasource
     
 }
 
-- (void)getImageFromProduct{
-    [JKProductImages getImagesForProduct:[self.product getProductId] successBlock:^(NSInteger statusCode, NSSet *productImageSet) {
-        self.productImageArray = [productImageSet allObjects];
-        [self.imagePageControl setNumberOfPages:[self.productImageArray count]];
-        
-        [self.contentScrollView setScrollEnabled:YES];
-        [self.productCollectionView reloadData];
-        
-        [SVProgressHUD dismiss];
-    } failureBlock:^(NSInteger statusCode, id obj) {
-        [SVProgressHUD showErrorWithStatus:@"Please check connection and try again"];
-    }];;
-}
-
-- (void)loadProductDetail{
-    self.labelProductName.text = [self.product getProductName];
-    
-    self.labelProductPrice.text = [NSString getVNCurrencyFormatterWithNumber:@([[self.product getProductPrice] intValue]) ];
-    
-    self.labelProductDetail.text = [NSString stringWithFormat:@"Detail: %@",[self.product getProductDetail]];
-    [self.labelProductDetail sizeToFitKeepWidth];
-    
-    self.labelProductSKU.text = [NSString stringWithFormat:@"Product code: %@",[self.product getProductSKU]];
-       
-    [self.separatorBreakView alignBelowView:self.labelProductDetail offsetY:20 sameWidth:NO];
-
-    [self.labelRelatedProduct alignBelowView:self.separatorBreakView offsetY:10 sameWidth:NO];
-    [self.relatedProductCollectionView alignBelowView:self.labelRelatedProduct offsetY:10 sameWidth:NO];
-    
-    [self.activityIndicator alignBelowView:self.labelRelatedProduct offsetY:40 sameWidth:NO];
-    self.contentScrollView.contentSize = CGSizeMake([[UIScreen mainScreen] bounds].size.width,CGRectGetMaxY([self.relatedProductCollectionView frame]));
-}
-
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    CGFloat pageWidth = self.productCollectionView.frame.size.width;
-    
-    int page = floor((self.productCollectionView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
-    self.imagePageControl.currentPage = page;
-}
-
-- (void)fillUpCollectionRelatedProductWithCategoryID:(NSInteger)categoryID
-{
-    self.productsArr = [[[JKProductManager sharedInstance] getStoredProductsWithCategoryId:[[self.product.category anyObject] getCategoryId]] mutableCopy];
-    for (int i = 0; i < self.productsArr.count; i++) {
-        if (self.productsArr[i] == self.product)
-        {
-            [self.productsArr removeObjectAtIndex:i];
-        }
-    }
-    [self showCollectionView];
-}
-
-- (void)showCollectionView
-{
-    if (self.productsArr.count) {
-        [self.relatedProductCollectionView reloadData];
-        [self.relatedProductCollectionView setHidden:NO];
-        [self.activityIndicator stopAnimating];
-        if (self.productsArr.count < 3) {
-            [self.relatedProductCollectionView setHeight:253];
-        }
-        if (self.productsArr.count == 0) {
-            [self.relatedProductCollectionView setHeight:0];
-        }
-        [SVProgressHUD dismiss];
-    }
-}
+#pragma mark - Collection view datasource
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     if (collectionView == self.relatedProductCollectionView) {
@@ -167,6 +103,77 @@ MHFacebookImageViewerDatasource
 }
 
 #pragma mark - Helper methods
+
+- (void)getImageFromProduct{
+    [JKProductImages getImagesForProduct:[self.product getProductId] successBlock:^(NSInteger statusCode, NSSet *productImageSet) {
+        self.productImageArray = [productImageSet allObjects];
+        [self.imagePageControl setNumberOfPages:[self.productImageArray count]];
+        
+        [self.contentScrollView setScrollEnabled:YES];
+        [self.productCollectionView reloadData];
+        
+        [SVProgressHUD dismiss];
+    } failureBlock:^(NSInteger statusCode, id obj) {
+        [SVProgressHUD showErrorWithStatus:@"Please check connection and try again"];
+    }];;
+}
+
+- (void)fillUpCollectionRelatedProductWithCategoryID:(NSInteger)categoryID
+{
+    self.productsArr = [[[JKProductManager sharedInstance] getStoredProductsWithCategoryId:[[self.product.category anyObject] getCategoryId]] mutableCopy];
+    for (int i = 0; i < self.productsArr.count; i++) {
+        if (self.productsArr[i] == self.product)
+        {
+            [self.productsArr removeObjectAtIndex:i];
+        }
+    }
+    [self showCollectionView];
+}
+
+- (void)loadProductDetail{
+    self.labelProductName.text = [self.product getProductName];
+    
+    self.labelProductPrice.text = [NSString getVNCurrencyFormatterWithNumber:@([[self.product getProductPrice] intValue]) ];
+    
+    self.labelProductDetail.text = [NSString stringWithFormat:@"Detail: %@",[self.product getProductDetail]];
+    [self.labelProductDetail sizeToFitKeepWidth];
+    
+    self.labelProductSKU.text = [NSString stringWithFormat:@"Product code: %@",[self.product getProductSKU]];
+    
+    [self.separatorBreakView alignBelowView:self.labelProductDetail offsetY:20 sameWidth:NO];
+    
+    [self.labelRelatedProduct alignBelowView:self.separatorBreakView offsetY:10 sameWidth:NO];
+    [self.relatedProductCollectionView alignBelowView:self.labelRelatedProduct offsetY:10 sameWidth:NO];
+    
+    [self.activityIndicator alignBelowView:self.labelRelatedProduct offsetY:40 sameWidth:NO];
+    self.contentScrollView.contentSize = CGSizeMake([[UIScreen mainScreen] bounds].size.width,CGRectGetMaxY([self.relatedProductCollectionView frame]));
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    CGFloat pageWidth = self.productCollectionView.frame.size.width;
+    
+    int page = floor((self.productCollectionView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
+    self.imagePageControl.currentPage = page;
+}
+
+- (void)showCollectionView
+{
+    if (self.productsArr.count) {
+        [self.relatedProductCollectionView reloadData];
+        [self.relatedProductCollectionView setHidden:NO];
+        [self.activityIndicator stopAnimating];
+        if (self.productsArr.count < 3) {
+            [self.relatedProductCollectionView setHeight:253];
+        }
+        if (self.productsArr.count == 0) {
+            [self.relatedProductCollectionView setHeight:0];
+        }
+        [SVProgressHUD dismiss];
+    }
+}
+
+#pragma mark - JK popup delegate
+
 - (IBAction)addToCartButton:(id)sender {
     if ([[JKProductManager sharedInstance] isBookmarkedAlreadyWithProductID:self.product.product_id]) {
         [SVProgressHUD showErrorWithStatus:@"Already in your cart!"];
@@ -177,6 +184,8 @@ MHFacebookImageViewerDatasource
     [self.navigationController.view addSubview:modalPanel];
     [modalPanel showFromPoint:[self.view center]];
 }
+
+#pragma mark - MHFacebook Image Viewer delegate
 
 - (NSInteger) numberImagesForImageViewer:(MHFacebookImageViewer *)imageViewer {
     return self.productImageArray.count;

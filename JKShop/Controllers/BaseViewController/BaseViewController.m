@@ -18,10 +18,12 @@ IIViewDeckControllerDelegate
 
 @implementation BaseViewController
 
+#pragma mark - View controller lifecycle
+
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-    [self trackCritercismBreadCrumb:__LINE__];
+    [self trackCrittercismBreadCrumb:__LINE__];
     [self addNavigationItems];
     
     [[NSNotificationCenter defaultCenter]
@@ -38,6 +40,8 @@ IIViewDeckControllerDelegate
     }
     [super viewDidAppear:animated];
 }
+
+#pragma mark - Helper methods
 
 - (void)addNavigationItems
 {
@@ -82,7 +86,9 @@ IIViewDeckControllerDelegate
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
-- (void)trackCritercismBreadCrumb:(NSUInteger)lineNumber
+#pragma mark - Crittercism initialize
+
+- (void)trackCrittercismBreadCrumb:(NSUInteger)lineNumber
 {
     NSString *breadcrumb = [NSString stringWithFormat:@"%@:%d", [[NSString stringWithUTF8String:__FILE__] lastPathComponent], lineNumber];
     [Crittercism leaveBreadcrumb:breadcrumb];

@@ -272,7 +272,7 @@ UIScrollViewDelegate
     }
 }
 
-#pragma Search Display Controller Delegate
+#pragma mark - Search displayController delegate
 
 - (void)searchDisplayControllerWillBeginSearch:(UISearchDisplayController *)controller{
     
@@ -351,6 +351,8 @@ UIScrollViewDelegate
     
 }
 
+#pragma mark - Footer button action
+
 - (IBAction)buttonMapPressed:(id)sender {
     IIViewDeckController *deckViewController = (IIViewDeckController*)[JKAppDelegate getRootViewController];
     JKNavigationViewController *centralNavVC = (JKNavigationViewController *) deckViewController.centerController;
@@ -366,6 +368,8 @@ UIScrollViewDelegate
     [SVProgressHUD showErrorWithStatus:@"No calling service"];
     
 }
+
+#pragma mark - Helper methods
 
 - (void)refreshButtonPressed{
     [self loadCategoryMenu];
@@ -384,6 +388,8 @@ UIScrollViewDelegate
     [FacebookManager sharedInstance].delegate = self;
     [[FacebookManager sharedInstance] openSessionWithAllowLoginUI:YES];
 }
+
+#pragma mark - Facebook delegate
 
 - (void)facebookSessionStateChanged:(FacebookManager *)facebookManager{
     if ([FBSession activeSession].isOpen) {
@@ -407,6 +413,8 @@ UIScrollViewDelegate
          }
      }];
 }
+
+#pragma mark - Facebook sign out button action
 
 - (IBAction)signOutButtonAction:(id)sender {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning" message:@"Do you want to sign out?"

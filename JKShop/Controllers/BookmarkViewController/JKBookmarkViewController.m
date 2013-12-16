@@ -31,6 +31,8 @@ JKPopupBookmarkDelegate
 
 @implementation JKBookmarkViewController
 
+#pragma mark - View controller lifecycle
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -42,6 +44,8 @@ JKPopupBookmarkDelegate
     self.bookmarkProductArray = [[JKProductManager alloc] getBookmarkProducts];
     [self.bookmarkTableView reloadData];
 }
+
+#pragma mark - Table view datasource
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     JKBookmarkTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([JKBookmarkTableViewCell class]) forIndexPath:indexPath];
@@ -84,13 +88,7 @@ JKPopupBookmarkDelegate
     return header;
 }
 
-- (NSInteger)getTotalPrice{
-    int total = 0;
-    for (NSDictionary *dic in self.bookmarkProductArray) {
-        total += [[dic objectForKey:STORE_PRODUCT_NUMBER] integerValue] * [JKProduct getProductPriceWithProductId:[dic objectForKey:STORE_PRODUCT_ID]];
-    }
-    return total;
-}
+#pragma mark - Button delete all action
 
 - (IBAction)buttonDeleteAllPressed:(id)sender {
     if (![[JKProductManager sharedInstance] getBookmarkProducts].count) {
@@ -112,6 +110,8 @@ JKPopupBookmarkDelegate
         [self.bookmarkTableView reloadData];
     }
 }
+
+#pragma mark - Swipeable Cell Action
 
 - (void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerRightUtilityButtonWithIndex:(NSInteger)index {
     NSIndexPath *indexPath = [self.bookmarkTableView indexPathForCell:cell];
@@ -162,26 +162,6 @@ JKPopupBookmarkDelegate
     return rightUtilityButtons;
 }
 
-- (JKProduct *)getProductFromStoreBookmarkAtIndex:(NSInteger)index{
-    return [[JKProduct MR_findByAttribute:@"product_id" withValue:[[self.bookmarkProductArray objectAtIndex:index] objectForKey:STORE_PRODUCT_ID]] lastObject];
-}
-
-- (NSInteger)getNumberProductFromStoreBookmarkAtIndex:(NSInteger)index{
-    return [[[self.bookmarkProductArray objectAtIndex:index] objectForKey:STORE_PRODUCT_NUMBER] integerValue];
-}
-
-
-- (void)didPressConfirmButton:(JKPopupBookmark *)modalPanel{
-    [[JKProductManager sharedInstance] updateProductWithProductID:modalPanel.product.product_id withNumber:[modalPanel.stepper value]];
-    [SVProgressHUD showSuccessWithStatus:@"Confirm successful"];
-    [[NSNotificationCenter defaultCenter] postNotificationName:NOTIF_CHANGE_BOOKMARK_PRODUCT_COUNT object:self];
-    IIViewDeckController *deckViewController = (IIViewDeckController*)[JKAppDelegate getRootViewController];
-    [deckViewController setRightSize:40];
-    
-    self.bookmarkProductArray = [[JKProductManager alloc] getBookmarkProducts];
-    [self.bookmarkTableView reloadData];
-}
-
 - (void)onLongPress:(UILongPressGestureRecognizer *)gestureRecognizer
 {
     if (gestureRecognizer.state == UIGestureRecognizerStateBegan)
@@ -202,6 +182,37 @@ JKPopupBookmarkDelegate
         modalPanel.JKDelegate = self;
         [modalPanel showFromPoint:[self.view center]];
     }
+}
+
+#pragma mark - Helper methods
+
+- (NSInteger)getTotalPrice{
+    int total = 0;
+    for (NSDictionary *dic in self.bookmarkProductArray) {
+        total += [[dic objectForKey:STORE_PRODUCT_NUMBER] integerValue] * [JKProduct getProductPriceWithProductId:[dic objectForKey:STORE_PRODUCT_ID]];
+    }
+    return total;
+}
+
+- (JKProduct *)getProductFromStoreBookmarkAtIndex:(NSInteger)index{
+    return [[JKProduct MR_findByAttribute:@"product_id" withValue:[[self.bookmarkProductArray objectAtIndex:index] objectForKey:STORE_PRODUCT_ID]] lastObject];
+}
+
+- (NSInteger)getNumberProductFromStoreBookmarkAtIndex:(NSInteger)index{
+    return [[[self.bookmarkProductArray objectAtIndex:index] objectForKey:STORE_PRODUCT_NUMBER] integerValue];
+}
+
+#pragma mark - JK popup bookmark delegate
+
+- (void)didPressConfirmButton:(JKPopupBookmark *)modalPanel{
+    [[JKProductManager sharedInstance] updateProductWithProductID:modalPanel.product.product_id withNumber:[modalPanel.stepper value]];
+    [SVProgressHUD showSuccessWithStatus:@"Confirm successful"];
+    [[NSNotificationCenter defaultCenter] postNotificationName:NOTIF_CHANGE_BOOKMARK_PRODUCT_COUNT object:self];
+    IIViewDeckController *deckViewController = (IIViewDeckController*)[JKAppDelegate getRootViewController];
+    [deckViewController setRightSize:40];
+    
+    self.bookmarkProductArray = [[JKProductManager alloc] getBookmarkProducts];
+    [self.bookmarkTableView reloadData];
 }
 
 

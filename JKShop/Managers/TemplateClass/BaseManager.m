@@ -69,6 +69,7 @@
 }
 
 #pragma mark -  class methods
+
 - (void)sendNotification:(NSString *)notificationName
 {
 	[self sendNotification:notificationName body:nil type:nil];
