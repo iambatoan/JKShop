@@ -363,7 +363,7 @@ UIScrollViewDelegate
 }
 
 - (IBAction)buttonCallPressed:(id)sender {
-    if ([DEVICE_NAME isEqualToString:@"iPhone"]) {
+    if ([[[UIDevice currentDevice] model] isEqualToString:@"iPhone"]) {
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tel:0909226976"]];
         return;
     }
