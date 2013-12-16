@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="JKProductDetailViewController">
@@ -10,19 +10,14 @@
                 <outlet property="activityIndicator" destination="zKk-jW-Jwf" id="z1m-fe-O2u"/>
                 <outlet property="contentScrollView" destination="b0e-I7-8MV" id="IJs-tT-eAN"/>
                 <outlet property="imagePageControl" destination="Lyb-gf-96f" id="RNi-3q-33q"/>
-                <outlet property="labelColor" destination="P1s-c7-CFR" id="yg2-hL-IHJ"/>
-                <outlet property="labelColorTitle" destination="PhF-ac-K73" id="lw2-I6-Uq6"/>
                 <outlet property="labelProductDetail" destination="gyd-Vh-G5N" id="YJj-oB-cD4"/>
                 <outlet property="labelProductName" destination="ttm-52-t22" id="D7H-3a-7zA"/>
                 <outlet property="labelProductPrice" destination="Wbd-Rs-Ivg" id="YH1-Ho-Qbj"/>
                 <outlet property="labelProductSKU" destination="hmb-tO-d2c" id="GR6-bx-lRC"/>
                 <outlet property="labelRelatedProduct" destination="AL3-I3-ruu" id="Kv5-xm-Bfh"/>
-                <outlet property="labelSize" destination="xeo-Ym-yQj" id="fw0-qs-IQ8"/>
-                <outlet property="labelSizeTitle" destination="C50-aD-sSQ" id="Kqu-NL-NYg"/>
                 <outlet property="productCollectionView" destination="xMv-dS-l8E" id="las-uy-aA9"/>
                 <outlet property="relatedProductCollectionView" destination="Caw-bN-p00" id="UCo-WS-pGe"/>
                 <outlet property="separatorBreakView" destination="LIc-gV-f5L" id="cWQ-FS-iuR"/>
-                <outlet property="separatorView" destination="oKy-dR-sfW" id="1pA-B4-Vle"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
         </placeholder>
@@ -120,39 +115,6 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="0.80000001192092896" green="0.80000001192092896" blue="0.80000001192092896" alpha="1" colorSpace="calibratedRGB"/>
                             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                        </view>
-                        <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Size:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="C50-aD-sSQ">
-                            <rect key="frame" x="11" y="538" width="42" height="21"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                            <color key="textColor" red="0.50196081399917603" green="0.50196081399917603" blue="0.50196081399917603" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Màu:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PhF-ac-K73">
-                            <rect key="frame" x="11" y="590" width="42" height="21"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                            <color key="textColor" red="0.50196081399917603" green="0.50196081399917603" blue="0.50196081399917603" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xeo-Ym-yQj">
-                            <rect key="frame" x="96" y="521" width="209" height="38"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <color key="textColor" red="0.70196080207824707" green="0.70196080207824707" blue="0.70196080207824707" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="P1s-c7-CFR">
-                            <rect key="frame" x="96" y="590" width="209" height="34"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <color key="textColor" red="0.70196080207824707" green="0.70196080207824707" blue="0.70196080207824707" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <view hidden="YES" contentMode="scaleToFill" id="oKy-dR-sfW">
-                            <rect key="frame" x="15" y="574" width="290" height="1"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" red="0.70196080207824707" green="0.70196080207824707" blue="0.70196080207824707" alpha="1" colorSpace="calibratedRGB"/>
                         </view>
                         <view contentMode="scaleToFill" id="LIc-gV-f5L">
                             <rect key="frame" x="15" y="654" width="290" height="1"/>

@@ -65,6 +65,9 @@ IIViewDeckControllerDelegate
 
 - (void)fillUpTableProductWithCategoryID:(NSInteger)categoryID
 {
+    if (self.category_id == 21) {
+        return;
+    }
     [[JKProductManager sharedInstance] getProductsWithCategoryID:categoryID onSuccess:^(NSInteger statusCode, NSArray *arrayProducts) {
         self.productsArr = [arrayProducts mutableCopy];
         for (JKProduct *product in arrayProducts) {

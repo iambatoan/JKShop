@@ -40,9 +40,6 @@
 #define API_GET_NONCE                               @"/get_nonce/"
 #define NOTIF_CHANGE_BOOKMARK_PRODUCT_COUNT         @"changBookmarkProductCount"
 
-#define ENABLE_FAKE_LOCATION                        YES         //Use the coordinate below, ignore location server
-#define FAKE_COORDINATE                             CLLocationCoordinate2DMake(3.18985899, 101.64969727)
-
 #import <Availability.h>
 #import <CoreData/CoreData.h>
 #import <CoreLocation/CoreLocation.h>
@@ -58,7 +55,6 @@
 
 //Controllers
 #import "BaseViewController.h"
-#import "BaseTableViewController.h"
 #import "JKLeftMenuViewController.h"
 #import "JKMapViewController.h"
 #import "JKNavigationViewController.h"
@@ -87,9 +83,6 @@
 
 //Managers
 #import "BaseManager.h"
-#import "BaseDeviceLibrary.h"
-#import "BaseLocationManager.h"
-#import "BaseNetworkManager.h"
 #import "FacebookManager.h"
 #import "JKCategoryManager.h"
 #import "JKProductManager.h"
@@ -105,6 +98,7 @@
 #import "NSString+Additions.h"
 #import "NSString+ActiveSupportInflector.h"
 #import "ActiveSupportInflector.h"
+#import "NSString+HTML.h"
 
 //Models
 #import "JKCategory.h"

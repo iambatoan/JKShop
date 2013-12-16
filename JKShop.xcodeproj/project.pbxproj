@@ -32,6 +32,8 @@
 		0B26BE15184C6182008C1D79 /* JKProductsCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B26BE14184C6182008C1D79 /* JKProductsCollectionCell.xib */; };
 		0B26BE18184C7E43008C1D79 /* JKCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B26BE17184C7E43008C1D79 /* JKCategory.m */; };
 		0B26BE1B184C7E50008C1D79 /* _JKCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B26BE1A184C7E50008C1D79 /* _JKCategory.m */; };
+		0B466862185EE95400E42E21 /* NSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B466861185EE95400E42E21 /* NSString+HTML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		0B466865185EE9AA00E42E21 /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B466864185EE9AA00E42E21 /* GTMNSString+HTML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		0B513E811858612000E6DFBC /* JKPopupBookmark.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B513E801858612000E6DFBC /* JKPopupBookmark.m */; };
 		0B513E831858613400E6DFBC /* JKPopupBookmark.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B513E821858613400E6DFBC /* JKPopupBookmark.xib */; };
 		0B55CECA184EDEAA00A3E4ED /* JKProductsDetailCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B55CEC9184EDEAA00A3E4ED /* JKProductsDetailCollectionCell.m */; };
@@ -80,12 +82,8 @@
 		840644CA184992750065BCA4 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 840644AE184992750065BCA4 /* CoreData.framework */; };
 		840644D2184992750065BCA4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 840644D0184992750065BCA4 /* InfoPlist.strings */; };
 		840644D4184992750065BCA4 /* JKShopTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 840644D3184992750065BCA4 /* JKShopTests.m */; };
-		8406450918499D880065BCA4 /* BaseAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8406450618499D880065BCA4 /* BaseAppDelegate.m */; };
 		8406450A18499D880065BCA4 /* JKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8406450818499D880065BCA4 /* JKAppDelegate.m */; };
-		8406451A18499DB60065BCA4 /* BaseDeviceLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 8406450D18499DB60065BCA4 /* BaseDeviceLibrary.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		8406451B18499DB60065BCA4 /* BaseLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8406450F18499DB60065BCA4 /* BaseLocationManager.m */; };
 		8406451C18499DB60065BCA4 /* BaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8406451118499DB60065BCA4 /* BaseManager.m */; };
-		8406451D18499DB60065BCA4 /* BaseNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8406451318499DB60065BCA4 /* BaseNetworkManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		8406452018499DB60065BCA4 /* FacebookManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8406451918499DB60065BCA4 /* FacebookManager.m */; };
 		8406454718499DCE0065BCA4 /* AFDownloadRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8406452318499DCE0065BCA4 /* AFDownloadRequestOperation.m */; };
 		8406454818499DCE0065BCA4 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 8406452518499DCE0065BCA4 /* AFHTTPClient.m */; };
@@ -102,7 +100,6 @@
 		8406455318499DCE0065BCA4 /* IISideController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8406454218499DCE0065BCA4 /* IISideController.m */; };
 		8406455418499DCE0065BCA4 /* IIViewDeckController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8406454418499DCE0065BCA4 /* IIViewDeckController.m */; };
 		8406455518499DCE0065BCA4 /* IIWrapController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8406454618499DCE0065BCA4 /* IIWrapController.m */; };
-		8406455B18499DF00065BCA4 /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8406455818499DF00065BCA4 /* BaseTableViewController.m */; };
 		8406455C18499DF00065BCA4 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8406455A18499DF00065BCA4 /* BaseViewController.m */; };
 		840645601849A0200065BCA4 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8406455F1849A0200065BCA4 /* MapKit.framework */; };
 		840645621849A0930065BCA4 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 840645611849A0930065BCA4 /* QuartzCore.framework */; };
@@ -243,6 +240,10 @@
 		0B26BE17184C7E43008C1D79 /* JKCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKCategory.m; path = Models/JKCategory.m; sourceTree = "<group>"; };
 		0B26BE19184C7E50008C1D79 /* _JKCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _JKCategory.h; sourceTree = "<group>"; };
 		0B26BE1A184C7E50008C1D79 /* _JKCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _JKCategory.m; sourceTree = "<group>"; };
+		0B466860185EE95400E42E21 /* NSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+HTML.h"; path = "Categories/NSString+HTML.h"; sourceTree = "<group>"; };
+		0B466861185EE95400E42E21 /* NSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+HTML.m"; path = "Categories/NSString+HTML.m"; sourceTree = "<group>"; };
+		0B466863185EE9AA00E42E21 /* GTMNSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GTMNSString+HTML.h"; path = "Categories/GTMNSString+HTML.h"; sourceTree = "<group>"; };
+		0B466864185EE9AA00E42E21 /* GTMNSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "GTMNSString+HTML.m"; path = "Categories/GTMNSString+HTML.m"; sourceTree = "<group>"; };
 		0B513E7F1858612000E6DFBC /* JKPopupBookmark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKPopupBookmark.h; path = NIBs/JKPopupBookmark.h; sourceTree = "<group>"; };
 		0B513E801858612000E6DFBC /* JKPopupBookmark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKPopupBookmark.m; path = NIBs/JKPopupBookmark.m; sourceTree = "<group>"; };
 		0B513E821858613400E6DFBC /* JKPopupBookmark.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = JKPopupBookmark.xib; path = NIBs/JKPopupBookmark.xib; sourceTree = "<group>"; };
@@ -309,18 +310,10 @@
 		840644CF184992750065BCA4 /* JKShopTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "JKShopTests-Info.plist"; sourceTree = "<group>"; };
 		840644D1184992750065BCA4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		840644D3184992750065BCA4 /* JKShopTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKShopTests.m; sourceTree = "<group>"; };
-		8406450518499D880065BCA4 /* BaseAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseAppDelegate.h; path = Misc/BaseAppDelegate.h; sourceTree = "<group>"; };
-		8406450618499D880065BCA4 /* BaseAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseAppDelegate.m; path = Misc/BaseAppDelegate.m; sourceTree = "<group>"; };
 		8406450718499D880065BCA4 /* JKAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKAppDelegate.h; path = Misc/JKAppDelegate.h; sourceTree = "<group>"; };
 		8406450818499D880065BCA4 /* JKAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKAppDelegate.m; path = Misc/JKAppDelegate.m; sourceTree = "<group>"; };
-		8406450C18499DB60065BCA4 /* BaseDeviceLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseDeviceLibrary.h; path = Managers/TemplateClass/BaseDeviceLibrary.h; sourceTree = "<group>"; };
-		8406450D18499DB60065BCA4 /* BaseDeviceLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseDeviceLibrary.m; path = Managers/TemplateClass/BaseDeviceLibrary.m; sourceTree = "<group>"; };
-		8406450E18499DB60065BCA4 /* BaseLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseLocationManager.h; path = Managers/TemplateClass/BaseLocationManager.h; sourceTree = "<group>"; };
-		8406450F18499DB60065BCA4 /* BaseLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseLocationManager.m; path = Managers/TemplateClass/BaseLocationManager.m; sourceTree = "<group>"; };
 		8406451018499DB60065BCA4 /* BaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseManager.h; path = Managers/TemplateClass/BaseManager.h; sourceTree = "<group>"; };
 		8406451118499DB60065BCA4 /* BaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseManager.m; path = Managers/TemplateClass/BaseManager.m; sourceTree = "<group>"; };
-		8406451218499DB60065BCA4 /* BaseNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseNetworkManager.h; path = Managers/TemplateClass/BaseNetworkManager.h; sourceTree = "<group>"; };
-		8406451318499DB60065BCA4 /* BaseNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseNetworkManager.m; path = Managers/TemplateClass/BaseNetworkManager.m; sourceTree = "<group>"; };
 		8406451818499DB60065BCA4 /* FacebookManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FacebookManager.h; path = Managers/TemplateClass/FacebookManager.h; sourceTree = "<group>"; };
 		8406451918499DB60065BCA4 /* FacebookManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FacebookManager.m; path = Managers/TemplateClass/FacebookManager.m; sourceTree = "<group>"; };
 		8406452218499DCE0065BCA4 /* AFDownloadRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFDownloadRequestOperation.h; sourceTree = "<group>"; };
@@ -358,8 +351,6 @@
 		8406454418499DCE0065BCA4 /* IIViewDeckController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IIViewDeckController.m; sourceTree = "<group>"; };
 		8406454518499DCE0065BCA4 /* IIWrapController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IIWrapController.h; sourceTree = "<group>"; };
 		8406454618499DCE0065BCA4 /* IIWrapController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IIWrapController.m; sourceTree = "<group>"; };
-		8406455718499DF00065BCA4 /* BaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewController.h; sourceTree = "<group>"; };
-		8406455818499DF00065BCA4 /* BaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewController.m; sourceTree = "<group>"; };
 		8406455918499DF00065BCA4 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		8406455A18499DF00065BCA4 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		8406455F1849A0200065BCA4 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -769,6 +760,10 @@
 				84819F3E185B637F00D0F336 /* NSString+Additions.m */,
 				84819F3F185B637F00D0F336 /* NSString+Validation.h */,
 				84819F40185B637F00D0F336 /* NSString+Validation.m */,
+				0B466860185EE95400E42E21 /* NSString+HTML.h */,
+				0B466861185EE95400E42E21 /* NSString+HTML.m */,
+				0B466863185EE9AA00E42E21 /* GTMNSString+HTML.h */,
+				0B466864185EE9AA00E42E21 /* GTMNSString+HTML.m */,
 				0B26BE0E184C5CFB008C1D79 /* UILabel+Additions.h */,
 				0B26BE0F184C5CFB008C1D79 /* UILabel+Additions.m */,
 				840645B41849BE5B0065BCA4 /* UIColor+Custom.h */,
@@ -878,8 +873,6 @@
 		840644E4184996CD0065BCA4 /* Misc */ = {
 			isa = PBXGroup;
 			children = (
-				8406450518499D880065BCA4 /* BaseAppDelegate.h */,
-				8406450618499D880065BCA4 /* BaseAppDelegate.m */,
 				8406450718499D880065BCA4 /* JKAppDelegate.h */,
 				8406450818499D880065BCA4 /* JKAppDelegate.m */,
 			);
@@ -889,14 +882,8 @@
 		8406450B18499DA60065BCA4 /* Template Classes */ = {
 			isa = PBXGroup;
 			children = (
-				8406450C18499DB60065BCA4 /* BaseDeviceLibrary.h */,
-				8406450D18499DB60065BCA4 /* BaseDeviceLibrary.m */,
-				8406450E18499DB60065BCA4 /* BaseLocationManager.h */,
-				8406450F18499DB60065BCA4 /* BaseLocationManager.m */,
 				8406451018499DB60065BCA4 /* BaseManager.h */,
 				8406451118499DB60065BCA4 /* BaseManager.m */,
-				8406451218499DB60065BCA4 /* BaseNetworkManager.h */,
-				8406451318499DB60065BCA4 /* BaseNetworkManager.m */,
 				8406451818499DB60065BCA4 /* FacebookManager.h */,
 				8406451918499DB60065BCA4 /* FacebookManager.m */,
 			);
@@ -965,8 +952,6 @@
 		8406455618499DF00065BCA4 /* BaseViewController */ = {
 			isa = PBXGroup;
 			children = (
-				8406455718499DF00065BCA4 /* BaseTableViewController.h */,
-				8406455818499DF00065BCA4 /* BaseTableViewController.m */,
 				8406455918499DF00065BCA4 /* BaseViewController.h */,
 				8406455A18499DF00065BCA4 /* BaseViewController.m */,
 			);
@@ -1511,6 +1496,7 @@
 				8404E61B18575D4100EE0F16 /* SWTableViewCell.m in Sources */,
 				84A3BB9E184B096C00650BAF /* MagicalRecord+Actions.m in Sources */,
 				84A3BBA0184B096C00650BAF /* MagicalRecord+iCloud.m in Sources */,
+				0B466862185EE95400E42E21 /* NSString+HTML.m in Sources */,
 				84732EE5185CAB0C001618F0 /* UAModalPanel.m in Sources */,
 				84A3BB8B184B096C00650BAF /* MagicalImportFunctions.m in Sources */,
 				84732EE9185CAB0C001618F0 /* UARoundedRectView.m in Sources */,
@@ -1526,7 +1512,6 @@
 				840644B7184992750065BCA4 /* main.m in Sources */,
 				84A3BB8D184B096C00650BAF /* NSEntityDescription+MagicalDataImport.m in Sources */,
 				84A3BB99184B096C00650BAF /* NSManagedObjectContext+MagicalSaves.m in Sources */,
-				8406451B18499DB60065BCA4 /* BaseLocationManager.m in Sources */,
 				0B26BE10184C5CFB008C1D79 /* UILabel+Additions.m in Sources */,
 				84732EDE185CAB0C001618F0 /* UIView+JMNoise.m in Sources */,
 				84A3BB4D184B086E00650BAF /* _JKProduct.m in Sources */,
@@ -1536,7 +1521,6 @@
 				840645A41849B8CA0065BCA4 /* JKHomeViewController.m in Sources */,
 				8406454F18499DCE0065BCA4 /* AFURLConnectionOperation.m in Sources */,
 				8406454818499DCE0065BCA4 /* AFHTTPClient.m in Sources */,
-				8406450918499D880065BCA4 /* BaseAppDelegate.m in Sources */,
 				84B3BC8A18530C38007CD797 /* UIView+Additions.m in Sources */,
 				84A3BB8C184B096C00650BAF /* NSAttributeDescription+MagicalDataImport.m in Sources */,
 				84A3BB97184B096C00650BAF /* NSManagedObjectContext+MagicalObserving.m in Sources */,
@@ -1547,7 +1531,6 @@
 				0B02CE4218557FA200E97DE1 /* JKSearchBar.m in Sources */,
 				84A3BBA4184B096C00650BAF /* MagicalRecord.m in Sources */,
 				843D1560184A638C00B65E35 /* JKProductsViewController.m in Sources */,
-				8406455B18499DF00065BCA4 /* BaseTableViewController.m in Sources */,
 				8444FF73185625C2008C9D77 /* JKBookmarkTableViewCell.m in Sources */,
 				8406454E18499DCE0065BCA4 /* AFPropertyListRequestOperation.m in Sources */,
 				8404E62E185779E700EE0F16 /* JKPopup.m in Sources */,
@@ -1574,6 +1557,7 @@
 				8406455018499DCE0065BCA4 /* AFXMLRequestOperation.m in Sources */,
 				8406455318499DCE0065BCA4 /* IISideController.m in Sources */,
 				84A3BB8F184B096C00650BAF /* NSObject+MagicalDataImport.m in Sources */,
+				0B466865185EE9AA00E42E21 /* GTMNSString+HTML.m in Sources */,
 				8404E62B18575D8800EE0F16 /* SWUtilityButtonView.m in Sources */,
 				0B739AEC185ABC92005958AD /* MYBlurIntroductionView.m in Sources */,
 				8406451C18499DB60065BCA4 /* BaseManager.m in Sources */,
@@ -1587,7 +1571,6 @@
 				84819F41185B637F00D0F336 /* ActiveSupportInflector.m in Sources */,
 				840644BE184992750065BCA4 /* JKShop.xcdatamodeld in Sources */,
 				84A3BBA3184B096C00650BAF /* MagicalRecord+ShorthandSupport.m in Sources */,
-				8406451A18499DB60065BCA4 /* BaseDeviceLibrary.m in Sources */,
 				0B92A68B184DCA7F009B33DE /* JKProductDetailViewController.m in Sources */,
 				8404E62718575D8800EE0F16 /* NSMutableArray+SWUtilityButtons.m in Sources */,
 				84A3BB95184B096C00650BAF /* NSManagedObject+MagicalRecord.m in Sources */,
@@ -1595,7 +1578,6 @@
 				8406450A18499D880065BCA4 /* JKAppDelegate.m in Sources */,
 				84819F43185B637F00D0F336 /* NSString+Additions.m in Sources */,
 				84732EE6185CAB0C001618F0 /* UATitledModalPanel.m in Sources */,
-				8406451D18499DB60065BCA4 /* BaseNetworkManager.m in Sources */,
 				84A3BB90184B096C00650BAF /* NSRelationshipDescription+MagicalDataImport.m in Sources */,
 				84A3BB94184B096C00650BAF /* NSManagedObject+MagicalFinders.m in Sources */,
 				84819F44185B637F00D0F336 /* NSString+Validation.m in Sources */,

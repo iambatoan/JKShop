@@ -7,9 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BaseAppDelegate.h"
 
-@interface JKAppDelegate : BaseAppDelegate <UIApplicationDelegate>
+@interface JKAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (retain, nonatomic) UIViewController *centerController;
 @property (retain, nonatomic) UIViewController *leftController;

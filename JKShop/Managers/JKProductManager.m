@@ -59,11 +59,11 @@ SINGLETON_MACRO
     
     // if new arrived
     if (category_id == 21) {
-        arrProducts = [[JKProduct MR_findAllSortedBy:@"public_date" ascending:NO] mutableCopy];
+        arrProducts = [[JKProduct MR_findAllSortedBy:@"product_id" ascending:NO] mutableCopy];
         return arrProducts;
     }
     
-    JKCategory * category = [[JKCategory MR_findByAttribute:@"category_id" withValue:catID] firstObject];
+    JKCategory * category = [[JKCategory MR_findByAttribute:@"category_id" withValue:catID andOrderBy:@"name" ascending:YES] firstObject];
     for (JKProduct *product in [category.product allObjects]) {
         if (product.images.count) {
             [arrProducts addObject:product];
@@ -103,9 +103,8 @@ SINGLETON_MACRO
 
 - (void)saveBookmarkProductWithArray:(NSArray *)array
 {
-    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
-    [userDefault setObject:array forKey:STORE_PRODUCT_BOOKMARK];
-    [userDefault synchronize];
+    [[NSUserDefaults standardUserDefaults] setObject:array forKey:STORE_PRODUCT_BOOKMARK];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (void)saveBookmarkProductWithMutableArray:(NSMutableArray *)array
@@ -115,8 +114,7 @@ SINGLETON_MACRO
 
 - (NSMutableArray *)getBookmarkProducts
 {
-    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
-    NSMutableArray *arr = [[userDefault objectForKey:STORE_PRODUCT_BOOKMARK] mutableCopy];
+    NSMutableArray *arr = [[[NSUserDefaults standardUserDefaults] objectForKey:STORE_PRODUCT_BOOKMARK] mutableCopy];
     
     if (arr) {
         return arr;
@@ -126,8 +124,7 @@ SINGLETON_MACRO
 }
 
 + (NSInteger)getAllBookmarkProductCount{
-    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
-    NSMutableArray *arr = [[userDefault objectForKey:STORE_PRODUCT_BOOKMARK] mutableCopy];
+    NSMutableArray *arr = [[[NSUserDefaults standardUserDefaults] objectForKey:STORE_PRODUCT_BOOKMARK] mutableCopy];
     
     if (arr) {
         int count = 0;

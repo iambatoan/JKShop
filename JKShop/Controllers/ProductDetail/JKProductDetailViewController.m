@@ -32,11 +32,6 @@ MHFacebookImageViewerDatasource
 @property (weak, nonatomic) IBOutlet UICollectionView               * productCollectionView;
 @property (weak, nonatomic) IBOutlet UICollectionView               * relatedProductCollectionView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView        * activityIndicator;
-@property (weak, nonatomic) IBOutlet UILabel                        * labelSizeTitle;
-@property (weak, nonatomic) IBOutlet UILabel                        * labelColorTitle;
-@property (weak, nonatomic) IBOutlet UILabel                        * labelSize;
-@property (weak, nonatomic) IBOutlet UILabel                        * labelColor;
-@property (weak, nonatomic) IBOutlet UIView                         * separatorView;
 @property (strong, nonatomic) IBOutlet UIView                       * separatorBreakView;
 
 @end
@@ -84,19 +79,7 @@ MHFacebookImageViewerDatasource
     [self.labelProductDetail sizeToFitKeepWidth];
     
     self.labelProductSKU.text = [NSString stringWithFormat:@"Product code: %@",[self.product getProductSKU]];
-    
-    [self.labelSizeTitle alignBelowView:self.labelProductDetail offsetY:50 sameWidth:NO];
-    
-//    self.labelSize.text = [self.product.size  isEqual: @""] ? @"Updating..." : self.product.size;
-//    [self.labelSize alignVerticallyCenterToView:self.labelSizeTitle];
-//
-//    [self.separatorView alignBelowView:self.labelSizeTitle offsetY:10 sameWidth:NO];
-//
-//    self.labelColor.text = [self.product.color isEqual: @""] ? @"Updating..." : self.product.color;
-//    [self.labelColorTitle alignBelowView:self.separatorView offsetY:10 sameWidth:NO];
-//    
-//    [self.labelColor alignVerticallyCenterToView:self.labelColorTitle];
-    
+       
     [self.separatorBreakView alignBelowView:self.labelProductDetail offsetY:20 sameWidth:NO];
 
     [self.labelRelatedProduct alignBelowView:self.separatorBreakView offsetY:10 sameWidth:NO];
@@ -115,7 +98,13 @@ MHFacebookImageViewerDatasource
 
 - (void)fillUpCollectionRelatedProductWithCategoryID:(NSInteger)categoryID
 {
-    self.productsArr = [[[JKProductManager alloc] getStoredProductsWithCategoryId:[[self.product.category anyObject] getCategoryId]] mutableCopy];
+    self.productsArr = [[[JKProductManager sharedInstance] getStoredProductsWithCategoryId:[[self.product.category anyObject] getCategoryId]] mutableCopy];
+    for (int i = 0; i < self.productsArr.count; i++) {
+        if (self.productsArr[i] == self.product)
+        {
+            [self.productsArr removeObjectAtIndex:i];
+        }
+    }
     [self showCollectionView];
 }
 

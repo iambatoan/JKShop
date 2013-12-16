@@ -222,17 +222,13 @@ UIScrollViewDelegate
             }
             
             // New products
-            
             if (indexPath.row == 1) {
+                JKProductsViewController *productsVC = [[JKProductsViewController alloc] init];
+                productsVC.category_id = 21;
+                productsVC.lblTitle = [self.arrSubMenuSectionOne objectAtIndex:indexPath.row];
                 
-                [SVProgressHUD showErrorWithStatus:@"This feature comming soon.."];
-                [tableView deselectRowAtIndexPath:indexPath animated:NO];
-                //              OFProductsViewController *productsVC = [[OFProductsViewController alloc] init];
-                //              productsVC.category_id = 21;
-                //              productsVC.lblTitle = [self.arrSubMenuSectionOne objectAtIndex:indexPath.row];
-                //
-                //              [centralNavVC pushViewController:productsVC animated:YES];
-                //              [deckViewController toggleLeftView];
+                [centralNavVC setViewControllers:[NSArray arrayWithObject:productsVC] animated:YES];
+                [deckViewController toggleLeftView];
                 return;
             }
             

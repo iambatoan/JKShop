@@ -66,7 +66,8 @@ SINGLETON_MACRO
 {
   [FBSession openActiveSessionWithPublishPermissions:@[@"publish_stream"]
                                      defaultAudience:FBSessionDefaultAudienceFriends
-                                        allowLoginUI:allowLoginUI completionHandler:^(FBSession *session, FBSessionState state, NSError *error)
+                                        allowLoginUI:allowLoginUI
+                                   completionHandler:^(FBSession *session, FBSessionState state, NSError *error)
    {
      [self sessionStateChanged:session state:state error:error];
    }];

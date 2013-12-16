@@ -33,10 +33,10 @@ IIViewDeckControllerDelegate
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    [super viewDidAppear:animated];
     if (self.title) {
         self.trackedViewName = self.title;
     }
+    [super viewDidAppear:animated];
 }
 
 - (void)addNavigationItems
@@ -86,11 +86,6 @@ IIViewDeckControllerDelegate
 {
     NSString *breadcrumb = [NSString stringWithFormat:@"%@:%d", [[NSString stringWithUTF8String:__FILE__] lastPathComponent], lineNumber];
     [Crittercism leaveBreadcrumb:breadcrumb];
-}
-
-- (void)trackAnalytics:(NSString*)eventName
-{
-//    [Flurry logEvent:];
 }
 
 @end

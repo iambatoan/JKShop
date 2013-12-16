@@ -22,8 +22,8 @@
         product.product_id = [NSNumber numberWithInt:[dictionary[@"id"] intValue]];
         product.color = dictionary[@"color"];
         product.product_code = [NSString stringWithFormat:@"%@",dictionary[@"sku"]];
-        product.detail = dictionary[@"description"];
-        product.name = dictionary[@"name"];
+        product.detail = [dictionary[@"description"] stringByDecodingHTMLEntities];
+        product.name = [dictionary[@"name"] stringByDecodingHTMLEntities];
         product.price = dictionary[@"price"];
         product.sale_price = dictionary[@"sale_price"];
         product.size = dictionary[@"size"];

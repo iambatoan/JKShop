@@ -35,6 +35,12 @@ FacebookManagerDelegate
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     
+    NSDictionary *appDefaults = @{kTrackingPreferenceKey: @(YES)};
+    [[NSUserDefaults standardUserDefaults] registerDefaults:appDefaults];
+    // User must be able to opt out of tracking
+    [GAI sharedInstance].optOut =
+    ![[NSUserDefaults standardUserDefaults] boolForKey:kTrackingPreferenceKey];
+    
     [self setUpGoogleAnalytic];
     
     [FacebookManager sharedInstance].delegate = self;
@@ -49,10 +55,7 @@ FacebookManagerDelegate
 
     self.window.rootViewController = deckController;
     [self.window makeKeyAndVisible];
-    
-    if (![FBSession activeSession].isOpen && [[NSUserDefaults standardUserDefaults] boolForKey:@"logged_in"]) {
-        [self showAlert];
-    }
+
     return YES;
 }
 
