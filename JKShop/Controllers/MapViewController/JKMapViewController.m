@@ -9,8 +9,12 @@
 #import "JKMapViewController.h"
 
 @interface JKMapViewController ()
+<
+GMSMapViewDelegate
+>
 
 @property (strong, nonatomic) GMSMapView *mapView;
+@property (strong, nonatomic) CLLocationManager *locationManager;
 
 @end
 
@@ -25,10 +29,12 @@
     [self.view setBackgroundColor:[UIColor whiteColor]];
     self.title = @"Map";
     [self.navigationController setNavigationBarHidden:NO animated:NO];
-    // Do any additional setup after loading the view from its nib.
     
-    self.view = self.mapView;
-    
+    [self initializeMapView];
+}
+
+- (void)initializeMapView
+{
     GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:SETTINGS_JK_SHOP_LATITUDE
                                                             longitude:SETTINGS_JK_SHOP_LONGITUDE
                                                                  zoom:17];
@@ -44,7 +50,17 @@
     self.mapView.mapType = kGMSTypeNormal;
     
     [self.mapView setSelectedMarker:marker];
+    self.view = self.mapView;
 }
+
+- (void)locationManagerSetup
+{
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.distanceFilter = kCLDistanceFilterNone;
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters;
+    [self.locationManager startUpdatingLocation];
+}
+
 
 
 @end

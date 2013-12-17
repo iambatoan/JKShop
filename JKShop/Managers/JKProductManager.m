@@ -28,14 +28,16 @@ SINGLETON_MACRO
     
     [[JKHTTPClient sharedClient] getPath:[NSString stringWithFormat:@"%@%@",API_SERVER_HOST,API_GET_PRODUCT_BY_CATEGORY_ID] parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
-        [[JKProductManager sharedInstance] productsFromReponseObject:responseObject[@"products"]];
-        NSMutableArray *arrProduct = [[NSMutableArray alloc] init];
-        for (int i = 0; i < [responseObject[@"products"] count]; i++) {
-            JKProduct *product = [JKProduct productWithDictionary:[responseObject[@"products"] objectAtIndex:i]
-                                              category:[[JKCategory MR_findByAttribute:@"category_id" withValue:@(category_id)] firstObject]];
-            [arrProduct addObject:product];
-        }
-          successBlock(operation.response.statusCode, arrProduct);
+        [[JKProductManager sharedInstance] productsFromReponseObject:responseObject[@"products"] categoryID:category_id onSuccess:^(NSArray *productArray) {
+            successBlock(operation.response.statusCode, productArray);
+        }];
+//        NSMutableArray *arrProduct = [[NSMutableArray alloc] init];
+//        for (int i = 0; i < [responseObject[@"products"] count]; i++) {
+//            JKProduct *product = [JKProduct productWithDictionary:[responseObject[@"products"] objectAtIndex:i]
+//                                              category:[[JKCategory MR_findByAttribute:@"category_id" withValue:@(category_id)] firstObject]];
+//            [arrProduct addObject:product];
+//        }
+        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
         NSArray *arr = [self getStoredProductsWithCategoryId:category_id];
@@ -80,13 +82,16 @@ SINGLETON_MACRO
 #pragma mark - Helpers
 
 - (void)productsFromReponseObject:(NSArray *)productDictionaryArray
+                       categoryID:(NSInteger)categoryID
+                        onSuccess:(void(^)(NSArray *productArray))successBlock
 {
     NSMutableArray *arrProduct = [[NSMutableArray alloc] init];
     
     NSBlockOperation *saveInBackground = [NSBlockOperation blockOperationWithBlock:^{
         [productDictionaryArray enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
             JKProduct *product;
-            product = [JKProduct productWithDictionary:obj];
+            JKCategory *category = [[JKCategory MR_findByAttribute:@"category_id" withValue:@(categoryID)] lastObject];
+            product = [JKProduct productWithDictionary:obj category:category];
             [arrProduct addObject:product];
         }];
     }];
@@ -95,6 +100,10 @@ SINGLETON_MACRO
         NSManagedObjectContext *mainContext  = [NSManagedObjectContext MR_defaultContext];
         [mainContext MR_saveToPersistentStoreWithCompletion:^(BOOL success, NSError *error) {
             DLog(@"Finish save to magical record");
+            
+            if (successBlock) {
+                successBlock([self getStoredProductsWithCategoryId:categoryID]);
+            }
         }];
     }];
     

@@ -38,7 +38,9 @@
 
 + (JKProduct *)productWithDictionary:(NSDictionary *)dictionary category:(JKCategory*)category{
     JKProduct *product = [JKProduct productWithDictionary:dictionary];
-    [product.categorySet addObject:category];
+    if (![product.categorySet containsObject:category]) {
+        [product.categorySet addObject:category];
+    }
     return product;
 }
 

@@ -17,6 +17,8 @@
 #import "JKProductDetailViewController.h"
 
 static CGFloat const LEFT_SIZE = 44;
+static CGFloat const LOGIN_VIEW_HEIGHT = 70;
+static CGFloat const SCREEN_WIDTH = 320;
 
 @interface JKLeftMenuViewController ()
 <
@@ -69,7 +71,7 @@ UIScrollViewDelegate
     [self.menuTableView setContentOffset:CGPointMake(0, 44)];
     
     if ([FBSession activeSession].isOpen) {
-        CGRect newFrame = CGRectMake(0, 0, 320, 70);
+        CGRect newFrame = CGRectMake(0, 0, SCREEN_WIDTH, LOGIN_VIEW_HEIGHT);
         self.profileView.frame = newFrame;
         
         [[FBRequest requestForMe] startWithCompletionHandler:
@@ -393,13 +395,16 @@ UIScrollViewDelegate
 
 - (void)facebookSessionStateChanged:(FacebookManager *)facebookManager{
     if ([FBSession activeSession].isOpen) {
-        CGRect newFrame = CGRectMake(0, 0, 320, 70);
-        self.profileView.frame = newFrame;
+        [UIView animateWithDuration:0.5
+                         animations:^{
+                             CGRect newFrame = CGRectMake(0, 0, SCREEN_WIDTH, LOGIN_VIEW_HEIGHT);
+                             self.profileView.frame = newFrame;
+                         }];
         return;
     }
     [UIView animateWithDuration:0.5
                      animations:^{
-                         CGRect newFrame = CGRectMake(0, -70, 320, 70);
+                         CGRect newFrame = CGRectMake(0, -LOGIN_VIEW_HEIGHT, SCREEN_WIDTH, LOGIN_VIEW_HEIGHT);
                          self.profileView.frame = newFrame;
                      }];
 }
@@ -429,7 +434,7 @@ UIScrollViewDelegate
         [[FacebookManager sharedInstance] logout];
         [UIView animateWithDuration:0.5
                          animations:^{
-                             CGRect newFrame = CGRectMake(0, -70, 320, 70);
+                             CGRect newFrame = CGRectMake(0, -LOGIN_VIEW_HEIGHT, SCREEN_WIDTH, LOGIN_VIEW_HEIGHT);
                              self.profileView.frame = newFrame;
                          }];
     }
