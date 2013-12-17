@@ -14,7 +14,6 @@ GMSMapViewDelegate
 >
 
 @property (strong, nonatomic) GMSMapView *mapView;
-@property (strong, nonatomic) CLLocationManager *locationManager;
 
 @end
 
@@ -31,11 +30,6 @@ GMSMapViewDelegate
     [self.navigationController setNavigationBarHidden:NO animated:NO];
     
     [self initializeMapView];
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
 }
 
 - (void)initializeMapView
@@ -59,14 +53,6 @@ GMSMapViewDelegate
     [self.mapView setSelectedMarker:marker];
     self.mapView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     self.view = self.mapView;
-}
-
-- (void)locationManagerSetup
-{
-    self.locationManager = [[CLLocationManager alloc] init];
-    self.locationManager.distanceFilter = kCLDistanceFilterNone;
-    self.locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters;
-    [self.locationManager startUpdatingLocation];
 }
 
 @end
