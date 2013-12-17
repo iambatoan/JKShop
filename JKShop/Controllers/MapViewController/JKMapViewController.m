@@ -33,6 +33,11 @@ GMSMapViewDelegate
     [self initializeMapView];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+}
+
 - (void)initializeMapView
 {
     GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:SETTINGS_JK_SHOP_LATITUDE
@@ -40,6 +45,8 @@ GMSMapViewDelegate
                                                                  zoom:17];
     self.mapView = [GMSMapView mapWithFrame:CGRectZero camera:camera];
     self.mapView.myLocationEnabled = YES;
+    self.mapView.settings.myLocationButton = YES;
+    self.mapView.delegate = self;
     
     // Creates a marker in the center of the map.
     GMSMarker *marker = [[GMSMarker alloc] init];
@@ -50,6 +57,7 @@ GMSMapViewDelegate
     self.mapView.mapType = kGMSTypeNormal;
     
     [self.mapView setSelectedMarker:marker];
+    self.mapView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     self.view = self.mapView;
 }
 
@@ -60,7 +68,5 @@ GMSMapViewDelegate
     self.locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters;
     [self.locationManager startUpdatingLocation];
 }
-
-
 
 @end
