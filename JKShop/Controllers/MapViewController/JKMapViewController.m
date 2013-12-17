@@ -7,6 +7,7 @@
 //
 
 #import "JKMapViewController.h"
+#import "GMDirectionService.h"
 
 @interface JKMapViewController ()
 <
@@ -30,6 +31,8 @@ GMSMapViewDelegate
     [self.navigationController setNavigationBarHidden:NO animated:NO];
     
     [self initializeMapView];
+    
+    [self drawPolyline];
 }
 
 - (void)initializeMapView
@@ -53,6 +56,31 @@ GMSMapViewDelegate
     [self.mapView setSelectedMarker:marker];
     self.mapView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     self.view = self.mapView;
+}
+
+- (void)drawPolyline
+{
+    NSString *myLocationString = [NSString stringWithFormat:@"%f,%f",self.mapView.myLocation.coordinate.latitude,self.mapView.myLocation.coordinate.longitude];
+    NSString *shopLocationString = [NSString stringWithFormat:@"%f,%f",SETTINGS_JK_SHOP_LATITUDE,SETTINGS_JK_SHOP_LONGITUDE];
+    
+    [[GMDirectionService sharedInstance] getDirectionsFrom:myLocationString
+                                                        to:shopLocationString
+                                                 succeeded:^(GMDirection *directionResponse)
+    {
+        if ([directionResponse statusOK]) {
+            NSArray *routes = [[directionResponse directionResponse] objectForKey:@"routes"];
+            
+            GMSPath *path = [GMSPath pathFromEncodedPath:routes[0][@"overview_polyline"][@"points"]];
+            GMSPolyline *polyline = [GMSPolyline polylineWithPath:path];
+            polyline.strokeColor = [UIColor titleColor];
+            polyline.strokeWidth = 10.f;
+            polyline.geodesic = YES;
+            
+            polyline.map = self.mapView;
+
+        }
+    }
+                                                    failed:nil];
 }
 
 @end

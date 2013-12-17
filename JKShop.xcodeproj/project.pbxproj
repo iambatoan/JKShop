@@ -27,6 +27,9 @@
 		0B07C0271850539D009EA61F /* JKSearchProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B07C0261850539D009EA61F /* JKSearchProductCell.xib */; };
 		0B07C02A18505E74009EA61F /* search.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B07C02818505E74009EA61F /* search.png */; };
 		0B07C02B18505E74009EA61F /* search@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B07C02918505E74009EA61F /* search@2x.png */; };
+		0B0FE52918603CE200488970 /* GMDirection.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B0FE52418603CE200488970 /* GMDirection.m */; };
+		0B0FE52A18603CE200488970 /* GMDirectionService.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B0FE52618603CE200488970 /* GMDirectionService.m */; };
+		0B0FE52B18603CE200488970 /* GMHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B0FE52818603CE200488970 /* GMHTTPClient.m */; };
 		0B26BE10184C5CFB008C1D79 /* UILabel+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B26BE0F184C5CFB008C1D79 /* UILabel+Additions.m */; };
 		0B26BE13184C611C008C1D79 /* JKProductsCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B26BE12184C611C008C1D79 /* JKProductsCollectionCell.m */; };
 		0B26BE15184C6182008C1D79 /* JKProductsCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B26BE14184C6182008C1D79 /* JKProductsCollectionCell.xib */; };
@@ -231,6 +234,12 @@
 		0B07C0261850539D009EA61F /* JKSearchProductCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = JKSearchProductCell.xib; path = Controllers/ProductsList/JKSearchProductCell.xib; sourceTree = "<group>"; };
 		0B07C02818505E74009EA61F /* search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = search.png; path = Resources/SidebarSection/search.png; sourceTree = "<group>"; };
 		0B07C02918505E74009EA61F /* search@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "search@2x.png"; path = "Resources/SidebarSection/search@2x.png"; sourceTree = "<group>"; };
+		0B0FE52318603CE200488970 /* GMDirection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMDirection.h; sourceTree = "<group>"; };
+		0B0FE52418603CE200488970 /* GMDirection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMDirection.m; sourceTree = "<group>"; };
+		0B0FE52518603CE200488970 /* GMDirectionService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMDirectionService.h; sourceTree = "<group>"; };
+		0B0FE52618603CE200488970 /* GMDirectionService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMDirectionService.m; sourceTree = "<group>"; };
+		0B0FE52718603CE200488970 /* GMHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMHTTPClient.h; sourceTree = "<group>"; };
+		0B0FE52818603CE200488970 /* GMHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMHTTPClient.m; sourceTree = "<group>"; };
 		0B26BE0E184C5CFB008C1D79 /* UILabel+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UILabel+Additions.h"; path = "Categories/UILabel+Additions.h"; sourceTree = "<group>"; };
 		0B26BE0F184C5CFB008C1D79 /* UILabel+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UILabel+Additions.m"; path = "Categories/UILabel+Additions.m"; sourceTree = "<group>"; };
 		0B26BE11184C611C008C1D79 /* JKProductsCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKProductsCollectionCell.h; path = Controllers/ProductsList/JKProductsCollectionCell.h; sourceTree = "<group>"; };
@@ -574,6 +583,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0B0FE52218603CE200488970 /* GMDirection */ = {
+			isa = PBXGroup;
+			children = (
+				0B0FE52318603CE200488970 /* GMDirection.h */,
+				0B0FE52418603CE200488970 /* GMDirection.m */,
+				0B0FE52518603CE200488970 /* GMDirectionService.h */,
+				0B0FE52618603CE200488970 /* GMDirectionService.m */,
+				0B0FE52718603CE200488970 /* GMHTTPClient.h */,
+				0B0FE52818603CE200488970 /* GMHTTPClient.m */,
+			);
+			path = GMDirection;
+			sourceTree = "<group>";
+		};
 		0B26BE20184C9D94008C1D79 /* Font */ = {
 			isa = PBXGroup;
 			children = (
@@ -842,12 +864,12 @@
 			children = (
 				84A3BB48184B086E00650BAF /* Machine */,
 				840645C21849C3780065BCA4 /* JKHTTPClient.h */,
+				843D1570184A69F400B65E35 /* JKProductImages.h */,
 				840645C31849C3780065BCA4 /* JKHTTPClient.m */,
 				0B26BE16184C7E43008C1D79 /* JKCategory.h */,
 				0B26BE17184C7E43008C1D79 /* JKCategory.m */,
 				843D156D184A671600B65E35 /* JKProduct.h */,
 				843D156E184A671600B65E35 /* JKProduct.m */,
-				843D1570184A69F400B65E35 /* JKProductImages.h */,
 				843D1571184A69F400B65E35 /* JKProductImages.m */,
 			);
 			name = Models;
@@ -856,6 +878,7 @@
 		840644E3184996B90065BCA4 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				0B0FE52218603CE200488970 /* GMDirection */,
 				84732EC7185CAB0C001618F0 /* UAModelPanel */,
 				0B739AE4185ABC92005958AD /* MYBlurIntroductionView */,
 				8404E61818575D4100EE0F16 /* SWTableViewCell */,
@@ -1496,6 +1519,7 @@
 				8404E61B18575D4100EE0F16 /* SWTableViewCell.m in Sources */,
 				84A3BB9E184B096C00650BAF /* MagicalRecord+Actions.m in Sources */,
 				84A3BBA0184B096C00650BAF /* MagicalRecord+iCloud.m in Sources */,
+				0B0FE52B18603CE200488970 /* GMHTTPClient.m in Sources */,
 				0B466862185EE95400E42E21 /* NSString+HTML.m in Sources */,
 				84732EE5185CAB0C001618F0 /* UAModalPanel.m in Sources */,
 				84A3BB8B184B096C00650BAF /* MagicalImportFunctions.m in Sources */,
@@ -1515,6 +1539,7 @@
 				0B26BE10184C5CFB008C1D79 /* UILabel+Additions.m in Sources */,
 				84732EDE185CAB0C001618F0 /* UIView+JMNoise.m in Sources */,
 				84A3BB4D184B086E00650BAF /* _JKProduct.m in Sources */,
+				0B0FE52A18603CE200488970 /* GMDirectionService.m in Sources */,
 				84A3BB96184B096C00650BAF /* NSManagedObject+MagicalRequests.m in Sources */,
 				843D155B184A5FE600B65E35 /* JKProductManager.m in Sources */,
 				84A3BB92184B096C00650BAF /* NSManagedObject+MagicalAggregation.m in Sources */,
@@ -1561,6 +1586,7 @@
 				8404E62B18575D8800EE0F16 /* SWUtilityButtonView.m in Sources */,
 				0B739AEC185ABC92005958AD /* MYBlurIntroductionView.m in Sources */,
 				8406451C18499DB60065BCA4 /* BaseManager.m in Sources */,
+				0B0FE52918603CE200488970 /* GMDirection.m in Sources */,
 				84A3BB9C184B096C00650BAF /* NSPersistentStore+MagicalRecord.m in Sources */,
 				8406455C18499DF00065BCA4 /* BaseViewController.m in Sources */,
 				0B55CED3184F2B8900A3E4ED /* MHFacebookImageViewer.m in Sources */,
