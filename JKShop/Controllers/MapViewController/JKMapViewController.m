@@ -31,8 +31,10 @@ GMSMapViewDelegate
     [self.navigationController setNavigationBarHidden:NO animated:NO];
     
     [self initializeMapView];
-    
-    [self drawPolyline];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [self.mapView addObserver:self forKeyPath:@"myLocation" options:NSKeyValueObservingOptionNew context: nil];
 }
 
 - (void)initializeMapView
@@ -61,6 +63,7 @@ GMSMapViewDelegate
 - (void)drawPolyline
 {
     NSString *myLocationString = [NSString stringWithFormat:@"%f,%f",self.mapView.myLocation.coordinate.latitude,self.mapView.myLocation.coordinate.longitude];
+    DLog(@"%@",myLocationString);
     NSString *shopLocationString = [NSString stringWithFormat:@"%f,%f",SETTINGS_JK_SHOP_LATITUDE,SETTINGS_JK_SHOP_LONGITUDE];
     
     [[GMDirectionService sharedInstance] getDirectionsFrom:myLocationString
@@ -83,4 +86,11 @@ GMSMapViewDelegate
                                                     failed:nil];
 }
 
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if ([keyPath isEqualToString:@"myLocation"] && [object isKindOfClass:[GMSMapView class]])
+    {
+        [self drawPolyline];
+    }
+}
 @end
