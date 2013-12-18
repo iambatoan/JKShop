@@ -80,6 +80,7 @@
 #import "GAITracker.h"
 #import "GAITransaction.h"
 #import "GAITransactionItem.h"
+#import "Reachability.h"
 
 //Managers
 #import "BaseManager.h"

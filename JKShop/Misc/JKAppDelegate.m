@@ -8,6 +8,8 @@
 
 #import "JKAppDelegate.h"
 #import "JKHomeViewController.h"
+#import "TWMessageBarManager.h"
+#import "TSMessage.h"
 
 static NSString *const kTrackingPreferenceKey = @"allowTracking";
 
@@ -28,6 +30,8 @@ FacebookManagerDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [self setUpReachabilityWarningMessageBar];
+
     [MagicalRecord setupCoreDataStack];
     
     [GMSServices provideAPIKey:SETTINGS_GOOGLE_MAP_API_TOKEN];
@@ -235,5 +239,26 @@ FacebookManagerDelegate
     self.tracker = [[GAI sharedInstance] trackerWithTrackingId:SETTING_GAI_APP_ID];
     // Optional: set debug to YES for extra debugging information.
     [GAI sharedInstance].debug = YES;
+}
+
+- (void)setUpReachabilityWarningMessageBar
+{
+    Reachability* reach = [Reachability reachabilityWithHostname:@"www.google.com"];
+    
+    // Set the blocks
+    reach.reachableBlock = ^(Reachability*reach)
+    {
+        [[TWMessageBarManager sharedInstance] showMessageWithTitle:@"ABC" description:@"ABC" type:TWMessageBarMessageTypeSuccess duration:2.0f];
+        DLog(@"FUCK");
+    };
+    
+    reach.unreachableBlock = ^(Reachability*reach)
+    {
+        [[TWMessageBarManager sharedInstance] showMessageWithTitle:@"ABC" description:@"ABC" type:TWMessageBarMessageTypeError duration:2.0f];
+        DLog(@"SHITTTTTT");
+    };
+    
+    // Start the notifier, which will cause the reachability object to retain itself!
+    [reach startNotifier];
 }
 @end

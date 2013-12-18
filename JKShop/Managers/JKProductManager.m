@@ -31,12 +31,6 @@ SINGLETON_MACRO
         [[JKProductManager sharedInstance] productsFromReponseObject:responseObject[@"products"] categoryID:category_id onSuccess:^(NSArray *productArray) {
             successBlock(operation.response.statusCode, productArray);
         }];
-//        NSMutableArray *arrProduct = [[NSMutableArray alloc] init];
-//        for (int i = 0; i < [responseObject[@"products"] count]; i++) {
-//            JKProduct *product = [JKProduct productWithDictionary:[responseObject[@"products"] objectAtIndex:i]
-//                                              category:[[JKCategory MR_findByAttribute:@"category_id" withValue:@(category_id)] firstObject]];
-//            [arrProduct addObject:product];
-//        }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         

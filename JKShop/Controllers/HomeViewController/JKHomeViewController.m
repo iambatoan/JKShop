@@ -9,6 +9,7 @@
 #import "JKHomeViewController.h"
 #import "MYIntroductionPanel.h"
 #import "MYBlurIntroductionView.h"
+#import "TSMessage.h"
 
 @interface JKHomeViewController ()
 <
@@ -29,6 +30,7 @@ MYIntroductionDelegate
     // Do any additional setup after loading the view from its nib.
     self.title = @"JK Shop";
     self.viewDeckController.centerController.title = @"JK Shop";
+    [TSMessage showNotificationWithTitle:@"FUCK YOU" type:TSMessageNotificationTypeSuccess];
     if (![[NSUserDefaults standardUserDefaults] boolForKey:@"logged_in"]) {
         [self buildIntro];
         return;
