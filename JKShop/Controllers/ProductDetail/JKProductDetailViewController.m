@@ -198,4 +198,20 @@ MHFacebookImageViewerDatasource
 - (UIImage*) imageDefaultAtIndex:(NSInteger)index imageViewer:(MHFacebookImageViewer *)imageViewer{
     return nil;
 }
+
+- (void)reachabilityDidChange:(NSNotification *)notification{
+    if ([JKReachabilityManager isReachable]) {
+        if (![JKReachabilityManager sharedInstance].lastState) {
+            [TSMessage showNotificationWithTitle:@"Connected" type:TSMessageNotificationTypeSuccess];
+        }
+        [self getImageFromProduct];
+        [JKReachabilityManager sharedInstance].lastState = 1;
+        return;
+    }
+    if ([JKReachabilityManager sharedInstance].lastState) {
+        [TSMessage showNotificationWithTitle:@"No connection" type:TSMessageNotificationTypeError];
+        [JKReachabilityManager sharedInstance].lastState = 0;
+    }
+}
+
 @end

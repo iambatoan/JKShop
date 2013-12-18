@@ -81,6 +81,7 @@
 #import "GAITransaction.h"
 #import "GAITransactionItem.h"
 #import "Reachability.h"
+#import "TSMessage.h"
 
 //Managers
 #import "BaseManager.h"
@@ -88,6 +89,7 @@
 #import "JKCategoryManager.h"
 #import "JKProductManager.h"
 #import "JKAppDelegate.h"
+#import "JKReachabilityManager.h"
 
 //Categories
 #import "UIAlertView+Additions.h"

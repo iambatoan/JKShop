@@ -23,7 +23,7 @@ IIViewDeckControllerDelegate
 
 @property (strong, nonatomic) NSMutableArray            * productsArr;
 @property (strong, nonatomic) UIRefreshControl          * refreshControl;
-@property (weak, nonatomic) IBOutlet UIImageView *noImageCover;
+@property (weak, nonatomic) IBOutlet UIImageView        * noImageCover;
 
 @end
 
@@ -122,5 +122,19 @@ IIViewDeckControllerDelegate
     [self.refreshControl endRefreshing];
 }
 
+- (void)reachabilityDidChange:(NSNotification *)notification{
+    if ([JKReachabilityManager isReachable]) {
+        if (![JKReachabilityManager sharedInstance].lastState) {
+            [TSMessage showNotificationWithTitle:@"Connected" type:TSMessageNotificationTypeSuccess];
+        }
+        [self fillUpTableProductWithCategoryID:self.category_id];
+        [JKReachabilityManager sharedInstance].lastState = 1;
+        return;
+    }
+    if ([JKReachabilityManager sharedInstance].lastState) {
+        [TSMessage showNotificationWithTitle:@"No connection" type:TSMessageNotificationTypeError];
+        [JKReachabilityManager sharedInstance].lastState = 0;
+    }
+}
 
 @end

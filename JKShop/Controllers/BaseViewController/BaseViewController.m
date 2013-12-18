@@ -26,11 +26,15 @@ IIViewDeckControllerDelegate
     [self trackCrittercismBreadCrumb:__LINE__];
     [self addNavigationItems];
     
-    [[NSNotificationCenter defaultCenter]
-     addObserver:self
-     selector:@selector(addNavigationItems)
-     name:NOTIF_CHANGE_BOOKMARK_PRODUCT_COUNT
-     object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(addNavigationItems)
+                                                 name:NOTIF_CHANGE_BOOKMARK_PRODUCT_COUNT
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(reachabilityDidChange:)
+                                                 name:kReachabilityChangedNotification
+                                               object:nil];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -92,6 +96,21 @@ IIViewDeckControllerDelegate
 {
     NSString *breadcrumb = [NSString stringWithFormat:@"%@:%d", [[NSString stringWithUTF8String:__FILE__] lastPathComponent], lineNumber];
     [Crittercism leaveBreadcrumb:breadcrumb];
+}
+
+- (void)reachabilityDidChange:(NSNotification *)notification {
+    
+    if ([JKReachabilityManager isReachable]) {
+        if (![JKReachabilityManager sharedInstance].lastState) {
+            [TSMessage showNotificationWithTitle:@"Connected" type:TSMessageNotificationTypeSuccess];
+        }
+        [JKReachabilityManager sharedInstance].lastState = 1;
+        return;
+    }
+    if ([JKReachabilityManager sharedInstance].lastState) {
+        [TSMessage showNotificationWithTitle:@"No connection" type:TSMessageNotificationTypeError];
+        [JKReachabilityManager sharedInstance].lastState = 0;
+    }
 }
 
 @end

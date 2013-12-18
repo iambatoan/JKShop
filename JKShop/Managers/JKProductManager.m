@@ -59,7 +59,7 @@ SINGLETON_MACRO
         return arrProducts;
     }
     
-    JKCategory * category = [[JKCategory MR_findByAttribute:@"category_id" withValue:catID andOrderBy:@"name" ascending:YES] firstObject];
+    JKCategory * category = [[JKCategory MR_findByAttribute:@"category_id" withValue:catID] firstObject];
     for (JKProduct *product in [category.product allObjects]) {
         if (product.images.count) {
             [arrProducts addObject:product];

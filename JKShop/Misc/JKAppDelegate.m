@@ -8,8 +8,6 @@
 
 #import "JKAppDelegate.h"
 #import "JKHomeViewController.h"
-#import "TWMessageBarManager.h"
-#import "TSMessage.h"
 
 static NSString *const kTrackingPreferenceKey = @"allowTracking";
 
@@ -30,7 +28,7 @@ FacebookManagerDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [self setUpReachabilityWarningMessageBar];
+    [JKReachabilityManager sharedInstance];
 
     [MagicalRecord setupCoreDataStack];
     
@@ -241,24 +239,4 @@ FacebookManagerDelegate
     [GAI sharedInstance].debug = YES;
 }
 
-- (void)setUpReachabilityWarningMessageBar
-{
-    Reachability* reach = [Reachability reachabilityWithHostname:@"www.google.com"];
-    
-    // Set the blocks
-    reach.reachableBlock = ^(Reachability*reach)
-    {
-        [[TWMessageBarManager sharedInstance] showMessageWithTitle:@"ABC" description:@"ABC" type:TWMessageBarMessageTypeSuccess duration:2.0f];
-        DLog(@"FUCK");
-    };
-    
-    reach.unreachableBlock = ^(Reachability*reach)
-    {
-        [[TWMessageBarManager sharedInstance] showMessageWithTitle:@"ABC" description:@"ABC" type:TWMessageBarMessageTypeError duration:2.0f];
-        DLog(@"SHITTTTTT");
-    };
-    
-    // Start the notifier, which will cause the reachability object to retain itself!
-    [reach startNotifier];
-}
 @end

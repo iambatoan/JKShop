@@ -31,13 +31,6 @@
 		0B0FE52A18603CE200488970 /* GMDirectionService.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B0FE52618603CE200488970 /* GMDirectionService.m */; };
 		0B0FE52B18603CE200488970 /* GMHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B0FE52818603CE200488970 /* GMHTTPClient.m */; };
 		0B1286861861A606007DE006 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B1286851861A606007DE006 /* Reachability.m */; };
-		0B1286911861AB2D007DE006 /* icon-error.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B1286891861AB2D007DE006 /* icon-error.png */; };
-		0B1286921861AB2D007DE006 /* icon-error@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B12868A1861AB2D007DE006 /* icon-error@2x.png */; };
-		0B1286931861AB2D007DE006 /* icon-info.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B12868B1861AB2D007DE006 /* icon-info.png */; };
-		0B1286941861AB2D007DE006 /* icon-info@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B12868C1861AB2D007DE006 /* icon-info@2x.png */; };
-		0B1286951861AB2D007DE006 /* icon-success.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B12868D1861AB2D007DE006 /* icon-success.png */; };
-		0B1286961861AB2D007DE006 /* icon-success@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B12868E1861AB2D007DE006 /* icon-success@2x.png */; };
-		0B1286971861AB2D007DE006 /* TWMessageBarManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B1286901861AB2D007DE006 /* TWMessageBarManager.m */; };
 		0B1286B41861B1E9007DE006 /* TSMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B12869B1861B1E9007DE006 /* TSMessage.m */; };
 		0B1286B51861B1E9007DE006 /* NotificationBackgroundError.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B12869E1861B1E9007DE006 /* NotificationBackgroundError.png */; };
 		0B1286B61861B1E9007DE006 /* NotificationBackgroundError@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B12869F1861B1E9007DE006 /* NotificationBackgroundError@2x.png */; };
@@ -230,6 +223,7 @@
 		84A3BBA4184B096C00650BAF /* MagicalRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A3BB88184B096C00650BAF /* MagicalRecord.m */; };
 		84A3BBA6184B12BE00650BAF /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 84A3BBA5184B12BE00650BAF /* GoogleMaps.bundle */; };
 		84B3BC8A18530C38007CD797 /* UIView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B3BC8918530C38007CD797 /* UIView+Additions.m */; };
+		84B94EDF1861E30A00C75B48 /* JKReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B94EDE1861E30A00C75B48 /* JKReachabilityManager.m */; };
 		84D7FC9F184CD49B0084D805 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84D7FC9E184CD49B0084D805 /* Lato-Regular.ttf */; };
 		84F99F0D184A1AEC00356DB3 /* setting.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F99F05184A1AEC00356DB3 /* setting.png */; };
 		84F99F0E184A1AEC00356DB3 /* setting@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F99F06184A1AEC00356DB3 /* setting@2x.png */; };
@@ -271,14 +265,6 @@
 		0B0FE52818603CE200488970 /* GMHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMHTTPClient.m; sourceTree = "<group>"; };
 		0B1286841861A606007DE006 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		0B1286851861A606007DE006 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
-		0B1286891861AB2D007DE006 /* icon-error.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-error.png"; sourceTree = "<group>"; };
-		0B12868A1861AB2D007DE006 /* icon-error@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-error@2x.png"; sourceTree = "<group>"; };
-		0B12868B1861AB2D007DE006 /* icon-info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-info.png"; sourceTree = "<group>"; };
-		0B12868C1861AB2D007DE006 /* icon-info@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-info@2x.png"; sourceTree = "<group>"; };
-		0B12868D1861AB2D007DE006 /* icon-success.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-success.png"; sourceTree = "<group>"; };
-		0B12868E1861AB2D007DE006 /* icon-success@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-success@2x.png"; sourceTree = "<group>"; };
-		0B12868F1861AB2D007DE006 /* TWMessageBarManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWMessageBarManager.h; sourceTree = "<group>"; };
-		0B1286901861AB2D007DE006 /* TWMessageBarManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWMessageBarManager.m; sourceTree = "<group>"; };
 		0B12869A1861B1E9007DE006 /* TSMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSMessage.h; sourceTree = "<group>"; };
 		0B12869B1861B1E9007DE006 /* TSMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSMessage.m; sourceTree = "<group>"; };
 		0B12869E1861B1E9007DE006 /* NotificationBackgroundError.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationBackgroundError.png; sourceTree = "<group>"; };
@@ -588,6 +574,8 @@
 		84A3BBA5184B12BE00650BAF /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle; sourceTree = "<group>"; };
 		84B3BC8818530C38007CD797 /* UIView+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+Additions.h"; path = "Categories/UIView+Additions.h"; sourceTree = "<group>"; };
 		84B3BC8918530C38007CD797 /* UIView+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+Additions.m"; path = "Categories/UIView+Additions.m"; sourceTree = "<group>"; };
+		84B94EDD1861E30A00C75B48 /* JKReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKReachabilityManager.h; path = Managers/JKReachabilityManager.h; sourceTree = "<group>"; };
+		84B94EDE1861E30A00C75B48 /* JKReachabilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKReachabilityManager.m; path = Managers/JKReachabilityManager.m; sourceTree = "<group>"; };
 		84D7FC9E184CD49B0084D805 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
 		84F99F05184A1AEC00356DB3 /* setting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = setting.png; path = Resources/SidebarSection/setting.png; sourceTree = "<group>"; };
 		84F99F06184A1AEC00356DB3 /* setting@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "setting@2x.png"; path = "Resources/SidebarSection/setting@2x.png"; sourceTree = "<group>"; };
@@ -668,30 +656,6 @@
 			);
 			name = Reachability;
 			path = Vendors/Reachability;
-			sourceTree = "<group>";
-		};
-		0B1286871861AB2D007DE006 /* TWMessageBarManager */ = {
-			isa = PBXGroup;
-			children = (
-				0B1286881861AB2D007DE006 /* Icons */,
-				0B12868F1861AB2D007DE006 /* TWMessageBarManager.h */,
-				0B1286901861AB2D007DE006 /* TWMessageBarManager.m */,
-			);
-			name = TWMessageBarManager;
-			path = Managers/TWMessageBarManager;
-			sourceTree = "<group>";
-		};
-		0B1286881861AB2D007DE006 /* Icons */ = {
-			isa = PBXGroup;
-			children = (
-				0B1286891861AB2D007DE006 /* icon-error.png */,
-				0B12868A1861AB2D007DE006 /* icon-error@2x.png */,
-				0B12868B1861AB2D007DE006 /* icon-info.png */,
-				0B12868C1861AB2D007DE006 /* icon-info@2x.png */,
-				0B12868D1861AB2D007DE006 /* icon-success.png */,
-				0B12868E1861AB2D007DE006 /* icon-success@2x.png */,
-			);
-			path = Icons;
 			sourceTree = "<group>";
 		};
 		0B1286981861B1E9007DE006 /* TSMessages */ = {
@@ -996,7 +960,6 @@
 		840644E0184996910065BCA4 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				0B1286871861AB2D007DE006 /* TWMessageBarManager */,
 				8406450B18499DA60065BCA4 /* Template Classes */,
 				840645BF1849C2A00065BCA4 /* JKCategoryManager.h */,
 				840645C01849C2A00065BCA4 /* JKCategoryManager.m */,
@@ -1004,6 +967,8 @@
 				843D155A184A5FE600B65E35 /* JKProductManager.m */,
 				0BCF863C185969600058FC74 /* JKOrderManager.h */,
 				0BCF863D185969600058FC74 /* JKOrderManager.m */,
+				84B94EDD1861E30A00C75B48 /* JKReachabilityManager.h */,
+				84B94EDE1861E30A00C75B48 /* JKReachabilityManager.m */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -1028,13 +993,13 @@
 			children = (
 				84A3BB48184B086E00650BAF /* Machine */,
 				840645C21849C3780065BCA4 /* JKHTTPClient.h */,
-				843D1570184A69F400B65E35 /* JKProductImages.h */,
 				840645C31849C3780065BCA4 /* JKHTTPClient.m */,
 				0B26BE16184C7E43008C1D79 /* JKCategory.h */,
 				0B26BE17184C7E43008C1D79 /* JKCategory.m */,
 				843D156D184A671600B65E35 /* JKProduct.h */,
 				843D156E184A671600B65E35 /* JKProduct.m */,
 				843D1571184A69F400B65E35 /* JKProductImages.m */,
+				843D1570184A69F400B65E35 /* JKProductImages.h */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -1571,8 +1536,6 @@
 				84F99F14184A1AEC00356DB3 /* category@2x.png in Resources */,
 				8444FF75185625E0008C9D77 /* JKBookmarkTableViewCell.xib in Resources */,
 				840645D11849C8A40065BCA4 /* left-nav-button@2x.png in Resources */,
-				0B1286951861AB2D007DE006 /* icon-success.png in Resources */,
-				0B1286961861AB2D007DE006 /* icon-success@2x.png in Resources */,
 				84F99F1F184A263400356DB3 /* bookmark_list@2x.png in Resources */,
 				8444FF7A1856261C008C9D77 /* JKBookmarkTableHeader.xib in Resources */,
 				0B513E831858613400E6DFBC /* JKPopupBookmark.xib in Resources */,
@@ -1594,7 +1557,6 @@
 				0B739B03185ACCBC005958AD /* CheckMarkWhite@2x.png in Resources */,
 				8404E630185779FD00EE0F16 /* JKPopup.xib in Resources */,
 				0B1286BB1861B1E9007DE006 /* NotificationBackgroundSuccess.png in Resources */,
-				0B1286911861AB2D007DE006 /* icon-error.png in Resources */,
 				84732EE2185CAB0C001618F0 /* modalButton-selected@2x.png in Resources */,
 				0B55CECC184EDEE800A3E4ED /* JKProductsDetailCollectionCell.xib in Resources */,
 				0B1286BC1861B1E9007DE006 /* NotificationBackgroundSuccess@2x.png in Resources */,
@@ -1618,7 +1580,6 @@
 				0B739B0B185AD8FA005958AD /* fb_button_logo.jpg in Resources */,
 				84A3BBA6184B12BE00650BAF /* GoogleMaps.bundle in Resources */,
 				0B02CE3F18557B6600E97DE1 /* marker@2x.png in Resources */,
-				0B1286941861AB2D007DE006 /* icon-info@2x.png in Resources */,
 				0B1286BA1861B1E9007DE006 /* NotificationBackgroundMessage@2x.png in Resources */,
 				0B55CED5184F2B8900A3E4ED /* Done@2x.png in Resources */,
 				843D1561184A638C00B65E35 /* JKProductsViewController.xib in Resources */,
@@ -1637,8 +1598,6 @@
 				0B55CED4184F2B8900A3E4ED /* Done.png in Resources */,
 				0B1286B81861B1E9007DE006 /* NotificationBackgroundErrorIcon@2x.png in Resources */,
 				840645B01849BB390065BCA4 /* JKSidebarMenuTableViewCell.xib in Resources */,
-				0B1286931861AB2D007DE006 /* icon-info.png in Resources */,
-				0B1286921861AB2D007DE006 /* icon-error@2x.png in Resources */,
 				84F99F1E184A263400356DB3 /* bookmark_list.png in Resources */,
 				840644C0184992750065BCA4 /* Images.xcassets in Resources */,
 				0B739AFA185ACA94005958AD /* home1@2x.jpg in Resources */,
@@ -1715,6 +1674,7 @@
 				84A3BB8B184B096C00650BAF /* MagicalImportFunctions.m in Sources */,
 				84732EE9185CAB0C001618F0 /* UARoundedRectView.m in Sources */,
 				84A3BB4E184B086E00650BAF /* _JKProductImages.m in Sources */,
+				84B94EDF1861E30A00C75B48 /* JKReachabilityManager.m in Sources */,
 				0BCF863E185969600058FC74 /* JKOrderManager.m in Sources */,
 				840645C11849C2A00065BCA4 /* JKCategoryManager.m in Sources */,
 				840645881849A8210065BCA4 /* AFUrbanAirshipClient.m in Sources */,
@@ -1761,7 +1721,6 @@
 				8406455118499DCE0065BCA4 /* UIImageView+AFNetworking.m in Sources */,
 				84A3BBA1184B096C00650BAF /* MagicalRecord+Options.m in Sources */,
 				840645BC1849BF260065BCA4 /* JKLeftMenuSectionHeader.m in Sources */,
-				0B1286971861AB2D007DE006 /* TWMessageBarManager.m in Sources */,
 				840645AA1849B9030065BCA4 /* JKLeftMenuViewController.m in Sources */,
 				8406454918499DCE0065BCA4 /* AFHTTPRequestOperation.m in Sources */,
 				840645B91849BE5B0065BCA4 /* UIColor+Hex.m in Sources */,

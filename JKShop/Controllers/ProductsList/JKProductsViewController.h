@@ -15,4 +15,6 @@ static NSString* const DEFAULT_NAVIGATION_TITLE = @"Danh sách sản phẩm";
 @property (strong, nonatomic) NSString                    * lblTitle;
 @property (weak, nonatomic) IBOutlet UICollectionView     * collectionProducts;
 
+- (void)reachabilityDidChange:(NSNotification *)notification;
+
 @end
