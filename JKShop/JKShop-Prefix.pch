@@ -10,18 +10,19 @@
 #define URBAN_AIRSHIP_APP_KEY                       @"S4NTYF0UReqCkkxBtTsjgQ"
 #define URBAN_AIRSHIP_APP_SECRET                    @"gOhq1D_yQmuS7FcKIzu0SQ"
 #define GOOGLE_TRACKING_ID                          @"UA-22523153-3"
+#define SETTINGS_JK_SHOP_LONGITUDE                  106.665363
+#define SETTINGS_JK_SHOP_LATITUDE                   10.778582
 
 #else
 
-#define API_SERVER_HOST                             @"http://jkshop.vn/api/products"
+#define API_SERVER_HOST                             @"http://jkshop.vn/api"
 #define URBAN_AIRSHIP_APP_KEY                       @"S4NTYF0UReqCkkxBtTsjgQ"
 #define URBAN_AIRSHIP_APP_SECRET                    @"gOhq1D_yQmuS7FcKIzu0SQ"
 #define GOOGLE_TRACKING_ID                          @"UA-22523153-3"
-
-#endif
-
 #define SETTINGS_JK_SHOP_LONGITUDE                  106.644924
 #define SETTINGS_JK_SHOP_LATITUDE                   10.771788
+
+#endif
 
 #define SETTINGS_GOOGLE_MAP_API_TOKEN               @"AIzaSyB9WLInu2QhsVM8X0KQGW0mnNZJqvXgZsE"
 
