@@ -25,35 +25,43 @@ CLLocationManagerDelegate
 @implementation JKGiftViewController
 
 - (NSArray *)giftArray{
-    if (self.giftArray == nil) {
-        self.giftArray = [[NSArray alloc] init];
-        self.giftArray = @[@"You got discount 10% on T-Shirt",
+    if (_giftArray == nil) {
+        _giftArray = @[@"You got discount 10% on T-Shirt",
                            @"You got discount 10% on Belt",
                            @"You got discount 10% on Jean",
                            @"You got discount 10% on Shoes"];
     }
-    return self.giftArray;
+    return _giftArray;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     self.title = @"Lucky Gift";
+    NSString *gift = [[NSUserDefaults standardUserDefaults] valueForKey:kGiftUserDefault];
+    if (gift) {
+        [SVProgressHUD showErrorWithStatus:[NSString stringWithFormat:@"You have a gift for today already! \n\"%@\"",gift]];
+        return;
+    }
     [self setUpLocationManager];
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    [self becomeFirstResponder];
 }
 
 - (void)setUpLocationManager{
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
-    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    self.locationManager.distanceFilter = kCLDistanceFilterNone;
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
     [self.locationManager startUpdatingLocation];
 }
 
-- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
-//    CLLocation *currentLocation = newLocation;
-    
-    CLLocation *currentLocation = [[CLLocation alloc] initWithLatitude:10.778445 longitude:106.666297];
+    CLLocation *currentLocation = [locations lastObject];
+//    CLLocation *currentLocation = [[CLLocation alloc] initWithLatitude:10.778445 longitude:106.666297];
     
     if (currentLocation != nil) {
         CLLocation *shopLocation = [[CLLocation alloc] initWithLatitude:SETTINGS_JK_SHOP_LATITUDE longitude:SETTINGS_JK_SHOP_LONGITUDE];
@@ -61,17 +69,16 @@ CLLocationManagerDelegate
         CGFloat kilometers = dist/1000.0;
         [self.locationManager stopUpdatingLocation];
         
-        if (kilometers <= 0.5f && ![[NSUserDefaults standardUserDefaults] valueForKey:kGiftUserDefault]) {
+        if (kilometers <= 0.5f) {
             [self showNotificationView];
             return;
         }
-        if (kilometers > 0.5f) {
-            [SVProgressHUD showErrorWithStatus:@"You are so far from JK Shop!"];
-            return;
-        }
-        
-        [SVProgressHUD showErrorWithStatus:@"You have a gift for today already!"];
+        [SVProgressHUD showErrorWithStatus:@"You are so far from JK Shop!"];
     }
+}
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{
+    DLog(@"%@", error);
 }
 
 - (void)showNotificationView{
