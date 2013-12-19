@@ -85,6 +85,11 @@
 		0BCF863E185969600058FC74 /* JKOrderManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BCF863D185969600058FC74 /* JKOrderManager.m */; };
 		0BD4F9B81855CD3800BCC995 /* search_button_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 0BD4F9B61855CD3800BCC995 /* search_button_background.png */; };
 		0BD4F9B91855CD3800BCC995 /* search_button_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0BD4F9B71855CD3800BCC995 /* search_button_background@2x.png */; };
+		0BF7BA571862D1C600C7C601 /* gift.png in Resources */ = {isa = PBXBuildFile; fileRef = 0BF7BA551862D1C600C7C601 /* gift.png */; };
+		0BF7BA581862D1C600C7C601 /* gift@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0BF7BA561862D1C600C7C601 /* gift@2x.png */; };
+		0BF7BA5B1862D4B900C7C601 /* gift.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0BF7BA5A1862D4B900C7C601 /* gift.jpg */; };
+		0BF7BA601862D50600C7C601 /* JKGiftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BF7BA5E1862D50600C7C601 /* JKGiftViewController.m */; };
+		0BF7BA611862D50600C7C601 /* JKGiftViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0BF7BA5F1862D50600C7C601 /* JKGiftViewController.xib */; };
 		8404E61B18575D4100EE0F16 /* SWTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8404E61A18575D4100EE0F16 /* SWTableViewCell.m */; };
 		8404E62718575D8800EE0F16 /* NSMutableArray+SWUtilityButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = 8404E61E18575D8800EE0F16 /* NSMutableArray+SWUtilityButtons.m */; };
 		8404E62818575D8800EE0F16 /* SWCellScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8404E62018575D8800EE0F16 /* SWCellScrollView.m */; };
@@ -337,6 +342,12 @@
 		0BCF863D185969600058FC74 /* JKOrderManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKOrderManager.m; path = Managers/JKOrderManager.m; sourceTree = "<group>"; };
 		0BD4F9B61855CD3800BCC995 /* search_button_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = search_button_background.png; path = Resources/SidebarSection/search_button_background.png; sourceTree = "<group>"; };
 		0BD4F9B71855CD3800BCC995 /* search_button_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "search_button_background@2x.png"; path = "Resources/SidebarSection/search_button_background@2x.png"; sourceTree = "<group>"; };
+		0BF7BA551862D1C600C7C601 /* gift.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = gift.png; path = Resources/SidebarSection/gift.png; sourceTree = "<group>"; };
+		0BF7BA561862D1C600C7C601 /* gift@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "gift@2x.png"; path = "Resources/SidebarSection/gift@2x.png"; sourceTree = "<group>"; };
+		0BF7BA5A1862D4B900C7C601 /* gift.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = gift.jpg; sourceTree = "<group>"; };
+		0BF7BA5D1862D50600C7C601 /* JKGiftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKGiftViewController.h; path = Controllers/GiftViewController/JKGiftViewController.h; sourceTree = "<group>"; };
+		0BF7BA5E1862D50600C7C601 /* JKGiftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKGiftViewController.m; path = Controllers/GiftViewController/JKGiftViewController.m; sourceTree = "<group>"; };
+		0BF7BA5F1862D50600C7C601 /* JKGiftViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = JKGiftViewController.xib; path = Controllers/GiftViewController/JKGiftViewController.xib; sourceTree = "<group>"; };
 		8404E61918575D4100EE0F16 /* SWTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWTableViewCell.h; sourceTree = "<group>"; };
 		8404E61A18575D4100EE0F16 /* SWTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWTableViewCell.m; sourceTree = "<group>"; };
 		8404E61C18575D8800EE0F16 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
@@ -779,6 +790,25 @@
 			name = ProductDetail;
 			sourceTree = "<group>";
 		};
+		0BF7BA591862D4B900C7C601 /* Gift */ = {
+			isa = PBXGroup;
+			children = (
+				0BF7BA5A1862D4B900C7C601 /* gift.jpg */,
+			);
+			name = Gift;
+			path = Resources/Gift;
+			sourceTree = "<group>";
+		};
+		0BF7BA5C1862D4D200C7C601 /* GiftViewController */ = {
+			isa = PBXGroup;
+			children = (
+				0BF7BA5D1862D50600C7C601 /* JKGiftViewController.h */,
+				0BF7BA5E1862D50600C7C601 /* JKGiftViewController.m */,
+				0BF7BA5F1862D50600C7C601 /* JKGiftViewController.xib */,
+			);
+			name = GiftViewController;
+			sourceTree = "<group>";
+		};
 		8404E61818575D4100EE0F16 /* SWTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -932,6 +962,7 @@
 		840644DE1849967B0065BCA4 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				0BF7BA5C1862D4D200C7C601 /* GiftViewController */,
 				0B55CECD184F2B8900A3E4ED /* MHFBImageViewController */,
 				8444FF6B185621CF008C9D77 /* BookmarkViewController */,
 				0B92A687184DCA43009B33DE /* ProductDetail */,
@@ -948,6 +979,7 @@
 		840644DF184996880065BCA4 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0BF7BA591862D4B900C7C601 /* Gift */,
 				84F99F19184A263400356DB3 /* Bookmark */,
 				84F99F04184A1A3300356DB3 /* SidebarSection */,
 				840645CB1849C8850065BCA4 /* Navigation */,
@@ -1425,6 +1457,8 @@
 		84F99F04184A1A3300356DB3 /* SidebarSection */ = {
 			isa = PBXGroup;
 			children = (
+				0BF7BA551862D1C600C7C601 /* gift.png */,
+				0BF7BA561862D1C600C7C601 /* gift@2x.png */,
 				0B739B09185AD8FA005958AD /* fb_button_logo.jpg */,
 				0B739B0A185AD8FA005958AD /* fb_button_logo@2x.jpg */,
 				0B07C02818505E74009EA61F /* search.png */,
@@ -1549,12 +1583,14 @@
 				0B07C02B18505E74009EA61F /* search@2x.png in Resources */,
 				840645A51849B8CA0065BCA4 /* JKHomeViewController.xib in Resources */,
 				0B92A686184DAE6E009B33DE /* navbg@2x.png in Resources */,
+				0BF7BA581862D1C600C7C601 /* gift@2x.png in Resources */,
 				84F99F12184A1AEC00356DB3 /* star@2x.png in Resources */,
 				0B739AF9185ACA94005958AD /* home1.jpg in Resources */,
 				0B92A68C184DCA7F009B33DE /* JKProductDetailViewController.xib in Resources */,
 				0B07C0271850539D009EA61F /* JKSearchProductCell.xib in Resources */,
 				84F99F17184A262A00356DB3 /* nav-back-btn-bg.png in Resources */,
 				0B739B03185ACCBC005958AD /* CheckMarkWhite@2x.png in Resources */,
+				0BF7BA571862D1C600C7C601 /* gift.png in Resources */,
 				8404E630185779FD00EE0F16 /* JKPopup.xib in Resources */,
 				0B1286BB1861B1E9007DE006 /* NotificationBackgroundSuccess.png in Resources */,
 				84732EE2185CAB0C001618F0 /* modalButton-selected@2x.png in Resources */,
@@ -1573,6 +1609,7 @@
 				84F99F0D184A1AEC00356DB3 /* setting.png in Resources */,
 				84732EE3185CAB0C001618F0 /* modalButton.png in Resources */,
 				84F99F13184A1AEC00356DB3 /* category.png in Resources */,
+				0BF7BA5B1862D4B900C7C601 /* gift.jpg in Resources */,
 				0B1286C31861B1E9007DE006 /* NotificationButtonBackground.png in Resources */,
 				0B1286C11861B1E9007DE006 /* NotificationBackgroundWarningIcon.png in Resources */,
 				0B739B02185ACCBC005958AD /* CheckMarkWhite.png in Resources */,
@@ -1589,6 +1626,7 @@
 				84732EE1185CAB0C001618F0 /* modalButton-selected.png in Resources */,
 				0B1286B61861B1E9007DE006 /* NotificationBackgroundError@2x.png in Resources */,
 				84F99F11184A1AEC00356DB3 /* star.png in Resources */,
+				0BF7BA611862D50600C7C601 /* JKGiftViewController.xib in Resources */,
 				84732EDF185CAB0C001618F0 /* close.png in Resources */,
 				0B26BE15184C6182008C1D79 /* JKProductsCollectionCell.xib in Resources */,
 				840645D01849C8A40065BCA4 /* left-nav-button.png in Resources */,
@@ -1664,6 +1702,7 @@
 				8406455518499DCE0065BCA4 /* IIWrapController.m in Sources */,
 				8404E62918575D8800EE0F16 /* SWLongPressGestureRecognizer.m in Sources */,
 				84A3BB91184B096C00650BAF /* NSString+MagicalDataImport.m in Sources */,
+				0BF7BA601862D50600C7C601 /* JKGiftViewController.m in Sources */,
 				8404E61B18575D4100EE0F16 /* SWTableViewCell.m in Sources */,
 				84A3BB9E184B096C00650BAF /* MagicalRecord+Actions.m in Sources */,
 				84A3BBA0184B096C00650BAF /* MagicalRecord+iCloud.m in Sources */,

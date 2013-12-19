@@ -15,6 +15,7 @@
 #import "JKHomeViewController.h"
 #import "JKSearchProductCell.h"
 #import "JKProductDetailViewController.h"
+#import "JKGiftViewController.h"
 
 static CGFloat const LEFT_SIZE = 44;
 static CGFloat const LOGIN_VIEW_HEIGHT = 70;
@@ -56,8 +57,8 @@ UIScrollViewDelegate
     self.arrMenu = [[[JKCategoryManager sharedInstance] getMenuList] mutableCopy];
     
     self.arrSubMenuSectionOne = @[@"JK Shop", @"New arrival", @"Contact us"];
-    self.arrSection = @[@"Featured", @"Category", @"Setting"];
-    self.arrIconSection = @[@"star.png",@"category.png",@"setting.png"];
+    self.arrSection = @[@"Featured", @"Category", @"Gift"];
+    self.arrIconSection = @[@"star.png",@"category.png",@"gift.png"];
     
     [self.menuTableView registerNib:[UINib nibWithNibName:NSStringFromClass([JKSidebarMenuTableViewCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([JKSidebarMenuTableViewCell class])];
     [self.menuTableView registerNib:[UINib nibWithNibName:NSStringFromClass([JKLeftMenuSectionHeader class]) bundle:nil] forHeaderFooterViewReuseIdentifier:NSStringFromClass([JKLeftMenuSectionHeader class])];
@@ -169,7 +170,7 @@ UIScrollViewDelegate
         }
         case 2:
         {
-            NSDictionary *data = @{MENU_TITLE : @"Setting"};
+            NSDictionary *data = @{MENU_TITLE : @"Get lucky gift"};
             [cell configWithData:data];
             return cell;
         }
@@ -265,8 +266,8 @@ UIScrollViewDelegate
             return;
         }
         case 2:
-            [SVProgressHUD showErrorWithStatus:@"This feature comming soon.."];
-            [tableView deselectRowAtIndexPath:indexPath animated:NO];
+            [centralNavVC setViewControllers:[NSArray arrayWithObject:[[JKGiftViewController alloc] init]] animated:YES];
+            [deckViewController toggleLeftViewAnimated:YES];
             return;
             
         default:
@@ -387,6 +388,10 @@ UIScrollViewDelegate
 }
 
 - (IBAction)loginButtonAction:(id)sender {
+    if ([JKReachabilityManager isUnreachable]) {
+        [SVProgressHUD showErrorWithStatus:@"No connection!"];
+        return;
+    }
     [FacebookManager sharedInstance].delegate = self;
     [[FacebookManager sharedInstance] openSessionWithAllowLoginUI:YES];
 }
