@@ -192,6 +192,9 @@
 		84732EE8185CAB0C001618F0 /* UANoisyGradientBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = 84732EDB185CAB0C001618F0 /* UANoisyGradientBackground.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		84732EE9185CAB0C001618F0 /* UARoundedRectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84732EDD185CAB0C001618F0 /* UARoundedRectView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		8474BB961865590700B24451 /* TSMessage+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8474BB951865590700B24451 /* TSMessage+Additions.m */; };
+		8474BB9D1865653200B24451 /* SIAlertView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8474BB981865653200B24451 /* SIAlertView.bundle */; };
+		8474BB9E1865653200B24451 /* SIAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8474BB9A1865653200B24451 /* SIAlertView.m */; };
+		8474BB9F1865653200B24451 /* UIWindow+SIUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 8474BB9C1865653200B24451 /* UIWindow+SIUtils.m */; };
 		84819F41185B637F00D0F336 /* ActiveSupportInflector.m in Sources */ = {isa = PBXBuildFile; fileRef = 84819F3A185B637F00D0F336 /* ActiveSupportInflector.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		84819F42185B637F00D0F336 /* NSString+ActiveSupportInflector.m in Sources */ = {isa = PBXBuildFile; fileRef = 84819F3C185B637F00D0F336 /* NSString+ActiveSupportInflector.m */; };
 		84819F43185B637F00D0F336 /* NSString+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 84819F3E185B637F00D0F336 /* NSString+Additions.m */; };
@@ -516,6 +519,11 @@
 		84732EDD185CAB0C001618F0 /* UARoundedRectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UARoundedRectView.m; sourceTree = "<group>"; };
 		8474BB941865590700B24451 /* TSMessage+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "TSMessage+Additions.h"; path = "Categories/TSMessage+Additions.h"; sourceTree = "<group>"; };
 		8474BB951865590700B24451 /* TSMessage+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "TSMessage+Additions.m"; path = "Categories/TSMessage+Additions.m"; sourceTree = "<group>"; };
+		8474BB981865653200B24451 /* SIAlertView.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SIAlertView.bundle; sourceTree = "<group>"; };
+		8474BB991865653200B24451 /* SIAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIAlertView.h; sourceTree = "<group>"; };
+		8474BB9A1865653200B24451 /* SIAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIAlertView.m; sourceTree = "<group>"; };
+		8474BB9B1865653200B24451 /* UIWindow+SIUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+SIUtils.h"; sourceTree = "<group>"; };
+		8474BB9C1865653200B24451 /* UIWindow+SIUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+SIUtils.m"; sourceTree = "<group>"; };
 		84819F39185B637F00D0F336 /* ActiveSupportInflector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActiveSupportInflector.h; path = Categories/ActiveSupportInflector.h; sourceTree = "<group>"; };
 		84819F3A185B637F00D0F336 /* ActiveSupportInflector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActiveSupportInflector.m; path = Categories/ActiveSupportInflector.m; sourceTree = "<group>"; };
 		84819F3B185B637F00D0F336 /* NSString+ActiveSupportInflector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+ActiveSupportInflector.h"; path = "Categories/NSString+ActiveSupportInflector.h"; sourceTree = "<group>"; };
@@ -1044,6 +1052,7 @@
 		840644E3184996B90065BCA4 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				8474BB971865653200B24451 /* SIAlertView */,
 				0B1286981861B1E9007DE006 /* TSMessages */,
 				0B1286831861A606007DE006 /* Reachability */,
 				0B0FE52218603CE200488970 /* GMDirection */,
@@ -1343,6 +1352,19 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		8474BB971865653200B24451 /* SIAlertView */ = {
+			isa = PBXGroup;
+			children = (
+				8474BB981865653200B24451 /* SIAlertView.bundle */,
+				8474BB991865653200B24451 /* SIAlertView.h */,
+				8474BB9A1865653200B24451 /* SIAlertView.m */,
+				8474BB9B1865653200B24451 /* UIWindow+SIUtils.h */,
+				8474BB9C1865653200B24451 /* UIWindow+SIUtils.m */,
+			);
+			name = SIAlertView;
+			path = Vendors/SIAlertView;
+			sourceTree = "<group>";
+		};
 		84A3BB48184B086E00650BAF /* Machine */ = {
 			isa = PBXGroup;
 			children = (
@@ -1592,6 +1614,7 @@
 				84F99F12184A1AEC00356DB3 /* star@2x.png in Resources */,
 				0B739AF9185ACA94005958AD /* home1.jpg in Resources */,
 				0B92A68C184DCA7F009B33DE /* JKProductDetailViewController.xib in Resources */,
+				8474BB9D1865653200B24451 /* SIAlertView.bundle in Resources */,
 				0B07C0271850539D009EA61F /* JKSearchProductCell.xib in Resources */,
 				84F99F17184A262A00356DB3 /* nav-back-btn-bg.png in Resources */,
 				0B739B03185ACCBC005958AD /* CheckMarkWhite@2x.png in Resources */,
@@ -1721,6 +1744,7 @@
 				84B94EDF1861E30A00C75B48 /* JKReachabilityManager.m in Sources */,
 				0BCF863E185969600058FC74 /* JKOrderManager.m in Sources */,
 				840645C11849C2A00065BCA4 /* JKCategoryManager.m in Sources */,
+				8474BB9E1865653200B24451 /* SIAlertView.m in Sources */,
 				840645881849A8210065BCA4 /* AFUrbanAirshipClient.m in Sources */,
 				0B739AEB185ABC92005958AD /* AMBlurView.m in Sources */,
 				0B07C02518505382009EA61F /* JKSearchProductCell.m in Sources */,
@@ -1731,6 +1755,7 @@
 				84A3BB8D184B096C00650BAF /* NSEntityDescription+MagicalDataImport.m in Sources */,
 				84A3BB99184B096C00650BAF /* NSManagedObjectContext+MagicalSaves.m in Sources */,
 				0B26BE10184C5CFB008C1D79 /* UILabel+Additions.m in Sources */,
+				8474BB9F1865653200B24451 /* UIWindow+SIUtils.m in Sources */,
 				84732EDE185CAB0C001618F0 /* UIView+JMNoise.m in Sources */,
 				84A3BB4D184B086E00650BAF /* _JKProduct.m in Sources */,
 				0B1286C91861B279007DE006 /* HexColor.m in Sources */,

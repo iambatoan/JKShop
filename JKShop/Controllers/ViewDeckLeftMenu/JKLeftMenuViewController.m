@@ -427,10 +427,25 @@ UIScrollViewDelegate
 #pragma mark - Facebook sign out button action
 
 - (IBAction)signOutButtonAction:(id)sender {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning" message:@"Do you want to sign out?"
-                                                   delegate:self
-                                          cancelButtonTitle:@"Yes"
-                                          otherButtonTitles:@"No", nil];
+    SIAlertView *alert = [[SIAlertView alloc] initWithTitle:@"Warning!" andMessage:@"Do you want to sign out?"];
+    [alert addButtonWithTitle:@"Yes"
+                         type:SIAlertViewButtonTypeDestructive
+                      handler:^(SIAlertView *alert){
+                          [[FacebookManager sharedInstance] logout];
+                          [UIView animateWithDuration:0.5
+                                           animations:^{
+                                               CGRect newFrame = CGRectMake(0, -LOGIN_VIEW_HEIGHT, SCREEN_WIDTH, LOGIN_VIEW_HEIGHT);
+                                               self.profileView.frame = newFrame;
+                                           }];
+                      }];
+    
+    [alert addButtonWithTitle:@"No"
+                         type:SIAlertViewButtonTypeCancel
+                      handler:nil];
+    
+    alert.transitionStyle = SIAlertViewTransitionStyleBounce;
+    alert.backgroundStyle = SIAlertViewBackgroundStyleSolid;
+    
     [alert show];
 }
 

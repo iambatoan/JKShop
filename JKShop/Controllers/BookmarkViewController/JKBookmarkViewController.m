@@ -95,20 +95,25 @@ JKPopupBookmarkDelegate
         [SVProgressHUD showErrorWithStatus:@"List is empty!"];
         return;
     }
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning" message:@"Do you want to delete all?"
-                                                   delegate:self
-                                          cancelButtonTitle:@"Yes"
-                                          otherButtonTitles:@"No", nil];
-    [alert show];
-}
+    
+    SIAlertView *alert = [[SIAlertView alloc] initWithTitle:@"Warning!" andMessage:@"Do you want to delete all?"];
+    [alert addButtonWithTitle:@"Yes"
+                         type:SIAlertViewButtonTypeDestructive
+                      handler:^(SIAlertView *alert){
+                          [JKProductManager removeAllBookmarkProduct];
+                          self.bookmarkProductArray = [[JKProductManager alloc] getBookmarkProducts];
+                          [[NSNotificationCenter defaultCenter] postNotificationName:NOTIF_CHANGE_BOOKMARK_PRODUCT_COUNT object:self];
+                          [self.bookmarkTableView reloadData];
+                      }];
+    
+    [alert addButtonWithTitle:@"No"
+                         type:SIAlertViewButtonTypeCancel
+                      handler:nil];
 
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    if (buttonIndex == 0) {
-        [JKProductManager removeAllBookmarkProduct];
-        self.bookmarkProductArray = [[JKProductManager alloc] getBookmarkProducts];
-        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIF_CHANGE_BOOKMARK_PRODUCT_COUNT object:self];
-        [self.bookmarkTableView reloadData];
-    }
+    alert.transitionStyle = SIAlertViewTransitionStyleBounce;
+    alert.backgroundStyle = SIAlertViewBackgroundStyleSolid;
+    
+    [alert show];
 }
 
 #pragma mark - Swipeable Cell Action

@@ -40,7 +40,8 @@ CLLocationManagerDelegate
     self.title = @"Lucky Gift";
     NSString *gift = [[NSUserDefaults standardUserDefaults] valueForKey:kGiftUserDefault];
     if (gift) {
-        [SVProgressHUD showErrorWithStatus:[NSString stringWithFormat:@"You have a gift for today already! \n\"%@\"",gift]];
+        [self showAlertViewWithContent:[NSString stringWithFormat:@"You have a gift for today already! \n\"%@\"", gift]
+                      transistionStyle:SIAlertViewTransitionStyleBounce];
         return;
     }
     [self setUpLocationManager];
@@ -60,8 +61,7 @@ CLLocationManagerDelegate
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
-//    CLLocation *currentLocation = [locations lastObject];
-    CLLocation *currentLocation = [[CLLocation alloc] initWithLatitude:SETTINGS_JK_SHOP_LATITUDE longitude:SETTINGS_JK_SHOP_LONGITUDE];
+    CLLocation *currentLocation = [locations lastObject];
     
     if (currentLocation != nil) {
         CLLocation *shopLocation = [[CLLocation alloc] initWithLatitude:SETTINGS_JK_SHOP_LATITUDE longitude:SETTINGS_JK_SHOP_LONGITUDE];
@@ -74,7 +74,7 @@ CLLocationManagerDelegate
                                                   title:@"Shaking your phone to get special gift"
                                                subtitle:nil
                                                   image:nil
-                                                   type:TSMessageNotificationTypeMessage
+                                                   type:TSMessageNotificationTypeSuccess
                                                duration:TSMessageNotificationDurationEndless
                                                callback:nil
                                             buttonTitle:nil
@@ -102,20 +102,22 @@ CLLocationManagerDelegate
         [TSMessage dismissActiveNotification];
         
         NSInteger rand = [self randomIntegerFrom:0 to:3];
-        [self showAlertViewWithContent:self.giftArray[rand]];
+        [self showAlertViewWithContent:self.giftArray[rand] transistionStyle:SIAlertViewTransitionStyleDropDown];
         
         [[NSUserDefaults standardUserDefaults] setValue:self.giftArray[rand] forKey:kGiftUserDefault];
     }
     
 }
 
-- (void)showAlertViewWithContent:(NSString *)content
+- (void)showAlertViewWithContent:(NSString *)content transistionStyle:(SIAlertViewTransitionStyle)style
 {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Congratulation!"
-                                                    message:[NSString stringWithFormat:@"%@ for today",content]
-                                                   delegate:self
-                                          cancelButtonTitle:@"OK"
-                                          otherButtonTitles:nil];
+    SIAlertView *alert = [[SIAlertView alloc] initWithTitle:@"Congratulation!" andMessage:content];
+    [alert addButtonWithTitle:@"OK"
+                         type:SIAlertViewButtonTypeDestructive
+                      handler:nil];
+    alert.transitionStyle = style;
+    alert.backgroundStyle = SIAlertViewBackgroundStyleSolid;
+    
     [alert show];
 }
 

@@ -10,8 +10,8 @@
 #define URBAN_AIRSHIP_APP_KEY                       @"S4NTYF0UReqCkkxBtTsjgQ"
 #define URBAN_AIRSHIP_APP_SECRET                    @"gOhq1D_yQmuS7FcKIzu0SQ"
 #define GOOGLE_TRACKING_ID                          @"UA-22523153-3"
-#define SETTINGS_JK_SHOP_LONGITUDE                  106.660490
-#define SETTINGS_JK_SHOP_LATITUDE                   10.788125
+#define SETTINGS_JK_SHOP_LONGITUDE                  106.644924
+#define SETTINGS_JK_SHOP_LATITUDE                   10.771788
 
 #else
 
@@ -82,6 +82,7 @@
 #import "GAITransactionItem.h"
 #import "Reachability.h"
 #import "TSMessage.h"
+#import "SIAlertView.h"
 
 //Managers
 #import "BaseManager.h"
