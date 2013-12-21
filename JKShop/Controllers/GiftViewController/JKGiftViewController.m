@@ -60,8 +60,8 @@ CLLocationManagerDelegate
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
-    CLLocation *currentLocation = [locations lastObject];
-//    CLLocation *currentLocation = [[CLLocation alloc] initWithLatitude:10.778445 longitude:106.666297];
+//    CLLocation *currentLocation = [locations lastObject];
+    CLLocation *currentLocation = [[CLLocation alloc] initWithLatitude:SETTINGS_JK_SHOP_LATITUDE longitude:SETTINGS_JK_SHOP_LONGITUDE];
     
     if (currentLocation != nil) {
         CLLocation *shopLocation = [[CLLocation alloc] initWithLatitude:SETTINGS_JK_SHOP_LATITUDE longitude:SETTINGS_JK_SHOP_LONGITUDE];
@@ -70,7 +70,17 @@ CLLocationManagerDelegate
         [self.locationManager stopUpdatingLocation];
         
         if (kilometers <= 0.5f) {
-            [self showNotificationView];
+            [TSMessage showNotificationInViewController:self
+                                                  title:@"Shaking your phone to get special gift"
+                                               subtitle:nil
+                                                  image:nil
+                                                   type:TSMessageNotificationTypeMessage
+                                               duration:TSMessageNotificationDurationEndless
+                                               callback:nil
+                                            buttonTitle:nil
+                                         buttonCallback:nil
+                                             atPosition:TSMessageNotificationPositionBottom
+                                    canBeDismisedByUser:NO];
             return;
         }
         [SVProgressHUD showErrorWithStatus:@"You are so far from JK Shop!"];
@@ -81,31 +91,6 @@ CLLocationManagerDelegate
     DLog(@"%@", error);
 }
 
-- (void)showNotificationView{
-    CGRect frame = self.shakeNotificationView.frame;
-    frame.origin.y -= NOTIF_VIEW_HEIGHT;
-    [UIView animateWithDuration:0.3f
-                          delay:0.5
-                        options:UIViewAnimationOptionCurveLinear
-                     animations:^
-    {
-        self.shakeNotificationView.frame = frame;
-    }
-                     completion:nil];
-}
-
-- (void)hideNotificationView
-{
-    CGRect frame = self.shakeNotificationView.frame;
-    frame.origin.y += NOTIF_VIEW_HEIGHT;
-    [UIView animateWithDuration:0.3f
-                     animations:^
-     {
-         self.shakeNotificationView.frame = frame;
-     }
-                     completion:nil];
-}
-
 - (BOOL)canBecomeFirstResponder
 {
     return YES;
@@ -114,7 +99,7 @@ CLLocationManagerDelegate
 - (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event
 {
     if (motion == UIEventSubtypeMotionShake) {
-        [self hideNotificationView];
+        [TSMessage dismissActiveNotification];
         
         NSInteger rand = [self randomIntegerFrom:0 to:3];
         [self showAlertViewWithContent:self.giftArray[rand]];

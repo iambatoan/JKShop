@@ -120,7 +120,14 @@ MHFacebookImageViewerDatasource
 
 - (void)fillUpCollectionRelatedProductWithCategoryID:(NSInteger)categoryID
 {
-    self.productsArr = [[[JKProductManager sharedInstance] getStoredProductsWithCategoryId:[[self.product.category anyObject] getCategoryId]] mutableCopy];
+    NSInteger catID = 0;
+    for (JKCategory *category in self.product.category) {
+        if ([JKCategory MR_findByAttribute:@"category_id" withValue:@([category getCategoryId])].count) {
+            catID = [category getCategoryId];
+            break;
+        }
+    }
+    self.productsArr = [[[JKProductManager sharedInstance] getStoredProductsWithCategoryId:catID] mutableCopy];
     for (int i = 0; i < self.productsArr.count; i++) {
         if (self.productsArr[i] == self.product)
         {
@@ -200,16 +207,31 @@ MHFacebookImageViewerDatasource
 }
 
 - (void)reachabilityDidChange:(NSNotification *)notification{
+
     if ([JKReachabilityManager isReachable]) {
         if (![JKReachabilityManager sharedInstance].lastState) {
-            [TSMessage showNotificationWithTitle:@"Connected" type:TSMessageNotificationTypeSuccess];
+            [TSMessage showNotificationInViewController:self
+                                                  title:@"Connecting.."
+                                                   type:TSMessageNotificationTypeMessage
+                                               duration:2
+                                             atPosition:TSMessageNotificationPositionBottom];
+            [TSMessage showNotificationInViewController:self
+                                                  title:@"Connected"
+                                                   type:TSMessageNotificationTypeSuccess
+                                               duration:1
+                                             atPosition:TSMessageNotificationPositionBottom];
         }
         [self getImageFromProduct];
         [JKReachabilityManager sharedInstance].lastState = 1;
         return;
     }
     if ([JKReachabilityManager sharedInstance].lastState) {
-        [TSMessage showNotificationWithTitle:@"No connection" type:TSMessageNotificationTypeError];
+        [TSMessage dismissActiveNotification];
+        [TSMessage showNotificationInViewController:self
+                                              title:@"No connection"
+                                               type:TSMessageNotificationTypeError
+                                           duration:5
+                                         atPosition:TSMessageNotificationPositionBottom];
         [JKReachabilityManager sharedInstance].lastState = 0;
     }
 }

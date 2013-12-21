@@ -191,6 +191,7 @@
 		84732EE7185CAB0C001618F0 /* UAGradientBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = 84732ED9185CAB0C001618F0 /* UAGradientBackground.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		84732EE8185CAB0C001618F0 /* UANoisyGradientBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = 84732EDB185CAB0C001618F0 /* UANoisyGradientBackground.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		84732EE9185CAB0C001618F0 /* UARoundedRectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84732EDD185CAB0C001618F0 /* UARoundedRectView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		8474BB961865590700B24451 /* TSMessage+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8474BB951865590700B24451 /* TSMessage+Additions.m */; };
 		84819F41185B637F00D0F336 /* ActiveSupportInflector.m in Sources */ = {isa = PBXBuildFile; fileRef = 84819F3A185B637F00D0F336 /* ActiveSupportInflector.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		84819F42185B637F00D0F336 /* NSString+ActiveSupportInflector.m in Sources */ = {isa = PBXBuildFile; fileRef = 84819F3C185B637F00D0F336 /* NSString+ActiveSupportInflector.m */; };
 		84819F43185B637F00D0F336 /* NSString+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 84819F3E185B637F00D0F336 /* NSString+Additions.m */; };
@@ -513,6 +514,8 @@
 		84732EDB185CAB0C001618F0 /* UANoisyGradientBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UANoisyGradientBackground.m; sourceTree = "<group>"; };
 		84732EDC185CAB0C001618F0 /* UARoundedRectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UARoundedRectView.h; sourceTree = "<group>"; };
 		84732EDD185CAB0C001618F0 /* UARoundedRectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UARoundedRectView.m; sourceTree = "<group>"; };
+		8474BB941865590700B24451 /* TSMessage+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "TSMessage+Additions.h"; path = "Categories/TSMessage+Additions.h"; sourceTree = "<group>"; };
+		8474BB951865590700B24451 /* TSMessage+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "TSMessage+Additions.m"; path = "Categories/TSMessage+Additions.m"; sourceTree = "<group>"; };
 		84819F39185B637F00D0F336 /* ActiveSupportInflector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActiveSupportInflector.h; path = Categories/ActiveSupportInflector.h; sourceTree = "<group>"; };
 		84819F3A185B637F00D0F336 /* ActiveSupportInflector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActiveSupportInflector.m; path = Categories/ActiveSupportInflector.m; sourceTree = "<group>"; };
 		84819F3B185B637F00D0F336 /* NSString+ActiveSupportInflector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+ActiveSupportInflector.h"; path = "Categories/NSString+ActiveSupportInflector.h"; sourceTree = "<group>"; };
@@ -955,6 +958,8 @@
 				8406458F1849ABC90065BCA4 /* UIAlertView+Additions.m */,
 				84B3BC8818530C38007CD797 /* UIView+Additions.h */,
 				84B3BC8918530C38007CD797 /* UIView+Additions.m */,
+				8474BB941865590700B24451 /* TSMessage+Additions.h */,
+				8474BB951865590700B24451 /* TSMessage+Additions.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -1755,6 +1760,7 @@
 				0B26BE1B184C7E50008C1D79 /* _JKCategory.m in Sources */,
 				0B1286B41861B1E9007DE006 /* TSMessage.m in Sources */,
 				0B26BE13184C611C008C1D79 /* JKProductsCollectionCell.m in Sources */,
+				8474BB961865590700B24451 /* TSMessage+Additions.m in Sources */,
 				840645D61849CB220065BCA4 /* JKNavigationViewController.m in Sources */,
 				8406454A18499DCE0065BCA4 /* AFImageRequestOperation.m in Sources */,
 				8406455118499DCE0065BCA4 /* UIImageView+AFNetworking.m in Sources */,

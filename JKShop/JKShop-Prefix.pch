@@ -10,8 +10,8 @@
 #define URBAN_AIRSHIP_APP_KEY                       @"S4NTYF0UReqCkkxBtTsjgQ"
 #define URBAN_AIRSHIP_APP_SECRET                    @"gOhq1D_yQmuS7FcKIzu0SQ"
 #define GOOGLE_TRACKING_ID                          @"UA-22523153-3"
-#define SETTINGS_JK_SHOP_LONGITUDE                  106.665363
-#define SETTINGS_JK_SHOP_LATITUDE                   10.778582
+#define SETTINGS_JK_SHOP_LONGITUDE                  106.660490
+#define SETTINGS_JK_SHOP_LATITUDE                   10.788125
 
 #else
 
@@ -64,7 +64,6 @@
 #import "MHFacebookImageViewer.h"
 #import "JKBookmarkViewController.h"
 
-
 //Vendors
 #import "AFNetworking.h"
 #import "AFJSONRequestOperation.h"
@@ -103,6 +102,7 @@
 #import "NSString+ActiveSupportInflector.h"
 #import "ActiveSupportInflector.h"
 #import "NSString+HTML.h"
+#import "TSMessage+Additions.h"
 
 //Models
 #import "JKCategory.h"

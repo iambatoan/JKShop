@@ -125,14 +125,29 @@ IIViewDeckControllerDelegate
 - (void)reachabilityDidChange:(NSNotification *)notification{
     if ([JKReachabilityManager isReachable]) {
         if (![JKReachabilityManager sharedInstance].lastState) {
-            [TSMessage showNotificationWithTitle:@"Connected" type:TSMessageNotificationTypeSuccess];
+            [TSMessage showNotificationInViewController:self
+                                                  title:@"Connecting.."
+                                                   type:TSMessageNotificationTypeMessage
+                                               duration:2
+                                             atPosition:TSMessageNotificationPositionBottom];
+            
+            [TSMessage showNotificationInViewController:self
+                                                  title:@"Connected"
+                                                   type:TSMessageNotificationTypeSuccess
+                                               duration:1
+                                             atPosition:TSMessageNotificationPositionBottom];
         }
         [self fillUpTableProductWithCategoryID:self.category_id];
         [JKReachabilityManager sharedInstance].lastState = 1;
         return;
     }
     if ([JKReachabilityManager sharedInstance].lastState) {
-        [TSMessage showNotificationWithTitle:@"No connection" type:TSMessageNotificationTypeError];
+        [TSMessage dismissActiveNotification];
+        [TSMessage showNotificationInViewController:self
+                                              title:@"No connection"
+                                               type:TSMessageNotificationTypeError
+                                           duration:5
+                                         atPosition:TSMessageNotificationPositionBottom];
         [JKReachabilityManager sharedInstance].lastState = 0;
     }
 }
