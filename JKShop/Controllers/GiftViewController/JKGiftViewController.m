@@ -40,9 +40,9 @@ CLLocationManagerDelegate
     self.title = @"Lucky Gift";
     NSString *gift = [[NSUserDefaults standardUserDefaults] valueForKey:kGiftUserDefault];
     if (gift) {
-        [self showAlertViewWithContent:[NSString stringWithFormat:@"You have a gift for today already! \n\"%@\"", gift]
-                      transistionStyle:SIAlertViewTransitionStyleBounce];
-        return;
+      [self showAlertViewWithContent:[NSString stringWithFormat:@"You have a gift for today already! \n\"%@\"", gift]
+                    transistionStyle:SIAlertViewTransitionStyleBounce];
+      return;
     }
     [self setUpLocationManager];
 }
@@ -63,7 +63,7 @@ CLLocationManagerDelegate
 {
     CLLocation *currentLocation = [locations lastObject];
     
-    if (currentLocation != nil) {
+    if (currentLocation != nil && currentLocation.coordinate.longitude >= 106) {
         CLLocation *shopLocation = [[CLLocation alloc] initWithLatitude:SETTINGS_JK_SHOP_LATITUDE longitude:SETTINGS_JK_SHOP_LONGITUDE];
         CLLocationDistance dist = [currentLocation distanceFromLocation:shopLocation];
         CGFloat kilometers = dist/1000.0;

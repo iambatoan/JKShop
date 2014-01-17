@@ -33,10 +33,7 @@ static NSString * const STORE_PRODUCT_NUMBER        =   @"store_product_number";
     [self.imgProductImage setImageWithURL:[NSURL URLWithString:[[self.product.images anyObject] getSmallImageURL]]];
     
     self.lblProductName.text = self.product.name;
-    [self.lblProductName setFont:[UIFont fontWithName:@"Lato" size:17]];
-    
-    [self.lblProductName sizeToFitKeepWidth];
-    
+    [self.lblProductName setFont:[UIFont fontWithName:@"Lato" size:17]];    
     
     self.lblProductPrice.text = [NSString getVNCurrencyFormatterWithNumber:@([self.product.price intValue])];
     

@@ -1005,13 +1005,13 @@
 		840644E0184996910065BCA4 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				8406450B18499DA60065BCA4 /* Template Classes */,
 				840645BF1849C2A00065BCA4 /* JKCategoryManager.h */,
 				840645C01849C2A00065BCA4 /* JKCategoryManager.m */,
 				843D1559184A5FE600B65E35 /* JKProductManager.h */,
 				843D155A184A5FE600B65E35 /* JKProductManager.m */,
 				0BCF863C185969600058FC74 /* JKOrderManager.h */,
 				0BCF863D185969600058FC74 /* JKOrderManager.m */,
+				8406450B18499DA60065BCA4 /* Template Classes */,
 				84B94EDD1861E30A00C75B48 /* JKReachabilityManager.h */,
 				84B94EDE1861E30A00C75B48 /* JKReachabilityManager.m */,
 			);

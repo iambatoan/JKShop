@@ -14,64 +14,69 @@ SINGLETON_MACRO
 
 - (void)getMenuListOnComplete:(void(^)(NSArray *menu))complete
                     orFailure:(void(^)(NSError *error))failure{
-    NSString *path = [NSString stringWithFormat:@"%@%@",API_SERVER_HOST,API_GET_LIST_CATEGORY];
-    [[JKHTTPClient sharedClient] getPath:path parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
-        [self storeMenuList:[responseObject objectForKey:@"categories"]];
-        NSArray *menuList = [self getMenuList];
-        
-        if (complete) {
-            complete(menuList);
-        }
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSArray *menuList = [self getMenuList];
-        if (complete) {
-            complete(menuList);
-            return;
-        }
-        
-        if (failure) {
-            failure(error);
-        }
-        
-    }];
-
+  NSString *path = [NSString stringWithFormat:@"%@%@",API_SERVER_HOST,API_GET_LIST_CATEGORY];
+  [[JKHTTPClient sharedClient] getPath:path parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    
+    [self storeMenuList:[responseObject objectForKey:@"categories"]];
+    NSArray *menuList = [self getMenuList];
+    
+    if (complete) {
+      complete(menuList);
+    }
+  } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    NSArray *menuList = [self getMenuList];
+    if (complete) {
+      complete(menuList);
+      return;
+    }
+    
+    if (failure) {
+      failure(error);
+    }
+    
+  }];
+  
 }
 
 - (void)storeMenuList:(id)menuList
 {
-    NSMutableArray *arrMenu = [[NSMutableArray alloc] init];
-    
-    NSBlockOperation *saveInBackground = [NSBlockOperation blockOperationWithBlock:^{
-        [menuList enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-            JKCategory *category;
-            category = [JKCategory categoryWithDictionary:obj];
-            [arrMenu addObject:category];
-        }];
+  NSMutableArray *arrMenu = [[NSMutableArray alloc] init];
+  
+  NSBlockOperation *saveInBackground = [NSBlockOperation blockOperationWithBlock:^{
+    [menuList enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+      JKCategory *category;
+      category = [JKCategory categoryWithDictionary:obj];
+      [arrMenu addObject:category];
     }];
-    
-    [saveInBackground setCompletionBlock:^{
-        NSManagedObjectContext *mainContext  = [NSManagedObjectContext MR_defaultContext];
-        [mainContext MR_saveToPersistentStoreWithCompletion:^(BOOL success, NSError *error) {
-            DLog(@"Finish save to magical record");
-        }];
+  }];
+  
+  [saveInBackground setCompletionBlock:^{
+    NSManagedObjectContext *mainContext  = [NSManagedObjectContext MR_defaultContext];
+    [mainContext MR_saveToPersistentStoreWithCompletion:^(BOOL success, NSError *error) {
+      DLog(@"Finish save to magical record");
     }];
-    
-    [saveInBackground start];
+  }];
+  
+  [saveInBackground start];
 }
 
 - (NSArray *)getMenuList
 {
-    NSMutableArray *arrMenu = [[NSMutableArray alloc] init];
-    for (JKCategory *category in [JKCategory MR_findByAttribute:@"parent_id" withValue:@0 andOrderBy:@"category_id" ascending:YES]) {
-        [arrMenu addObject:category];
-        for (JKCategory *categoryChild in [JKCategory MR_findAll]) {
-            if ([categoryChild getParentId] == [category getCategoryId]) {
-                [arrMenu addObject:categoryChild];
-            }
-        }
+  NSMutableArray *arrMenu = [[NSMutableArray alloc] init];
+  for (JKCategory *category in [JKCategory MR_findByAttribute:@"parent_id" withValue:@0 andOrderBy:@"category_id" ascending:YES]) {
+    if ([category.category_id isEqual:@88]) {
+      [arrMenu insertObject:category atIndex:0];
     }
-    return arrMenu;
+    else{
+      [arrMenu addObject:category];
+    }
+    for (JKCategory *categoryChild in [JKCategory MR_findAll]) {
+      if ([categoryChild getParentId] == [category getCategoryId]) {
+        [arrMenu addObject:categoryChild];
+      }
+    }
+  }
+  return arrMenu;
 }
 
 @end
