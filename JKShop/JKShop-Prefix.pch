@@ -24,6 +24,9 @@
 
 #endif
 
+#define AUTORESIZING_MASK_WIDTH_HEIGHT              (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight)
+#define AUTORESIZING_MASK_ALL_SIDES                 (UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin)
+
 #define SETTINGS_GOOGLE_MAP_API_TOKEN               @"AIzaSyB9WLInu2QhsVM8X0KQGW0mnNZJqvXgZsE"
 
 #define SETTING_GAI_APP_ID                          @"UA-46437583-1"
@@ -48,11 +51,11 @@
 #import <GoogleMaps/GoogleMaps.h>
 #import <MapKit/MapKit.h>
 #import <QuartzCore/QuartzCore.h>
-#import <SDWebImage/UIImageView+WebCache.h>
 #import <SystemConfiguration/SystemConfiguration.h>
 #import <MobileCoreServices/MobileCoreServices.h>
 #import <UIKit/UIKit.h>
 #import <FacebookSDK/FacebookSDK.h>
+
 
 //Controllers
 #import "BaseViewController.h"
@@ -83,6 +86,9 @@
 #import "Reachability.h"
 #import "TSMessage.h"
 #import "SIAlertView.h"
+#import "DACircularProgressView.h"
+#import "UIImageView+UIImageView_FaceAwareFill.h"
+#import "UIImage+Resizing.h"
 
 //Managers
 #import "BaseManager.h"
@@ -104,6 +110,11 @@
 #import "ActiveSupportInflector.h"
 #import "NSString+HTML.h"
 #import "TSMessage+Additions.h"
+#import "UIFont+Additions.h"
+#import "UIButton+Additions.h"
+#import "UIImageView+WebCache.h"
+#import "UIImageView+Additions.h"
+#import "NSString+Validation.h"
 
 //Models
 #import "JKCategory.h"
@@ -113,6 +124,7 @@
 
 //Views
 #import "JKSearchBar.h"
+#import "JKImageView.h"
 
 //------------------------------------------------------------------------------------------------------
 

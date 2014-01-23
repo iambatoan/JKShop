@@ -160,4 +160,6 @@
 
 - (void)growAndShrinkOnCompletion:(void (^)(BOOL finished))completion;
 
+- (void)animateShadowToOpacity:(CGFloat)opacity duration:(CGFloat)duration;
+
 @end

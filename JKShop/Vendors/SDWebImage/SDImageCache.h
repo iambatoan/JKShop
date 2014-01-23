@@ -20,7 +20,7 @@ enum SDImageCacheType
      */
     SDImageCacheTypeDisk,
     /**
-     * The image was obtained from the memory cache.
+     * The image was obtained from the disk cache.
      */
     SDImageCacheTypeMemory
 };
@@ -35,12 +35,7 @@ typedef enum SDImageCacheType SDImageCacheType;
 /**
  * The maximum length of time to keep an image in the cache, in seconds
  */
-@property (assign, nonatomic) NSInteger maxCacheAge;
-
-/**
- * The maximum size of the cache, in bytes.
- */
-@property (assign, nonatomic) unsigned long long maxCacheSize;
+@property (nonatomic, assign) NSInteger maxCacheAge;
 
 /**
  * Returns global shared cache instance
@@ -55,14 +50,6 @@ typedef enum SDImageCacheType SDImageCacheType;
  * @param ns The namespace to use for this cache store
  */
 - (id)initWithNamespace:(NSString *)ns;
-
-/**
- * Add a read-only cache path to search for images pre-cached by SDImageCache
- * Useful if you want to bundle pre-loaded images with your app
- *
- * @param path The path to use for this read-only cache path
- */
-- (void)addReadOnlyCachePath:(NSString *)path;
 
 /**
  * Store an image into memory and disk cache at the given key.
@@ -94,35 +81,28 @@ typedef enum SDImageCacheType SDImageCacheType;
 - (void)storeImage:(UIImage *)image imageData:(NSData *)data forKey:(NSString *)key toDisk:(BOOL)toDisk;
 
 /**
- * Query the disk cache asynchronously.
+ * Query the disk cache asynchronousely.
  *
  * @param key The unique key used to store the wanted image
  */
 - (void)queryDiskCacheForKey:(NSString *)key done:(void (^)(UIImage *image, SDImageCacheType cacheType))doneBlock;
 
 /**
- * Query the memory cache synchronously.
+ * Query the memory cache.
  *
  * @param key The unique key used to store the wanted image
  */
 - (UIImage *)imageFromMemoryCacheForKey:(NSString *)key;
 
 /**
- * Query the disk cache synchronously after checking the memory cache.
- *
- * @param key The unique key used to store the wanted image
- */
-- (UIImage *)imageFromDiskCacheForKey:(NSString *)key;
-
-/**
- * Remove the image from memory and disk cache synchronously
+ * Remove the image from memory and disk cache synchronousely
  *
  * @param key The unique image cache key
  */
 - (void)removeImageForKey:(NSString *)key;
 
 /**
- * Remove the image from memory and optionaly disk cache synchronously
+ * Remove the image from memory and optionaly disk cache synchronousely
  *
  * @param key The unique image cache key
  * @param fromDisk Also remove cache entry from disk if YES
@@ -147,7 +127,7 @@ typedef enum SDImageCacheType SDImageCacheType;
 /**
  * Get the size used by the disk cache
  */
-- (unsigned long long)getSize;
+- (int)getSize;
 
 /**
  * Get the number of images in the disk cache

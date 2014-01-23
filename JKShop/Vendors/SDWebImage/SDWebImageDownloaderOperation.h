@@ -12,10 +12,11 @@
 
 @interface SDWebImageDownloaderOperation : NSOperation <SDWebImageOperation>
 
-@property (strong, nonatomic, readonly) NSURLRequest *request;
-@property (assign, nonatomic, readonly) SDWebImageDownloaderOptions options;
+@property (nonatomic, strong, readonly) NSURLRequest *request;
+@property (nonatomic, assign, readonly) SDWebImageDownloaderOptions options;
 
 - (id)initWithRequest:(NSURLRequest *)request
+                queue:(dispatch_queue_t)queue
               options:(SDWebImageDownloaderOptions)options
              progress:(SDWebImageDownloaderProgressBlock)progressBlock
             completed:(SDWebImageDownloaderCompletedBlock)completedBlock

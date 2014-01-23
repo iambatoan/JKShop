@@ -14,5 +14,6 @@
 - (BOOL)isNumber;
 - (BOOL)isValidName;
 - (BOOL)isPhoneNumber;
+- (BOOL)isHttpUrl;
 
 @end

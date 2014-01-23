@@ -15,4 +15,5 @@
 -(UIImage *)squareCrop;
 -(UIImage *)resizableImageWithStandardInsets;
 -(UIImage *)resizableImageWithStandardInsetsTop:(CGFloat)top right:(CGFloat)right bottom:(CGFloat)bottom left:(CGFloat)left;
++ (UIImage *)imageWithColor:(UIColor *)color size:(CGSize)size;
 @end

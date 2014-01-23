@@ -56,4 +56,21 @@
   return [regExPredicate evaluateWithObject:self];
 }
 
+- (BOOL)isHttpUrl
+{
+  NSString *tempString = [self lowercaseString];
+  
+  //Must begin with 'http' (or https)
+  if ([tempString hasPrefix:@"http"] == NO)
+    return NO;
+  
+  //Check has :// followed after http or https
+  tempString = [tempString stringByReplacingOccurrencesOfString:@"https" withString:@""];
+  tempString = [tempString stringByReplacingOccurrencesOfString:@"http" withString:@""];
+  if ([tempString hasPrefix:@"://"] == NO)
+    return NO;
+  
+  return YES;
+}
+
 @end

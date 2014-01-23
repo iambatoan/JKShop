@@ -502,4 +502,19 @@
     }];
 }
 
+- (void)animateShadowToOpacity:(CGFloat)opacity duration:(CGFloat)duration
+{
+  if (self.layer.shadowOpacity == opacity)
+    return;
+  
+  CABasicAnimation *anim = [CABasicAnimation animationWithKeyPath:@"shadowOpacity"];
+  anim.toValue = [NSNumber numberWithFloat:opacity];
+  anim.duration = duration;
+  [self.layer addAnimation:anim forKey:@"shadowOpacity"];
+  
+  dispatch_after(dispatch_time(DISPATCH_TIME_NOW, duration * NSEC_PER_SEC), dispatch_get_main_queue(), ^(void){
+    self.layer.shadowOpacity = opacity;
+  });
+}
+
 @end
