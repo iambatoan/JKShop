@@ -194,7 +194,6 @@
                   [weakSelf.progressView fadeOutWithDuration:0.3];
                   if (image != nil) {
                     [weakSelf fadeToImage:image duration:0.4];
-                    [weakSelf faceAwareFill];
                     if (completedBlock)
                       completedBlock(image, error, cacheType);
                     return;

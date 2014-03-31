@@ -88,7 +88,7 @@ MHFacebookImageViewerDatasource
         [cell customProductsDetailCellWithProductImage:[self.productImageArray objectAtIndex:indexPath.item]];
         
         UIImageView *imageView = (UIImageView *)[cell viewWithTag:1];
-        [imageView setImageWithURL:[NSURL URLWithString:[[self.productImageArray objectAtIndex:indexPath.item] getMediumImageURL]]];
+        [imageView setImageWithURL:[NSURL URLWithString:[[self.productImageArray objectAtIndex:indexPath.item] getLargeImageURL]]];
         [imageView setupImageViewerWithDatasource:self initialIndex:indexPath.row onOpen:nil onClose:nil];
         imageView.contentMode = UIViewContentModeScaleAspectFill;
         imageView.clipsToBounds = NO;
@@ -199,7 +199,7 @@ MHFacebookImageViewerDatasource
 }
 
 -  (NSURL*) imageURLAtIndex:(NSInteger)index imageViewer:(MHFacebookImageViewer *)imageViewer {
-    return [NSURL URLWithString:[[self.productImageArray objectAtIndex:index] getMediumImageURL]];
+    return [NSURL URLWithString:[[self.productImageArray objectAtIndex:index] getLargeImageURL]];
 }
 
 - (UIImage*) imageDefaultAtIndex:(NSInteger)index imageViewer:(MHFacebookImageViewer *)imageViewer{
