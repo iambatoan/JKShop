@@ -154,7 +154,17 @@
 		84F99F1F184A263400356DB3 /* bookmark_list@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F99F1B184A263400356DB3 /* bookmark_list@2x.png */; };
 		84F99F35184A379000356DB3 /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84F99F34184A379000356DB3 /* GoogleMaps.framework */; };
 		87B7849E5160473C93487762 /* libPods-JKShop.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A0B12F369756452DBB98FF33 /* libPods-JKShop.a */; };
+		B60B0CE21988F3BA002587BD /* JKGiftService.m in Sources */ = {isa = PBXBuildFile; fileRef = B60B0CE11988F3BA002587BD /* JKGiftService.m */; };
+		B60B0CE51988F61A002587BD /* JKReachabilityService.m in Sources */ = {isa = PBXBuildFile; fileRef = B60B0CE41988F61A002587BD /* JKReachabilityService.m */; };
+		B60B0CE81988F866002587BD /* JKCoreDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = B60B0CE71988F866002587BD /* JKCoreDataService.m */; };
+		B62CA8B11988DD3400E72A1C /* JKMagicalRecordService.m in Sources */ = {isa = PBXBuildFile; fileRef = B62CA8B01988DD3400E72A1C /* JKMagicalRecordService.m */; };
+		B62CA8B41988DE4D00E72A1C /* JKGMSService.m in Sources */ = {isa = PBXBuildFile; fileRef = B62CA8B31988DE4D00E72A1C /* JKGMSService.m */; };
+		B62CA8B71988DFFA00E72A1C /* BaseAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B62CA8B61988DFFA00E72A1C /* BaseAppDelegate.m */; };
 		B66324C619877AD900EB9605 /* AFHTTPRequestOperationManager+CustomManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B66324C519877AD900EB9605 /* AFHTTPRequestOperationManager+CustomManager.m */; };
+		B6AC22591988E55E008E96E8 /* JKGAIService.m in Sources */ = {isa = PBXBuildFile; fileRef = B6AC22581988E55E008E96E8 /* JKGAIService.m */; };
+		B6AC225C1988E755008E96E8 /* JKLoadMainWindowService.m in Sources */ = {isa = PBXBuildFile; fileRef = B6AC225B1988E755008E96E8 /* JKLoadMainWindowService.m */; };
+		B6AC225F1988EC31008E96E8 /* JKFacebookIntegrationService.m in Sources */ = {isa = PBXBuildFile; fileRef = B6AC225E1988EC31008E96E8 /* JKFacebookIntegrationService.m */; };
+		B6AC22621988F0CA008E96E8 /* JKCrittercismService.m in Sources */ = {isa = PBXBuildFile; fileRef = B6AC22611988F0CA008E96E8 /* JKCrittercismService.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -357,13 +367,33 @@
 		84F99F1B184A263400356DB3 /* bookmark_list@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bookmark_list@2x.png"; sourceTree = "<group>"; };
 		84F99F34184A379000356DB3 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
 		A0B12F369756452DBB98FF33 /* libPods-JKShop.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JKShop.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B60B0CE01988F3BA002587BD /* JKGiftService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKGiftService.h; path = Services/JKGiftService.h; sourceTree = "<group>"; };
+		B60B0CE11988F3BA002587BD /* JKGiftService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKGiftService.m; path = Services/JKGiftService.m; sourceTree = "<group>"; };
+		B60B0CE31988F61A002587BD /* JKReachabilityService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKReachabilityService.h; path = Services/JKReachabilityService.h; sourceTree = "<group>"; };
+		B60B0CE41988F61A002587BD /* JKReachabilityService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKReachabilityService.m; path = Services/JKReachabilityService.m; sourceTree = "<group>"; };
+		B60B0CE61988F866002587BD /* JKCoreDataService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKCoreDataService.h; path = Services/JKCoreDataService.h; sourceTree = "<group>"; };
+		B60B0CE71988F866002587BD /* JKCoreDataService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKCoreDataService.m; path = Services/JKCoreDataService.m; sourceTree = "<group>"; };
 		B62CA8A61988CFA900E72A1C /* CategoryHeaders.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CategoryHeaders.h; path = Categories/CategoryHeaders.h; sourceTree = "<group>"; };
 		B62CA8AA1988D09E00E72A1C /* VendorHeaders.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = VendorHeaders.h; path = Vendors/VendorHeaders.h; sourceTree = "<group>"; };
 		B62CA8AB1988D0C300E72A1C /* ControllerHeaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ControllerHeaders.h; path = Controllers/ControllerHeaders.h; sourceTree = "<group>"; };
 		B62CA8AC1988D0CD00E72A1C /* ManagerHeaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ManagerHeaders.h; path = Managers/ManagerHeaders.h; sourceTree = "<group>"; };
 		B62CA8AD1988D0D600E72A1C /* ModelHeaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ModelHeaders.h; path = Models/ModelHeaders.h; sourceTree = "<group>"; };
+		B62CA8AF1988DD3400E72A1C /* JKMagicalRecordService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKMagicalRecordService.h; path = Services/JKMagicalRecordService.h; sourceTree = "<group>"; };
+		B62CA8B01988DD3400E72A1C /* JKMagicalRecordService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKMagicalRecordService.m; path = Services/JKMagicalRecordService.m; sourceTree = "<group>"; };
+		B62CA8B21988DE4D00E72A1C /* JKGMSService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKGMSService.h; path = Services/JKGMSService.h; sourceTree = "<group>"; };
+		B62CA8B31988DE4D00E72A1C /* JKGMSService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKGMSService.m; path = Services/JKGMSService.m; sourceTree = "<group>"; };
+		B62CA8B51988DFFA00E72A1C /* BaseAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseAppDelegate.h; path = Misc/BaseAppDelegate.h; sourceTree = "<group>"; };
+		B62CA8B61988DFFA00E72A1C /* BaseAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseAppDelegate.m; path = Misc/BaseAppDelegate.m; sourceTree = "<group>"; };
 		B66324C419877AD900EB9605 /* AFHTTPRequestOperationManager+CustomManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "AFHTTPRequestOperationManager+CustomManager.h"; path = "Categories/AFHTTPRequestOperationManager+CustomManager.h"; sourceTree = "<group>"; };
 		B66324C519877AD900EB9605 /* AFHTTPRequestOperationManager+CustomManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "AFHTTPRequestOperationManager+CustomManager.m"; path = "Categories/AFHTTPRequestOperationManager+CustomManager.m"; sourceTree = "<group>"; };
+		B6AC22571988E55E008E96E8 /* JKGAIService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKGAIService.h; path = Services/JKGAIService.h; sourceTree = "<group>"; };
+		B6AC22581988E55E008E96E8 /* JKGAIService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKGAIService.m; path = Services/JKGAIService.m; sourceTree = "<group>"; };
+		B6AC225A1988E755008E96E8 /* JKLoadMainWindowService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKLoadMainWindowService.h; path = Services/JKLoadMainWindowService.h; sourceTree = "<group>"; };
+		B6AC225B1988E755008E96E8 /* JKLoadMainWindowService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKLoadMainWindowService.m; path = Services/JKLoadMainWindowService.m; sourceTree = "<group>"; };
+		B6AC225D1988EC31008E96E8 /* JKFacebookIntegrationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKFacebookIntegrationService.h; path = Services/JKFacebookIntegrationService.h; sourceTree = "<group>"; };
+		B6AC225E1988EC31008E96E8 /* JKFacebookIntegrationService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKFacebookIntegrationService.m; path = Services/JKFacebookIntegrationService.m; sourceTree = "<group>"; };
+		B6AC22601988F0CA008E96E8 /* JKCrittercismService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKCrittercismService.h; path = Services/JKCrittercismService.h; sourceTree = "<group>"; };
+		B6AC22611988F0CA008E96E8 /* JKCrittercismService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKCrittercismService.m; path = Services/JKCrittercismService.m; sourceTree = "<group>"; };
 		CACBB303B8D240E597B5AF46 /* Pods-JKShop.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JKShop.xcconfig"; path = "Pods/Pods-JKShop.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -535,6 +565,7 @@
 		840644B0184992750065BCA4 /* JKShop */ = {
 			isa = PBXGroup;
 			children = (
+				B62CA8AE1988DD1400E72A1C /* Services */,
 				840644DD184996710065BCA4 /* Categories */,
 				840644DE1849967B0065BCA4 /* Controllers */,
 				840644E0184996910065BCA4 /* Managers */,
@@ -715,6 +746,8 @@
 			children = (
 				8406450718499D880065BCA4 /* JKAppDelegate.h */,
 				8406450818499D880065BCA4 /* JKAppDelegate.m */,
+				B62CA8B51988DFFA00E72A1C /* BaseAppDelegate.h */,
+				B62CA8B61988DFFA00E72A1C /* BaseAppDelegate.m */,
 			);
 			name = Misc;
 			sourceTree = "<group>";
@@ -888,6 +921,31 @@
 			);
 			name = Bookmark;
 			path = Resources/Bookmark;
+			sourceTree = "<group>";
+		};
+		B62CA8AE1988DD1400E72A1C /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				B62CA8AF1988DD3400E72A1C /* JKMagicalRecordService.h */,
+				B62CA8B01988DD3400E72A1C /* JKMagicalRecordService.m */,
+				B62CA8B21988DE4D00E72A1C /* JKGMSService.h */,
+				B62CA8B31988DE4D00E72A1C /* JKGMSService.m */,
+				B6AC22571988E55E008E96E8 /* JKGAIService.h */,
+				B6AC22581988E55E008E96E8 /* JKGAIService.m */,
+				B6AC225A1988E755008E96E8 /* JKLoadMainWindowService.h */,
+				B6AC225B1988E755008E96E8 /* JKLoadMainWindowService.m */,
+				B6AC225D1988EC31008E96E8 /* JKFacebookIntegrationService.h */,
+				B6AC225E1988EC31008E96E8 /* JKFacebookIntegrationService.m */,
+				B6AC22601988F0CA008E96E8 /* JKCrittercismService.h */,
+				B6AC22611988F0CA008E96E8 /* JKCrittercismService.m */,
+				B60B0CE01988F3BA002587BD /* JKGiftService.h */,
+				B60B0CE11988F3BA002587BD /* JKGiftService.m */,
+				B60B0CE31988F61A002587BD /* JKReachabilityService.h */,
+				B60B0CE41988F61A002587BD /* JKReachabilityService.m */,
+				B60B0CE61988F866002587BD /* JKCoreDataService.h */,
+				B60B0CE71988F866002587BD /* JKCoreDataService.m */,
+			);
+			name = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1110,6 +1168,7 @@
 				0BF7BA601862D50600C7C601 /* JKGiftViewController.m in Sources */,
 				0B466862185EE95400E42E21 /* NSString+HTML.m in Sources */,
 				0BD57A1D1890C90D00A9834D /* MHFacebookImageViewer.m in Sources */,
+				B60B0CE21988F3BA002587BD /* JKGiftService.m in Sources */,
 				84A3BB4E184B086E00650BAF /* _JKProductImages.m in Sources */,
 				0BCF863E185969600058FC74 /* JKOrderManager.m in Sources */,
 				840645C11849C2A00065BCA4 /* JKCategoryManager.m in Sources */,
@@ -1123,6 +1182,7 @@
 				840645A41849B8CA0065BCA4 /* JKHomeViewController.m in Sources */,
 				84B3BC8A18530C38007CD797 /* UIView+Additions.m in Sources */,
 				0BA52C7318911F9400CC321A /* UIImageView+Additions.m in Sources */,
+				B6AC225C1988E755008E96E8 /* JKLoadMainWindowService.m in Sources */,
 				0BA52C7618911FDC00CC321A /* UIImage+animatedGIF.m in Sources */,
 				0B55CECA184EDEAA00A3E4ED /* JKProductsDetailCollectionCell.m in Sources */,
 				0B26BE18184C7E43008C1D79 /* JKCategory.m in Sources */,
@@ -1131,6 +1191,7 @@
 				8444FF73185625C2008C9D77 /* JKBookmarkTableViewCell.m in Sources */,
 				8404E62E185779E700EE0F16 /* JKPopup.m in Sources */,
 				840645B81849BE5B0065BCA4 /* UIColor+Custom.m in Sources */,
+				B6AC22621988F0CA008E96E8 /* JKCrittercismService.m in Sources */,
 				840645DC1849CC2C0065BCA4 /* JKMapViewController.m in Sources */,
 				0B26BE1B184C7E50008C1D79 /* _JKCategory.m in Sources */,
 				0BA52C7C1891208900CC321A /* NYXImagesHelper.m in Sources */,
@@ -1138,21 +1199,28 @@
 				840645D61849CB220065BCA4 /* JKNavigationViewController.m in Sources */,
 				840645BC1849BF260065BCA4 /* JKLeftMenuSectionHeader.m in Sources */,
 				840645AA1849B9030065BCA4 /* JKLeftMenuViewController.m in Sources */,
+				B62CA8B71988DFFA00E72A1C /* BaseAppDelegate.m in Sources */,
+				B62CA8B11988DD3400E72A1C /* JKMagicalRecordService.m in Sources */,
+				B6AC225F1988EC31008E96E8 /* JKFacebookIntegrationService.m in Sources */,
 				0BA52C6918911CF700CC321A /* UIFont+Additions.m in Sources */,
 				840645B91849BE5B0065BCA4 /* UIColor+Hex.m in Sources */,
 				84819F47185B63DC00D0F336 /* ISO8601DateFormatter.m in Sources */,
 				8406452018499DB60065BCA4 /* FacebookManager.m in Sources */,
+				B60B0CE81988F866002587BD /* JKCoreDataService.m in Sources */,
 				84819F42185B637F00D0F336 /* NSString+ActiveSupportInflector.m in Sources */,
 				0B466865185EE9AA00E42E21 /* GTMNSString+HTML.m in Sources */,
 				0BA52C6C18911D6F00CC321A /* UIButton+Additions.m in Sources */,
 				8406451C18499DB60065BCA4 /* BaseManager.m in Sources */,
 				8406455C18499DF00065BCA4 /* BaseViewController.m in Sources */,
 				0BA52C7D1891208900CC321A /* UIImage+Resizing.m in Sources */,
+				B6AC22591988E55E008E96E8 /* JKGAIService.m in Sources */,
 				84819F41185B637F00D0F336 /* ActiveSupportInflector.m in Sources */,
 				840644BE184992750065BCA4 /* JKShop.xcdatamodeld in Sources */,
 				0B92A68B184DCA7F009B33DE /* JKProductDetailViewController.m in Sources */,
+				B62CA8B41988DE4D00E72A1C /* JKGMSService.m in Sources */,
 				8406450A18499D880065BCA4 /* JKAppDelegate.m in Sources */,
 				84819F43185B637F00D0F336 /* NSString+Additions.m in Sources */,
+				B60B0CE51988F61A002587BD /* JKReachabilityService.m in Sources */,
 				84819F44185B637F00D0F336 /* NSString+Validation.m in Sources */,
 				0BD57A241890C9F200A9834D /* JKImageView.m in Sources */,
 				0BD57A1E1890C90D00A9834D /* MHFacebookImageViewerCell.m in Sources */,
