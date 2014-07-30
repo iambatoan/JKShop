@@ -395,11 +395,10 @@ UIScrollViewDelegate
 }
 
 - (IBAction)loginButtonAction:(id)sender {
-#warning TOTOTOTOTOTOTOTOTOT
-    //  if ([JKReachabilityManager isUnreachable]) {
-    //    [SVProgressHUD showErrorWithStatus:@"No connection!"];
-    //    return;
-    //  }
+    if ([[AFNetworkReachabilityManager sharedManager] isReachable]) {
+        [SVProgressHUD showErrorWithStatus:@"No connection!"];
+        return;
+    }
     [FacebookManager sharedInstance].delegate = self;
     [[FacebookManager sharedInstance] openSessionWithAllowLoginUI:YES];
 }
