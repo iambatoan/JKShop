@@ -10,4 +10,6 @@
 
 @interface BaseAppDelegate : UIResponder <UIApplicationDelegate>
 
+@property (strong, nonatomic) NSArray *services;
+
 @end

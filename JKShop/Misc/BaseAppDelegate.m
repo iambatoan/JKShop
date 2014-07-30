@@ -8,21 +8,7 @@
 
 #import "BaseAppDelegate.h"
 
-@interface BaseAppDelegate()
-
-@property (strong, nonatomic) NSArray *services;
-
-@end
-
 @implementation BaseAppDelegate
-
-- (NSArray *)services {
-    if (!_services) {
-        _services = @[];
-    }
-    
-    return _services;
-}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {

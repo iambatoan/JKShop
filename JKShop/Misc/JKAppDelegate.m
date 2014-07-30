@@ -9,5 +9,14 @@
 #import "JKAppDelegate.h"
 
 @implementation JKAppDelegate
+@synthesize services = _services;
+
+- (NSArray *)services {
+    if (!_services) {
+        _services = @[];
+    }
+    
+    return _services;
+}
 
 @end
