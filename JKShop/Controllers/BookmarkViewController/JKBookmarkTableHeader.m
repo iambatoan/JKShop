@@ -29,7 +29,7 @@
 
 - (void)changeNumberOfBookmarkProduct:(NSInteger)numberProducts
 {
-    self.lblNumberOfProducts.text = [NSString stringWithFormat:@"%d product(s)", numberProducts];
+    self.lblNumberOfProducts.text = [NSString stringWithFormat:@"%ld product(s)", numberProducts];
     [self.lblNumberOfProducts sizeToFitKeepHeight];
     
     CGRect frame = self.lblInCart.frame;
@@ -54,7 +54,7 @@
         }
                                                     onFailure:^(NSInteger statusCode, NSError *error)
         {
-            DLog(@"%d, %@", statusCode, error);
+            DLog(@"%ld, %@", statusCode, error);
         }];
         return;
     }

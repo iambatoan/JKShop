@@ -62,7 +62,7 @@ MHFacebookImageViewerDatasource
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     if (collectionView == self.relatedProductCollectionView) {
-        IIViewDeckController *deckViewController = (IIViewDeckController*)[JKAppDelegate getRootViewController];
+        IIViewDeckController *deckViewController = self.viewDeckController;
         JKNavigationViewController *centralNavVC = (JKNavigationViewController *) deckViewController.centerController;
         
         JKProductDetailViewController *productDetailVC = [[JKProductDetailViewController alloc] init];

@@ -63,7 +63,7 @@ GMSMapViewDelegate
 {
     NSString *myLocationString = [NSString stringWithFormat:@"%f,%f",self.mapView.myLocation.coordinate.latitude,self.mapView.myLocation.coordinate.longitude];
     DLog(@"%@",myLocationString);
-    NSString *shopLocationString = [NSString stringWithFormat:@"%f,%f",SETTINGS_JK_SHOP_LATITUDE,SETTINGS_JK_SHOP_LONGITUDE];
+//    NSString *shopLocationString = [NSString stringWithFormat:@"%f,%f",SETTINGS_JK_SHOP_LATITUDE,SETTINGS_JK_SHOP_LONGITUDE];
     
 //    [[GMDirectionService sharedInstance] getDirectionsFrom:myLocationString
 //                                                        to:shopLocationString

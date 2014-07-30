@@ -39,7 +39,7 @@
     }
     
     UIColor *color = nil;
-    NSUInteger hexValue;
+    unsigned hexValue = 0;
     if ([[NSScanner scannerWithString:hexString] scanHexInt:&hexValue]) {
         color = [self colorWithHexValue:hexValue alpha:alpha];
     }
@@ -73,7 +73,7 @@
     NSUInteger greenDec = (NSUInteger)(green * 255);
     NSUInteger blueDec = (NSUInteger)(blue * 255);
     
-    NSString *hexString = [NSString stringWithFormat:@"%02x%02x%02x", redDec, greenDec, blueDec];
+    NSString *hexString = [NSString stringWithFormat:@"%02lx%02lx%02lx", redDec, greenDec, blueDec];
     
     return hexString;
 }

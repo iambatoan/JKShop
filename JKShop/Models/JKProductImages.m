@@ -13,7 +13,7 @@
 + (JKProductImages *)productImagesWithArray:(NSArray *)array productID:(NSInteger)productID
 {
     JKProductImages *img = [JKProductImages MR_createEntity];
-    img.product_id = [NSNumber numberWithInt:productID];
+    img.product_id = @(productID);
     if (array.count == 3) {
         img.small_URL = array[0];
         img.medium_URL = array[1];

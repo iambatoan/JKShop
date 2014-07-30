@@ -78,7 +78,7 @@ IIViewDeckControllerDelegate
     [labelCount setFont:[UIFont fontWithName:@"Lato" size:10]];
     [labelCount setTextColor:[UIColor titleColor]];
     labelCount.textAlignment = NSTextAlignmentCenter;
-    labelCount.text = [NSString stringWithFormat:@"%d",[JKProductManager getAllBookmarkProductCount]];
+    labelCount.text = [NSString stringWithFormat:@"%ld",[JKProductManager getAllBookmarkProductCount]];
     [rightButton addSubview:labelCount];
     
     UIBarButtonItem *rightButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightButton];
@@ -94,7 +94,7 @@ IIViewDeckControllerDelegate
 
 - (void)trackCrittercismBreadCrumb:(NSUInteger)lineNumber
 {
-    NSString *breadcrumb = [NSString stringWithFormat:@"%@:%d", [[NSString stringWithUTF8String:__FILE__] lastPathComponent], lineNumber];
+    NSString *breadcrumb = [NSString stringWithFormat:@"%@:%ld", [[NSString stringWithUTF8String:__FILE__] lastPathComponent], lineNumber];
     [Crittercism leaveBreadcrumb:breadcrumb];
 }
 
