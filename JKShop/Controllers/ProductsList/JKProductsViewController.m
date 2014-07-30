@@ -80,8 +80,7 @@ IIViewDeckControllerDelegate
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    IIViewDeckController *deckViewController = (IIViewDeckController*)[JKAppDelegate getRootViewController];
-    JKNavigationViewController *centralNavVC = (JKNavigationViewController *) deckViewController.centerController;
+    JKNavigationViewController *centralNavVC = (JKNavigationViewController *) self.viewDeckController.centerController;
     
     JKProductDetailViewController *productDetailVC = [[JKProductDetailViewController alloc] init];
     productDetailVC.product = [self.productsArr objectAtIndex:indexPath.item];
