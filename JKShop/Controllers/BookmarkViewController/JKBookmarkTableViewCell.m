@@ -30,14 +30,14 @@ static NSString * const STORE_PRODUCT_NUMBER        =   @"store_product_number";
     self.imgProductWrapImage.layer.borderWidth = 1;
     self.imgProductWrapImage.layer.borderColor = [UIColor titleColor].CGColor;
     
-    [self.imgProductImage setImageWithURL:[NSURL URLWithString:[[self.product.images anyObject] getSmallImageURL]]];
+    [self.imgProductImage sd_setImageWithURL:[NSURL URLWithString:[[self.product.images anyObject] getSmallImageURL]]];
     
     self.lblProductName.text = self.product.name;
     [self.lblProductName setFont:[UIFont fontWithName:@"Lato" size:17]];    
     
     self.lblProductPrice.text = [NSString getVNCurrencyFormatterWithNumber:@([self.product.price intValue])];
     
-    self.lblNumber.text = [NSString stringWithFormat:@"X %d", [dictionaryProduct[STORE_PRODUCT_NUMBER] integerValue]];
+    self.lblNumber.text = [NSString stringWithFormat:@"X %ld", [dictionaryProduct[STORE_PRODUCT_NUMBER] integerValue]];
 }
                     
 - (JKProduct *)getProductFromStoreBookmark:(NSDictionary *)storeBookmark{

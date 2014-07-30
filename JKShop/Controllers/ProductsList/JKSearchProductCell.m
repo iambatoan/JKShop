@@ -26,7 +26,7 @@
     [self.productName setTextColor:[UIColor titleColor]];
     
     if ([[product.images anyObject] getSmallImageURL]) {
-        [self.productImage setImageWithURL:[NSURL URLWithString:[[product.images anyObject] getSmallImageURL]]];
+        [self.productImage sd_setImageWithURL:[NSURL URLWithString:[[product.images anyObject] getSmallImageURL]]];
     }
     
     self.productPrice.text = [NSString getVNCurrencyFormatterWithNumber:@([product.price intValue])];

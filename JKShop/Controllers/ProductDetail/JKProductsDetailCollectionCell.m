@@ -11,7 +11,7 @@
 @implementation JKProductsDetailCollectionCell
 
 - (void)customProductsDetailCellWithProductImage:(JKProductImages *)productImage{
-    [self.productImageView setImageWithURL:[NSURL URLWithString:[productImage getMediumImageURL]]];
+    [self.productImageView sd_setImageWithURL:[NSURL URLWithString:[productImage getMediumImageURL]]];
 }
 
 @end

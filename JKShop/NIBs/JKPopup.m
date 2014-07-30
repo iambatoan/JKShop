@@ -68,7 +68,7 @@
     self.labelProductSku.text = [NSString stringWithFormat:@"Product code: %@",product.product_code];
     self.labelProductPrice.text = [NSString getVNCurrencyFormatterWithNumber:@([product.price intValue])];
     self.labelProductDetail.text = product.detail;
-    [self.productImage setImageWithURL:[NSURL URLWithString:[[product.images anyObject] getSmallImageURL]]];
+    [self.productImage sd_setImageWithURL:[NSURL URLWithString:[[product.images anyObject] getSmallImageURL]]];
     self.productImageWrapper.layer.borderWidth = 1;
     self.productImageWrapper.layer.borderColor = [UIColor titleColor].CGColor;
 }
