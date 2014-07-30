@@ -357,6 +357,11 @@
 		84F99F1B184A263400356DB3 /* bookmark_list@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bookmark_list@2x.png"; sourceTree = "<group>"; };
 		84F99F34184A379000356DB3 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
 		A0B12F369756452DBB98FF33 /* libPods-JKShop.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JKShop.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B62CA8A61988CFA900E72A1C /* CategoryHeaders.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CategoryHeaders.h; path = Categories/CategoryHeaders.h; sourceTree = "<group>"; };
+		B62CA8AA1988D09E00E72A1C /* VendorHeaders.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = VendorHeaders.h; path = Vendors/VendorHeaders.h; sourceTree = "<group>"; };
+		B62CA8AB1988D0C300E72A1C /* ControllerHeaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ControllerHeaders.h; path = Controllers/ControllerHeaders.h; sourceTree = "<group>"; };
+		B62CA8AC1988D0CD00E72A1C /* ManagerHeaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ManagerHeaders.h; path = Managers/ManagerHeaders.h; sourceTree = "<group>"; };
+		B62CA8AD1988D0D600E72A1C /* ModelHeaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ModelHeaders.h; path = Models/ModelHeaders.h; sourceTree = "<group>"; };
 		B66324C419877AD900EB9605 /* AFHTTPRequestOperationManager+CustomManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "AFHTTPRequestOperationManager+CustomManager.h"; path = "Categories/AFHTTPRequestOperationManager+CustomManager.h"; sourceTree = "<group>"; };
 		B66324C519877AD900EB9605 /* AFHTTPRequestOperationManager+CustomManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "AFHTTPRequestOperationManager+CustomManager.m"; path = "Categories/AFHTTPRequestOperationManager+CustomManager.m"; sourceTree = "<group>"; };
 		CACBB303B8D240E597B5AF46 /* Pods-JKShop.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JKShop.xcconfig"; path = "Pods/Pods-JKShop.xcconfig"; sourceTree = "<group>"; };
@@ -613,6 +618,7 @@
 				84B3BC8918530C38007CD797 /* UIView+Additions.m */,
 				B66324C419877AD900EB9605 /* AFHTTPRequestOperationManager+CustomManager.h */,
 				B66324C519877AD900EB9605 /* AFHTTPRequestOperationManager+CustomManager.m */,
+				B62CA8A61988CFA900E72A1C /* CategoryHeaders.h */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -620,6 +626,7 @@
 		840644DE1849967B0065BCA4 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				B62CA8AB1988D0C300E72A1C /* ControllerHeaders.h */,
 				0BF7BA5C1862D4D200C7C601 /* GiftViewController */,
 				8444FF6B185621CF008C9D77 /* BookmarkViewController */,
 				0B92A687184DCA43009B33DE /* ProductDetail */,
@@ -649,6 +656,7 @@
 		840644E0184996910065BCA4 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				B62CA8AC1988D0CD00E72A1C /* ManagerHeaders.h */,
 				840645BF1849C2A00065BCA4 /* JKCategoryManager.h */,
 				840645C01849C2A00065BCA4 /* JKCategoryManager.m */,
 				843D1559184A5FE600B65E35 /* JKProductManager.h */,
@@ -680,6 +688,7 @@
 		840644E2184996B40065BCA4 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B62CA8AD1988D0D600E72A1C /* ModelHeaders.h */,
 				84A3BB48184B086E00650BAF /* Machine */,
 				0B26BE16184C7E43008C1D79 /* JKCategory.h */,
 				0B26BE17184C7E43008C1D79 /* JKCategory.m */,
@@ -696,6 +705,7 @@
 			children = (
 				0BA52C771891208900CC321A /* UIImage+Resizing */,
 				0BD57A131890C90D00A9834D /* MHFBImageViewController */,
+				B62CA8AA1988D09E00E72A1C /* VendorHeaders.h */,
 			);
 			name = Vendors;
 			sourceTree = "<group>";

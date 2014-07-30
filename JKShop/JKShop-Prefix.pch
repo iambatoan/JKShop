@@ -44,77 +44,24 @@
 #define API_GET_NONCE                               @"/get_nonce/"
 #define NOTIF_CHANGE_BOOKMARK_PRODUCT_COUNT         @"changBookmarkProductCount"
 
-#import <Availability.h>
-#import <CoreData/CoreData.h>
-#import <CoreLocation/CoreLocation.h>
-#import <Foundation/Foundation.h>
-#import <GoogleMaps/GoogleMaps.h>
-#import <MapKit/MapKit.h>
-#import <QuartzCore/QuartzCore.h>
-#import <SystemConfiguration/SystemConfiguration.h>
-#import <MobileCoreServices/MobileCoreServices.h>
-#import <UIKit/UIKit.h>
-#import <FacebookSDK/FacebookSDK.h>
-#import <GoogleAnalytics-iOS-SDK/GAI.h>
-#import <GoogleAnalytics-iOS-SDK/GAITrackedViewController.h>
-#import <GoogleAnalytics-iOS-SDK/GAITracker.h>
-#import <Crittercism.h>
-#import "AFNetworking.h"
-#import "DACircularProgressView.h"
-#import "SVProgressHUD.h"
-
+//Vendors + Pods
+#import "VendorHeaders.h"
 
 //Controllers
-#import "BaseViewController.h"
-#import "JKLeftMenuViewController.h"
-#import "JKMapViewController.h"
-#import "JKNavigationViewController.h"
-#import "JKProductsCollectionCell.h"
-#import "JKProductsViewController.h"
-#import "MHFacebookImageViewer.h"
-#import "JKBookmarkViewController.h"
+#import "ControllerHeaders.h"
 
 //Vendors
-#import "AFNetworking.h"
-#import "UIImageView+AFNetworking.h"
-#import "IIViewDeckController.h"
-#import "CoreData+MagicalRecord.h"
-#import "SWTableViewCell.h"
-#import "UAModalPanel.h"
-#import "UATitledModalPanel.h"
-#import "TSMessage.h"
-#import "SIAlertView.h"
-#import "UIImage+Resizing.h"
+
+
 
 //Managers
-#import "BaseManager.h"
-#import "FacebookManager.h"
-#import "JKCategoryManager.h"
-#import "JKProductManager.h"
-#import "JKAppDelegate.h"
+#import "ManagerHeaders.h"
 
 //Categories
-#import "UIAlertView+Additions.h"
-#import "UIImage+Additions.h"
-#import "UIColor+Custom.h"
-#import "UIColor+Hex.h"
-#import "UILabel+Additions.h"
-#import "UIView+Additions.h"
-#import "NSString+Additions.h"
-#import "NSString+ActiveSupportInflector.h"
-#import "ActiveSupportInflector.h"
-#import "NSString+HTML.h"
-#import "UIFont+Additions.h"
-#import "UIButton+Additions.h"
-#import "UIImageView+WebCache.h"
-#import "UIImageView+Additions.h"
-#import "NSString+Validation.h"
-#import "AFHTTPRequestOperationManager+CustomManager.h"
+#import "CategoryHeaders.h"
 
 //Models
-#import "JKCategory.h"
-#import "JKProduct.h"
-#import "JKProductImages.h"
+#import "ModelHeaders.h"
 
 //Views
 #import "JKSearchBar.h"
