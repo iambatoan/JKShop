@@ -13,29 +13,29 @@
 SINGLETON_MACRO
 
 - (void)getMenuListOnComplete:(void(^)(NSArray *menu))complete
-                    orFailure:(void(^)(NSError *error))failure{
+                    orFailure:(void(^)(NSError *error))failure {
   NSString *path = [NSString stringWithFormat:@"%@%@",API_SERVER_HOST,API_GET_LIST_CATEGORY];
-  [[JKHTTPClient sharedClient] getPath:path parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
     
-    [self storeMenuList:[responseObject objectForKey:@"categories"]];
-    NSArray *menuList = [self getMenuList];
-    
-    if (complete) {
-      complete(menuList);
-    }
+  [[AFHTTPRequestOperationManager JK_manager] GET:path
+                                       parameters:nil
+                                          success:^(AFHTTPRequestOperation *operation, id responseObject) {
+      [self storeMenuList:[responseObject objectForKey:@"categories"]];
+      NSArray *menuList = [self getMenuList];
+      
+      if (complete) {
+          complete(menuList);
+      }
   } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-    NSArray *menuList = [self getMenuList];
-    if (complete) {
-      complete(menuList);
-      return;
-    }
-    
-    if (failure) {
-      failure(error);
-    }
-    
+      NSArray *menuList = [self getMenuList];
+      if (complete) {
+          complete(menuList);
+          return;
+      }
+      
+      if (failure) {
+          failure(error);
+      }
   }];
-  
 }
 
 - (void)storeMenuList:(id)menuList

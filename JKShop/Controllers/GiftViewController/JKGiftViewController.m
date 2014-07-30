@@ -8,7 +8,6 @@
 
 #import "JKGiftViewController.h"
 
-static int const NOTIF_VIEW_HEIGHT = 40;
 static NSString * const kGiftUserDefault = @"kGiftUserDefault";
 
 @interface JKGiftViewController ()
@@ -73,14 +72,9 @@ CLLocationManagerDelegate
             [TSMessage showNotificationInViewController:self
                                                   title:@"Shaking your phone to get special gift"
                                                subtitle:nil
-                                                  image:nil
                                                    type:TSMessageNotificationTypeSuccess
                                                duration:TSMessageNotificationDurationEndless
-                                               callback:nil
-                                            buttonTitle:nil
-                                         buttonCallback:nil
-                                             atPosition:TSMessageNotificationPositionBottom
-                                    canBeDismisedByUser:NO];
+                                   canBeDismissedByUser:NO];
             return;
         }
         [SVProgressHUD showErrorWithStatus:@"You are so far from JK Shop!"];

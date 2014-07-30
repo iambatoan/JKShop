@@ -12,6 +12,10 @@
 
 @interface BaseManager : NSObject
 
+typedef void (^JKJSONRequestSuccessBlock) (NSInteger statusCode, NSArray *productArray);
+typedef void (^JKJSONRequestFailureBlock) (NSInteger statusCode, id obj);
+typedef void (^JKJSONRequestNonceSuccessBlock) (NSInteger statusCode, NSString *nonce);
+
 + (instancetype)sharedInstance;
 
 + (NSData*)loadJSONDataFromFileName:(NSString*)filename;

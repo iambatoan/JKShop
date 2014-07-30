@@ -7,7 +7,6 @@
 //
 
 #import "BaseManager.h"
-#import "JKHTTPClient.h"
 
 @interface JKProductManager : BaseManager
 

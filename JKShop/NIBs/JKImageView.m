@@ -141,7 +141,7 @@
   [self setImageAsync:fullUrlString showErrorIndicator:showErrorIndicator placeholderImage:nil completed:nil];
 }
 
-- (void)setImageAsync:(NSString *)fullUrlString showErrorIndicator:(BOOL)showErrorIndicator placeholderImage:(UIImage *)placeholder completed:(SDWebImageCompletedBlock)completedBlock
+- (void)setImageAsync:(NSString *)fullUrlString showErrorIndicator:(BOOL)showErrorIndicator placeholderImage:(UIImage *)placeholder completed:(SDWebImageCompletionBlock)completedBlock
 {
   self.currentUrl = fullUrlString;
   
@@ -170,7 +170,7 @@
       self.progressView.alpha = 0;
       self.progressView.progress = 0;
       if (completedBlock)
-        completedBlock(image, nil, cacheType);
+        completedBlock(image, nil, cacheType, nil);
       return;
     }
     
@@ -178,14 +178,14 @@
     self.progressView.progress = 0;
     [weakSelf.progressView fadeInWithDuration:0.1];
     
-    [self setImageWithURL:[NSURL URLWithString:fullUrlString]
+    [self sd_setImageWithURL:[NSURL URLWithString:fullUrlString]
          placeholderImage:weakSelf.image
                   options:SDWebImageRetryFailed
-                 progress:^(NSUInteger receivedSize, long long expectedSize) {
+                 progress:^(NSInteger receivedSize, NSInteger expectedSize) {
                    //This block must be present for the image not to be auto assigned after downloaded
                    weakSelf.progressView.progress = (CGFloat)receivedSize / (CGFloat)expectedSize;
                  }
-                completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
+                completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageUrl) {
                   
                   //Check if the image view has been reused (in UITableViewCell)
                   if ([weakSelf.currentUrl isEqualToString:fullUrlStringCopy] == NO)
@@ -195,7 +195,7 @@
                   if (image != nil) {
                     [weakSelf fadeToImage:image duration:0.4];
                     if (completedBlock)
-                      completedBlock(image, error, cacheType);
+                      completedBlock(image, error, cacheType, imageUrl);
                     return;
                   }
                   
@@ -206,7 +206,7 @@
                   
                   //Error callback
                   if (error != nil && completedBlock)
-                    completedBlock(image, error, cacheType);
+                    completedBlock(image, error, cacheType, imageUrl);
                 }];
   }];
 }

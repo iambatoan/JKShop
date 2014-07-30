@@ -55,6 +55,13 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 #import <UIKit/UIKit.h>
 #import <FacebookSDK/FacebookSDK.h>
+#import <GoogleAnalytics-iOS-SDK/GAI.h>
+#import <GoogleAnalytics-iOS-SDK/GAITrackedViewController.h>
+#import <GoogleAnalytics-iOS-SDK/GAITracker.h>
+#import <Crittercism.h>
+#import "AFNetworking.h"
+#import "DACircularProgressView.h"
+#import "SVProgressHUD.h"
 
 
 //Controllers
@@ -69,25 +76,20 @@
 
 //Vendors
 #import "AFNetworking.h"
-#import "AFJSONRequestOperation.h"
 #import "UIImageView+AFNetworking.h"
-#import "Crittercism.h"
 #import "IIViewDeckController.h"
-#import "SVProgressHUD.h"
 #import "CoreData+MagicalRecord.h"
 #import "SWTableViewCell.h"
 #import "UAModalPanel.h"
 #import "UATitledModalPanel.h"
-#import "GAI.h"
-#import "GAITrackedViewController.h"
-#import "GAITracker.h"
-#import "GAITransaction.h"
-#import "GAITransactionItem.h"
-#import "Reachability.h"
+//#import "GAI.h"
+//#import "GAITrackedViewController.h"
+//#import "GAITracker.h"
+//#import "GAITransaction.h"
+//#import "GAITransactionItem.h"
+//#import "Reachability.h"
 #import "TSMessage.h"
 #import "SIAlertView.h"
-#import "DACircularProgressView.h"
-#import "UIImageView+UIImageView_FaceAwareFill.h"
 #import "UIImage+Resizing.h"
 
 //Managers
@@ -96,7 +98,6 @@
 #import "JKCategoryManager.h"
 #import "JKProductManager.h"
 #import "JKAppDelegate.h"
-#import "JKReachabilityManager.h"
 
 //Categories
 #import "UIAlertView+Additions.h"
@@ -109,16 +110,15 @@
 #import "NSString+ActiveSupportInflector.h"
 #import "ActiveSupportInflector.h"
 #import "NSString+HTML.h"
-#import "TSMessage+Additions.h"
 #import "UIFont+Additions.h"
 #import "UIButton+Additions.h"
 #import "UIImageView+WebCache.h"
 #import "UIImageView+Additions.h"
 #import "NSString+Validation.h"
+#import "AFHTTPRequestOperationManager+CustomManager.h"
 
 //Models
 #import "JKCategory.h"
-#import "JKHTTPClient.h"
 #import "JKProduct.h"
 #import "JKProductImages.h"
 

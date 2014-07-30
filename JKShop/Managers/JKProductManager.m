@@ -26,26 +26,28 @@ SINGLETON_MACRO
                              @"category_id"     : [NSNumber numberWithInteger:category_id]
                              };
     
-    [[JKHTTPClient sharedClient] getPath:[NSString stringWithFormat:@"%@%@",API_SERVER_HOST,API_GET_PRODUCT_BY_CATEGORY_ID] parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
-        [[JKProductManager sharedInstance] productsFromReponseObject:responseObject[@"products"] categoryID:category_id onSuccess:^(NSArray *productArray) {
+    NSString *path = [NSString stringWithFormat:@"%@%@",API_SERVER_HOST,API_GET_PRODUCT_BY_CATEGORY_ID];
+    
+    [[AFHTTPRequestOperationManager JK_manager] GET:path
+                                         parameters:params
+                                            success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [[JKProductManager sharedInstance] productsFromReponseObject:responseObject[@"products"]
+                                                          categoryID:category_id
+                                                           onSuccess:^(NSArray *productArray) {
             successBlock(operation.response.statusCode, productArray);
         }];
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
-        NSArray *arr = [self getStoredProductsWithCategoryId:category_id];
-        if (arr.count > 0) {
-            successBlock(operation.response.statusCode, arr);
+    }   failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSArray *localProductArray = [self getStoredProductsWithCategoryId:category_id];
+        if (localProductArray.count > 0) {
+            successBlock(operation.response.statusCode, localProductArray);
             return;
         }
         
         if (failureBlock) {
             failureBlock(operation.response.statusCode, error);
         }
+
     }];
-    
-    
 }
 
 - (NSArray *)getStoredProductsWithCategoryId:(NSInteger)category_id

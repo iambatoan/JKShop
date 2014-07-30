@@ -1,0 +1,86 @@
+PODS:
+  - AFNetworking (2.3.1):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+    - AFNetworking/UIKit
+  - AFNetworking/NSURLConnection (2.3.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.3.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (2.3.1)
+  - AFNetworking/Security (2.3.1)
+  - AFNetworking/Serialization (2.3.1)
+  - AFNetworking/UIKit (2.3.1):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
+  - AFUrbanAirshipClient (0.0.2):
+    - AFNetworking (~> 2.0)
+  - Bolts (1.1.0)
+  - CrittercismSDK (4.3.4)
+  - DACircularProgress (2.2.0)
+  - Facebook-iOS-SDK (3.16.2):
+    - Bolts
+  - GoogleAnalytics-iOS-SDK (3.0.8)
+  - GoogleMapsKit (1.0.4)
+  - HexColors (2.2.1)
+  - MagicalRecord (2.2):
+    - MagicalRecord/Core
+  - MagicalRecord/Core (2.2)
+  - MYBlurIntroductionView (1.0.3)
+  - SDWebImage (3.7.1):
+    - SDWebImage/Core
+  - SDWebImage/Core (3.7.1)
+  - SIAlertView (1.3)
+  - SVProgressHUD (1.0)
+  - SWTableViewCell (0.3.0)
+  - TSMessages (0.9.9):
+    - HexColors
+  - UAModalPanel (1.1.1)
+  - ViewDeck (2.3.1)
+
+DEPENDENCIES:
+  - AFNetworking
+  - AFUrbanAirshipClient
+  - CrittercismSDK (~> 4.3.4)
+  - DACircularProgress
+  - Facebook-iOS-SDK
+  - GoogleAnalytics-iOS-SDK (~> 3.0.8)
+  - GoogleMapsKit
+  - MagicalRecord
+  - MYBlurIntroductionView
+  - SDWebImage
+  - SIAlertView
+  - SVProgressHUD
+  - SWTableViewCell
+  - TSMessages
+  - UAModalPanel
+  - ViewDeck
+
+SPEC CHECKSUMS:
+  AFNetworking: 6d7b76aa5d04c8c37daad3eef4b7e3f2a7620da3
+  AFUrbanAirshipClient: 38f56dab3b9e5642c0f9895dc3f61b9bb65a502c
+  Bolts: 91c2af8eae1d44e1dd75946a5b0ae04a43ea43e4
+  CrittercismSDK: d32f9f730158e3e646c445b752d7851710a1fed2
+  DACircularProgress: 3b41941891a56dc6aa17971f5322a9a38a6f446e
+  Facebook-iOS-SDK: 34eef640c2cc4c8618ba0f574ad2b290e07f1b4e
+  GoogleAnalytics-iOS-SDK: a3206c68ee5f2a014ed67383d1f779072b653988
+  GoogleMapsKit: 4fbcb67919921be3ed4f39566d8d6a5ac4c0f6dc
+  HexColors: 01384d2bbe8dc4ffa43c3b4135db6e976952d153
+  MagicalRecord: 2b471584fc9e3137f3d0a56967917baa4979e224
+  MYBlurIntroductionView: 6caf60805eaa555538aba9e2615820fd6f07cd23
+  SDWebImage: 116e88633b5b416ea0ca4b334a4ac59cf72dd38d
+  SIAlertView: d00609a1faa9d82f17b9f0b4eede64e84a577b10
+  SVProgressHUD: 5034c6e22b8c2ca3e09402e48d41ed0340aa1c50
+  SWTableViewCell: 1725f7607ce4c154264c18aeb78e4636b11b0b29
+  TSMessages: 2999ef55e532378692e9d14d32da2bb60e285129
+  UAModalPanel: 9363c43a927fa8374a73366c8524b6ab22368b66
+  ViewDeck: 654a493fc83928892ce483dea08a5302180aafce
+
+COCOAPODS: 0.33.1

@@ -88,7 +88,7 @@ MHFacebookImageViewerDatasource
         [cell customProductsDetailCellWithProductImage:[self.productImageArray objectAtIndex:indexPath.item]];
         
         UIImageView *imageView = (UIImageView *)[cell viewWithTag:1];
-        [imageView setImageWithURL:[NSURL URLWithString:[[self.productImageArray objectAtIndex:indexPath.item] getLargeImageURL]]];
+        [imageView sd_setImageWithURL:[NSURL URLWithString:[[self.productImageArray objectAtIndex:indexPath.item] getLargeImageURL]]];
         [imageView setupImageViewerWithDatasource:self initialIndex:indexPath.row onOpen:nil onClose:nil];
         imageView.contentMode = UIViewContentModeScaleAspectFill;
         imageView.clipsToBounds = NO;
@@ -208,32 +208,32 @@ MHFacebookImageViewerDatasource
 
 - (void)reachabilityDidChange:(NSNotification *)notification{
 
-    if ([JKReachabilityManager isReachable]) {
-        if (![JKReachabilityManager sharedInstance].lastState) {
-            [TSMessage showNotificationInViewController:self
-                                                  title:@"Connecting.."
-                                                   type:TSMessageNotificationTypeMessage
-                                               duration:2
-                                             atPosition:TSMessageNotificationPositionBottom];
-            [TSMessage showNotificationInViewController:self
-                                                  title:@"Connected"
-                                                   type:TSMessageNotificationTypeSuccess
-                                               duration:1
-                                             atPosition:TSMessageNotificationPositionBottom];
-        }
-        [self getImageFromProduct];
-        [JKReachabilityManager sharedInstance].lastState = 1;
-        return;
-    }
-    if ([JKReachabilityManager sharedInstance].lastState) {
-        [TSMessage dismissActiveNotification];
-        [TSMessage showNotificationInViewController:self
-                                              title:@"No connection"
-                                               type:TSMessageNotificationTypeError
-                                           duration:5
-                                         atPosition:TSMessageNotificationPositionBottom];
-        [JKReachabilityManager sharedInstance].lastState = 0;
-    }
+//    if ([JKReachabilityManager isReachable]) {
+//        if (![JKReachabilityManager sharedInstance].lastState) {
+//            [TSMessage showNotificationInViewController:self
+//                                                  title:@"Connecting.."
+//                                                   type:TSMessageNotificationTypeMessage
+//                                               duration:2
+//                                             atPosition:TSMessageNotificationPositionBottom];
+//            [TSMessage showNotificationInViewController:self
+//                                                  title:@"Connected"
+//                                                   type:TSMessageNotificationTypeSuccess
+//                                               duration:1
+//                                             atPosition:TSMessageNotificationPositionBottom];
+//        }
+//        [self getImageFromProduct];
+//        [JKReachabilityManager sharedInstance].lastState = 1;
+//        return;
+//    }
+//    if ([JKReachabilityManager sharedInstance].lastState) {
+//        [TSMessage dismissActiveNotification];
+//        [TSMessage showNotificationInViewController:self
+//                                              title:@"No connection"
+//                                               type:TSMessageNotificationTypeError
+//                                           duration:5
+//                                         atPosition:TSMessageNotificationPositionBottom];
+//        [JKReachabilityManager sharedInstance].lastState = 0;
+//    }
 }
 
 @end

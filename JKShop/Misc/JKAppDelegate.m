@@ -8,6 +8,7 @@
 
 #import "JKAppDelegate.h"
 #import "JKHomeViewController.h"
+#import <GoogleAnalytics-iOS-SDK/GAI.h>
 
 static NSString *const kTrackingPreferenceKey = @"allowTracking";
 static NSString *const kTrackingDay = @"kTrackingDay";
@@ -30,7 +31,7 @@ FacebookManagerDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [JKReachabilityManager sharedInstance];
+//    [JKReachabilityManager sharedInstance];
 
     [MagicalRecord setupCoreDataStack];
     
@@ -245,9 +246,9 @@ FacebookManagerDelegate
     // Optional: set Google Analytics dispatch interval to e.g. 20 seconds.
     [GAI sharedInstance].dispatchInterval = 20;
     // Create tracker instance.
-    self.tracker = [[GAI sharedInstance] trackerWithTrackingId:SETTING_GAI_APP_ID];
-    // Optional: set debug to YES for extra debugging information.
-    [GAI sharedInstance].debug = YES;
+    [[GAI sharedInstance] trackerWithTrackingId:SETTING_GAI_APP_ID];
+    
+    [[[GAI sharedInstance] logger] setLogLevel:kGAILogLevelVerbose];
 }
 
 @end

@@ -21,6 +21,6 @@
 - (void)setImageAsync:(NSString *)fullUrlString
    showErrorIndicator:(BOOL)showErrorIndicator
      placeholderImage:(UIImage *)placeholder
-            completed:(SDWebImageCompletedBlock)completedBlock;
+            completed:(SDWebImageCompletionBlock)completedBlock;
 
 @end

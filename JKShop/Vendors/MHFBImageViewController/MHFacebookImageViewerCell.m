@@ -59,7 +59,7 @@ static const CGFloat kMinImageScale = 1.0f;
         [__imageView setImageAsync:[imageURL absoluteString]
                 showErrorIndicator:YES
                   placeholderImage:defaultImage
-                         completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType)
+                         completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageUrl)
          {
              if (error != nil) {
                  DLog(@"Image From URL Not loaded");

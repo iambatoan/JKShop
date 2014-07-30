@@ -7,7 +7,6 @@
 //
 
 #import "JKMapViewController.h"
-#import "GMDirectionService.h"
 
 @interface JKMapViewController ()
 <
@@ -66,24 +65,24 @@ GMSMapViewDelegate
     DLog(@"%@",myLocationString);
     NSString *shopLocationString = [NSString stringWithFormat:@"%f,%f",SETTINGS_JK_SHOP_LATITUDE,SETTINGS_JK_SHOP_LONGITUDE];
     
-    [[GMDirectionService sharedInstance] getDirectionsFrom:myLocationString
-                                                        to:shopLocationString
-                                                 succeeded:^(GMDirection *directionResponse)
-    {
-        if ([directionResponse statusOK]) {
-            NSArray *routes = [[directionResponse directionResponse] objectForKey:@"routes"];
-            
-            GMSPath *path = [GMSPath pathFromEncodedPath:routes[0][@"overview_polyline"][@"points"]];
-            GMSPolyline *polyline = [GMSPolyline polylineWithPath:path];
-            polyline.strokeColor = [UIColor titleColor];
-            polyline.strokeWidth = 10.f;
-            polyline.geodesic = YES;
-            
-            polyline.map = self.mapView;
-
-        }
-    }
-                                                    failed:nil];
+//    [[GMDirectionService sharedInstance] getDirectionsFrom:myLocationString
+//                                                        to:shopLocationString
+//                                                 succeeded:^(GMDirection *directionResponse)
+//    {
+//        if ([directionResponse statusOK]) {
+//            NSArray *routes = [[directionResponse directionResponse] objectForKey:@"routes"];
+//            
+//            GMSPath *path = [GMSPath pathFromEncodedPath:routes[0][@"overview_polyline"][@"points"]];
+//            GMSPolyline *polyline = [GMSPolyline polylineWithPath:path];
+//            polyline.strokeColor = [UIColor titleColor];
+//            polyline.strokeWidth = 10.f;
+//            polyline.geodesic = YES;
+//            
+//            polyline.map = self.mapView;
+//
+//        }
+//    }
+//                                                    failed:nil];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context

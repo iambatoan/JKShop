@@ -8,7 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "_JKProductImages.h"
-#import "JKHTTPClient.h"
+
+typedef void (^JKJSONRequestImageSuccessBlock) (NSInteger statusCode, NSSet *productImageSet);
+typedef void (^JKJSONRequestFailureBlock) (NSInteger statusCode, id obj);
 
 @interface JKProductImages : _JKProductImages
 + (JKProductImages *)productImagesWithArray:(NSArray *)array productID:(NSInteger)productID;

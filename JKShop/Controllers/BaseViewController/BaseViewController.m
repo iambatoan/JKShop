@@ -30,17 +30,17 @@ IIViewDeckControllerDelegate
                                              selector:@selector(addNavigationItems)
                                                  name:NOTIF_CHANGE_BOOKMARK_PRODUCT_COUNT
                                                object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(reachabilityDidChange:)
-                                                 name:kReachabilityChangedNotification
-                                               object:nil];
+//    
+//    [[NSNotificationCenter defaultCenter] addObserver:self
+//                                             selector:@selector(reachabilityDidChange:)
+//                                                 name:kReachabilityChangedNotification
+//                                               object:nil];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     if (self.title) {
-        self.trackedViewName = self.title;
+        self.screenName = self.title;
     }
     [super viewDidAppear:animated];
 }
@@ -100,32 +100,32 @@ IIViewDeckControllerDelegate
 
 - (void)reachabilityDidChange:(NSNotification *)notification {
 
-    if ([JKReachabilityManager isReachable]) {
-        if (![JKReachabilityManager sharedInstance].lastState) {
-            [TSMessage showNotificationInViewController:self
-                                                  title:@"Connecting.."
-                                                   type:TSMessageNotificationTypeMessage
-                                               duration:2
-                                             atPosition:TSMessageNotificationPositionBottom];
-            
-            [TSMessage showNotificationInViewController:self
-                                                  title:@"Connected"
-                                                   type:TSMessageNotificationTypeSuccess
-                                               duration:1
-                                             atPosition:TSMessageNotificationPositionBottom];
-        }
-        [JKReachabilityManager sharedInstance].lastState = 1;
-        return;
-    }
-    if ([JKReachabilityManager sharedInstance].lastState) {
-        [TSMessage dismissActiveNotification];
-        [TSMessage showNotificationInViewController:self
-                                              title:@"No connection"
-                                               type:TSMessageNotificationTypeError
-                                           duration:5
-                                         atPosition:TSMessageNotificationPositionBottom];
-        [JKReachabilityManager sharedInstance].lastState = 0;
-    }
+//    if ([JKReachabilityManager isReachable]) {
+//        if (![JKReachabilityManager sharedInstance].lastState) {
+//            [TSMessage showNotificationInViewController:self
+//                                                  title:@"Connecting.."
+//                                                   type:TSMessageNotificationTypeMessage
+//                                               duration:2
+//                                             atPosition:TSMessageNotificationPositionBottom];
+//            
+//            [TSMessage showNotificationInViewController:self
+//                                                  title:@"Connected"
+//                                                   type:TSMessageNotificationTypeSuccess
+//                                               duration:1
+//                                             atPosition:TSMessageNotificationPositionBottom];
+//        }
+//        [JKReachabilityManager sharedInstance].lastState = 1;
+//        return;
+//    }
+//    if ([JKReachabilityManager sharedInstance].lastState) {
+//        [TSMessage dismissActiveNotification];
+//        [TSMessage showNotificationInViewController:self
+//                                              title:@"No connection"
+//                                               type:TSMessageNotificationTypeError
+//                                           duration:5
+//                                         atPosition:TSMessageNotificationPositionBottom];
+//        [JKReachabilityManager sharedInstance].lastState = 0;
+//    }
 }
 
 @end
