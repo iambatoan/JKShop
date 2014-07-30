@@ -11,5 +11,6 @@
 @interface BaseAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) NSArray *services;
+@property (strong, nonatomic) UIWindow *window;
 
 @end

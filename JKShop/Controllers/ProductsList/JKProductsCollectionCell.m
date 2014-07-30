@@ -19,7 +19,7 @@
 @implementation JKProductsCollectionCell
 
 - (void)customProductCellWithProduct:(JKProduct *)aProduct{
-    [self.productImageView setImageWithURL:[NSURL URLWithString:[[aProduct.images anyObject] getMediumImageURL]]];
+    [self.productImageView sd_setImageWithURL:[NSURL URLWithString:[[aProduct.images anyObject] getMediumImageURL]]];
     self.productName.text = aProduct.name;
     [self.productName setFont:[UIFont fontWithName:@"Lato" size:14]];
     [self.productName setTextColor:[UIColor titleColor]];

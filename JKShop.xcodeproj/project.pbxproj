@@ -373,6 +373,7 @@
 		B60B0CE41988F61A002587BD /* JKReachabilityService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKReachabilityService.m; path = Services/JKReachabilityService.m; sourceTree = "<group>"; };
 		B60B0CE61988F866002587BD /* JKCoreDataService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKCoreDataService.h; path = Services/JKCoreDataService.h; sourceTree = "<group>"; };
 		B60B0CE71988F866002587BD /* JKCoreDataService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKCoreDataService.m; path = Services/JKCoreDataService.m; sourceTree = "<group>"; };
+		B60B0CE91988FE3B002587BD /* ServiceHeaders.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ServiceHeaders.h; path = Services/ServiceHeaders.h; sourceTree = "<group>"; };
 		B62CA8A61988CFA900E72A1C /* CategoryHeaders.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CategoryHeaders.h; path = Categories/CategoryHeaders.h; sourceTree = "<group>"; };
 		B62CA8AA1988D09E00E72A1C /* VendorHeaders.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = VendorHeaders.h; path = Vendors/VendorHeaders.h; sourceTree = "<group>"; };
 		B62CA8AB1988D0C300E72A1C /* ControllerHeaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ControllerHeaders.h; path = Controllers/ControllerHeaders.h; sourceTree = "<group>"; };
@@ -944,6 +945,7 @@
 				B60B0CE41988F61A002587BD /* JKReachabilityService.m */,
 				B60B0CE61988F866002587BD /* JKCoreDataService.h */,
 				B60B0CE71988F866002587BD /* JKCoreDataService.m */,
+				B60B0CE91988FE3B002587BD /* ServiceHeaders.h */,
 			);
 			name = Services;
 			sourceTree = "<group>";

@@ -10,4 +10,6 @@
 
 @interface JKCrittercismService : NSObject <UIApplicationDelegate>
 
++ (instancetype)crittercismService;
+
 @end

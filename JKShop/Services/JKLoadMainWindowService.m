@@ -38,11 +38,11 @@ static const CGFloat JKViewDeckRightViewControllerSize = 40.0f;
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    IIViewDeckController *deckController = [self generateControllerStack];
-    
+    [self appDelegate].window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+ 
     UIWindow *window = [self appDelegate].window;
-    window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    window.rootViewController = deckController;
+    window.backgroundColor = [UIColor whiteColor];
+    window.rootViewController = [self generateControllerStack];
     [window makeKeyAndVisible];
     
     return YES;

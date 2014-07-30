@@ -12,8 +12,17 @@
 @synthesize services = _services;
 
 - (NSArray *)services {
+    //Note: Order matters
     if (!_services) {
-        _services = @[];
+        _services = @[[JKMagicalRecordService magicalRecordService],
+                      [JKGMSService GMSService],
+                      [JKGAIService GAIService],
+                      [JKFacebookIntegrationService facebookService],
+                      [JKCrittercismService crittercismService],
+                      [JKGiftService giftService],
+                      [JKReachabilityService reachabilityService],
+                      [JKLoadMainWindowService loadMainWindowService],
+                      [JKCoreDataService coreDataService]];
     }
     
     return _services;

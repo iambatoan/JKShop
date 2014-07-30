@@ -54,6 +54,9 @@
 //Models
 #import "ModelHeaders.h"
 
+//Services
+#import "ServiceHeaders.h"
+
 //Views
 #import "JKSearchBar.h"
 #import "JKImageView.h"
