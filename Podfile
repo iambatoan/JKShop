@@ -9,7 +9,6 @@ target :JKShop, :exclusive => true do
     pod 'UAModalPanel'
     pod 'MYBlurIntroductionView'
     pod 'SWTableViewCell'
-    pod 'MagicalRecord'
     pod 'SVProgressHUD'
     pod 'CrittercismSDK', '~> 4.3.4'
     pod 'AFNetworking'
@@ -19,6 +18,7 @@ target :JKShop, :exclusive => true do
     pod 'GoogleMapsKit'
     pod 'DACircularProgress'
     pod 'Facebook-iOS-SDK'
+    pod 'Mantle'
 
 end
 

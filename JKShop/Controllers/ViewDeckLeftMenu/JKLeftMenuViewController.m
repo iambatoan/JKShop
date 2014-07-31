@@ -336,29 +336,29 @@ UIScrollViewDelegate
 - (NSMutableArray *)arrProductsForSearchText:(NSString *)searchText
 {
     NSMutableArray *arrResultProduct = [[NSMutableArray alloc] init];
-    NSArray *arrProduct = [JKProduct MR_findAllSortedBy:@"name" ascending:YES];
-    
-    for (JKProduct *product in arrProduct) {
-        NSString *productNameWithoutUnicode = [[NSString alloc] initWithData:[product.name dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES] encoding:NSASCIIStringEncoding];
-        NSRange nameRange = [productNameWithoutUnicode rangeOfString:searchText options:NSCaseInsensitiveSearch];
-        if (nameRange.location != NSNotFound && product.images.count) {
-            [arrResultProduct addObject:product];
-        }
-    }
+//    NSArray *arrProduct = [JKProduct MR_findAllSortedBy:@"name" ascending:YES];
+//    
+//    for (JKProduct *product in arrProduct) {
+//        NSString *productNameWithoutUnicode = [[NSString alloc] initWithData:[product.name dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES] encoding:NSASCIIStringEncoding];
+//        NSRange nameRange = [productNameWithoutUnicode rangeOfString:searchText options:NSCaseInsensitiveSearch];
+//        if (nameRange.location != NSNotFound && product.images.count) {
+//            [arrResultProduct addObject:product];
+//        }
+//    }
+//    return arrResultProduct;
+//    
+//    
+//    if (arrResultProduct.count == 0) {
+//        for (JKProduct *product in arrProduct) {
+//            NSRange nameRange = [product.product_code rangeOfString:searchText options:NSCaseInsensitiveSearch];
+//            if (nameRange.location != NSNotFound) {
+//                [arrResultProduct addObject:product];
+//            }
+//        }
+//        return arrResultProduct;
+//    }
+//    
     return arrResultProduct;
-    
-    
-    if (arrResultProduct.count == 0) {
-        for (JKProduct *product in arrProduct) {
-            NSRange nameRange = [product.product_code rangeOfString:searchText options:NSCaseInsensitiveSearch];
-            if (nameRange.location != NSNotFound) {
-                [arrResultProduct addObject:product];
-            }
-        }
-        return arrResultProduct;
-    }
-    
-    
 }
 
 #pragma mark - Footer button action

@@ -30,9 +30,6 @@ PODS:
   - GoogleAnalytics-iOS-SDK (3.0.8)
   - GoogleMapsKit (1.0.4)
   - HexColors (2.2.1)
-  - MagicalRecord (2.2):
-    - MagicalRecord/Core
-  - MagicalRecord/Core (2.2)
   - MYBlurIntroductionView (1.0.3)
   - SDWebImage (3.7.1):
     - SDWebImage/Core
@@ -53,7 +50,6 @@ DEPENDENCIES:
   - Facebook-iOS-SDK
   - GoogleAnalytics-iOS-SDK (~> 3.0.8)
   - GoogleMapsKit
-  - MagicalRecord
   - MYBlurIntroductionView
   - SDWebImage
   - SIAlertView
@@ -73,7 +69,6 @@ SPEC CHECKSUMS:
   GoogleAnalytics-iOS-SDK: a3206c68ee5f2a014ed67383d1f779072b653988
   GoogleMapsKit: 4fbcb67919921be3ed4f39566d8d6a5ac4c0f6dc
   HexColors: 01384d2bbe8dc4ffa43c3b4135db6e976952d153
-  MagicalRecord: 2b471584fc9e3137f3d0a56967917baa4979e224
   MYBlurIntroductionView: 6caf60805eaa555538aba9e2615820fd6f07cd23
   SDWebImage: 116e88633b5b416ea0ca4b334a4ac59cf72dd38d
   SIAlertView: d00609a1faa9d82f17b9f0b4eede64e84a577b10

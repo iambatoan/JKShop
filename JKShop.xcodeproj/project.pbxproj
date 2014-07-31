@@ -79,7 +79,6 @@
 		840644AF184992750065BCA4 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 840644AE184992750065BCA4 /* CoreData.framework */; };
 		840644B5184992750065BCA4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 840644B3184992750065BCA4 /* InfoPlist.strings */; };
 		840644B7184992750065BCA4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 840644B6184992750065BCA4 /* main.m */; };
-		840644BE184992750065BCA4 /* JKShop.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 840644BC184992750065BCA4 /* JKShop.xcdatamodeld */; };
 		840644C0184992750065BCA4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 840644BF184992750065BCA4 /* Images.xcassets */; };
 		840644C7184992750065BCA4 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 840644C6184992750065BCA4 /* XCTest.framework */; };
 		840644C8184992750065BCA4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 840644A8184992740065BCA4 /* Foundation.framework */; };
@@ -156,8 +155,6 @@
 		87B7849E5160473C93487762 /* libPods-JKShop.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A0B12F369756452DBB98FF33 /* libPods-JKShop.a */; };
 		B60B0CE21988F3BA002587BD /* JKGiftService.m in Sources */ = {isa = PBXBuildFile; fileRef = B60B0CE11988F3BA002587BD /* JKGiftService.m */; };
 		B60B0CE51988F61A002587BD /* JKReachabilityService.m in Sources */ = {isa = PBXBuildFile; fileRef = B60B0CE41988F61A002587BD /* JKReachabilityService.m */; };
-		B60B0CE81988F866002587BD /* JKCoreDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = B60B0CE71988F866002587BD /* JKCoreDataService.m */; };
-		B62CA8B11988DD3400E72A1C /* JKMagicalRecordService.m in Sources */ = {isa = PBXBuildFile; fileRef = B62CA8B01988DD3400E72A1C /* JKMagicalRecordService.m */; };
 		B62CA8B41988DE4D00E72A1C /* JKGMSService.m in Sources */ = {isa = PBXBuildFile; fileRef = B62CA8B31988DE4D00E72A1C /* JKGMSService.m */; };
 		B62CA8B71988DFFA00E72A1C /* BaseAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B62CA8B61988DFFA00E72A1C /* BaseAppDelegate.m */; };
 		B66324C619877AD900EB9605 /* AFHTTPRequestOperationManager+CustomManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B66324C519877AD900EB9605 /* AFHTTPRequestOperationManager+CustomManager.m */; };
@@ -263,7 +260,6 @@
 		840644B4184992750065BCA4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		840644B6184992750065BCA4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		840644B8184992750065BCA4 /* JKShop-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JKShop-Prefix.pch"; sourceTree = "<group>"; };
-		840644BD184992750065BCA4 /* JKShop.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = JKShop.xcdatamodel; sourceTree = "<group>"; };
 		840644BF184992750065BCA4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		840644C5184992750065BCA4 /* JKShopTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JKShopTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		840644C6184992750065BCA4 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -371,16 +367,12 @@
 		B60B0CE11988F3BA002587BD /* JKGiftService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKGiftService.m; path = Services/JKGiftService.m; sourceTree = "<group>"; };
 		B60B0CE31988F61A002587BD /* JKReachabilityService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKReachabilityService.h; path = Services/JKReachabilityService.h; sourceTree = "<group>"; };
 		B60B0CE41988F61A002587BD /* JKReachabilityService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKReachabilityService.m; path = Services/JKReachabilityService.m; sourceTree = "<group>"; };
-		B60B0CE61988F866002587BD /* JKCoreDataService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKCoreDataService.h; path = Services/JKCoreDataService.h; sourceTree = "<group>"; };
-		B60B0CE71988F866002587BD /* JKCoreDataService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKCoreDataService.m; path = Services/JKCoreDataService.m; sourceTree = "<group>"; };
 		B60B0CE91988FE3B002587BD /* ServiceHeaders.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ServiceHeaders.h; path = Services/ServiceHeaders.h; sourceTree = "<group>"; };
 		B62CA8A61988CFA900E72A1C /* CategoryHeaders.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CategoryHeaders.h; path = Categories/CategoryHeaders.h; sourceTree = "<group>"; };
 		B62CA8AA1988D09E00E72A1C /* VendorHeaders.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = VendorHeaders.h; path = Vendors/VendorHeaders.h; sourceTree = "<group>"; };
 		B62CA8AB1988D0C300E72A1C /* ControllerHeaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ControllerHeaders.h; path = Controllers/ControllerHeaders.h; sourceTree = "<group>"; };
 		B62CA8AC1988D0CD00E72A1C /* ManagerHeaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ManagerHeaders.h; path = Managers/ManagerHeaders.h; sourceTree = "<group>"; };
 		B62CA8AD1988D0D600E72A1C /* ModelHeaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ModelHeaders.h; path = Models/ModelHeaders.h; sourceTree = "<group>"; };
-		B62CA8AF1988DD3400E72A1C /* JKMagicalRecordService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKMagicalRecordService.h; path = Services/JKMagicalRecordService.h; sourceTree = "<group>"; };
-		B62CA8B01988DD3400E72A1C /* JKMagicalRecordService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKMagicalRecordService.m; path = Services/JKMagicalRecordService.m; sourceTree = "<group>"; };
 		B62CA8B21988DE4D00E72A1C /* JKGMSService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKGMSService.h; path = Services/JKGMSService.h; sourceTree = "<group>"; };
 		B62CA8B31988DE4D00E72A1C /* JKGMSService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKGMSService.m; path = Services/JKGMSService.m; sourceTree = "<group>"; };
 		B62CA8B51988DFFA00E72A1C /* BaseAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseAppDelegate.h; path = Misc/BaseAppDelegate.h; sourceTree = "<group>"; };
@@ -585,7 +577,6 @@
 			isa = PBXGroup;
 			children = (
 				840644B2184992750065BCA4 /* JKShop-Info.plist */,
-				840644BC184992750065BCA4 /* JKShop.xcdatamodeld */,
 				840644B3184992750065BCA4 /* InfoPlist.strings */,
 				840644B6184992750065BCA4 /* main.m */,
 				840644B8184992750065BCA4 /* JKShop-Prefix.pch */,
@@ -927,8 +918,6 @@
 		B62CA8AE1988DD1400E72A1C /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				B62CA8AF1988DD3400E72A1C /* JKMagicalRecordService.h */,
-				B62CA8B01988DD3400E72A1C /* JKMagicalRecordService.m */,
 				B62CA8B21988DE4D00E72A1C /* JKGMSService.h */,
 				B62CA8B31988DE4D00E72A1C /* JKGMSService.m */,
 				B6AC22571988E55E008E96E8 /* JKGAIService.h */,
@@ -943,8 +932,6 @@
 				B60B0CE11988F3BA002587BD /* JKGiftService.m */,
 				B60B0CE31988F61A002587BD /* JKReachabilityService.h */,
 				B60B0CE41988F61A002587BD /* JKReachabilityService.m */,
-				B60B0CE61988F866002587BD /* JKCoreDataService.h */,
-				B60B0CE71988F866002587BD /* JKCoreDataService.m */,
 				B60B0CE91988FE3B002587BD /* ServiceHeaders.h */,
 			);
 			name = Services;
@@ -1202,13 +1189,11 @@
 				840645BC1849BF260065BCA4 /* JKLeftMenuSectionHeader.m in Sources */,
 				840645AA1849B9030065BCA4 /* JKLeftMenuViewController.m in Sources */,
 				B62CA8B71988DFFA00E72A1C /* BaseAppDelegate.m in Sources */,
-				B62CA8B11988DD3400E72A1C /* JKMagicalRecordService.m in Sources */,
 				B6AC225F1988EC31008E96E8 /* JKFacebookIntegrationService.m in Sources */,
 				0BA52C6918911CF700CC321A /* UIFont+Additions.m in Sources */,
 				840645B91849BE5B0065BCA4 /* UIColor+Hex.m in Sources */,
 				84819F47185B63DC00D0F336 /* ISO8601DateFormatter.m in Sources */,
 				8406452018499DB60065BCA4 /* FacebookManager.m in Sources */,
-				B60B0CE81988F866002587BD /* JKCoreDataService.m in Sources */,
 				84819F42185B637F00D0F336 /* NSString+ActiveSupportInflector.m in Sources */,
 				0B466865185EE9AA00E42E21 /* GTMNSString+HTML.m in Sources */,
 				0BA52C6C18911D6F00CC321A /* UIButton+Additions.m in Sources */,
@@ -1217,7 +1202,6 @@
 				0BA52C7D1891208900CC321A /* UIImage+Resizing.m in Sources */,
 				B6AC22591988E55E008E96E8 /* JKGAIService.m in Sources */,
 				84819F41185B637F00D0F336 /* ActiveSupportInflector.m in Sources */,
-				840644BE184992750065BCA4 /* JKShop.xcdatamodeld in Sources */,
 				0B92A68B184DCA7F009B33DE /* JKProductDetailViewController.m in Sources */,
 				B62CA8B41988DE4D00E72A1C /* JKGMSService.m in Sources */,
 				8406450A18499D880065BCA4 /* JKAppDelegate.m in Sources */,
@@ -1483,19 +1467,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		840644BC184992750065BCA4 /* JKShop.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				840644BD184992750065BCA4 /* JKShop.xcdatamodel */,
-			);
-			currentVersion = 840644BD184992750065BCA4 /* JKShop.xcdatamodel */;
-			path = JKShop.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 8406449D184992740065BCA4 /* Project object */;
 }

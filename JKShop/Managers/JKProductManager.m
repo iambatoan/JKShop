@@ -54,23 +54,23 @@ SINGLETON_MACRO
 {
     NSNumber *catID = @(category_id);
     NSMutableArray *arrProducts = [[NSMutableArray alloc] init];
-    
-    // if new arrived
-    if (category_id == 21) {
-        arrProducts = [[JKProduct MR_findAllSortedBy:@"product_id" ascending:NO] mutableCopy];
-        return arrProducts;
-    }
-    
-    JKCategory * category = [[JKCategory MR_findByAttribute:@"category_id" withValue:catID] firstObject];
-    for (JKProduct *product in [category.product allObjects]) {
-        if (product.images.count) {
-            [arrProducts addObject:product];
-        }
-    }
-    
-    if (arrProducts.count) {
-        [SVProgressHUD dismiss];
-    }
+//    
+//    // if new arrived
+//    if (category_id == 21) {
+//        arrProducts = [[JKProduct MR_findAllSortedBy:@"product_id" ascending:NO] mutableCopy];
+//        return arrProducts;
+//    }
+//    
+//    JKCategory * category = [[JKCategory MR_findByAttribute:@"category_id" withValue:catID] firstObject];
+//    for (JKProduct *product in [category.product allObjects]) {
+//        if (product.images.count) {
+//            [arrProducts addObject:product];
+//        }
+//    }
+//    
+//    if (arrProducts.count) {
+//        [SVProgressHUD dismiss];
+//    }
     return arrProducts;
 }
 
@@ -81,29 +81,29 @@ SINGLETON_MACRO
                        categoryID:(NSInteger)categoryID
                         onSuccess:(void(^)(NSArray *productArray))successBlock
 {
-    NSMutableArray *arrProduct = [[NSMutableArray alloc] init];
+//    NSMutableArray *arrProduct = [[NSMutableArray alloc] init];
     
-    NSBlockOperation *saveInBackground = [NSBlockOperation blockOperationWithBlock:^{
-        [productDictionaryArray enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-            JKProduct *product;
-            JKCategory *category = [[JKCategory MR_findByAttribute:@"category_id" withValue:@(categoryID)] lastObject];
-            product = [JKProduct productWithDictionary:obj category:category];
-            [arrProduct addObject:product];
-        }];
-    }];
-    
-    [saveInBackground setCompletionBlock:^{
-        NSManagedObjectContext *mainContext  = [NSManagedObjectContext MR_defaultContext];
-        [mainContext MR_saveToPersistentStoreWithCompletion:^(BOOL success, NSError *error) {
-            DLog(@"Finish save to magical record");
-            
-            if (successBlock) {
-                successBlock([self getStoredProductsWithCategoryId:categoryID]);
-            }
-        }];
-    }];
-    
-    [saveInBackground start];
+//    NSBlockOperation *saveInBackground = [NSBlockOperation blockOperationWithBlock:^{
+//        [productDictionaryArray enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+//            JKProduct *product;
+//            JKCategory *category = [[JKCategory MR_findByAttribute:@"category_id" withValue:@(categoryID)] lastObject];
+//            product = [JKProduct productWithDictionary:obj category:category];
+//            [arrProduct addObject:product];
+//        }];
+//    }];
+//    
+//    [saveInBackground setCompletionBlock:^{
+//        NSManagedObjectContext *mainContext  = [NSManagedObjectContext MR_defaultContext];
+//        [mainContext MR_saveToPersistentStoreWithCompletion:^(BOOL success, NSError *error) {
+//            DLog(@"Finish save to magical record");
+//            
+//            if (successBlock) {
+//                successBlock([self getStoredProductsWithCategoryId:categoryID]);
+//            }
+//        }];
+//    }];
+//    
+//    [saveInBackground start];
 }
 
 - (void)saveBookmarkProductWithArray:(NSArray *)array

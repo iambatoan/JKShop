@@ -200,7 +200,8 @@ JKPopupBookmarkDelegate
 }
 
 - (JKProduct *)getProductFromStoreBookmarkAtIndex:(NSInteger)index{
-    return [[JKProduct MR_findByAttribute:@"product_id" withValue:[[self.bookmarkProductArray objectAtIndex:index] objectForKey:STORE_PRODUCT_ID]] lastObject];
+//    return [[JKProduct MR_findByAttribute:@"product_id" withValue:[[self.bookmarkProductArray objectAtIndex:index] objectForKey:STORE_PRODUCT_ID]] lastObject];
+    return nil;
 }
 
 - (NSInteger)getNumberProductFromStoreBookmarkAtIndex:(NSInteger)index{

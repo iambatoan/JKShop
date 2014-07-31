@@ -27,7 +27,6 @@
 #import "SVProgressHUD.h"
 #import "UIImageView+AFNetworking.h"
 #import "IIViewDeckController.h"
-#import "CoreData+MagicalRecord.h"
 #import "SWTableViewCell.h"
 #import "UAModalPanel.h"
 #import "UATitledModalPanel.h"

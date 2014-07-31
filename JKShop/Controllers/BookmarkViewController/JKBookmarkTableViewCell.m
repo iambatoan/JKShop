@@ -41,7 +41,8 @@ static NSString * const STORE_PRODUCT_NUMBER        =   @"store_product_number";
 }
                     
 - (JKProduct *)getProductFromStoreBookmark:(NSDictionary *)storeBookmark{
-    return [[JKProduct MR_findByAttribute:@"product_id" withValue:[storeBookmark objectForKey:STORE_PRODUCT_ID]] lastObject];
+//    return [[JKProduct MR_findByAttribute:@"product_id" withValue:[storeBookmark objectForKey:STORE_PRODUCT_ID]] lastObject];
+    return nil;
 }
 
 + (CGFloat)getHeight

@@ -120,20 +120,20 @@ MHFacebookImageViewerDatasource
 
 - (void)fillUpCollectionRelatedProductWithCategoryID:(NSInteger)categoryID
 {
-    NSInteger catID = 0;
-    for (JKCategory *category in self.product.category) {
-        if ([JKCategory MR_findByAttribute:@"category_id" withValue:@([category getCategoryId])].count) {
-            catID = [category getCategoryId];
-            break;
-        }
-    }
-    self.productsArr = [[[JKProductManager sharedInstance] getStoredProductsWithCategoryId:catID] mutableCopy];
-    for (int i = 0; i < self.productsArr.count; i++) {
-        if (self.productsArr[i] == self.product)
-        {
-            [self.productsArr removeObjectAtIndex:i];
-        }
-    }
+//    NSInteger catID = 0;
+//    for (JKCategory *category in self.product.category) {
+//        if ([JKCategory MR_findByAttribute:@"category_id" withValue:@([category getCategoryId])].count) {
+//            catID = [category getCategoryId];
+//            break;
+//        }
+//    }
+//    self.productsArr = [[[JKProductManager sharedInstance] getStoredProductsWithCategoryId:catID] mutableCopy];
+//    for (int i = 0; i < self.productsArr.count; i++) {
+//        if (self.productsArr[i] == self.product)
+//        {
+//            [self.productsArr removeObjectAtIndex:i];
+//        }
+//    }
     [self showCollectionView];
 }
 

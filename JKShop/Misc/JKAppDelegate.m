@@ -14,15 +14,13 @@
 - (NSArray *)services {
     //Note: Order matters
     if (!_services) {
-        _services = @[[JKMagicalRecordService magicalRecordService],
-                      [JKGMSService GMSService],
+        _services = @[[JKGMSService GMSService],
                       [JKGAIService GAIService],
                       [JKFacebookIntegrationService facebookService],
                       [JKCrittercismService crittercismService],
                       [JKGiftService giftService],
                       [JKReachabilityService reachabilityService],
-                      [JKLoadMainWindowService loadMainWindowService],
-                      [JKCoreDataService coreDataService]];
+                      [JKLoadMainWindowService loadMainWindowService]];
     }
     
     return _services;

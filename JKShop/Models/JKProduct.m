@@ -12,28 +12,28 @@
 + (JKProduct *)productWithDictionary:(NSDictionary *)dictionary
 {
     // look for the core data first
-    JKProduct *product = [[JKProduct MR_findByAttribute:@"product_id" withValue:dictionary[@"id"]] lastObject];
-    
-    if (product)
-        return product;
-    
-    if (!product && ![dictionary[@"name"] isKindOfClass:[NSNull class]]) {
-        product = [JKProduct MR_createEntity];
-        product.product_id = [NSNumber numberWithInt:[dictionary[@"id"] intValue]];
-        product.color = dictionary[@"color"];
-        product.product_code = [NSString stringWithFormat:@"%@",dictionary[@"sku"]];
-        product.detail = [dictionary[@"description"] stringByDecodingHTMLEntities];
-        product.name = [dictionary[@"name"] stringByDecodingHTMLEntities];
-        product.price = dictionary[@"price"];
-        product.sale_price = dictionary[@"sale_price"];
-        product.size = dictionary[@"size"];
-        product.stock = dictionary[@"stock"];
-        product.stock_status = dictionary[@"stock_status"];
-        for (int i = 0; i < [dictionary[@"images"] count]; i++) {
-            [product.imagesSet addObject:[JKProductImages productImagesWithArray:[dictionary[@"images"] objectAtIndex:i] productID:(NSInteger)[NSNumber numberWithInt:[dictionary[@"id"] intValue]]]];
-        }
-    }
-    return product;
+//    JKProduct *product = [[JKProduct MR_findByAttribute:@"product_id" withValue:dictionary[@"id"]] lastObject];
+//    
+//    if (product)
+//        return product;
+//    
+//    if (!product && ![dictionary[@"name"] isKindOfClass:[NSNull class]]) {
+//        product = [JKProduct MR_createEntity];
+//        product.product_id = [NSNumber numberWithInt:[dictionary[@"id"] intValue]];
+//        product.color = dictionary[@"color"];
+//        product.product_code = [NSString stringWithFormat:@"%@",dictionary[@"sku"]];
+//        product.detail = [dictionary[@"description"] stringByDecodingHTMLEntities];
+//        product.name = [dictionary[@"name"] stringByDecodingHTMLEntities];
+//        product.price = dictionary[@"price"];
+//        product.sale_price = dictionary[@"sale_price"];
+//        product.size = dictionary[@"size"];
+//        product.stock = dictionary[@"stock"];
+//        product.stock_status = dictionary[@"stock_status"];
+//        for (int i = 0; i < [dictionary[@"images"] count]; i++) {
+//            [product.imagesSet addObject:[JKProductImages productImagesWithArray:[dictionary[@"images"] objectAtIndex:i] productID:(NSInteger)[NSNumber numberWithInt:[dictionary[@"id"] intValue]]]];
+//        }
+//    }
+    return nil;
 }
 
 + (JKProduct *)productWithDictionary:(NSDictionary *)dictionary category:(JKCategory*)category{
@@ -69,7 +69,8 @@
 }
 
 + (NSInteger)getProductPriceWithProductId:(NSString *)productId{
-    return [[[[JKProduct MR_findByAttribute:@"product_id" withValue:productId] lastObject] getProductPrice] integerValue];
+//    return [[[[JKProduct MR_findByAttribute:@"product_id" withValue:productId] lastObject] getProductPrice] integerValue];
+    return 0;
 }
 
 @end
